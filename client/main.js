@@ -1,32 +1,56 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import PersonalInformation from './personal_information';
-import WorkInformation from './work_information';
-import OtherInformation from './other_information';
+import React from "react";
+import ReactDOM from "react-dom";
+import PersonalInformation from "./personal_information";
+import WorkInformation from "./work_information";
+import OtherInformation from "./other_information";
 
-const App = () =>{
+class App extends React.Component{
 
-    return(
-
-        <div>
-            <h1>Become a Mentor</h1>
-            <PersonalInformation />
-            <WorkInformation />
-            <OtherInformation />
-            <p>
-                <input type="submit" value="Sign up" />
-            </p>
-            <p >
-                Already a member ?
-                <a href="#tologin"> Go and log in </a>
-            </p>
+    handleSubmit(event) {
+        event.preventDefault();
 
 
-        </div>
 
-    );
+    }
 
-};
+
+
+
+    render() {
+
+        return (
+
+            <div>
+                <h1>Become a Mentor</h1>
+
+                <form className="register" onSubmit= {this.handleSubmit.bind(this)}>
+
+                    <PersonalInformation />
+                    <WorkInformation />
+                    <OtherInformation />
+
+
+
+                    <p>
+                        <input type="submit" value="Sign up"/>
+                    </p>
+
+                </form>
+
+
+                <p >
+                    Already a member ?
+                    <a href="#tologin"> Go and log in </a>
+                </p>
+
+
+            </div>
+
+        );
+
+    };
+}// end of class App
+
 
 Meteor.startup(()=>{
 
