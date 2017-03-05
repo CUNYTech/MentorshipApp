@@ -1,9 +1,14 @@
 import React from "react";
 
 class OtherInformation extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+
+    }
+
 
     handleSubmit(event) {
-        alert('you have been alerted');
         event.preventDefault();
 
 
@@ -16,7 +21,7 @@ class OtherInformation extends React.Component {
 
             <div>
                 <h3>Other Information</h3>
-                <form >
+                <form className="OtherInfo" onSubmit= {this.handleSubmit.bind(this)} >
 
                     <p>
                         <label>Background info that may be useful for matching purposes?</label>

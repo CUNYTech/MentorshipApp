@@ -4,14 +4,55 @@ import React from "react";
 
 class PersonalInformation extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {};
 
+    }
 
     handleSubmit(event) {
         event.preventDefault();
 
+//First Name
+
+        const r_fName= this.refs.t_fName;
+        const v_fName = r_fName.value;
+
+        //Last Name
+        const r_lName= this.refs.t_lName;
+        const v_lName = r_lName.value;
+
+        //Username
+
+        const r_username= this.refs.t_username;
+        const v_username = r_username.value;
+
+        //email address
+
+        const r_email= this.refs.t_email;
+        const v_email = r_email.value;
+
+        //password
+
+        const r_password= this.refs.t_password;
+        const v_password = r_password.value;
+
+        //Confirm password
+
+        const r_conPassword= this.refs.t_conPassword;
+        const v_conPassword = r_conPassword.value;
 
 
+
+
+
+if(v_password.toString()!=v_conPassword.toString) {alert("Password's do not match"); }
+
+
+console.log(v_password + v_conPassword);
     }
+
+
 
 
 
@@ -21,40 +62,40 @@ class PersonalInformation extends React.Component {
 
             <div>
                 <h3>Personal Information</h3>
-                <form >
+                <form className="PersonalInfo" onSubmit= {this.handleSubmit.bind(this)} >
                     <p>
                         <label>First Name: </label>
-                        <input ref="fName" required="required" type="text" placeholder="John"/>
+                        <input ref="t_fName"  type="text" placeholder="John"/>
                     </p>
 
                     <p>
                         <label >Last Name: </label>
-                        <input ref="Lname" required="required" type="text" placeholder="Doe"/>
+                        <input ref="t_lName"  type="text" placeholder="Doe"/>
                     </p>
 
                     <p>
                         <label >Username: </label>
-                        <input ref="Username" required="required" type="text" placeholder="mysuperusername690"/>
+                        <input ref="t_username"  type="text" placeholder="mysuperusername690"/>
                     </p>
 
                     <p>
                         <label>E-mail: </label>
-                        <input ref="email" required="required" type="email" placeholder="mysupermail@mail.com"/>
+                        <input ref="t_email"  type="email" placeholder="mysupermail@mail.com"/>
                     </p>
 
                     <p>
                         <label>Password: </label>
-                        <input ref="password" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                        <input ref="t_password"  type="password" placeholder="eg. X8df!90EO"/>
                     </p>
 
                     <p>
                         <label>Confirm your password: </label>
-                        <input ref="conPassword" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                        <input ref="t_conPassword"  type="password" placeholder="eg. X8df!90EO"/>
                     </p>
 
                     <p>
                         <label>Date of Birth: </label>
-                        <input ref="DOB" required="required" type="date"/>
+                        <input ref="DOB"  type="date"/>
                     </p>
                     <p>
                         <label>Address: </label>

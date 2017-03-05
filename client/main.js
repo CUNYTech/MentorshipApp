@@ -23,7 +23,6 @@ class App extends React.Component{
             <div>
                 <h1>Become a Mentor</h1>
 
-                <form className="register" onSubmit= {this.handleSubmit.bind(this)}>
 
                     <PersonalInformation />
                     <WorkInformation />
@@ -35,7 +34,6 @@ class App extends React.Component{
                         <input type="submit" value="Sign up"/>
                     </p>
 
-                </form>
 
 
                 <p >
