@@ -10,7 +10,50 @@ class OtherInformation extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-console.log(this.refs.background.value);
+
+
+//background info
+
+        const r_background= this.refs.background;
+        const v_background = r_background.value;
+
+
+
+//FavMovie
+
+        const r_favMovie= this.refs.favMovie;
+        const v_favMovie = r_favMovie.value;
+
+
+
+//FavSubject
+
+        const r_favSubject= this.refs.favSubject;
+        const v_favSubject = r_favSubject.value;
+
+//Person you admire
+
+        const r_perAdmire= this.refs.perAdmire;
+        const v_perAdmire = r_perAdmire.value;
+
+
+//expectations
+
+        const r_expectations= this.refs.expectations;
+        const v_expectations = r_expectations.value;
+
+
+//Hobbies
+
+        const r_fName= this.refs.t_fName;
+        const v_fName = r_fName.value;
+
+//support
+
+        const r_support= this.refs.support;
+        const v_support = r_support.value;
+
+
 
     }
 

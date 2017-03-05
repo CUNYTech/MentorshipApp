@@ -46,10 +46,16 @@ class PersonalInformation extends React.Component {
 
 
 
-if(v_password.toString()!=v_conPassword.toString) {alert("Password's do not match"); }
+if(v_password!=v_conPassword) {alert("Password's do not match"); }
 
 
 console.log(v_password + v_conPassword);
+
+
+
+
+
+
     }
 
 
