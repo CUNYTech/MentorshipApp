@@ -84,49 +84,49 @@ else {
 
         return (
 
-            <div>
+            <div className="form-group">
                 <h3>Personal Information</h3>
-                <form className="PersonalInfo" onSubmit= {this.handleSubmit.bind(this)} >
+                <form className="form-horizontal" onSubmit= {this.handleSubmit.bind(this)} >
                     <p>
                         <label>First Name: </label>
-                        <input ref="t_fName"  type="text" placeholder="John"/>
+                        <input ref="t_fName" className="form-control" type="text" placeholder="John"/>
                     </p>
 
                     <p>
                         <label >Last Name: </label>
-                        <input ref="t_lName"  type="text" placeholder="Doe"/>
+                        <input ref="t_lName" className="form-control" type="text" placeholder="Doe"/>
                     </p>
 
                     <p>
                         <label >Username: </label>
-                        <input ref="t_username"  type="text" placeholder="mysuperusername690"/>
+                        <input ref="t_username" className="form-control" type="text" placeholder="mysuperusername690"/>
                     </p>
 
                     <p>
                         <label>E-mail: </label>
-                        <input ref="t_email"  type="email" placeholder="mysupermail@mail.com"/>
+                        <input ref="t_email" className="form-control" type="email" placeholder="mysupermail@mail.com"/>
                     </p>
 
                     <p>
                         <label>Password: </label>
-                        <input ref="t_password"  type="password" placeholder="eg. X8df!90EO"/>
+                        <input ref="t_password" className="form-control" type="password" placeholder="eg. X8df!90EO"/>
                     </p>
 
                     <p>
                         <label>Confirm your password: </label>
-                        <input ref="t_conPassword"  type="password" placeholder="eg. X8df!90EO"/>
+                        <input ref="t_conPassword" className="form-control" type="password" placeholder="eg. X8df!90EO"/>
                     </p>
 
                     <p>
                         <label>Date of Birth: </label>
-                        <input ref="DOB"  type="date"/>
+                        <input ref="DOB" className="form-control" type="date"/>
                     </p>
                     <p>
                         <label>Address: </label>
-                        <select>
+                        <select className="form-control">
                             <option value="us">United States</option>
                         </select> &nbsp;
-                        <select>
+                        <select className="form-control">
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
                             <option value="AZ">Arizona</option>
@@ -179,11 +179,11 @@ else {
                             <option value="WI">Wisconsin</option>
                             <option value="WY">Wyoming</option>
                         </select>             &nbsp;
-                        <input  type="text" placeholder="City"/> &nbsp;
+                        <input  type="text" className="form-control" placeholder="City"/> &nbsp;
                     </p>
                     <p>
                         <label>Ethnicity: </label>
-                        <select>
+                        <select className="form-control">
                             <option value="white">White/Caucasian</option>
                             <option value="hispanic">Hispanic/Latino</option>
                             <option value="black">Black/African American</option>
@@ -194,39 +194,39 @@ else {
                     </p>
                     <p>
                         <label>University Attended: </label>
-                        <input ref="university"  type="text" placeholder="Harvard"/>
+                        <input ref="university" className="form-control" type="text" placeholder="Harvard"/>
 
 
                     </p>
                     <p>
                         <label>Number of times available to meet: </label>
-                        <input ref="timesAvail" placeholder="3 times a week"/>
+                        <input ref="timesAvail" className="form-control" placeholder="3 times a week"/>
                     </p>
                     <p>
                         <label>Expectations of the program?</label>
                         <br/>
-                        <textarea rows="4" cols="50" placeholder="BLA BLA BLA...">
+                        <textarea rows="4" cols="50" className="form-control" placeholder="BLA BLA BLA...">
 
                     </textarea>
                     </p>
                     <p>
                         <label >Other languages that you know?</label>
                         <br/>
-                        <textarea rows="4" cols="50" placeholder="BLA BLA BLA...">
+                        <textarea rows="4" cols="50" className="form-control" placeholder="BLA BLA BLA...">
 
                     </textarea>
                     </p>
                     <p>
                         <label >Things that you like to do with other people?</label>
                         <br/>
-                        <textarea rows="4" cols="50" placeholder="BLA BLA BLA...">
+                        <textarea rows="4" cols="50" className="form-control" placeholder="BLA BLA BLA...">
 
                     </textarea>
                     </p>
                     <p>
                         <label >Why do you want to be a mentor?</label>
                         <br/>
-                        <textarea rows="4" cols="50" placeholder="BLA BLA BLA...">
+                        <textarea rows="4" cols="50" className="form-control" placeholder="BLA BLA BLA...">
 
                     </textarea>
                     </p>
