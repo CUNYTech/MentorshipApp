@@ -61,27 +61,27 @@ console.log(v_occupation+v_empName+v_title+v_lenEmp+v_namSup);
 
                     <p>
                         <label >Occupation: </label>
-                        <input ref="occupation" type="text" placeholder="Programmer"/>
+                        <input ref="occupation" className="form-control" type="text" placeholder="Programmer"/>
                     </p>
                     <p>
                         <label>Employer name: </label>
-                        <input type="text" ref="empName" placeholder="Snap Inc."/>
+                        <input type="text" ref="empName" className="form-control" placeholder="Snap Inc."/>
                     </p>
                     <p>
                         <label>Title: </label>
-                        <input ref="jobtitle" placeholder="Senior Programmer"/>
+                        <input ref="jobtitle" className="form-control" placeholder="Senior Programmer"/>
                     </p>
                     <p>
                         <label>Length of employment: </label>
-                        <input ref="lenEmp" placeholder="15 years"/>
+                        <input ref="lenEmp" className="form-control" placeholder="15 years"/>
                     </p>
                     <p>
                         <label>Name of supervisor: </label>
-                        <input ref="namSup" placeholder="Jane Doe"/>
+                        <input ref="namSup" className="form-control" placeholder="Jane Doe"/>
                     </p>
 
                     <p>
-                        <input type="submit" value="Next"/>
+                        <input type="submit" className="form-control" value="Next"/>
                     </p>
 </form>
 
