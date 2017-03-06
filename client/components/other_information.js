@@ -45,8 +45,8 @@ export default class OtherInformation extends React.Component {
 
 //Hobbies
 
-        const r_fName= this.refs.t_fName;
-        const v_fName = r_fName.value;
+        const r_hobbies= this.refs.hobbies;
+        const v_hobbies = r_hobbies.value;
 
 //support
 
@@ -84,7 +84,7 @@ export default class OtherInformation extends React.Component {
                     <p>
                         <label >Favorite subjects to read about?</label>
                         <br/>
-                        <textarea ref="favSubjects" rows="4" cols="50" placeholder="BLA BLA BLA...">
+                        <textarea ref="favSubject" rows="4" cols="50" placeholder="BLA BLA BLA...">
 
                     </textarea>
                     </p>

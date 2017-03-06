@@ -46,31 +46,33 @@ export default class PersonalInformation extends React.Component {
 
 
         if(v_password!=v_conPassword) {alert("Password's do not match"); }
+else {
 
-        var users = { email: v_email, password : v_password, profile : { displayPic : ' ', username: v_username  } };
-
-
-
-        Accounts.createUser(users, function(e) {
-
-            // route to confirmation page
+            var users = {email: v_email, password: v_password, profile: {displayPic: ' ', username: v_username}};
 
 
+            Accounts.createUser(users, function (e) {
+
+                // route to confirmation page
 
 
-            if (e) { //error
-                alert("not working");
-            }
+                if (e) { //error
+                    alert("not working");
+                }
 
 
-            else { alert("success") ;}
+                else {
+                    alert("success");
+                    console.log(Meteor.user().username);
+                }
 
 
+            })
 
 
+        } // end of else
 
 
-        })
 
     } //end of handleSubmit
 
