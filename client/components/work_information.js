@@ -1,6 +1,6 @@
 import React from "react";
 
-class WorkInformation extends React.Component {
+export default class WorkInformation extends React.Component {
      constructor(props) {
          super(props);
          this.state = {};
@@ -93,4 +93,3 @@ console.log(v_occupation+v_empName+v_title+v_lenEmp+v_namSup);
 }
 
 
-export default WorkInformation;

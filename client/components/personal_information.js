@@ -2,11 +2,10 @@ import React from "react";
 
 //we can move this later
 
-class PersonalInformation extends React.Component {
+export default class PersonalInformation extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
 
     }
 
@@ -46,17 +45,34 @@ class PersonalInformation extends React.Component {
 
 
 
-if(v_password!=v_conPassword) {alert("Password's do not match"); }
+        if(v_password!=v_conPassword) {alert("Password's do not match"); }
 
-
-console.log(v_password + v_conPassword);
-
-
+        var users = { email: v_email, password : v_password, profile : { displayPic : ' ', username: v_username  } };
 
 
 
+        Accounts.createUser(users, function(e) {
 
-    }
+            // route to confirmation page
+
+
+
+
+            if (e) { //error
+                alert("not working");
+            }
+
+
+            else { alert("success") ;}
+
+
+
+
+
+
+        })
+
+    } //end of handleSubmit
 
 
 
@@ -161,7 +177,7 @@ console.log(v_password + v_conPassword);
                             <option value="WI">Wisconsin</option>
                             <option value="WY">Wyoming</option>
                         </select>             &nbsp;
-                        <input required="required" type="text" placeholder="City"/> &nbsp;
+                        <input  type="text" placeholder="City"/> &nbsp;
                     </p>
                     <p>
                         <label>Ethnicity: </label>
@@ -176,7 +192,7 @@ console.log(v_password + v_conPassword);
                     </p>
                     <p>
                         <label>University Attended: </label>
-                        <input ref="university" required="required" type="text" placeholder="Harvard"/>
+                        <input ref="university"  type="text" placeholder="Harvard"/>
 
 
                     </p>
@@ -226,4 +242,3 @@ console.log(v_password + v_conPassword);
 
 } // end of class file
 
-export default PersonalInformation;

@@ -1,6 +1,6 @@
 import React from "react";
 
-class OtherInformation extends React.Component {
+export default class OtherInformation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -143,5 +143,3 @@ class OtherInformation extends React.Component {
     };
 
 }// end of class
-
-export default OtherInformation;
