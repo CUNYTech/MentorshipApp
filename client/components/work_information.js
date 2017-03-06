@@ -81,7 +81,7 @@ console.log(v_occupation+v_empName+v_title+v_lenEmp+v_namSup);
                     </p>
 
                     <p>
-                        <input type="submit" className="form-control" value="Next"/>
+                        <input type="submit" class="btn btn-default" value="Next"/>
                     </p>
 </form>
 
