@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import PersonalInformation from "./personal_information";
-import WorkInformation from "./work_information";
-import OtherInformation from "./other_information";
+import PersonalInformation from "./components/personal_information";
+import WorkInformation from "./components/work_information";
+import OtherInformation from "./components/other_information";
 
 class App extends React.Component{
 
