@@ -1,9 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import App from './app';
+import MenteeInformation from './components/mentee_info';
+import LoginPage from './components/login';
+import Home from './components/home';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import PersonalInformation from "./components/personal_information";
 import WorkInformation from "./components/work_information";
 import OtherInformation from "./components/other_information";
 
+const routes = (
+<Router history={browserHistory}>
+    <Route path="/" component={App}>
+        <Route path="registration" component={PersonalInformation}></Route>
+        <Route path="login" component={LoginPage}></Route>
+        <Route path="mentee" component={MenteeInformation}></Route>
+        <Route path="home" component={Home}></Route>
+    </Route>
+
+</Router>
+
+);
+
+/*
 class App extends React.Component{
 
     handleSubmit(event) {
@@ -49,11 +68,12 @@ class App extends React.Component{
     };
 }// end of class App
 
-
+*/
 Meteor.startup(()=>{
 
-    ReactDOM.render(<App />, document.querySelector('.container'));
+    ReactDOM.render(routes, document.querySelector('.container'));
 
 });
+
 
 
