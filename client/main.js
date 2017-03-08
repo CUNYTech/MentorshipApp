@@ -4,6 +4,7 @@ import App from './app';
 import MenteeInformation from './components/mentee_info';
 import LoginPage from './components/login';
 import Home from './components/home';
+import About from './components/about';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import PersonalInformation from "./components/personal_information";
 import WorkInformation from "./components/work_information";
@@ -16,6 +17,7 @@ const routes = (
         <Route path="login" component={LoginPage}></Route>
         <Route path="mentee" component={MenteeInformation}></Route>
         <Route path="home" component={Home}></Route>
+        <Route path="about" component={About}></Route>
     </Route>
 
 </Router>
