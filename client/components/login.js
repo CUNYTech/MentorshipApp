@@ -49,21 +49,26 @@ Meteor.loginWithPassword(v_user, v_pass, function(e){
         render() {
 
             return (
-            <div>
+            <div className="col-md-4 col-md-offset-4">
                 <h3>Login</h3>
-                <form login onSubmit= {this.handleSubmit.bind(this)} >
+
+                <form onSubmit= {this.handleSubmit.bind(this)} >
                     <p>
                         <label>Username: </label>
-                        <input required="required" ref= "usernameLogin" type="text" placeholder="John@gmail.com"/>
+                        <input required="required" ref= "usernameLogin" className="form-control" type="text" placeholder="John@gmail.com"/>
                     </p>
 
                     <p>
                         <label >Password: </label>
-                        <input required="required" ref="pass" type="text" placeholder="******"/>
+                        <input required="required" ref="pass" className="form-control" type="text" placeholder="******"/>
                     </p>
 
                     <p>
-                        <input type="submit" ref="user" value="Login"/>
+                        <a href="#">Forgot password?</a>
+                    </p>
+
+                    <p>
+                        <input type="submit" ref="user" className="col-md-4 col-md-offset-4" value="Login"/>
                     </p>
 
 
