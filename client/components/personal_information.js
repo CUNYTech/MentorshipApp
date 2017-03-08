@@ -1,5 +1,6 @@
 import React from "react";
-
+import {Meteor} from 'meteor/meteor'
+import {Accounts} from 'meteor/accounts-base'
 //we can move this later
 
 export default class PersonalInformation extends React.Component {
