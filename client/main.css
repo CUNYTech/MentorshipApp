@@ -10,31 +10,31 @@ img{
 
 }
 #homeBackground{
-    background: #000000;
+    background: #ffffff;
 
 
 }
 #descriptionText{
-    color: #ffffff;
+    color: #000000;
 
 }
 
 .navbar-default {
-    background-color: #000000;
+    background-color: #ffffff;
     border-color: #120270;
 }
 .navbar-default .navbar-brand {
-    color: #ffffff;
+    color: #5882FA;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-    color: #ffffff;
+    color: #000000;
 }
 .navbar-default .navbar-text {
-    color: #ffffff;
+    color: #000000;
 }
 .navbar-default .navbar-nav > li > a {
-    color: #ffffff;
+    color: #5882FA;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
