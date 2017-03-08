@@ -4,24 +4,15 @@ import React from 'react';
 const Home = () => {
 
     return (
-        <div id="homeBackground">
-            <div>
-                <ul className="list-inline list-group">
-                    <li ><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Meerkat_(Suricata_suricatta)_Tswalu.jpg"/></li>
-                    <li ><p id="descriptionText">This is the description of the site</p></li>
-                </ul>
+        <div className="row">
+            <div className="col-xs-6"></div>
+            <div className="col-xs-6">
+                <h2>Welcome</h2>
+                <p>
+                    Obec is a community of mentors where you can find a mentor or be one.
+                </p>
             </div>
-
-            <div>
-                <ul className="list-inline list-group">
-                    <li ><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Meerkat_(Suricata_suricatta)_Tswalu.jpg"/></li>
-                    <li ><p id="descriptionText">This is the description of the site</p></li>
-                </ul>
-            </div>
-
         </div>
-
-
     );
 };
 export default Home;
