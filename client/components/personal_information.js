@@ -181,58 +181,10 @@ else {
                         </select>             &nbsp;
                         <input  type="text" className="form-control" placeholder="City"/> &nbsp;
                     </p>
-                    <p>
-                        <label>Ethnicity: </label>
-                        <select className="form-control">
-                            <option value="white">White/Caucasian</option>
-                            <option value="hispanic">Hispanic/Latino</option>
-                            <option value="black">Black/African American</option>
-                            <option value="asian">Asian</option>
-                            <option value="notToSay">Prefer not to say</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </p>
-                    <p>
-                        <label>University Attended: </label>
-                        <input ref="university" className="form-control" type="text" placeholder="Harvard"/>
 
 
-                    </p>
                     <p>
-                        <label>Number of times available to meet: </label>
-                        <input ref="timesAvail" className="form-control" placeholder="3 times a week"/>
-                    </p>
-                    <p>
-                        <label>Expectations of the program?</label>
-                        <br/>
-                        <textarea rows="4" cols="50" className="form-control" placeholder="BLA BLA BLA...">
-
-                    </textarea>
-                    </p>
-                    <p>
-                        <label >Other languages that you know?</label>
-                        <br/>
-                        <textarea rows="4" cols="50" className="form-control" placeholder="BLA BLA BLA...">
-
-                    </textarea>
-                    </p>
-                    <p>
-                        <label >Things that you like to do with other people?</label>
-                        <br/>
-                        <textarea rows="4" cols="50" className="form-control" placeholder="BLA BLA BLA...">
-
-                    </textarea>
-                    </p>
-                    <p>
-                        <label >Why do you want to be a mentor?</label>
-                        <br/>
-                        <textarea rows="4" cols="50" className="form-control" placeholder="BLA BLA BLA...">
-
-                    </textarea>
-                    </p>
-
-                    <p>
-                        <input type="submit" value="Next"/>
+                        <input type="submit" value="Submit"/>
                     </p>
 
                 </form>
