@@ -13,8 +13,7 @@ export default class PersonalInformation extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
 
-//First Name
-
+        //First Name
         const r_fName= this.refs.t_fName;
         const v_fName = r_fName.value;
 
@@ -23,44 +22,39 @@ export default class PersonalInformation extends React.Component {
         const v_lName = r_lName.value;
 
         //Username
-
         const r_username= this.refs.t_username;
         const v_username = r_username.value;
 
         //email address
-
         const r_email= this.refs.t_email;
         const v_email = r_email.value;
 
         //password
-
         const r_password= this.refs.t_password;
         const v_password = r_password.value;
 
         //Confirm password
-
         const r_conPassword= this.refs.t_conPassword;
         const v_conPassword = r_conPassword.value;
 
+        //Checks whether both password entries match
+        if(v_password!=v_conPassword) {
+            alert("Password's do not match");
+        }
 
-
-
-
-        if(v_password!=v_conPassword) {alert("Password's do not match"); }
-else {
+        else {
 
             var users = {email: v_email, password: v_password, profile: {displayPic: ' ', username: v_username}};
 
 
             Accounts.createUser(users, function (e) {
 
-                // route to confirmation page
+                //route to confirmation page
 
-
-                if (e) { //error
+                //error
+                if (e) {
                     alert("not working");
                 }
-
 
                 else {
                     alert("success");
@@ -78,9 +72,7 @@ else {
     } //end of handleSubmit
 
 
-
-
-
+    //rendering Sign Up Page
     render () {
 
         return (
