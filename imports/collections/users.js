@@ -3,7 +3,7 @@ import { Mongo } from 'meteor/mongo';
 
 
 Meteor.methods({
-    'users.insert': function(userData) {
+    'users.insert': function (userData) {
         return Users.insert({
             createdAt: new Date(),
             firstName: userData.firstName,
@@ -12,8 +12,11 @@ Meteor.methods({
             password: userData.password,
 
 
+        }); //end of insert
+    }
 
-        });
-    };
+
+    }); //end of methods
+
 
 export const Users = new Mongo.Collection('users');
