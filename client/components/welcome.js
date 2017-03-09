@@ -5,7 +5,9 @@ const Welcome = () => {
 
     return (
         <div className="row">
-            <div className="col-xs-6"></div>
+            <div className="col-xs-6">
+                <img src="meerkat.png" />
+            </div>
             <div className="col-xs-6">
             <h2>Welcome Aboard!</h2>
             <p>

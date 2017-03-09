@@ -5,7 +5,9 @@ const Home = () => {
 
     return (
         <div className="row">
-            <div className="col-xs-6"></div>
+            <div className="col-xs-6">
+                <img src="meerkat.png" />
+            </div>
             <div className="col-xs-6">
                 <h2>Welcome</h2>
                 <p>
