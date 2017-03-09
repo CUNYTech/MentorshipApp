@@ -1,6 +1,7 @@
 import React from "react";
 import {Meteor} from 'meteor/meteor'
 import {Accounts} from 'meteor/accounts-base'
+import{Link} from 'react-router';
 //we can move this later
 
 export default class PersonalInformation extends React.Component {
@@ -177,8 +178,10 @@ export default class PersonalInformation extends React.Component {
 
 
                     <p>
-                        <input type="submit" value="Submit"/>
-                    </p>
+                            
+                    <Link id="submitButton"to="welcome" href="localhost:3000/welcome/">Submit</Link></p>
+
+            
 
                 </form>
             </div>
