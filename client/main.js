@@ -5,10 +5,12 @@ import MenteeInformation from './components/mentee_info';
 import LoginPage from './components/login';
 import Home from './components/home';
 import About from './components/about';
+import Welcome from './components/welcome';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import PersonalInformation from "./components/personal_information";
 import WorkInformation from "./components/work_information";
 import OtherInformation from "./components/other_information";
+
 
 const routes = (
 <Router history={browserHistory}>
@@ -18,6 +20,7 @@ const routes = (
         <Route path="mentee" component={MenteeInformation}></Route>
         <Route path="home" component={Home}></Route>
         <Route path="about" component={About}></Route>
+        <Route path="welcome" component={Welcome}></Route>
     </Route>
 
 </Router>
