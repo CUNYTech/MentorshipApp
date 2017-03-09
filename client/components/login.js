@@ -60,7 +60,7 @@ Meteor.loginWithPassword(v_user, v_pass, function(e){
 
                     <p>
                         <label >Password: </label>
-                        <input required="required" ref="pass" className="form-control" type="text" placeholder="******"/>
+                        <input required="required" ref="pass" className="form-control" type="password" placeholder="******"/>
                     </p>
 
                     <p>
