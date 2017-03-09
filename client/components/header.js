@@ -12,7 +12,7 @@ class Header extends Component {
             <nav className="nav navbar-default">
                 <div className="navbar-header">
                     <Link to="home" href="localhost:3000/home" className="navbar-left">
-                        <img id="logo" src="meerkat.png" />
+                        <img id="logo" src="meerkat2.png" />
                     </Link>
                 </div>
                 <ul className="nav navbar-nav">
