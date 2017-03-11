@@ -98,44 +98,48 @@ export default class PersonalInformation extends React.Component {
                 <h2>Personal Information</h2>
                 <form className="form-horizontal" onSubmit= {this.handleSubmit.bind(this)} >
                     <p>
-                        <label>First Name: </label>
+                        <label>First Name </label>
                         <input ref="t_fName" className="form-control" type="text" placeholder="John"/>
                     </p>
 
                     <p>
-                        <label >Last Name: </label>
+                        <label >Last Name </label>
                         <input ref="t_lName" className="form-control" type="text" placeholder="Doe"/>
                     </p>
 
                     <p>
-                        <label >Username: </label>
+                        <label >Username </label>
                         <input ref="t_username" className="form-control" type="text" placeholder="mysuperusername690"/>
                     </p>
 
                     <p>
-                        <label>E-mail: </label>
+                        <label>E-mail </label>
                         <input ref="t_email" className="form-control" type="email" placeholder="mysupermail@mail.com"/>
                     </p>
 
                     <p>
-                        <label>Password: </label>
+                        <label>Password </label>
                         <input ref="t_password" className="form-control" type="password" placeholder="eg. X8df!90EO"/>
                     </p>
 
                     <p>
-                        <label>Confirm your password: </label>
+                        <label>Confirm your password </label>
                         <input ref="t_conPassword" className="form-control" type="password" placeholder="eg. X8df!90EO"/>
                     </p>
 
                     <p>
-                        <label>Date of Birth: </label>
+                        <label>Date of Birth </label>
                         <input ref="DOB" className="form-control" type="date"/>
                     </p>
                     <p>
-                        <label>Address: </label>
+                        <label>Country </label>
+
                         <select className="form-control">
                             <option value="us">United States</option>
                         </select> &nbsp;
+
+                        <label>State </label>
+
                         <select className="form-control">
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
@@ -189,16 +193,15 @@ export default class PersonalInformation extends React.Component {
                             <option value="WI">Wisconsin</option>
                             <option value="WY">Wyoming</option>
                         </select>             &nbsp;
+
+                        <label>City </label>
+
                         <input  type="text"  ref='city' className="form-control" placeholder="City"/> &nbsp;
                     </p>
 
-
-
-
-                    <input type="submit" value="Submit"/>
-
-
-
+                    <p>
+                        <input type="submit" value="Submit"/>
+                    </p>
                 </form>
             </div>
 
