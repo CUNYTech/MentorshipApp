@@ -2,6 +2,11 @@ import React from "react";
 import {Meteor} from 'meteor/meteor'
 import {Accounts} from 'meteor/accounts-base'
 import{Link} from 'react-router';
+import {Router} from 'react-router'
+import Welcome from './welcome';
+
+
+
 //we can move this later
 
 export default class PersonalInformation extends React.Component {
@@ -9,10 +14,20 @@ export default class PersonalInformation extends React.Component {
     constructor(props) {
         super(props);
 
+
+
+
     }
+
+
+
+
 
     handleSubmit(event) {
         event.preventDefault();
+
+        var Router = require('react-router');
+
 
         //First Name
         const r_fName= this.refs.t_fName;
@@ -54,12 +69,13 @@ export default class PersonalInformation extends React.Component {
 
                 //error
                 if (e) {
-                    alert("not working");
+                    alert("not working")
                 }
-
                 else {
                     alert("success");
-                    console.log(Meteor.user().username);
+
+                    Router.browserHistory.push('/welcome');
+
                 }
 
 
@@ -173,15 +189,15 @@ export default class PersonalInformation extends React.Component {
                             <option value="WI">Wisconsin</option>
                             <option value="WY">Wyoming</option>
                         </select>             &nbsp;
-                        <input  type="text" className="form-control" placeholder="City"/> &nbsp;
+                        <input  type="text"  ref='city' className="form-control" placeholder="City"/> &nbsp;
                     </p>
 
 
-                    <p>
-                            
-                    <Link id="submitButton"to="welcome" href="localhost:3000/welcome/">Submit</Link></p>
 
-            
+
+                    <input type="submit" value="Submit"/>
+
+
 
                 </form>
             </div>

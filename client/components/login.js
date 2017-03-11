@@ -1,5 +1,5 @@
 import React from 'react';
-import { Accounts } from 'meteor/accounts-base'
+import { Accounts } from 'meteor/meteor'
 
 export default class LoginPage extends React.Component{
 
@@ -23,16 +23,17 @@ export default class LoginPage extends React.Component{
         const v_pass = r_pass.value;
 
 
-Meteor.loginWithPassword(v_user, v_pass, function(e){
+        Meteor.loginWithPassword(v_user, v_pass, function(e){
 
-    if(e) { console.log("failed attempt"); return false; }
+                if(e) { console.log("failed attempt"); return false; }
 
-        console.log("logged in");
+                console.log("logged in as")
+                console.log(this.userId());
 
 
-}
+            }
 
-)
+        )
 
 
 
@@ -46,11 +47,11 @@ Meteor.loginWithPassword(v_user, v_pass, function(e){
 
     // const LoginPage = () => {
 
-        render() {
+    render() {
 
-            return (
+        return (
             <div className="col-md-4 col-md-offset-4">
-                <h3>Login</h3>
+                <h2>Login</h2>
 
                 <form onSubmit= {this.handleSubmit.bind(this)} >
                     <p>
@@ -67,18 +68,16 @@ Meteor.loginWithPassword(v_user, v_pass, function(e){
                         <a href="#">Forgot password?</a>
                     </p>
 
-                    <p>
-                        <input type="submit" ref="user" className="col-md-4 col-md-offset-4" value="Login"/>
-                    </p>
-
-
+                    <div className="col-md-4 col-md-offset-4">
+                        <p>
+                            <input type="submit" ref="user" value="Login"/>
+                        </p>
+                    </div>
                 </form>
-
-
             </div>
-            );
+        );
 
-        }
+    }
 
 }; //end of LogIn Page class
 

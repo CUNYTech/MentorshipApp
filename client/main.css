@@ -1,9 +1,5 @@
-#logo {
-    width: 110px;
-    height: 82px;
-    position: relative;
-    margin-left: 77px;
-    margin-top: 10px;
+html, body {
+    height: 100%;
 }
 
 img {
@@ -11,36 +7,82 @@ img {
     margin: 20px;
 }
 
-h2 {
+#blank {
+    width: 400px;
+    height: 20px;
+}
+
+#logo {
+    width: 110px;
+    height: 82px;
+    position: relative;
+}
+
+.navbar-default {
+    background: transparent;
+    border: transparent;
+}
+
+.navbar-header {
+    background-color: transparent;
+}
+
+.navbar-brand {
+    height: 50px;
+    padding-top: -10px;
+}
+
+.navbar-default .navbar-nav {
+    position: fixed;
+    top:0;
+    background-color: white;
+    width: 97.6%;
+    height: 125px;
+}
+
+.navbar-default .navbar-nav > li {
+    padding-top: 20px;
+    padding-left: 35px;
+}
+
+.navbar-default .navbar-nav > li > a {
     color: #5882FA;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 24px;
+    padding-top: 47px;
 }
 
-p {
-    font-family: 'Lato', sans-serif;
-    text-align: justify;
-    font-size: 17px;
-}
-
-#login-buttons{
-    margin:18px;
-    font-size: 14px;
-}
-
-#homeBackground{
-    background: #ffffff;
-    width: 100%;
-    margin-left: 80px;
-}
-
-.row {
-    margin-right: 80px;
-    margin-left: 80px;
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: lightgrey;
 }
 
 .container {
     width: 100%;
+    min-height: 615px;
+    background-color: white;
+}
+
+.row {
+    margin-left: auto;
+    margin-right: auto;
     height: 100%;
-    background-color: #ffffff;
+}
+
+.col-xs-6 {
+    width: 50%;
+    padding-right: 80px;
+}
+
+h2 {
+    color: #5882FA;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+p {
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-align: justify;
+    font-size: 24px;
 }
 
 .form-group {
@@ -48,76 +90,27 @@ p {
     margin-right: 80px;
 }
 
-#submitButton {
-    display: block;
+.form-control {
+    font-size: 18px;
+}
+
+input[type=submit] {
     width: 115px;
-    height: 25px;
+    height: 40px;
     background: #5882FA;
     text-align: center;
     border-radius: 5px;
     color: white;
     font-weight: bold;
 }
-#descriptionText{
-    color: #000000;
-}
 
-.navbar-default {
-    background-color: #ffffff;
-    padding-bottom: 30px;
-    border-color: #120270;
-}
-.navbar-default .navbar-brand {
-    color: #5882FA;
-
-}
-
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-    color: #000000;
-}
-.navbar-default .navbar-text {
-    color: #000000;
-}
-
-.navbar-default .navbar-nav {
-    padding-left: 797px;
-    position: fixed;
-    background-color: transparent;
-}
-
-.navbar-default .navbar-nav > li > a {
-    color: #5882FA;
-    font-family: 'Lato', sans-serif;
-    font-size: 18px;
-    padding-top: 47px;
-    padding-left: 20px;
-    padding-bottom: 40px;
-}
-.navbar-default .navbar-nav > li > a:hover {
-    color: #000000;
-}
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-    color: #ffffff;
-}
-.navbar-default .navbar-nav > .open > a,
-.navbar-default .navbar-nav > .open > a:hover,
-.navbar-default .navbar-nav > .open > a:focus {
-    color: #000000;
-}
-
-.navbar-default .navbar-collapse,
-.navbar-default .navbar-form {
-    border-color: #ffffff;
-}
-
-.navbar-default .navbar-link {
-    color: #000000;
-}
-
-.navbar-default .navbar-link:hover {
-    color: #000000;
-    background-color: lightgray;
+#submitButton {
+    display: block;
+    width: 115px;
+    height: 40px;
+    background: #5882FA;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
 }

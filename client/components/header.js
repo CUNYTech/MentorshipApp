@@ -1,35 +1,41 @@
 import React, {Component} from 'react';
-import Accounts from './accounts';
 import {Link} from 'react-router';
 
 
 class Header extends Component {
 
-
     render() {
         return (
-
-            <nav className="nav navbar-default">
+            <div className="navbar navbar-default" role="navigation">
                 <div className="navbar-header">
-                    <Link to="home" href="localhost:3000/home" className="navbar-left">
-                        <img id="logo" src="meerkat2.png" />
-                    </Link>
+                    <img id="logo" src="blank.png" />
                 </div>
+
                 <ul className="nav navbar-nav">
                     <li>
-                        <Link to="home" href="localhost:3000/home">Home</Link>
+                        <img id="logo" className="navbar-header" src="meerkat2.png"/>
+
                     </li>
+
                     <li>
-                        <Link to="about" href="localhost:3000/about">About Us</Link>
+                        <img id="blank" src="blank.png"/>
                     </li>
+
+                    <li>
+                        <Link to="home" href="localhost:3000/home">HOME</Link>
+                    </li>
+
+                    <li>
+                        <Link to="about" href="localhost:3000/about">ABOUT US</Link>
+                    </li>
+
                     <li className="dropdown">
-                        <Link to="registration" href="localhost:3000/registration">Sign Up</Link>
+                        <Link to="registration" href="localhost:3000/registration">SIGN UP</Link>
                     </li>
-                    <li><Link to="login" href="localhost:3000/login">Login</Link></li>
+
+                    <li><Link to="login" href="localhost:3000/login">LOGIN</Link></li>
                 </ul>
-            </nav>
-
-
+            </div>
         );
     }
 }
