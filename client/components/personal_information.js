@@ -95,7 +95,7 @@ export default class PersonalInformation extends React.Component {
         return (
 
             <div className="form-group">
-                <h3>Personal Information</h3>
+                <h2>Personal Information</h2>
                 <form className="form-horizontal" onSubmit= {this.handleSubmit.bind(this)} >
                     <p>
                         <label>First Name: </label>
