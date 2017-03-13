@@ -10,7 +10,7 @@ import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import PersonalInformation from "./components/personal_information";
 import WorkInformation from "./components/work_information";
 import OtherInformation from "./components/other_information";
-
+import Dashboard from './components/dashboard';
 
 const routes = (
 <Router history={browserHistory}>
@@ -21,6 +21,7 @@ const routes = (
         <Route path="home" component={Home}></Route>
         <Route path="about" component={About}></Route>
         <Route path="welcome" component={Welcome}></Route>
+        <Route path="dashboard" component={Dashboard}></Route>
     </Route>
 
 </Router>
@@ -79,6 +80,3 @@ Meteor.startup(()=>{
     ReactDOM.render(routes, document.querySelector('.container'));
 
 });
-
-
-
