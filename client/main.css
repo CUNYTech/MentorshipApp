@@ -60,7 +60,7 @@ img {
 .container {
     width: 100%;
     min-height: 800px;
-    background-color: white;
+    background-color:white;
 }
 
 .row {
@@ -72,10 +72,6 @@ img {
 .dashboard {
     background-color: white;
     padding: 25px;
-}
-
-.profile-photo {
-    width: 5px;
 }
 
 .col-xs-6 {

@@ -6,7 +6,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <div className="profile-photo">
-        <img id="photo" src="default-user.png" />
+        <img id="avatar" src="default-user.png" />
       </div>
 
       <div className="action-field">
