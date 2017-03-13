@@ -59,7 +59,7 @@ img {
 
 .container {
     width: 100%;
-    min-height: 615px;
+    min-height: 800px;
     background-color: white;
 }
 
@@ -67,6 +67,15 @@ img {
     margin-left: auto;
     margin-right: auto;
     height: 100%;
+}
+
+.dashboard {
+    background-color: white;
+    padding: 25px;
+}
+
+.profile-photo {
+    width: 5px;
 }
 
 .col-xs-6 {
@@ -94,7 +103,7 @@ p {
     font-size: 18px;
 }
 
-input[type=submit] {
+input[type=submit], .btn-default {
     width: 115px;
     height: 40px;
     background: #5882FA;
@@ -102,4 +111,8 @@ input[type=submit] {
     border-radius: 5px;
     color: white;
     font-weight: bold;
+}
+
+#centering {
+    margin-left: 55px;
 }

@@ -23,14 +23,22 @@ class MentorList extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.mentorButton.bind(this)}
-          className="btn btn-primary">
-          My Mentors
-        </button>
-        <button onClick={this.menteeButton.bind(this)}
-          className="btn btn-primary">
-          My Mentees
-        </button>
+          <div id="centering">
+              <br/>
+
+              <button onClick={this.mentorButton.bind(this)}
+                className="btn-default">
+                  My Mentors
+              </button>
+
+              <br/>
+              <br/>
+
+              <button onClick={this.menteeButton.bind(this)}
+                className="btn-default">
+                  My Mentees
+              </button>
+          </div>
       </div>
     ); //end return()
   } //end render()

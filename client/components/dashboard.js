@@ -10,12 +10,21 @@ const Dashboard = () => {
       </div>
 
       <div className="action-field">
-        <div className="action-links">
-          <div>Search</div>
-          <div>Messages</div>
-          <div>Request</div>
-          <div>Notifications</div>
-        </div>
+          <a href="">
+            <p>Search</p>
+          </a>
+
+          <a href="">
+            <p>Messages</p>
+          </a>
+
+          <a href="">
+            <p>Request</p>
+          </a>
+
+          <a href="">
+            <p>Notifications</p>
+          </a>
       </div>
 
       <div className="mentor-list">
