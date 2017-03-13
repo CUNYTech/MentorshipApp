@@ -79,7 +79,7 @@ img {
     padding-right: 80px;
 }
 
-h2 {
+h2, a {
     color: #5882FA;
     font-family: 'Open Sans Condensed', sans-serif;
 }
