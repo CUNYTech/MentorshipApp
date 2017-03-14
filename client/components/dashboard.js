@@ -4,30 +4,32 @@ import MentorList from './mentor_list';
 
 const Dashboard = () => {
   return (
-    <div className="dashboard">
-      <div className="profile-photo">
-        <img id="avatar" src="default-user.png" />
+    <div className="row">
+      <div className="col-xs-6">
+          <div>
+            <img id="avatar" src="default-user.png" />
+          </div>
+
+          <div className="action-field">
+              <a href="">
+                <p>Search</p>
+              </a>
+
+              <a href="">
+                <p>Messages</p>
+              </a>
+
+              <a href="">
+                <p>Request</p>
+              </a>
+
+              <a href="">
+                <p>Notifications</p>
+              </a>
+          </div>
       </div>
 
-      <div className="action-field">
-          <a href="">
-            <p>Search</p>
-          </a>
-
-          <a href="">
-            <p>Messages</p>
-          </a>
-
-          <a href="">
-            <p>Request</p>
-          </a>
-
-          <a href="">
-            <p>Notifications</p>
-          </a>
-      </div>
-
-      <div className="mentor-list">
+      <div className="col-xs-6">
         <MentorList />
       </div>
     </div>
