@@ -75,7 +75,6 @@ export default class PersonalInformation extends React.Component {
                     alert("success");
 
                     Router.browserHistory.push('/welcome');
-
                 }
 
 

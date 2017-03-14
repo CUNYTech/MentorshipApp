@@ -38,9 +38,9 @@ class Header extends Component {
                         <Link to="registration" href="localhost:3000/registration">SIGN UP</Link>
                     </li>
 
-                    <li><Link to="login" href="localhost:3000/login">LOGIN</Link></li>
+                     <li><Link to="login" href="localhost:3000/login">LOGIN</Link></li>
 
-                    <li><a  href="#" onClick={this.userLogout.bind(this)}>LOGOUT</a></li>
+                     <li><a  href="#" onClick={this.userLogout.bind(this)}>LOGOUT</a></li>
                 </ul>
             </div>
         );

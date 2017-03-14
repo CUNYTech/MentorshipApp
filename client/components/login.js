@@ -11,6 +11,7 @@ export default class LoginPage extends React.Component{
     handleSubmit(event) {
         event.preventDefault();
 
+        var Router = require('react-router');
 
         //email address
 
@@ -27,13 +28,12 @@ export default class LoginPage extends React.Component{
 
                 if(e) { console.log("failed attempt"); return false; }
 
-                console.log("logged in as")
-                console.log(this.userId());
 
 
             }
 
         )
+        Router.browserHistory.push('/dashboard');
 
 
 
