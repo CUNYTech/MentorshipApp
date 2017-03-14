@@ -2159,6 +2159,7 @@
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/lodash/fp/paths.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/lodash/fp/isArray.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/lodash/fp/endsWith.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/tmeasday_check-npm-versions/0.2.0/npm/node_modules/semver/semver.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/lodash/fp/math.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/lodash/fp/mean.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/lodash/fp/takeWhile.js" />
@@ -7186,6 +7187,7 @@
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/lodash/fp/paths.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/lodash/fp/isArray.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/lodash/fp/endsWith.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/tmeasday_check-npm-versions/0.2.0/npm/node_modules/semver/semver.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/lodash/fp/math.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/lodash/fp/mean.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/babel-compiler/6.14.1/npm/node_modules/lodash/fp/takeWhile.js" />

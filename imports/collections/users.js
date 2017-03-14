@@ -19,4 +19,4 @@ Meteor.methods({
     }); //end of methods
 
 
-export const Users = new Mongo.Collection('users');
+//export const Users = new Mongo.Collection('users');
