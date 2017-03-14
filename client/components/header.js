@@ -4,10 +4,25 @@ import {Link} from 'react-router';
 
 class Header extends Component {
 
+
+
     userLogout(){
         Meteor.logout();
 
     }
+
+    setLoginLogout(){
+        if (Meteor.user()==null){
+            return <a  href="#" onClick={this.userLogout.bind(this)}>LOGOUT</a>
+
+        }
+        else {
+            return <Link to="login" href="localhost:3000/login">LOGIN</Link>
+
+        }
+    }
+
+
 
     render() {
         return (
@@ -38,9 +53,11 @@ class Header extends Component {
                         <Link to="registration" href="localhost:3000/registration">SIGN UP</Link>
                     </li>
 
-                     <li><Link to="login" href="localhost:3000/login">LOGIN</Link></li>
+                    <li>
+                        {this.setLoginLogout()}
+                    </li>
 
-                     <li><a  href="#" onClick={this.userLogout.bind(this)}>LOGOUT</a></li>
+
                 </ul>
             </div>
         );
