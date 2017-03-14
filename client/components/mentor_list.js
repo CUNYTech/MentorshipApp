@@ -23,7 +23,7 @@ class MentorList extends Component {
   render() {
     return (
       <div>
-          <div className="col-xs-6">
+          <div id="centering">
               <br/>
 
               <button onClick={this.mentorButton.bind(this)}
@@ -31,7 +31,7 @@ class MentorList extends Component {
                   My Mentors
               </button>
 
-              <span> </span>
+              <span></span>
 
               <button onClick={this.menteeButton.bind(this)}
                 className="btn-default">

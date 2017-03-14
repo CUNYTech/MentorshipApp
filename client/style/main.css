@@ -77,6 +77,7 @@ img {
 .col-xs-6 {
     width: 50%;
     padding-right: 80px;
+    position: static;
 }
 
 h2, a {
