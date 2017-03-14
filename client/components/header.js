@@ -4,6 +4,11 @@ import {Link} from 'react-router';
 
 class Header extends Component {
 
+    userLogout(){
+        Meteor.logout();
+
+    }
+
     render() {
         return (
             <div className="navbar navbar-default" role="navigation">
@@ -34,6 +39,8 @@ class Header extends Component {
                     </li>
 
                     <li><Link to="login" href="localhost:3000/login">LOGIN</Link></li>
+
+                    <li><a  href="#" onClick={this.userLogout.bind(this)}>LOGOUT</a></li>
                 </ul>
             </div>
         );
