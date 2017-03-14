@@ -18,6 +18,10 @@ img {
     position: relative;
 }
 
+#avatar {
+    width: 100px;
+}
+
 .navbar-default {
     background: transparent;
     border: transparent;
@@ -69,15 +73,21 @@ img {
     height: 100%;
 }
 
-.dashboard {
-    background-color: white;
-    padding: 25px;
+.action-field p {
+    text-align: center;
+    padding-left: -40px;
 }
 
 .col-xs-6 {
     width: 50%;
+    height: 100%;
     padding-right: 80px;
     position: static;
+}
+
+#addBorder {
+    width: 19%;
+    margin-left: 40px;
 }
 
 h2, a {
@@ -110,6 +120,7 @@ input[type=submit], .btn-default {
     font-weight: bold;
 }
 
-#centering {
-    margin-left: 55px;
+#radioMentor {
+    margin-left: 350px;
+    width: 100%;
 }

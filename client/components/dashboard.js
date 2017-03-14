@@ -5,15 +5,17 @@ import MentorList from './mentor_list';
 const Dashboard = () => {
   return (
     <div className="row">
-      <div className="col-xs-6">
+      <div className="col-xs-6" id="addBorder">
           <div>
             <img id="avatar" src="default-user.png" />
           </div>
 
           <div className="action-field">
+              <p>
               <a href="">
-                <p>Search</p>
+                Search
               </a>
+              </p>
 
               <a href="">
                 <p>Messages</p>
