@@ -25,7 +25,7 @@ const Dashboard = (props) => {
         else
             return "Please Login" ;}
 
-function getPic() {
+    function getPic() {
         if(!props.listLoading && props.thisUser && props.thisUser.profile.displayPic != ' ')
             return props.thisUser.displayPic;
         else
@@ -53,11 +53,6 @@ function getPic() {
 
 
                 <div className="action-field">
-                    <p>
-                        <a href="">
-                            Search
-                        </a>
-                    </p>
 
                     <a href="">
                         <p>Messages</p>

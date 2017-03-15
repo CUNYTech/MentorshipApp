@@ -20,7 +20,7 @@ img {
 
 #avatar {
     width: 100px;
-    margin-left:60px;
+    margin-left: 25px;
 }
 
 .navbar-default {
@@ -76,7 +76,7 @@ img {
 
 .action-field p {
     text-align: center;
-    padding-left: -40px;
+    padding-left: -20px;
 }
 
 .col-xs-6 {
@@ -119,6 +119,11 @@ input[type=submit], .btn-default {
     border-radius: 5px;
     color: white;
     font-weight: bold;
+}
+
+.btn-group {
+    padding-left: 320px;
+    position: static;
 }
 
 #radioMentor {
