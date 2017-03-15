@@ -6,6 +6,7 @@ export default class LoginPage extends React.Component{
     constructor(props) {
         super(props);
 
+        this.state = { error: '' };
     }
 
     handleSubmit(event) {
@@ -26,14 +27,23 @@ export default class LoginPage extends React.Component{
 
         Meteor.loginWithPassword(v_user, v_pass, function(e){
 
-                if(e) { console.log("failed attempt"); return false; }
+                if(e) {
+
+                    this.setState({error:'Email or Password are incorrect please try again'});
+                     return false;
+                }
+                else {
+                    this.setState({error:''});
+
+                    Router.browserHistory.push('/dashboard');
+
+
+                }
 
 
 
-            }
+            }.bind(this));
 
-        )
-        Router.browserHistory.push('/dashboard');
 
 
 
@@ -72,6 +82,7 @@ export default class LoginPage extends React.Component{
                         <p>
                             <input type="submit" ref="user" value="Login"/>
                         </p>
+                        <div className="text-danger">{this.state.error}</div>
                     </div>
                 </form>
             </div>
