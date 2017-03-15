@@ -12,12 +12,25 @@ const Dashboard = (props) => {
 
     //const email = props.usersData[1]._id;
 
-    function getUsername(){ if(!props.listLoading)  return props.thisUser.profile.username; else return "Please Login" ;}
+    function getUsername(){
+        if(!props.listLoading)
+            return props.thisUser.profile.username;
+    else
+        return "Please Login" ;}
     // function getEmail(){ if(!props.listLoading)  return props.usersData[1].emails[0].address; }
 
-    function getEmail(){ if(!props.listLoading && props.thisUser)  return props.thisUser.emails[0].address; else return "Please Login" ;}
+    function getEmail(){
+        if(!props.listLoading && props.thisUser)
+            return props.thisUser.emails[0].address;
+        else
+            return "Please Login" ;}
 
-function getPic() { if(!props.listLoading && props.thisUser && props.thisUser.profile.displayPic != ' ') return props.thisUser.displayPic; else return  "default-user.png";}
+function getPic() {
+        if(!props.listLoading && props.thisUser && props.thisUser.profile.displayPic != ' ')
+            return props.thisUser.displayPic;
+        else
+            return  "default-user.png";
+    }
 
     return (
 

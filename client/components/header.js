@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
+import{Meteor} from 'meteor/meteor'
+import {createContainer} from 'meteor/react-meteor-data';
 
 
 class Header extends Component {
@@ -11,13 +13,16 @@ class Header extends Component {
 
     }
 
+
+
     setLoginLogout(){
-        if (Meteor.user()==null){
-            return <a  href="#" onClick={this.userLogout.bind(this)}>LOGOUT</a>
+        if (Meteor.userId() == undefined || Meteor.userId() == null){
+            return <Link to="login" href="localhost:3000/login">LOGIN</Link>
+
 
         }
-        else {
-            return <Link to="login" href="localhost:3000/login">LOGIN</Link>
+        else  {
+            return <a  href="#" onClick={this.userLogout.bind(this)}>LOGOUT</a>
 
         }
     }
@@ -56,7 +61,7 @@ class Header extends Component {
                     <li>
                         {this.setLoginLogout()}
                     </li>
-
+                    {console.log(this.props.thisUser)}
 
                 </ul>
             </div>
@@ -64,4 +69,17 @@ class Header extends Component {
     }
 }
 
-export default Header;
+export default createContainer(() =>{
+//set up subscription
+
+
+    var handle = Meteor.subscribe('users');
+
+//return an object, Whatever we return will be send to userList as props
+
+
+    return {usersData: Meteor.users.find({}).fetch()
+        , listLoading : !handle.ready()
+        , thisUser: Meteor.user()
+    }
+}, Header);
