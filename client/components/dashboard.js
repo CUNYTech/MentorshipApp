@@ -43,10 +43,11 @@ function getPic() {
 
 
                 <div>
-                    <div className = "user-list">
-                        Username :  {getUsername()}
-                        <div></div>Email : {getEmail()}
+                    <div className = "action-field">
+                        <p>Welcome back {getUsername()}</p>
+
                     </div>
+
                 </div>
 
 

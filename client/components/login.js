@@ -82,8 +82,9 @@ export default class LoginPage extends React.Component{
                         <p>
                             <input type="submit" ref="user" value="Login"/>
                         </p>
-                        <div className="text-danger">{this.state.error}</div>
+
                     </div>
+                    <div className="text-danger">{this.state.error}</div>
                 </form>
             </div>
         );
