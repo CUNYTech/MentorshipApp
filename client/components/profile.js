@@ -33,19 +33,21 @@ const Profile = (props) => {
     }
 
     return (
-        <div className="row">
-            <div id="profile">
-                <img id="profile-pic" src={getPic()}/>
+
+            <div className="col-md-4 col-md-offset-4" id="profile">
+                <div>
+                    <img id="profile-pic" className="col-md-4 col-md-offset-4" src={getPic()}/>
+                </div>
+
+                <div id="action-field2" className="col-md-4 col-md-offset-4" >
+                    <p>{getName()}</p>
+                    <p>{getUsername()}</p>
+                    <p>{getUserBlurb()}</p>
+
+                </div>
             </div>
 
-            <div className="action-field">
-                <p>{getName()}</p>
-                <p>{getUsername()}</p>
-                <p>{getUserBlurb()}</p>
 
-            </div>
-
-        </div>
 
     );
 };

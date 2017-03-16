@@ -42,11 +42,11 @@ img {
     top:0;
     background-color: white;
     width: 97.6%;
-    height: 125px;
+    height: 105px;
 }
 
 .navbar-default .navbar-nav > li {
-    padding-top: 20px;
+    padding-top: 0;
     padding-left: 35px;
 }
 
@@ -65,7 +65,7 @@ img {
 .container {
     width: 100%;
     min-height: 800px;
-    background-color:white;
+    background-color: white;
 }
 
 .row {
@@ -74,26 +74,26 @@ img {
     height: 60%;
 }
 
-#profile {
-    margin-left: auto;
-    margin-right: auto;
-    height: 100%;
-    position: relative;
-    left: 530px;
-}
-
-#perfil {
-    position: static;
-}
-
 .action-field p {
     text-align: center;
     padding-left: -20px;
 }
 
+#action-field2 p {
+    text-align: center;
+    position: static;
+    width: 100%;
+}
+
 #profile-pic {
     width: 130px;
-    align-content: center;
+}
+
+#profile {
+    border: solid;
+    border-radius: 8px;
+    border-width: 2px;
+    border-color: lightgrey;
 }
 
 .col-xs-6 {
@@ -146,4 +146,8 @@ input[type=submit], .btn-default {
 #radioMentor {
     margin-left: 350px;
     width: 100%;
+}
+
+.col-md-4 {
+    position:static;
 }
