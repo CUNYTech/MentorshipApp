@@ -44,7 +44,7 @@ const Dashboard = (props) => {
 
                 <div>
                     <div className = "action-field">
-                        <p>Welcome back {getUsername()}</p>
+                        <p>Welcome, {getUsername()}</p>
 
                     </div>
 

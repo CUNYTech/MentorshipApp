@@ -53,6 +53,10 @@ export default class PersonalInformation extends React.Component {
         const r_conPassword= this.refs.t_conPassword;
         const v_conPassword = r_conPassword.value;
 
+        //Confirm password
+        const blurb = this.refs.blurb;
+        const v_blurb = blurb.value;
+
         //Checks whether both password entries match
         if(v_password!=v_conPassword) {
             alert("Password's do not match");
@@ -60,7 +64,7 @@ export default class PersonalInformation extends React.Component {
 
         else {
 
-            var users = {email: v_email, password: v_password, profile: {displayPic: ' ', username: v_username}};
+            var users = {email: v_email, password: v_password, profile: {displayPic: ' ', username: v_username, blurb: v_blurb}};
 
 
             Accounts.createUser(users, function (e) {
@@ -196,8 +200,11 @@ export default class PersonalInformation extends React.Component {
                         <label>City </label>
 
                         <input  type="text"  ref='city' className="form-control" placeholder="City"/> &nbsp;
-                    </p>
 
+                        <label>Tell us something about you:</label>
+                        <input type="text" className="form-control" placeholder="eg. I like pie"/>
+
+                    </p>
                     <p>
                         <input type="submit" value="Submit"/>
                     </p>

@@ -11,6 +11,7 @@ import PersonalInformation from "./components/personal_information";
 import WorkInformation from "./components/work_information";
 import OtherInformation from "./components/other_information";
 import Dashboard from './components/dashboard';
+import Profile from './components/profile';
 
 const routes = (
 <Router history={browserHistory}>
@@ -22,6 +23,7 @@ const routes = (
         <Route path="about" component={About}></Route>
         <Route path="welcome" component={Welcome}></Route>
         <Route path="dashboard" component={Dashboard}></Route>
+        <Route path="profile" component={Profile}></Route>
     </Route>
 
 </Router>
