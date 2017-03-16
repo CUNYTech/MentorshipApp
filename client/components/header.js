@@ -34,7 +34,7 @@ checkSignup(){
 
         }
         else  {
-            return <Link to="home" href="localhost:3000/home">LOGOUT</Link>
+            return <Link to="home" href="localhost:3000/home" onClick={this.userLogout.bind(this)}>LOGOUT</Link>
 
         }
     }
