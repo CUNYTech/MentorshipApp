@@ -74,9 +74,26 @@ img {
     height: 100%;
 }
 
+#profile {
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    position: relative;
+    left: 530px;
+}
+
+#perfil {
+    position: static;
+}
+
 .action-field p {
     text-align: center;
     padding-left: -20px;
+}
+
+#profile-pic {
+    width: 130px;
+    align-content: center;
 }
 
 .col-xs-6 {

@@ -64,7 +64,8 @@ export default class PersonalInformation extends React.Component {
 
         else {
 
-            var users = {email: v_email, password: v_password, profile: {displayPic: ' ', username: v_username, blurb: v_blurb}};
+            var users = {email: v_email, password: v_password, profile: {displayPic: ' ', username: v_username, firstname: v_fName,
+                lastname: v_lName, blurb: v_blurb}};
 
 
             Accounts.createUser(users, function (e) {
@@ -202,7 +203,7 @@ export default class PersonalInformation extends React.Component {
                         <input  type="text"  ref='city' className="form-control" placeholder="City"/> &nbsp;
 
                         <label>Tell us something about you:</label>
-                        <input type="text" className="form-control" placeholder="eg. I like pie"/>
+                        <input type="text" ref='blurb' className="form-control" placeholder="eg. I like pie"/>
 
                     </p>
                     <p>

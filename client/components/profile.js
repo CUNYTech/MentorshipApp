@@ -1,9 +1,22 @@
 import React from 'react';
 import{Meteor} from 'meteor/meteor'
 import {createContainer} from 'meteor/react-meteor-data';
-import MentorList from './mentor_list';
 
 const Profile = (props) => {
+
+    function getUsername() {
+        if(!props.listLoading)
+            return props.thisUser.profile.username;
+        else
+            return "Please Login" ;
+    }
+
+    function getName() {
+        if(!props.listLoading)
+            return props.thisUser.profile.firstname + ' ' + props.thisUser.profile.lastname;
+        else
+            return "Undefined" ;
+    }
 
     function getUserBlurb()  {
         if(!props.listLoading && props.thisUser.profile.blurb)
@@ -20,16 +33,18 @@ const Profile = (props) => {
     }
 
     return (
-        <div id="profile">
-            <div className="col-sx-6">
-                <img id="avatar" src={getPic()}/>
+        <div className="row">
+            <div id="profile">
+                <img id="profile-pic" src={getPic()}/>
             </div>
 
-            <div>
-                <p>
-                    {getUserBlurb()}
-                </p>
+            <div className="action-field">
+                <p>{getName()}</p>
+                <p>{getUsername()}</p>
+                <p>{getUserBlurb()}</p>
+
             </div>
+
         </div>
 
     );
