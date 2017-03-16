@@ -14,6 +14,18 @@ class Header extends Component {
     }
 
 
+checkSignup(){
+
+    if (Meteor.userId() == undefined || Meteor.userId() == null){
+        return <Link to="registration" href="localhost:3000/registration">SIGN UP</Link>
+
+
+    }
+    else  {
+        return <Link to="PROFILE" href="localhost:3000/profile">PROFILE</Link>
+
+    }
+}
 
     setLoginLogout(){
         if (Meteor.userId() == undefined || Meteor.userId() == null){
@@ -22,7 +34,7 @@ class Header extends Component {
 
         }
         else  {
-            return <a  href="#" onClick={this.userLogout.bind(this)}>LOGOUT</a>
+            return <Link to="home" href="localhost:3000/home">LOGOUT</Link>
 
         }
     }
@@ -55,7 +67,7 @@ class Header extends Component {
                     </li>
 
                     <li className="dropdown">
-                        <Link to="registration" href="localhost:3000/registration">SIGN UP</Link>
+                        {this.checkSignup()}
                     </li>
 
                     <li>
