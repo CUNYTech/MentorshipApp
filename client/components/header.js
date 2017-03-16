@@ -22,7 +22,7 @@ checkSignup(){
 
     }
     else  {
-        return <Link to="PROFILE" href="localhost:3000/profile">PROFILE</Link>
+        return <Link to="profile" href="localhost:3000/profile">PROFILE</Link>
 
     }
 }
@@ -34,7 +34,7 @@ checkSignup(){
 
         }
         else  {
-            return <Link to="home" href="localhost:3000/home" onClick={this.userLogout.bind(this)}>LOGOUT</Link>
+            return <Link to="login" href="localhost:3000/login" onClick={this.userLogout.bind(this)}>LOGOUT</Link>
 
         }
     }
@@ -73,7 +73,7 @@ checkSignup(){
                     <li>
                         {this.setLoginLogout()}
                     </li>
-                    {console.log(this.props.thisUser)}
+
 
                 </ul>
             </div>
