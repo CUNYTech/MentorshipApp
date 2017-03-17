@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { createContainer } from 'meteor/react-meteor-data';
-import { Userz } from '../../imports/collections/users';
-import Dashboard from './dashboard';
+import { createContainer }  from 'meteor/react-meteor-data';
+import { Userz }            from '../../imports/collections/users';
+import Dashboard            from './dashboard';
 
 const PER_PAGE = 20;
 

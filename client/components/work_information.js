@@ -4,17 +4,12 @@ export default class WorkInformation extends React.Component {
      constructor(props) {
          super(props);
          this.state = {};
-
      }
-
-
-
 
      handleSubmit(event) {
         event.preventDefault();
 
         //occupation
-
          const r_occupation= this.refs.occupation;
          const v_occupation = r_occupation.value;
 
@@ -38,27 +33,14 @@ export default class WorkInformation extends React.Component {
          const v_namSup = r_namSup.value;
 
 
-console.log(v_occupation+v_empName+v_title+v_lenEmp+v_namSup);
-
-     }
-
-
-
+         console.log(v_occupation+v_empName+v_title+v_lenEmp+v_namSup);
+     } // end handleSubmit()
 
     render()  {
-
-
-// const WorkInformation = () => {
-
-
         return (
-
             <div>
                 <h3>Work Information</h3>
-
-<form className= "workInfo" onSubmit= {this.handleSubmit.bind(this)}>
-
-
+                <form className= "workInfo" onSubmit= {this.handleSubmit.bind(this)}>
                     <p>
                         <label >Occupation: </label>
                         <input ref="occupation" className="form-control" type="text" placeholder="Programmer"/>
@@ -79,17 +61,11 @@ console.log(v_occupation+v_empName+v_title+v_lenEmp+v_namSup);
                         <label>Name of supervisor: </label>
                         <input ref="namSup" className="form-control" placeholder="Jane Doe"/>
                     </p>
-
                     <p>
                         <input type="submit" class="btn btn-default" value="Next"/>
                     </p>
-</form>
-
+                </form>
             </div>
-
-        );
-    };
-
-}
-
-
+        ); //end return()
+    }; //end render()
+} //end class

@@ -1,33 +1,20 @@
-import React from "react";
-import {Meteor} from 'meteor/meteor'
-import {Accounts} from 'meteor/accounts-base'
-import{Link} from 'react-router';
-import {Router} from 'react-router'
-import Welcome from './welcome';
-
-
+import React        from "react";
+import { Meteor }   from 'meteor/meteor'
+import { Accounts } from 'meteor/accounts-base'
+import { Link }     from 'react-router';
+import { Router }   from 'react-router'
+import Welcome      from './welcome';
 
 //we can move this later
-
-export default class PersonalInformation extends React.Component {
-
+export default class Registration extends React.Component {
     constructor(props) {
         super(props);
-
-
-
-
     }
-
-
-
-
 
     handleSubmit(event) {
         event.preventDefault();
 
         var Router = require('react-router');
-
 
         //First Name
         const r_fName= this.refs.t_fName;
@@ -61,43 +48,26 @@ export default class PersonalInformation extends React.Component {
         if(v_password!=v_conPassword) {
             alert("Password's do not match");
         }
-
         else {
-
             var users = {email: v_email, password: v_password, profile: {displayPic: ' ', username: v_username, firstname: v_fName,
                 lastname: v_lName, blurb: v_blurb}};
 
-
             Accounts.createUser(users, function (e) {
-
-                //route to confirmation page
-
                 //error
                 if (e) {
                     alert("not working")
                 }
                 else {
-                    alert("success");
-
+                    //route to confirmation page
                     Router.browserHistory.push('/welcome');
                 }
-
-
-            })
-
-
-        } // end of else
-
-
-
-    } //end of handleSubmit
-
+            }) //end Accounts.createUser()
+        } // end else
+    } //end handleSubmit
 
     //rendering Sign Up Page
     render () {
-
         return (
-
             <div className="form-group">
                 <h2>Personal Information</h2>
                 <form className="form-horizontal" onSubmit= {this.handleSubmit.bind(this)} >
@@ -105,45 +75,36 @@ export default class PersonalInformation extends React.Component {
                         <label>First Name </label>
                         <input ref="t_fName" className="form-control" type="text" placeholder="John"/>
                     </p>
-
                     <p>
                         <label >Last Name </label>
                         <input ref="t_lName" className="form-control" type="text" placeholder="Doe"/>
                     </p>
-
                     <p>
                         <label >Username </label>
                         <input ref="t_username" className="form-control" type="text" placeholder="mysuperusername690"/>
                     </p>
-
                     <p>
                         <label>E-mail </label>
                         <input ref="t_email" className="form-control" type="email" placeholder="mysupermail@mail.com"/>
                     </p>
-
                     <p>
                         <label>Password </label>
                         <input ref="t_password" className="form-control" type="password" placeholder="eg. X8df!90EO"/>
                     </p>
-
                     <p>
                         <label>Confirm your password </label>
                         <input ref="t_conPassword" className="form-control" type="password" placeholder="eg. X8df!90EO"/>
                     </p>
-
                     <p>
                         <label>Date of Birth </label>
                         <input ref="DOB" className="form-control" type="date"/>
                     </p>
                     <p>
                         <label>Country </label>
-
                         <select className="form-control">
                             <option value="us">United States</option>
                         </select> &nbsp;
-
                         <label>State </label>
-
                         <select className="form-control">
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
@@ -197,24 +158,16 @@ export default class PersonalInformation extends React.Component {
                             <option value="WI">Wisconsin</option>
                             <option value="WY">Wyoming</option>
                         </select>             &nbsp;
-
                         <label>City </label>
-
                         <input  type="text"  ref='city' className="form-control" placeholder="City"/> &nbsp;
-
                         <label>Tell us something about you:</label>
                         <input type="text" ref='blurb' className="form-control" placeholder="eg. I like pie"/>
-
                     </p>
                     <p>
                         <input type="submit" value="Submit"/>
                     </p>
                 </form>
             </div>
-
-        );
-    };
-
-
-} // end of class file
-
+        ); //end return()
+    }; //end render()
+} // end of class
