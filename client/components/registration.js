@@ -37,7 +37,7 @@ export default class Registration extends React.Component {
                 this.setState({ userError: error.reason });
               }
               else {
-                console.log(Meteor.user());
+                //console.log(Meteor.user());
                 this.setState({ userError: '' });
                 //route to confirmation page
                 Router.browserHistory.push('/welcome');
