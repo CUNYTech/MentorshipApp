@@ -9,7 +9,7 @@ class Header extends Component {
     }
 
     checkSignup() {
-        if (Meteor.userId() == undefined || Meteor.userId() == null){
+        if (!this.props.user) {
             return <Link to="registration" href="localhost:3000/registration">SIGN UP</Link>
         }
         else {
@@ -18,7 +18,7 @@ class Header extends Component {
     }
 
     setLoginLogout() {
-        if (Meteor.userId() == undefined || Meteor.userId() == null) {
+        if (!this.props.user) {
             return <Link to="login" href="localhost:3000/login">LOGIN</Link>
         }
         else  {
@@ -57,13 +57,7 @@ class Header extends Component {
     } // end render()
 } // end class Header
 
-export default createContainer(() =>{
-    //set up subscription
-    var handle = Meteor.subscribe('users');
-
-    //return an object, Whatever we return will be send to userList as props
-    return {usersData: Meteor.users.find({}).fetch()
-        , listLoading : !handle.ready()
-        , thisUser: Meteor.user()
-    }
+export default createContainer(() => {
+  //return an object, Whatever we return will be send to userList as props
+  return { user: Meteor.user() };
 }, Header);

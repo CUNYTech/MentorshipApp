@@ -20,7 +20,9 @@ img {
 
 #avatar {
     width: 130px;
+    height: 125px;
     margin-left: 30px;
+    border-radius: 50%;
 }
 
 .navbar-default {
@@ -87,6 +89,8 @@ img {
 
 #profile-pic {
     width: 130px;
+    height: 100px;
+    border-radius: 50%;
 }
 
 #profile {

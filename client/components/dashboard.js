@@ -14,7 +14,7 @@ class Dashboard extends Component {
 
   getAvatar() {
     if(this.props.user.profile.avatar != '')
-      return props.thisUser.avatar;
+      return this.props.user.avatar;
     else
       return  "default-user.png";
   }
@@ -58,7 +58,7 @@ class Dashboard extends Component {
 export default createContainer(() =>{
   /* user email, username, and profile are published by default, we don't have to set
   up subscription. */
-  
+
     //return an object, Whatever we return will be send to userList as props
     return { user: Meteor.user() };
 }, Dashboard);
