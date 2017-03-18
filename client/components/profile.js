@@ -1,43 +1,41 @@
-import React                from 'react';
+import React, { Component } from 'react';
 import { Meteor }           from 'meteor/meteor'
 import { createContainer }  from 'meteor/react-meteor-data';
 
-const Profile = (props) => {
+class Profile extends Component {
+  getName() {
+    return this.props.user.profile.firstName + ' ' + this.props.user.profile.lastName;
+  }
 
-    function getName() {
-        if(!props.listLoading)
-            return props.thisUser.profile.firstName + ' ' + props.thisUser.profile.lastName;
-        else
-            return "Undefined" ;
-    }
+  getAvatar() {
+    if(this.props.user.profile.avatar != '')
+      return this.props.user.avatar;
+    else
+      return  "default-user.png";
+  }
 
-    function getPic() {
-        if(!props.listLoading && props.thisUser && props.thisUser.profile.avatar != '')
-            return props.thisUser.avatar;
-        else
-            return  "default-user.png";
+  render() {
+    if(!this.props.user) {
+      return <div>Loading...</div>;
     }
 
     return (
-            <div className="col-md-4 col-md-offset-4" id="profile">
-                <div>
-                    <img id="profile-pic" className="col-md-4 col-md-offset-4" src={getPic()}/>
-                </div>
-                <div id="action-field2" className="col-md-4 col-md-offset-4" >
-                    <p>{getName()}</p>
-                </div>
-            </div>
-    );
-}; // end const Profile
+      <div className="col-md-4 col-md-offset-4" id="profile">
+        <div>
+          <img id="profile-pic" className="col-md-4 col-md-offset-4" src={this.getAvatar()}/>
+        </div>
+        <div id="action-field2" className="col-md-4 col-md-offset-4" >
+          <p>{this.getName()}</p>
+        </div>
+      </div>
+    ); // end return()
+  } //end render()
+}; // end class Profile
 
 export default createContainer(() => {
+/* user email, username, and profile are published by default, we don't have to set
+up subscription. */
 
-    //set up subscription
-    var handle = Meteor.subscribe('users');
-
-    //return an object, Whatever we return will be send to userList as props
-    return {usersData: Meteor.users.find({}).fetch()
-        , listLoading : !handle.ready()
-        , thisUser: Meteor.user()
-    }
+  //return an object, Whatever we return will be send to userList as props
+  return { user: Meteor.user() };
 }, Profile);
