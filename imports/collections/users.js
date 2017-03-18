@@ -1,3 +1,4 @@
+/*
 import { Mongo } from 'meteor/mongo';
 
 Meteor.methods({
@@ -13,3 +14,4 @@ Meteor.methods({
 }); //end of methods
 
 export const Userz = new Mongo.Collection('userz');
+*/

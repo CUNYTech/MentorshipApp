@@ -14,7 +14,7 @@ class Dashboard extends Component {
 
   getAvatar() {
     if(this.props.user.profile.avatar != '')
-      return props.thisUser.avatar;
+      return this.props.user.profile.avatar;
     else
       return  "default-user.png";
   }

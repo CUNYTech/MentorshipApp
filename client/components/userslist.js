@@ -1,3 +1,4 @@
+/*
 import React, { Component } from 'react';
 import { createContainer }  from 'meteor/react-meteor-data';
 import { Userz }            from '../../imports/collections/users';
@@ -41,3 +42,4 @@ export default createContainer(() => {
   // as props
   return { userz: Userz.find({}).fetch() };
 }, UsersList);
+*/
