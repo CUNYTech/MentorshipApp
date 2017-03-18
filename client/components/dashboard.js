@@ -4,11 +4,11 @@ import { createContainer } from 'meteor/react-meteor-data';
 import MentorList          from './mentor_list';
 
 const Dashboard = (props) => {
-    function getUsername() {
+    function getName() {
         if(!props.listLoading)
-            return props.thisUser.profile.username;
+            return props.thisUser.profile.firstName + ' ' + props.thisUser.profile.lastName;
         else
-            return "Please Login";
+            return "Undefined" ;
     }
 
     function getEmail() {
@@ -19,8 +19,8 @@ const Dashboard = (props) => {
     }
 
     function getPic() {
-        if(!props.listLoading && props.thisUser && props.thisUser.profile.displayPic != ' ')
-            return props.thisUser.displayPic;
+        if(!props.listLoading && props.thisUser && props.thisUser.profile.avatar != '')
+            return props.thisUser.avatar;
         else
             return  "default-user.png";
     }
@@ -33,7 +33,7 @@ const Dashboard = (props) => {
                 </div>
                 <div>
                     <div className = "action-field">
-                        <p>Welcome, {getUsername()}</p>
+                        <p>Welcome, {getName()}</p>
                     </div>
                 </div>
                 <div className="action-field">

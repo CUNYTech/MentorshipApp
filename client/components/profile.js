@@ -1,32 +1,19 @@
-import React             from 'react';
-import{Meteor}           from 'meteor/meteor'
-import {createContainer} from 'meteor/react-meteor-data';
+import React                from 'react';
+import { Meteor }           from 'meteor/meteor'
+import { createContainer }  from 'meteor/react-meteor-data';
 
 const Profile = (props) => {
-    function getUsername() {
-        if(!props.listLoading)
-            return props.thisUser.profile.username;
-        else
-            return "Please Login" ;
-    }
 
     function getName() {
         if(!props.listLoading)
-            return props.thisUser.profile.firstname + ' ' + props.thisUser.profile.lastname;
+            return props.thisUser.profile.firstName + ' ' + props.thisUser.profile.lastName;
         else
             return "Undefined" ;
     }
 
-    function getUserBlurb()  {
-        if(!props.listLoading && props.thisUser.profile.blurb)
-            return props.thisUser.profile.blurb;
-        else
-            return "Empty";
-    }
-
     function getPic() {
-        if(!props.listLoading && props.thisUser && props.thisUser.profile.displayPic != ' ')
-            return props.thisUser.displayPic;
+        if(!props.listLoading && props.thisUser && props.thisUser.profile.avatar != '')
+            return props.thisUser.avatar;
         else
             return  "default-user.png";
     }
@@ -38,8 +25,6 @@ const Profile = (props) => {
                 </div>
                 <div id="action-field2" className="col-md-4 col-md-offset-4" >
                     <p>{getName()}</p>
-                    <p>{getUsername()}</p>
-                    <p>{getUserBlurb()}</p>
                 </div>
             </div>
     );

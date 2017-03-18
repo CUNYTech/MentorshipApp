@@ -1,14 +1,15 @@
 import React        from "react";
-import { Meteor }   from 'meteor/meteor'
-import { Accounts } from 'meteor/accounts-base'
+import { Meteor }   from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
 import { Link }     from 'react-router';
-import { Router }   from 'react-router'
+import { Router }   from 'react-router';
 import Welcome      from './welcome';
 
 //we can move this later
 export default class Registration extends React.Component {
     constructor(props) {
         super(props);
+        this.state = { passwordError: '', userError: '' };
     }
 
     handleSubmit(event) {
@@ -16,51 +17,31 @@ export default class Registration extends React.Component {
 
         var Router = require('react-router');
 
-        //First Name
-        const r_fName= this.refs.t_fName;
-        const v_fName = r_fName.value;
-
-        //Last Name
-        const r_lName= this.refs.t_lName;
-        const v_lName = r_lName.value;
-
-        //Username
-        const r_username= this.refs.t_username;
-        const v_username = r_username.value;
-
-        //email address
-        const r_email= this.refs.t_email;
-        const v_email = r_email.value;
-
-        //password
-        const r_password= this.refs.t_password;
-        const v_password = r_password.value;
-
-        //Confirm password
-        const r_conPassword= this.refs.t_conPassword;
-        const v_conPassword = r_conPassword.value;
-
-        //Confirm password
-        const blurb = this.refs.blurb;
-        const v_blurb = blurb.value;
+        const firstName = this.refs.t_fName.value;
+        const lastName = this.refs.t_lName.value;
+        const email = this.refs.t_email.value;
+        const password = this.refs.t_password.value;
+        const conPassword = this.refs.t_conPassword.value;
 
         //Checks whether both password entries match
-        if(v_password!=v_conPassword) {
-            alert("Password's do not match");
+        if(password != conPassword) {
+            this.setState({ passwordError: 'Passwords do not match' });
         }
         else {
-            var users = {email: v_email, password: v_password, profile: {displayPic: ' ', username: v_username, firstname: v_fName,
-                lastname: v_lName, blurb: v_blurb}};
-
-            Accounts.createUser(users, function (e) {
-                //error
-                if (e) {
-                    alert("not working")
-                }
-                else {
-                    //route to confirmation page
-                    Router.browserHistory.push('/welcome');
-                }
+            this.setState({ passwordError: '' });
+            var user = { email: email, password: password,
+                         profile: { avatar: '', firstName: firstName, lastName: lastName }
+                       }
+            Accounts.createUser(user, (error) => {
+              if (error) {
+                this.setState({ userError: error.reason });
+              }
+              else {
+                console.log(Meteor.user());
+                this.setState({ userError: '' });
+                //route to confirmation page
+                Router.browserHistory.push('/welcome');
+              }
             }) //end Accounts.createUser()
         } // end else
     } //end handleSubmit
@@ -73,99 +54,29 @@ export default class Registration extends React.Component {
                 <form className="form-horizontal" onSubmit= {this.handleSubmit.bind(this)} >
                     <p>
                         <label>First Name </label>
-                        <input ref="t_fName" className="form-control" type="text" placeholder="John"/>
+                        <input ref="t_fName" className="form-control" type="text" required />
                     </p>
                     <p>
                         <label >Last Name </label>
-                        <input ref="t_lName" className="form-control" type="text" placeholder="Doe"/>
-                    </p>
-                    <p>
-                        <label >Username </label>
-                        <input ref="t_username" className="form-control" type="text" placeholder="mysuperusername690"/>
+                        <input ref="t_lName" className="form-control" type="text" required />
                     </p>
                     <p>
                         <label>E-mail </label>
-                        <input ref="t_email" className="form-control" type="email" placeholder="mysupermail@mail.com"/>
+                        <input ref="t_email" className="form-control" type="email" required />
                     </p>
                     <p>
                         <label>Password </label>
-                        <input ref="t_password" className="form-control" type="password" placeholder="eg. X8df!90EO"/>
+                        <input ref="t_password" className="form-control" type="password" required />
                     </p>
                     <p>
                         <label>Confirm your password </label>
-                        <input ref="t_conPassword" className="form-control" type="password" placeholder="eg. X8df!90EO"/>
+                        <input ref="t_conPassword" className="form-control" type="password" required />
                     </p>
-                    <p>
-                        <label>Date of Birth </label>
-                        <input ref="DOB" className="form-control" type="date"/>
-                    </p>
-                    <p>
-                        <label>Country </label>
-                        <select className="form-control">
-                            <option value="us">United States</option>
-                        </select> &nbsp;
-                        <label>State </label>
-                        <select className="form-control">
-                            <option value="AL">Alabama</option>
-                            <option value="AK">Alaska</option>
-                            <option value="AZ">Arizona</option>
-                            <option value="AR">Arkansas</option>
-                            <option value="CA">California</option>
-                            <option value="CO">Colorado</option>
-                            <option value="CT">Connecticut</option>
-                            <option value="DE">Delaware</option>
-                            <option value="DC">District Of Columbia</option>
-                            <option value="FL">Florida</option>
-                            <option value="GA">Georgia</option>
-                            <option value="HI">Hawaii</option>
-                            <option value="ID">Idaho</option>
-                            <option value="IL">Illinois</option>
-                            <option value="IN">Indiana</option>
-                            <option value="IA">Iowa</option>
-                            <option value="KS">Kansas</option>
-                            <option value="KY">Kentucky</option>
-                            <option value="LA">Louisiana</option>
-                            <option value="ME">Maine</option>
-                            <option value="MD">Maryland</option>
-                            <option value="MA">Massachusetts</option>
-                            <option value="MI">Michigan</option>
-                            <option value="MN">Minnesota</option>
-                            <option value="MS">Mississippi</option>
-                            <option value="MO">Missouri</option>
-                            <option value="MT">Montana</option>
-                            <option value="NE">Nebraska</option>
-                            <option value="NV">Nevada</option>
-                            <option value="NH">New Hampshire</option>
-                            <option value="NJ">New Jersey</option>
-                            <option value="NM">New Mexico</option>
-                            <option value="NY">New York</option>
-                            <option value="NC">North Carolina</option>
-                            <option value="ND">North Dakota</option>
-                            <option value="OH">Ohio</option>
-                            <option value="OK">Oklahoma</option>
-                            <option value="OR">Oregon</option>
-                            <option value="PA">Pennsylvania</option>
-                            <option value="RI">Rhode Island</option>
-                            <option value="SC">South Carolina</option>
-                            <option value="SD">South Dakota</option>
-                            <option value="TN">Tennessee</option>
-                            <option value="TX">Texas</option>
-                            <option value="UT">Utah</option>
-                            <option value="VT">Vermont</option>
-                            <option value="VA">Virginia</option>
-                            <option value="WA">Washington</option>
-                            <option value="WV">West Virginia</option>
-                            <option value="WI">Wisconsin</option>
-                            <option value="WY">Wyoming</option>
-                        </select>             &nbsp;
-                        <label>City </label>
-                        <input  type="text"  ref='city' className="form-control" placeholder="City"/> &nbsp;
-                        <label>Tell us something about you:</label>
-                        <input type="text" ref='blurb' className="form-control" placeholder="eg. I like pie"/>
-                    </p>
+                    <div className="text-danger">{ this.state.passwordError }</div>
                     <p>
                         <input type="submit" value="Submit"/>
                     </p>
+                    <div className="text-danger">{ this.state.userError }</div>
                 </form>
             </div>
         ); //end return()
