@@ -9,10 +9,15 @@ class Profile extends Component {
 
   getAvatar() {
     if(this.props.user.profile.avatar != '')
-      return this.props.user.avatar;
+      return this.props.user.profile.avatar;
     else
       return  "default-user.png";
   }
+     getBlurb() {
+    if( this.props.user.profile.blurb != '')
+        return this.props.user.profile.blurb;
+
+}
 
   render() {
     if(!this.props.user) {
@@ -25,7 +30,8 @@ class Profile extends Component {
           <img id="profile-pic" className="col-md-4 col-md-offset-4" src={this.getAvatar()}/>
         </div>
         <div id="action-field2" className="col-md-4 col-md-offset-4" >
-          <p>{this.getName()}</p>
+          <p>{this.getName()}</p>                    <p> {this.getBlurb()}</p>
+
         </div>
       </div>
     ); // end return()

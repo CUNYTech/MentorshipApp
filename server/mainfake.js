@@ -1,3 +1,4 @@
+/*
 import { Meteor }         from 'meteor/meteor';
 import { Userz }          from '../imports/collections/users';
 import _                  from 'lodash';
@@ -20,3 +21,5 @@ Meteor.startup(() => {
     return Userz.find({}, { limit: per_page });
   });
 }); //end Meteor.startup()
+
+    */
