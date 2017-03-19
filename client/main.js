@@ -12,7 +12,7 @@ import OtherInformation  from "./components/other_information";
 import Dashboard         from './components/dashboard';
 import Profile           from './components/profile';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
-Meteor.subscribe('users');
+
 const routes = (
     <Router history={browserHistory}>
         <Route path="/" component={App}>

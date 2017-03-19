@@ -1,6 +1,4 @@
-
 import { Meteor }   from 'meteor/meteor';
-
 import { Accounts } from 'meteor/accounts-base';
 import _ from 'lodash';
 import { image, helpers, lorem } from 'faker';
@@ -15,7 +13,7 @@ Meteor.startup(() => {
             const avatar = image.avatar();
             const blurb = lorem.sentences();
             //console.log email when generating fake users.
-            console.log(email);
+            //console.log(email);
             Accounts.createUser({
                 email: email, password:'faker',  profile: { avatar: avatar, firstName: name, lastName: '', blurb: blurb }
             }); // end Userz.insert()
