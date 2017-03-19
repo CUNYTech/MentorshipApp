@@ -30,8 +30,8 @@ class Profile extends Component {
           <img id="profile-pic" className="col-md-4 col-md-offset-4" src={this.getAvatar()}/>
         </div>
         <div id="action-field2" className="col-md-4 col-md-offset-4" >
-          <p>{this.getName()}</p>                    <p> {this.getBlurb()}</p>
-
+          <p>{this.getName()}</p>
+          <p> {this.getBlurb()}</p>
         </div>
       </div>
     ); // end return()

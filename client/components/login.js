@@ -1,5 +1,5 @@
 import React        from 'react';
-import { Accounts } from 'meteor/meteor'
+import { Accounts } from 'meteor/meteor';
 
 export default class LoginPage extends React.Component {
     constructor(props) {
