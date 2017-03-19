@@ -58,7 +58,6 @@ class Dashboard extends Component {
 export default createContainer(() =>{
   /* user email, username, and profile are published by default, we don't have to set
   up subscription. */
-
     //return an object, Whatever we return will be send to userList as props
-    return { user: Meteor.user() };
+    return { user: Meteor.user()};
 }, Dashboard);

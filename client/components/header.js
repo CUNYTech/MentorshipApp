@@ -58,6 +58,7 @@ class Header extends Component {
 } // end class Header
 
 export default createContainer(() => {
-  //return an object, Whatever we return will be send to userList as props
+Meteor.subscribe('users');
+    //return an object, Whatever we return will be send to userList as props
   return { user: Meteor.user() };
 }, Header);

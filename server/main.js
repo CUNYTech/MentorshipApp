@@ -1,7 +1,10 @@
+
 import { Meteor }   from 'meteor/meteor';
+
 import { Accounts } from 'meteor/accounts-base';
 import _ from 'lodash';
 import { image, helpers, lorem } from 'faker';
+
 
 Meteor.startup(() => {
     // See if the collection has any records already
