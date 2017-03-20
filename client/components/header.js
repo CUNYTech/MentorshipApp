@@ -58,7 +58,9 @@ class Header extends Component {
 } // end class Header
 
 export default createContainer(() => {
-Meteor.subscribe('users');
+    /* subscribe to users collection to see them on CTRL + M */
+    Meteor.subscribe('users');
+
     //return an object, Whatever we return will be send to userList as props
-  return { user: Meteor.user() };
+    return { user: Meteor.user() };
 }, Header);
