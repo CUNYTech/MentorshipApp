@@ -22,9 +22,8 @@ class Profile extends Component {
     getProfile() {
         return (
             <div>
-                <p>Title: {this.props.user.profile.title}</p>
-                <p>Company: {this.props.user.profile.company}</p>
-                <p>Blurb: {this.props.user.profile.blurb}</p>
+                <p>{this.props.user.profile.firstName}</p>
+                <p>{this.props.user.profile.blurb}</p>
             </div>
         );
     }
@@ -38,12 +37,10 @@ class Profile extends Component {
     }
 
     save() {
-        const title = this.refs.title.value;
-        const company = this.refs.company.value;
+        const name = this.refs.firstName.value;
         const blurb = this.refs.blurb.value;
         Meteor.users.update(Meteor.userId(), {$set: {
-            "profile.title": title,
-            "profile.company": company,
+            "profile.firstName": name,
             "profile.blurb": blurb,
         }});
         this.setState({isEdit: false});
@@ -55,31 +52,29 @@ class Profile extends Component {
         }
         else if(this.state.isEdit) {
             return (
-                <div className="edit-profile">
-                    <form className="form-horizontal">
-                        <p>
-                            <label>Title</label>
-                            <input ref="title" className="form-control" type="text"
-                                   defaultValue={this.props.user.profile.title} />
-                        </p>
-                        <p>
-                            <label>Company</label>
-                            <input ref="company" className="form-control" type="text"
-                                   defaultValue={this.props.user.profile.company} />
-                        </p>
-                        <p>
-                            <label>Blurb</label>
-                            <input ref="blurb" className="form-control" type="text"
-                                   defaultValue={this.props.user.profile.blurb} />
-                        </p>
-                    </form>
-                    <div className="buttons">
-                        <button className="btn btn-danger" onClick={() => this.cancel()}>
-                            Cancel
-                        </button>
-                        <button className="btn btn-success" onClick={() => this.save()}>
-                            Save
-                        </button>
+                <div className="row">
+                    <div className="col-md-4 col-md-offset-4">
+                        <form className="form-horizontal">
+                            <p>
+                                <label>Name</label>
+                                <input ref="firstName" className="form-control" type="text"
+                                       defaultValue={this.props.user.profile.firstName} />
+                            </p>
+                            <p>
+                                <label>Blurb</label>
+                                <input ref="blurb" className="form-control" type="text"
+                                       defaultValue={this.props.user.profile.blurb} />
+                            </p>
+                        </form>
+
+                        <div className="buttons">
+                            <button className="btn btn-danger" onClick={() => this.cancel()}>
+                                Cancel
+                            </button>
+                            <button className="btn btn-success" onClick={() => this.save()}>
+                                Save
+                            </button>
+                        </div>
                     </div>
                 </div>
             );
@@ -95,7 +90,6 @@ class Profile extends Component {
                             <img id="profile-pic" className="col-md-4 col-md-offset-4" src={this.getAvatar()}/>
                         </div>
                         <div id="action-field2" className="col-md-4 col-md-offset-4" >
-                            <p>{this.getName()}</p>
                             {this.getProfile()}
                         </div>
                     </div>
