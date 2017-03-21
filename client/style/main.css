@@ -6,6 +6,10 @@ ul {
     list-style-type: none;
 }
 
+#profile_blurb {
+    resize: none;
+}
+
 #logo {
     width: 98px;
     height: 70px;

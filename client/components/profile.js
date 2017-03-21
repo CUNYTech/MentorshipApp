@@ -62,8 +62,10 @@ class Profile extends Component {
                             </p>
                             <p>
                                 <label>Blurb</label>
-                                <input ref="blurb" className="form-control" type="text"
-                                       defaultValue={this.props.user.profile.blurb} />
+                                <textarea  placeholder="Describe yourself here... " id="profile_blurb" rows="4" cols="50" maxLength="500">
+
+                            </textarea>
+
                             </p>
                         </form>
 
@@ -100,6 +102,11 @@ class Profile extends Component {
         } //end else
     } //end render()
 }; // end class Profile
+
+
+//<input ref="blurb" className="form-control" type="text"
+  //     defaultValue={this.props.user.profile.blurb} />
+
 
 export default createContainer(() => {
     //return an object, Whatever we return will be send to userList as props
