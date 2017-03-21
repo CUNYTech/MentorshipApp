@@ -12,6 +12,16 @@ class Footer extends Component {
                 <div className="col-md-3">
                     <ul>
                         <li>
+                            <img id="logo-footer" src="meerkat2.png" />
+                        </li>
+                        <li>
+                            &copy; Obec 2017
+                        </li>
+                    </ul>
+                </div>
+                <div className="col-md-3">
+                    <ul>
+                        <li>
                             <Link to="home" href="localhost:3000/home">HOME</Link>
                         </li>
                         <li>
@@ -23,34 +33,31 @@ class Footer extends Component {
                         <li>
                             <Link to="about" href="localhost:3000/about">CONTACT US</Link>
                         </li>
+                        <br/>
+
                     </ul>
                 </div>
                 <div className="col-md-3">
                     <ul>
-                        <li>Obec</li>
+                        <li>
+                            <Link to="" href="">Terms Of Use</Link>
+                        </li>
+                        <li>
+                            <Link to="" href="">Privacy Policy</Link>
+                        </li>
+                        <li>
+                            <Link to="" href="">FAQ</Link>
+                        </li>
+                    </ul>
+                </div>
+                <div className="col-md-3">
+                    <ul>
+                        <li id="connect">Connect with us</li>
                         <li>Facebook</li>
                         <li>Instagram</li>
                         <li>Twitter</li>
                     </ul>
                 </div>
-                <div className="col-md-3">
-                    <ul>
-                        <li>Be a Mentor</li>
-                        <li>Facebook</li>
-                        <li>Instagram</li>
-                        <li>Twitter</li>
-                    </ul>
-                </div>
-                <div className="col-md-3">
-                    <ul>
-                        <li>Connect with us</li>
-                        <li>Facebook</li>
-                        <li>Instagram</li>
-                        <li>Twitter</li>
-                    </ul>
-                </div>
-                {/*<hr/>*/}
-                {/*<p>	&copy; Obec 2017</p>*/}
             </div>
         ); //end return()
     } // end render()

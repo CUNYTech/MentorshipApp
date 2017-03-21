@@ -6,18 +6,19 @@ ul {
     list-style-type: none;
 }
 
-#blank {
-    width: 231px;
-    height: 20px;
-}
-
 #logo {
-    width: 94px;
+    width: 98px;
     height: 77px;
     position: relative;
     padding-left: 10px;
     margin-right: -5px;
     margin-left: 20px;
+}
+
+#logo-footer {
+    width: 94px;
+    height: 77px;
+    position: relative;
 }
 
 #avatar {
@@ -31,10 +32,6 @@ ul {
     padding-right: 330px;
     padding-left: 15px;
     font-family: 'Open Sans Condensed', sans-serif;
-}
-
-.navbar-header {
-    background-color: transparent;
 }
 
 .navbar-default {
@@ -118,6 +115,10 @@ h2, a {
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
+a:focus, a:hover {
+    text-decoration: none;
+}
+
 p {
     font-family: 'Open Sans Condensed', sans-serif;
     text-align: justify;
@@ -157,8 +158,26 @@ input[type=submit], .btn-default {
     position:static;
 }
 
+.col-md-3 > ul > li {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 19px;
+}
+
+.col-md-3 > ul > li > a {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 19px;
+    color: black;
+}
+
+.col-md-3 > ul > li > a:hover {
+    color: #5882FA;
+}
+
 #footer {
     position:static;
-    margin-bottom:50px;
     width:100%;
+}
+
+#connect {
+    font-weight: bold;
 }
