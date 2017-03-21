@@ -14,7 +14,12 @@ ul {
     margin-right: -5px;
     margin-left: 20px;
 }
+#github_icon{
+    width:10%;
+    height:10%;
 
+
+}
 #logo-footer {
     width: 94px;
     height: 77px;

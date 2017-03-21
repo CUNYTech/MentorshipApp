@@ -53,9 +53,7 @@ class Footer extends Component {
                 <div className="col-md-3">
                     <ul>
                         <li id="connect">Connect with us</li>
-                        <li>Facebook</li>
-                        <li>Instagram</li>
-                        <li>Twitter</li>
+                        <li><a href="https://github.com/CUNYTech/MentorshipApp"> <img id="github_icon" src="github_icon.png" /></a></li>
                     </ul>
                 </div>
             </div>
