@@ -2,20 +2,22 @@ html, body {
     height: 100%;
 }
 
-img {
-    width: 200px;
-    margin: 20px;
+ul {
+    list-style-type: none;
 }
 
 #blank {
-    width: 300px;
+    width: 231px;
     height: 20px;
 }
 
 #logo {
-    width: 110px;
-    height: 82px;
+    width: 94px;
+    height: 77px;
     position: relative;
+    padding-left: 10px;
+    margin-right: -5px;
+    margin-left: 20px;
 }
 
 #avatar {
@@ -24,38 +26,39 @@ img {
     margin-left: 30px;
 }
 
-.navbar-default {
-    background: transparent;
-    border: transparent;
+#searchBox {
+    padding-top: 8px;
+    padding-right: 330px;
+    padding-left: 15px;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .navbar-header {
     background-color: transparent;
 }
 
-.navbar-brand {
-    height: 50px;
-    padding-top: -10px;
+.navbar-default {
+    position: fixed;
+    background-color: #f8f8f8;
+    width: 100%;
+    margin-left: -15px;
+    border-radius: 0;
+    top: 0;
 }
 
-.navbar-default .navbar-nav {
-    position: fixed;
-    top:0;
-    background-color: white;
-    width: 97.6%;
-    height: 105px;
+.navbar-nav {
+    margin-top: 18px;
 }
 
 .navbar-default .navbar-nav > li {
     padding-top: 0;
-    padding-left: 35px;
+    padding-left: 8px;
 }
 
 .navbar-default .navbar-nav > li > a {
     color: #5882FA;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 24px;
-    padding-top: 47px;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
@@ -65,8 +68,8 @@ img {
 
 .container {
     width: 100%;
-    min-height: 800px;
     background-color: white;
+    margin-top: 100px;
 }
 
 .row {
@@ -152,4 +155,10 @@ input[type=submit], .btn-default {
 
 .col-md-4 {
     position:static;
+}
+
+#footer {
+    position:static;
+    margin-bottom:50px;
+    width:100%;
 }

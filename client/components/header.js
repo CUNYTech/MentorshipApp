@@ -30,14 +30,11 @@ class Header extends Component {
         return (
             <div className="navbar navbar-default" role="navigation">
                 <div className="navbar-header">
-                    <img id="logo" src="blank.png" />
+                    <img id="logo" src="meerkat2.png" />
                 </div>
                 <ul className="nav navbar-nav">
-                    <li>
-                        <img id="logo" className="navbar-header" src="meerkat2.png"/>
-                    </li>
-                    <li>
-                        <img id="blank" src="blank.png"/>
+                    <li id="searchBox">
+                        <input type="search" className="form-control" placeholder="Search"/>
                     </li>
                     <li>
                         <Link to="home" href="localhost:3000/home">HOME</Link>

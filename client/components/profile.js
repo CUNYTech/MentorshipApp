@@ -86,16 +86,18 @@ class Profile extends Component {
         }
         else {
             return (
-                <div className="col-md-4 col-md-offset-4" id="profile">
-                    <button className="btn btn-primary" onClick={() => this.editProfile()}>
-                        Edit Profile
-                    </button>
-                    <div>
-                        <img id="profile-pic" className="col-md-4 col-md-offset-4" src={this.getAvatar()}/>
-                    </div>
-                    <div id="action-field2" className="col-md-4 col-md-offset-4" >
-                        <p>{this.getName()}</p>
-                        {this.getProfile()}
+                <div className="row">
+                    <div className="col-md-4 col-md-offset-4" id="profile">
+                        <button className="btn btn-primary" onClick={() => this.editProfile()}>
+                            Edit Profile
+                        </button>
+                        <div>
+                            <img id="profile-pic" className="col-md-4 col-md-offset-4" src={this.getAvatar()}/>
+                        </div>
+                        <div id="action-field2" className="col-md-4 col-md-offset-4" >
+                            <p>{this.getName()}</p>
+                            {this.getProfile()}
+                        </div>
                     </div>
                 </div>
             ); // end return()

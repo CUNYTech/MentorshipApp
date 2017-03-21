@@ -7,11 +7,10 @@ class Footer extends Component {
 
     render() {
         return (
-            <div>
+            <div className="row" id="footer">
                 <hr/>
-                <div>
+                <div className="col-md-3">
                     <ul>
-
                         <li>
                             <Link to="home" href="localhost:3000/home">HOME</Link>
                         </li>
@@ -26,16 +25,32 @@ class Footer extends Component {
                         </li>
                     </ul>
                 </div>
-                <div>
-                    <h5>Connect with us</h5>
+                <div className="col-md-3">
                     <ul>
+                        <li>Obec</li>
                         <li>Facebook</li>
                         <li>Instagram</li>
                         <li>Twitter</li>
                     </ul>
                 </div>
-                <hr/>
-                <p>	&copy; Obec 2017</p>
+                <div className="col-md-3">
+                    <ul>
+                        <li>Be a Mentor</li>
+                        <li>Facebook</li>
+                        <li>Instagram</li>
+                        <li>Twitter</li>
+                    </ul>
+                </div>
+                <div className="col-md-3">
+                    <ul>
+                        <li>Connect with us</li>
+                        <li>Facebook</li>
+                        <li>Instagram</li>
+                        <li>Twitter</li>
+                    </ul>
+                </div>
+                {/*<hr/>*/}
+                {/*<p>	&copy; Obec 2017</p>*/}
             </div>
         ); //end return()
     } // end render()
