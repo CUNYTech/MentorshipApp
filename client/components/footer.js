@@ -12,7 +12,7 @@ class Footer extends Component {
                 <div className="col-md-3">
                     <ul>
                         <li>
-                            <img id="logo-footer" src="meerkat2.png" />
+                            <Link to="home" href="localhost:3000/home"><img id="logo-footer" src="meerkat2.png" /></Link>
                         </li>
                         <li>
                             &copy; Obec 2017
