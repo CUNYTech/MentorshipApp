@@ -71,9 +71,11 @@ class Profile extends Component {
                             <button className="btn btn-danger" onClick={() => this.cancel()}>
                                 Cancel
                             </button>
-                            <button className="btn btn-success" onClick={() => this.save()}>
-                                Save
-                            </button>
+                            <div className="floatRight">
+                                <button className="btn btn-success" onClick={() => this.save()}>
+                                    Save
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -134,10 +134,11 @@ p {
     font-size: 18px;
 }
 
-input[type=submit], .btn-default {
+input[type=submit], .btn-default, .btn-danger, .btn-success {
     width: 115px;
     height: 40px;
     background: #5882FA;
+    border-color: #5882FA;
     text-align: center;
     border-radius: 5px;
     color: white;
@@ -180,4 +181,8 @@ input[type=submit], .btn-default {
 
 #connect {
     font-weight: bold;
+}
+
+.floatRight {
+    float: right;
 }
