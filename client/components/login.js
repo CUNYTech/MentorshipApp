@@ -49,12 +49,12 @@ export default class LoginPage extends React.Component {
                         <p>
                             <a href="#">Forgot password?</a>
                         </p>
+                        <div className="text-danger">{this.state.error}</div>
                         <div className="col-md-4 col-md-offset-4">
                             <p>
                                 <input type="submit" ref="user" value="Login"/>
                             </p>
                         </div>
-                        <div className="text-danger">{this.state.error}</div>
                     </form>
                 </div>
             </div>

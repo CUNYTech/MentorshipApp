@@ -91,6 +91,11 @@ ul {
     width: 100%;
 }
 
+.text-danger {
+    float: left;
+    padding-bottom: 10px;
+}
+
 #profile-pic {
     width: 130px;
     border-radius: 50%;
