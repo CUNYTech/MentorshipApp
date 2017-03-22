@@ -6,6 +6,13 @@ ul {
     list-style-type: none;
 }
 
+.mentor-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
 #profile_blurb {
     resize: none;
 }
@@ -159,14 +166,13 @@ input[type=submit], .btn-default, .btn-danger, .btn-success {
     font-weight: bold;
 }
 
-.btn-group {
-    padding-left: 320px;
-    position: static;
-}
-
 #radioMentor {
     margin-left: 350px;
     width: 100%;
+}
+
+.radio-input {
+    padding-left:20px;
 }
 
 .col-md-4 {

@@ -62,7 +62,9 @@ class Profile extends Component {
                             </p>
                             <p>
                                 <label>Blurb</label>
-                                <textarea  placeholder="Describe yourself here... " id="profile_blurb" rows="4" cols="50" maxLength="500">
+                                <textarea ref="blurb" className="form-control" type="text"
+                                     defaultValue={this.props.user.profile.blurb} placeholder="Describe yourself here... "
+                                          id="profile_blurb" rows="4" cols="50" maxLength="500">
 
                             </textarea>
 

@@ -5,11 +5,12 @@ import { Link }     from 'react-router';
 import { Router }   from 'react-router';
 import Welcome      from './welcome';
 
+
 //we can move this later
 export default class Registration extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { passwordError: '', userError: '' };
+        this.state = { passwordError: '', userError: '', mentorMenteeError:'' };
     }
 
     handleSubmit(event) {
@@ -29,9 +30,13 @@ export default class Registration extends React.Component {
         }
         else {
             this.setState({ passwordError: '' });
+
             var user = { email: email, password: password,
-                         profile: { avatar: '', firstName: firstName, lastName: lastName }
-                       }
+                profile: { avatar: '', firstName: firstName, lastName: lastName,  mentor:[Meteor.users.findOne({_id:"5GdcM36zgLG5kwB2F"}),
+                    Meteor.users.findOne({_id:"MtsCh3taRxH87vm5Y"})], mentee:[Meteor.users.findOne({_id:"XkamGWKKC5adiN4Tu"}),
+                    Meteor.users.findOne({_id:"EpfsxK4pi7uwKnXct"})] }}
+
+
             Accounts.createUser(user, (error) => {
               if (error) {
                 this.setState({ userError: error.reason });
@@ -44,6 +49,8 @@ export default class Registration extends React.Component {
               }
             }) //end Accounts.createUser()
         } // end else
+
+
     } //end handleSubmit
 
     //rendering Sign Up Page
@@ -72,6 +79,7 @@ export default class Registration extends React.Component {
                         <label>Confirm your password </label>
                         <input ref="t_conPassword" className="form-control" type="password" required />
                     </p>
+
                     <div className="text-danger">{ this.state.passwordError }</div>
                     <p>
                         <input type="submit" value="Submit"/>
@@ -82,3 +90,45 @@ export default class Registration extends React.Component {
         ); //end return()
     }; //end render()
 } // end of class
+
+
+
+/*
+mentor or mentee
+
+ if(Mentor==true){
+
+ var user = { email: email, password: password,
+ profile: { avatar: '', firstName: firstName, lastName: lastName,  mentor:[Meteor.users.findOne({_id:"5GdcM36zgLG5kwB2F"}),
+ Meteor.users.findOne({_id:"MtsCh3taRxH87vm5Y"})]},
+
+ }
+ }
+ else if(Mentee==true){
+ var user = { email: email, password: password,
+ profile: { avatar: '', firstName: firstName, lastName: lastName, mentee:[Meteor.users.findOne({_id:"5GdcM36zgLG5kwB2F"}),
+ Meteor.users.findOne({_id:"MtsCh3taRxH87vm5Y"})] },
+
+ }
+ }
+
+ else if(Mentee==true && Mentor==true){
+ var user = { email: email, password: password,
+ profile: { avatar: '', firstName: firstName, lastName: lastName,  mentor:[Meteor.users.findOne({_id:"5GdcM36zgLG5kwB2F"}),
+ Meteor.users.findOne({_id:"MtsCh3taRxH87vm5Y"})], mentee:[Meteor.users.findOne({_id:"5GdcM36zgLG5kwB2F"}),
+ Meteor.users.findOne({_id:"MtsCh3taRxH87vm5Y"})] },
+
+ }
+ }
+ else if (Mentee==false && Mentor==false){
+ this.setState({mentorMenteeError: 'Select one please'});
+ }
+ <p>
+ <label>Check one or both</label><br/>
+ <input ref="mentor" type="checkbox" name="mentor" value="mentor"/> Mentor<br/>
+ <input ref="mentee" type="checkbox" name="mentee" value="mentee"/> Mentee<br/>
+ <p className="text-danger">{ this.state.mentorMenteeError }</p>
+
+ </p>
+
+ */
