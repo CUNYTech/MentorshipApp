@@ -5,13 +5,14 @@ import OtherInfromation from './components/other_information';
 import LoginInformation from './components/login';
 import Home             from './components/home';
 import Header           from './components/header';
-
+import Footer           from './components/footer';
 
 export default (props) => {
     return (
         <div>
             <Header />
             {props.children}
+            <Footer/>
         </div>
     );
 };

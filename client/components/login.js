@@ -34,27 +34,29 @@ export default class LoginPage extends React.Component {
 
     render() {
         return (
-            <div className="col-md-4 col-md-offset-4">
-                <h2>Login</h2>
-                <form onSubmit= {this.handleSubmit.bind(this)} >
-                    <p>
-                        <label>Username: </label>
-                        <input required="required" ref= "usernameLogin" className="form-control" type="text" placeholder="John@gmail.com"/>
-                    </p>
-                    <p>
-                        <label >Password: </label>
-                        <input required="required" ref="pass" className="form-control" type="password" placeholder="******"/>
-                    </p>
-                    <p>
-                        <a href="#">Forgot password?</a>
-                    </p>
-                    <div className="col-md-4 col-md-offset-4">
+            <div className="row">
+                <div className="col-md-4 col-md-offset-4">
+                    <h2>Login</h2>
+                    <form onSubmit= {this.handleSubmit.bind(this)} >
                         <p>
-                            <input type="submit" ref="user" value="Login"/>
+                            <label>Username: </label>
+                            <input required="required" ref= "usernameLogin" className="form-control" type="text" placeholder="John@gmail.com"/>
                         </p>
-                    </div>
-                    <div className="text-danger">{this.state.error}</div>
-                </form>
+                        <p>
+                            <label >Password: </label>
+                            <input required="required" ref="pass" className="form-control" type="password" placeholder="******"/>
+                        </p>
+                        <p>
+                            <a href="#">Forgot password?</a>
+                        </p>
+                        <div className="text-danger">{this.state.error}</div>
+                        <div className="col-md-4 col-md-offset-4">
+                            <p>
+                                <input type="submit" ref="user" value="Login"/>
+                            </p>
+                        </div>
+                    </form>
+                </div>
             </div>
         ); //end return()
     } //end render()

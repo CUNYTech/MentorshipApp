@@ -2,19 +2,31 @@ html, body {
     height: 100%;
 }
 
-img {
-    width: 200px;
-    margin: 20px;
+ul {
+    list-style-type: none;
 }
 
-#blank {
-    width: 300px;
-    height: 20px;
+#profile_blurb {
+    resize: none;
 }
 
 #logo {
-    width: 110px;
-    height: 82px;
+    width: 98px;
+    height: 70px;
+    position: relative;
+    padding-left: 10px;
+    margin-right: -5px;
+    margin-left: 20px;
+}
+#github_icon{
+    width:10%;
+    height:10%;
+
+
+}
+#logo-footer {
+    width: 94px;
+    height: 77px;
     position: relative;
 }
 
@@ -24,38 +36,35 @@ img {
     margin-left: 30px;
 }
 
+#searchBox {
+    padding-top: 8px;
+    padding-right: 330px;
+    padding-left: 15px;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
 .navbar-default {
-    background: transparent;
-    border: transparent;
-}
-
-.navbar-header {
-    background-color: transparent;
-}
-
-.navbar-brand {
-    height: 50px;
-    padding-top: -10px;
-}
-
-.navbar-default .navbar-nav {
     position: fixed;
-    top:0;
-    background-color: white;
-    width: 97.6%;
-    height: 105px;
+    background-color: #f8f8f8;
+    width: 100%;
+    margin-left: -15px;
+    border-radius: 0;
+    top: 0;
+}
+
+.navbar-nav {
+    margin-top: 18px;
 }
 
 .navbar-default .navbar-nav > li {
     padding-top: 0;
-    padding-left: 35px;
+    padding-left: 8px;
 }
 
 .navbar-default .navbar-nav > li > a {
     color: #5882FA;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 24px;
-    padding-top: 47px;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
@@ -65,8 +74,8 @@ img {
 
 .container {
     width: 100%;
-    min-height: 800px;
     background-color: white;
+    margin-top: 100px;
 }
 
 .row {
@@ -84,6 +93,11 @@ img {
     text-align: center;
     position: static;
     width: 100%;
+}
+
+.text-danger {
+    float: left;
+    padding-bottom: 10px;
 }
 
 #profile-pic {
@@ -115,6 +129,10 @@ h2, a {
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
+a:focus, a:hover {
+    text-decoration: none;
+}
+
 p {
     font-family: 'Open Sans Condensed', sans-serif;
     text-align: justify;
@@ -130,10 +148,11 @@ p {
     font-size: 18px;
 }
 
-input[type=submit], .btn-default {
+input[type=submit], .btn-default, .btn-danger, .btn-success {
     width: 115px;
     height: 40px;
     background: #5882FA;
+    border-color: #5882FA;
     text-align: center;
     border-radius: 5px;
     color: white;
@@ -152,4 +171,32 @@ input[type=submit], .btn-default {
 
 .col-md-4 {
     position:static;
+}
+
+.col-md-3 > ul > li {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 19px;
+}
+
+.col-md-3 > ul > li > a {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 19px;
+    color: black;
+}
+
+.col-md-3 > ul > li > a:hover {
+    color: #5882FA;
+}
+
+#footer {
+    position:static;
+    width:100%;
+}
+
+#connect {
+    font-weight: bold;
+}
+
+.floatRight {
+    float: right;
 }

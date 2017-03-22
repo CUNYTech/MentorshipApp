@@ -30,14 +30,11 @@ class Header extends Component {
         return (
             <div className="navbar navbar-default" role="navigation">
                 <div className="navbar-header">
-                    <img id="logo" src="blank.png" />
+                    <Link to="home" href="localhost:3000/home"><img id="logo" src="meerkat2.png" /></Link>
                 </div>
                 <ul className="nav navbar-nav">
-                    <li>
-                        <img id="logo" className="navbar-header" src="meerkat2.png"/>
-                    </li>
-                    <li>
-                        <img id="blank" src="blank.png"/>
+                    <li id="searchBox">
+                        <input type="search" className="form-control" placeholder="Search"/>
                     </li>
                     <li>
                         <Link to="home" href="localhost:3000/home">HOME</Link>
@@ -58,9 +55,9 @@ class Header extends Component {
 } // end class Header
 
 export default createContainer(() => {
-  /* subscribe to users collection to see them on CTRL + M */
-  Meteor.subscribe('users');
+    /* subscribe to users collection to see them on CTRL + M */
+    Meteor.subscribe('users');
 
-  //return an object, Whatever we return will be send to userList as props
-  return { user: Meteor.user() };
+    //return an object, Whatever we return will be send to userList as props
+    return { user: Meteor.user() };
 }, Header);
