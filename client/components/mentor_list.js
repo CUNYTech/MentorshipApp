@@ -9,25 +9,10 @@ class MentorList extends Component {
     this.state = {selectedOption:'mentor'}
   }
 
-
-  mentorButton() {
-    /* Disabled until MentorDetail component is implemented
-    this.props.mentors.map(mentor =>
-      <MentorDetail mentor={mentor} />)
-    */
-  }
-
-  menteeButton() {
-    /* Disabled until MenteeDetail component is implemented
-    this.props.mentees.map(mentee =>
-      <MenteeDetail mentee={mentee} />)
-    */
-  }
-
     renderMentor(){
         if( this.state.selectedOption=='mentor'){
             if(this.props.user.profile.mentor==null || this.props.user.profile.mentor == 'undefined')
-                return (<p>No mentors yet</p>)
+                return (<div><p>No mentors yet</p></div>);
             else
             return (this.props.user.profile.mentor.map(user =>
                 <MentorDetail key={user._id} user={user} />))
@@ -35,45 +20,36 @@ class MentorList extends Component {
         }
         else {
            if(this.props.user.profile.mentee==null || this.props.user.profile.mentee == 'undefined')
-            return (<p>No mentees yet</p>)
+            return (<p>No mentees yet</p>);
             else
                 return(this.props.user.profile.mentee.map(user =>
                     <MenteeDetail key={user._id} user={user} />))
-
         }
-
     }
 
     handleOptionChange () {
         if (this.state.selectedOption==='mentor'){
     this.setState({
         selectedOption:'mentee'
-
     });}
 
         else if (this.state.selectedOption==='mentee'){
             this.setState({
                 selectedOption:'mentor'
-
             });}
-
-
 }
-
-
-
 
 
   render() {
     return (
       <div>
-          <div className="btn-group">
-              <label className="btn btn-primary" data-toggle="buttons">
-                  <input type="radio" name="mentee" checked={this.state.selectedOption === 'mentee'}
+          <div>
+              <label className="radio-input">
+                  <input type="radio" name="mentee" defaultChecked={this.state.selectedOption === 'mentee'}
                          onClick={this.handleOptionChange.bind(this)}/> Mentees
               </label>
-              <label className="btn btn-primary active">
-                  <input type="radio"  name="mentor"   checked={this.state.selectedOption === 'mentor'}
+              <label className="radio-input">
+                  <input type="radio"  name="mentor" defaultChecked={this.state.selectedOption === 'mentor'}
                          onClick={this.handleOptionChange.bind(this)}/> Mentors
               </label>
 
