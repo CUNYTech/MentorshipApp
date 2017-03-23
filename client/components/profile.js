@@ -5,7 +5,7 @@ import { createContainer }  from 'meteor/react-meteor-data';
 class Profile extends Component {
     constructor(props) {
         super(props);
-        this.state = { isEditProfile: false, isEditAccount: false, accountError: ''};
+        this.state = { isEditProfile: false, isEditAccount: false };
     }
 
     getName() {
@@ -56,17 +56,20 @@ class Profile extends Component {
 
     saveAccount() {
       const email = this.refs.email.value;
-      const oldPassword = this.refs.currentPassword.value;
       const newPassword = this.refs.newPassword.value;
       const conPassword = this.refs.conPassword.value;
       if(newPassword != conPassword) {
-        this.setState({accountError: "Passwords don't match"});
+        console.log("passwords don't match");
+      }
+      else if(newPassword == '') {
+        Meteor.call('users.updateEmail', email);
+        this.setState({isEditAccount: false});
       }
       else {
         Meteor.call('users.updateEmail', email);
         Meteor.call('users.changePassword', newPassword);
+        this.setState({isEditAccount: false});
       }
-      this.setState({isEditAccount: false});
     } //end saveAccount()
 
     render() {
@@ -119,8 +122,6 @@ class Profile extends Component {
                                      defaultValue={this.props.user.emails[0].address} />
                           </p>
                           <p>
-                              <label>Current password</label>
-                              <input ref="currentPassword" className="form-control" type="password" />
                               <label>New Password</label>
                               <input ref="newPassword" className="form-control" type="password" />
                               <label>Confirm Password</label>
