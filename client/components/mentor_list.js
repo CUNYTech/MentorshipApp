@@ -12,7 +12,7 @@ class MentorList extends Component {
     renderMentor(){
         if( this.state.selectedOption=='mentor'){
             if(this.props.user.profile.mentor==null || this.props.user.profile.mentor == 'undefined')
-                return (<div><p>No mentors yet</p></div>);
+                return (<div><br/><p>No mentors yet</p></div>);
             else
             return (this.props.user.profile.mentor.map(user =>
                 <MentorDetail key={user._id} user={user} />))
@@ -20,7 +20,7 @@ class MentorList extends Component {
         }
         else {
            if(this.props.user.profile.mentee==null || this.props.user.profile.mentee == 'undefined')
-            return (<p>No mentees yet</p>);
+            return (<div><br/><p>No mentees yet</p></div>);
             else
                 return(this.props.user.profile.mentee.map(user =>
                     <MenteeDetail key={user._id} user={user} />))
@@ -45,12 +45,12 @@ class MentorList extends Component {
       <div>
           <div>
               <label className="radio-input">
-                  <input type="radio" name="mentee" defaultChecked={this.state.selectedOption === 'mentee'}
-                         onClick={this.handleOptionChange.bind(this)}/> Mentees
+                  <button className="btn btn-default" defaultChecked={this.state.selectedOption === 'mentee'}
+                          onClick={this.handleOptionChange.bind(this)}>Mentees</button>
               </label>
               <label className="radio-input">
-                  <input type="radio"  name="mentor" defaultChecked={this.state.selectedOption === 'mentor'}
-                         onClick={this.handleOptionChange.bind(this)}/> Mentors
+                  <button className="btn btn-default"defaultChecked={this.state.selectedOption === 'mentor'}
+                          onClick={this.handleOptionChange.bind(this)}>Mentors</button>
               </label>
 
           </div>
