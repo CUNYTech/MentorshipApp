@@ -20,7 +20,7 @@ class MentorList extends Component {
         }
         else {
            if(this.props.user.profile.mentee==null || this.props.user.profile.mentee == 'undefined')
-            return (<div><br/><p>No mentees yet</p></div>);
+            return (<div><br/><p>No mentees yet </p></div>);
             else
                 return(this.props.user.profile.mentee.map(user =>
                     <MenteeDetail key={user._id} user={user} />))
