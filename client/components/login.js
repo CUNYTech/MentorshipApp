@@ -32,6 +32,12 @@ export default class LoginPage extends React.Component {
             }.bind(this));
     } //end handleSubmit
 
+    forgotPassword(event) {
+      event.preventDefault();
+      const email = this.refs.email.value;
+      Accounts.forgotPassword(email);
+    }
+
     render() {
         return (
             <div className="row">
@@ -47,9 +53,16 @@ export default class LoginPage extends React.Component {
                             <input required="required" ref="pass" className="form-control" type="password" placeholder="******"/>
                         </p>
                         <p>
-                            <a href="#">Forgot password?</a>
+                            <a href="#" data-toggle="collapse" data-target="#forgotpass">Forgot password?</a>
                         </p>
                         <div className="text-danger">{this.state.error}</div>
+                        <form className="form-inline">
+                          <div id="forgotpass" className="collapse">
+                            <label>Email: </label>
+                            <input ref="email" className="form-control" type="text" />
+                            <button className="btn btn-primary" onClick={this.forgotPassword.bind(this)}>Send</button>
+                          </div>
+                        </form>
                         <div className="col-md-4 col-md-offset-4">
                             <p>
                                 <input type="submit" ref="user" value="Login"/>
@@ -61,3 +74,23 @@ export default class LoginPage extends React.Component {
         ); //end return()
     } //end render()
 }; //end of LogIn Page class
+
+/* Accounts.onResetPasswordLink is the function called when user click on the link
+   in their email.
+var done = function() {
+  console.log("Succeeded in changing password");
+}
+
+Accounts.onResetPasswordLink((token, done) => {
+  // Display the password reset UI, get the new password...
+  const newPassword = "01234";
+  Accounts.resetPassword(token, newPassword, (err) => {
+    if (err) {
+      // Display error
+    } else {
+      // Resume normal operation
+      this.done();
+    }
+  });
+});
+*/
