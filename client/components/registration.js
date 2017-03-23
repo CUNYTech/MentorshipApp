@@ -32,9 +32,9 @@ export default class Registration extends React.Component {
             this.setState({ passwordError: '' });
 
             var user = { email: email, password: password,
-                profile: { avatar: '', firstName: firstName, lastName: lastName,  mentor:[Meteor.users.findOne({_id:"5GdcM36zgLG5kwB2F"}),
+                profile: { avatar: '', firstName: firstName, lastName: lastName/*,  mentor:[Meteor.users.findOne({_id:"5GdcM36zgLG5kwB2F"}),
                     Meteor.users.findOne({_id:"MtsCh3taRxH87vm5Y"})], mentee:[Meteor.users.findOne({_id:"XkamGWKKC5adiN4Tu"}),
-                    Meteor.users.findOne({_id:"EpfsxK4pi7uwKnXct"})] }}
+                    Meteor.users.findOne({_id:"EpfsxK4pi7uwKnXct"})] */}};
 
 
             Accounts.createUser(user, (error) => {
