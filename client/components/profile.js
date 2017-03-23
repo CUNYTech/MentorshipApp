@@ -5,7 +5,7 @@ import { createContainer }  from 'meteor/react-meteor-data';
 class Profile extends Component {
     constructor(props) {
         super(props);
-        this.state = { isEdit: false };
+        this.state = { isEditProfile: false, isEditAccount: false, accountError: ''};
     }
 
     getName() {
@@ -29,28 +29,51 @@ class Profile extends Component {
     }
 
     editProfile() {
-        this.setState({isEdit: true});
+        this.setState({isEditProfile: true});
     }
 
-    cancel() {
-        this.setState({isEdit: false});
+    cancelProfile() {
+        this.setState({isEditProfile: false});
     }
 
-    save() {
+    saveProfile() {
         const name = this.refs.firstName.value;
         const blurb = this.refs.blurb.value;
         Meteor.users.update(Meteor.userId(), {$set: {
             "profile.firstName": name,
             "profile.blurb": blurb,
         }});
-        this.setState({isEdit: false});
+        this.setState({isEditProfile: false});
     }
+
+    editAccount() {
+      this.setState({isEditAccount: true});
+    }
+
+    cancelAccount() {
+      this.setState({isEditAccount: false});
+    }
+
+    saveAccount() {
+      const email = this.refs.email.value;
+      const oldPassword = this.refs.currentPassword.value;
+      const newPassword = this.refs.newPassword.value;
+      const conPassword = this.refs.conPassword.value;
+      if(newPassword != conPassword) {
+        this.setState({accountError: "Passwords don't match"});
+      }
+      else {
+        Meteor.call('users.updateEmail', email);
+        Meteor.call('users.changePassword', newPassword);
+      }
+      this.setState({isEditAccount: false});
+    } //end saveAccount()
 
     render() {
         if(!this.props.user) {
             return <div>Loading...</div>;
         }
-        else if(this.state.isEdit) {
+        else if(this.state.isEditProfile) {
             return (
                 <div className="row">
                     <div className="col-md-4 col-md-offset-4">
@@ -72,11 +95,11 @@ class Profile extends Component {
                         </form>
 
                         <div className="buttons">
-                            <button className="btn btn-danger" onClick={() => this.cancel()}>
+                            <button className="btn btn-danger" onClick={() => this.cancelProfile()}>
                                 Cancel
                             </button>
                             <div className="floatRight">
-                                <button className="btn btn-success" onClick={() => this.save()}>
+                                <button className="btn btn-success" onClick={() => this.saveProfile()}>
                                     Save
                                 </button>
                             </div>
@@ -85,12 +108,48 @@ class Profile extends Component {
                 </div>
             );
         }
+        else if(this.state.isEditAccount) {
+          return (
+              <div className="row">
+                  <div className="col-md-4 col-md-offset-4">
+                      <form className="form-horizontal">
+                          <p>
+                              <label>Email</label>
+                              <input ref="email" className="form-control" type="text"
+                                     defaultValue={this.props.user.emails[0].address} />
+                          </p>
+                          <p>
+                              <label>Current password</label>
+                              <input ref="currentPassword" className="form-control" type="password" />
+                              <label>New Password</label>
+                              <input ref="newPassword" className="form-control" type="password" />
+                              <label>Confirm Password</label>
+                              <input ref="conPassword" className="form-control" type="password" />
+                          </p>
+                      </form>
+                      <div className="buttons">
+                          <button className="btn btn-danger" onClick={() => this.cancelAccount()}>
+                              Cancel
+                          </button>
+                          <div className="floatRight">
+                              <button className="btn btn-success" onClick={() => this.saveAccount()}>
+                                  Save
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          );
+        }
         else {
             return (
                 <div className="row">
                     <div className="col-md-4 col-md-offset-4" id="profile">
                         <button className="btn btn-primary" onClick={() => this.editProfile()}>
                             Edit Profile
+                        </button>
+                        <button className="btn btn-primary" onClick={() => this.editAccount()}>
+                            Account Setting
                         </button>
                         <div>
                             <img id="profile-pic" className="col-md-4 col-md-offset-4" src={this.getAvatar()}/>
