@@ -27,7 +27,7 @@ export default class LoginPage extends React.Component {
                 }
                 else {
                     this.setState({error:''});
-                    Router.browserHistory.push('/dashboard');
+                    Router.browserHistory.push('/home');
                 }
             }.bind(this));
     } //end handleSubmit
@@ -82,23 +82,3 @@ export default class LoginPage extends React.Component {
         ); //end return()
     } //end render()
 }; //end of LogIn Page class
-
-/* Accounts.onResetPasswordLink is the function called when user click on the link
-   in their email.
-var done = function() {
-  console.log("Succeeded in changing password");
-}
-
-Accounts.onResetPasswordLink((token, done) => {
-  // Display the password reset UI, get the new password...
-  const newPassword = "01234";
-  Accounts.resetPassword(token, newPassword, (err) => {
-    if (err) {
-      // Display error
-    } else {
-      // Resume normal operation
-      this.done();
-    }
-  });
-});
-*/
