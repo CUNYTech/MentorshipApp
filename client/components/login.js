@@ -1,10 +1,10 @@
 import React        from 'react';
-import { Accounts } from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
 
 export default class LoginPage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { error: '' };
+        this.state = { error: '', resetError: '' };
     }
 
     handleSubmit(event) {
@@ -32,10 +32,17 @@ export default class LoginPage extends React.Component {
             }.bind(this));
     } //end handleSubmit
 
-    forgotPassword(event) {
+    forgotPass(event) {
       event.preventDefault();
-      const email = this.refs.email.value;
-      Accounts.forgotPassword(email);
+      const options = {email: this.refs.email.value};
+      Accounts.forgotPassword(options, function (error) {
+        if(error) {
+          this.setState({resetError: error.message});
+        }
+        else {
+          this.setState({resetError: "Reset link has been sent to your email"});
+        }
+      }.bind(this));
     }
 
     render() {
@@ -56,18 +63,19 @@ export default class LoginPage extends React.Component {
                             <a href="#" data-toggle="collapse" data-target="#forgotpass">Forgot password?</a>
                         </p>
                         <div className="text-danger">{this.state.error}</div>
-                        <form className="form-inline">
-                          <div id="forgotpass" className="collapse">
-                            <label>Email: </label>
-                            <input ref="email" className="form-control" type="text" />
-                            <button className="btn btn-primary" onClick={this.forgotPassword.bind(this)}>Send</button>
-                          </div>
-                        </form>
                         <div className="col-md-4 col-md-offset-4">
                             <p>
                                 <input type="submit" ref="user" value="Login"/>
                             </p>
                         </div>
+                    </form>
+                    <form className="form-inline">
+                      <div id="forgotpass" className="collapse">
+                        <label>Email: </label>
+                        <input ref="email" className="form-control" type="text" />
+                        <button className="btn btn-primary" onClick={this.forgotPass.bind(this)}>Send</button>
+                      </div>
+                      <div className="text-danger">{this.state.resetError}</div>
                     </form>
                 </div>
             </div>

@@ -16,5 +16,5 @@ Meteor.methods({
 
   'users.changePassword': function(newPassword) {
     Accounts.setPassword(Meteor.userId(), newPassword);
-  },
-});
+  }
+}); //end Meteor.methods()
