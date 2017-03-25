@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Meteor }           from 'meteor/meteor'
 import { createContainer }  from 'meteor/react-meteor-data';
 import MentorDetail from './mentor_detail';
+import MenteeDetail from './mentee_detail';
 
 class MentorList extends Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class MentorList extends Component {
                           onClick={this.handleOptionChange.bind(this)}>Mentees</button>
               </label>
               <label className="radio-input">
-                  <button className="btn btn-default"defaultChecked={this.state.selectedOption === 'mentor'}
+                  <button className="btn btn-default" defaultChecked={this.state.selectedOption === 'mentor'}
                           onClick={this.handleOptionChange.bind(this)}>Mentors</button>
               </label>
 

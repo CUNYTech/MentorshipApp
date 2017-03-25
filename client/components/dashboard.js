@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Meteor }           from 'meteor/meteor'
 import { createContainer }  from 'meteor/react-meteor-data';
 import MentorList           from './mentor_list';
+import { Link }             from 'react-router';
 
 class Dashboard extends Component {
 
@@ -37,6 +38,7 @@ class Dashboard extends Component {
             </div>
           </div>
           <div className="action-field">
+            <Link to="search"><p>Search</p></Link>
             <a href="#">
               <p>Messages</p>
             </a>

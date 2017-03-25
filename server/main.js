@@ -8,13 +8,13 @@ Meteor.startup(()=>{
     const numberRecords = Meteor.users.find({}).count();
     if (numberRecords < 20) {
         _.times(20, () => {
-            const { name, email, phone } = helpers.createCard();
+            const { name, email, username } = helpers.createCard();
             const avatar = image.avatar();
             const blurb = lorem.sentences();
             //console.log email when generating fake users.
             //console.log(email);
             Accounts.createUser({
-                email: email, password:'faker',  profile: { avatar: avatar, firstName: name, lastName: '', blurb: blurb }
+                email: email, password:'faker',username:username,  profile: { avatar: avatar, firstName: name, lastName: '', blurb: blurb }
             }); // end Userz.insert()
         }); // end loop
     } //end if

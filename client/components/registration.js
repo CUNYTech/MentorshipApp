@@ -18,6 +18,7 @@ export default class Registration extends React.Component {
         const email = this.refs.t_email.value;
         const password = this.refs.t_password.value;
         const conPassword = this.refs.t_conPassword.value;
+        const username = this.refs.t_username.value;
 
         //Checks whether both password entries match
         if(password != conPassword) {
@@ -26,7 +27,7 @@ export default class Registration extends React.Component {
         else {
             this.setState({ passwordError: '' });
 
-            var user = { email: email, password: password,
+            var user = { username:username, email: email, password: password,
                 profile: { avatar: '', firstName: firstName, lastName: lastName/*,  mentor:[Meteor.users.findOne({_id:"5GdcM36zgLG5kwB2F"}),
                     Meteor.users.findOne({_id:"MtsCh3taRxH87vm5Y"})], mentee:[Meteor.users.findOne({_id:"XkamGWKKC5adiN4Tu"}),
                     Meteor.users.findOne({_id:"EpfsxK4pi7uwKnXct"})] */}};
@@ -38,7 +39,7 @@ export default class Registration extends React.Component {
               else {
                 this.setState({ userError: '', registerSucceeded: true });
               }
-            }) //end Accounts.createUser()
+            }); //end Accounts.createUser()
         } // end else
     } //end handleSubmit
 
@@ -56,6 +57,10 @@ export default class Registration extends React.Component {
                     <p>
                         <label >Last Name </label>
                         <input ref="t_lName" className="form-control" type="text" required />
+                    </p>
+                    <p>
+                        <label >Username </label>
+                        <input ref="t_username" className="form-control" type="text" required />
                     </p>
                     <p>
                         <label>E-mail </label>
