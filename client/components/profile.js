@@ -5,7 +5,7 @@ import { createContainer }  from 'meteor/react-meteor-data';
 class Profile extends Component {
     constructor(props) {
         super(props);
-        this.state = { isEditProfile: false, isEditAccount: false, accountError: ''};
+        this.state = { isEditProfile: false, isEditAccount: false };
     }
 
     getName() {
@@ -21,8 +21,12 @@ class Profile extends Component {
 
     getProfile() {
         return (
-            <div>
+            <div id="put-bottom">
                 <p>{this.props.user.profile.firstName}</p>
+                <p>
+                    <a href="">Ask a Question</a>
+                </p>
+                <hr id="profile-hr"/>
                 <p>{this.props.user.profile.blurb}</p>
             </div>
         );
@@ -56,17 +60,20 @@ class Profile extends Component {
 
     saveAccount() {
       const email = this.refs.email.value;
-      const oldPassword = this.refs.currentPassword.value;
       const newPassword = this.refs.newPassword.value;
       const conPassword = this.refs.conPassword.value;
       if(newPassword != conPassword) {
-        this.setState({accountError: "Passwords don't match"});
+        console.log("passwords don't match");
+      }
+      else if(newPassword == '') {
+        Meteor.call('users.updateEmail', email);
+        this.setState({isEditAccount: false});
       }
       else {
         Meteor.call('users.updateEmail', email);
         Meteor.call('users.changePassword', newPassword);
+        this.setState({isEditAccount: false});
       }
-      this.setState({isEditAccount: false});
     } //end saveAccount()
 
     render() {
@@ -119,8 +126,6 @@ class Profile extends Component {
                                      defaultValue={this.props.user.emails[0].address} />
                           </p>
                           <p>
-                              <label>Current password</label>
-                              <input ref="currentPassword" className="form-control" type="password" />
                               <label>New Password</label>
                               <input ref="newPassword" className="form-control" type="password" />
                               <label>Confirm Password</label>
@@ -144,19 +149,17 @@ class Profile extends Component {
         else {
             return (
                 <div className="row">
-                    <div className="col-md-4 col-md-offset-4" id="profile">
+                    <div>
                         <button className="btn btn-primary" onClick={() => this.editProfile()}>
                             Edit Profile
-                        </button>
+                        </button> &nbsp;
                         <button className="btn btn-primary" onClick={() => this.editAccount()}>
                             Account Setting
                         </button>
-                        <div>
-                            <img id="profile-pic" className="col-md-4 col-md-offset-4" src={this.getAvatar()}/>
-                        </div>
-                        <div id="action-field2" className="col-md-4 col-md-offset-4" >
-                            {this.getProfile()}
-                        </div>
+                    </div>
+                    <div id="action-field2" className="col-md-4 col-md-offset-4">
+                        <img id="profile-pic" className="col-md-4 col-md-offset-4" src={this.getAvatar()}/>
+                        {this.getProfile()}
                     </div>
                 </div>
             ); // end return()

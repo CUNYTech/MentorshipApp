@@ -12,6 +12,10 @@ ul {
     justify-content: space-around;
 }
 
+#profile-hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
 #profile_blurb {
     resize: none;
@@ -40,7 +44,7 @@ ul {
 #avatar {
     width: 130px;
     border-radius: 50%;
-    margin-left: 30px;
+    margin-top: 15px;
 }
 
 #searchBox {
@@ -100,6 +104,15 @@ ul {
     text-align: center;
     position: static;
     width: 100%;
+    margin-bottom: -5px;
+}
+
+#action-field2 {
+    border: solid;
+    border-radius: 8px;
+    border-width: 2px;
+    border-color: lightgrey;
+    padding: 20px;
 }
 
 .text-danger {
@@ -117,23 +130,31 @@ ul {
     border-radius: 8px;
     border-width: 2px;
     border-color: lightgrey;
+    float: left;
 }
 
 .col-xs-6 {
     width: 50%;
     height: 100%;
-    padding-right: 80px;
     position: static;
 }
 
 #addBorder {
     width: 23%;
     margin-left: 40px;
+    border: solid;
+    border-radius: 8px;
+    border-width: 2px;
+    border-color: lightgrey;
 }
 
 h2, a {
     color: #5882FA;
     font-family: 'Open Sans Condensed', sans-serif;
+}
+
+a {
+    font-size: 18px;
 }
 
 a:focus, a:hover {
@@ -205,4 +226,8 @@ input[type=submit], .btn-default, .btn-danger, .btn-success {
 
 .floatRight {
     float: right;
+}
+
+#put-bottom {
+    float: left;
 }

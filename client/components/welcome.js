@@ -10,7 +10,7 @@ export default class Welcome extends React.Component {
     goButton(event) {
         event.preventDefault();
         var Router = require('react-router');
-        Router.browserHistory.push('/dashboard');
+        Router.browserHistory.push('/home');
     }
 
     render () {

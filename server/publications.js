@@ -15,6 +15,12 @@ Meteor.methods({
   },
 
   'users.changePassword': function(newPassword) {
-    Accounts.changePassword(Meteor.userId(), newPassword);
+    Accounts.setPassword(Meteor.userId(), newPassword);
   },
-});
+
+    'find_by_username': function(name){
+        var user = Accounts.findUserByUsername(name);
+        return user;
+}
+
+}); //end Meteor.methods()
