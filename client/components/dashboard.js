@@ -29,11 +29,11 @@ class Dashboard extends Component {
     return (
       <div className="row">
         <div className="col-xs-6" id="addBorder">
-          <div>
-            <img id="avatar" src={this.getAvatar()}/>
+          <div className="action-field">
+            <p><img id="avatar" src={this.getAvatar()}/></p>
           </div>
           <div>
-            <div className = "action-field">
+            <div className="action-field">
               <p>Welcome, {this.getName()}</p>
             </div>
           </div>
