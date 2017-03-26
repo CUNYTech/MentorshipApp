@@ -10,7 +10,6 @@ class Messaging extends Component {
     constructor(props){
         super(props)
 
-
     };
 
     renderMail() {
@@ -19,7 +18,7 @@ class Messaging extends Component {
 
     }
 
-    
+
 
     render(){
         if (!this.props.user) {
@@ -28,7 +27,9 @@ class Messaging extends Component {
 
         return (
 
-            <div> {this.renderMail()} </div>
+            <div>
+                {this.renderMail()}
+            </div>
 
         )};
 }
