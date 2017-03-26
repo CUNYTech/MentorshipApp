@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM             from 'react-dom';
 import { Meteor }           from 'meteor/meteor'
 import { createContainer }  from 'meteor/react-meteor-data';
-import MentorDetail from './mentor_detail';
-import MenteeDetail from './mentee_detail';
-import { Accounts } from 'meteor/accounts-base';
+import MentorDetail         from './mentor_detail';
+import MenteeDetail         from './mentee_detail';
+import { Accounts }         from 'meteor/accounts-base';
 
 class SearchResults extends Component {
     constructor(props) {
@@ -13,38 +13,29 @@ class SearchResults extends Component {
 
     }
 
-    handleSubmit(event){
-    event.preventDefault();
-    const search = this.refs.searchBox.value;
-
-
-            var result = Meteor.call('find_by_username', search, function find_by_username_callback(error,user){
-                console.log(user.username);
-                const element = <p>First name:{user.profile.firstName}   email:{user.emails[0].address}</p>;
-                ReactDOM.render(
-                    element,
-                    document.getElementById('root')
-                );
-
-            });
-
-
-
+    handleSubmit(event) {
+      event.preventDefault();
+      const search = this.refs.searchBox.value;
+      var element;
+      Meteor.call('find_by_username', search, (error, user) => {
+        if(user) {
+          element = <p>First name: {user.profile.firstName}  email: {user.emails[0].address}</p>;
         }
-
-
-
+        else {
+          element = <p>No user found</p>
+        }
+        ReactDOM.render(element, document.getElementById('root'));
+      });
+    }
 
     render() {
         return (
             <div>
                 <form>
-                <input type="text" ref="searchBox"/>
-                <input type="button" value="Search" onClick={this.handleSubmit.bind(this)}/>
+                  <input type="text" ref="searchBox"/>
+                  <input type="button" value="Search" onClick={this.handleSubmit.bind(this)}/>
                 </form>
-                <div id="root">
-
-                </div>
+                <div id="root"></div>
             </div>
         ); //end return()
     } //end render()

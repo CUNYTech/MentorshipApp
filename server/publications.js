@@ -18,9 +18,8 @@ Meteor.methods({
     Accounts.setPassword(Meteor.userId(), newPassword);
   },
 
-    'find_by_username': function(name){
-        var user = Accounts.findUserByUsername(name);
-        return user;
+  'find_by_username': function(name) {
+    return Accounts.findUserByUsername(name);
 }
 
 }); //end Meteor.methods()

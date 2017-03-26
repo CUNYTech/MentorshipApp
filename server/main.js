@@ -14,7 +14,10 @@ Meteor.startup(()=>{
             //console.log email when generating fake users.
             //console.log(email);
             Accounts.createUser({
-                email: email, password:'faker',username:username,  profile: { avatar: avatar, firstName: name, lastName: '', blurb: blurb }
+                email: email,
+                password:'faker',
+                username:username,
+                profile: { avatar: avatar, firstName: name, lastName: '', blurb: blurb }
             }); // end Userz.insert()
         }); // end loop
     } //end if
