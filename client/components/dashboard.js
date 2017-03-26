@@ -31,8 +31,7 @@ class Dashboard extends Component {
 
   getStatus() {
       if (this.props.data.handle && this.props.data)
-          if (this.props.data.handle && this.props.data)
-return <p></p>;
+         return <p></p>;
 
               }
 
