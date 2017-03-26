@@ -30,12 +30,8 @@ class SearchResults extends Component {
 
     render() {
         return (
-            <div>
-                <form>
-                  <input type="text" ref="searchBox"/>
-                  <input type="button" value="Search" onClick={this.handleSubmit.bind(this)}/>
-                </form>
-                <div id="root"></div>
+            <div id="searchBox-dashboard">
+                <input type="text" ref="searchBox" className="form-control" onKeyUp={this.handleSubmit.bind(this)} placeholder="Search..."/>
             </div>
         ); //end return()
     } //end render()

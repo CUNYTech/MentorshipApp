@@ -18,7 +18,6 @@ const routes = (
             <Route path="registration" component={Registration}></Route>
             <Route path="login" component={LoginPage}></Route>
             <Route path="profile" component={Profile}></Route>
-            <Route path="search" component={SearchResults}/>
         </Route>
     </Router>
 );

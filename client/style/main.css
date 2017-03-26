@@ -6,10 +6,8 @@ ul {
     list-style-type: none;
 }
 
-.mentor-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.mentor-list p {
+    text-align: center;
 }
 
 #profile-hr {
@@ -52,6 +50,12 @@ ul {
     padding-right: 330px;
     padding-left: 15px;
     font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#searchBox-dashboard {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 17px;
+    float: right;
 }
 
 .navbar-default {
@@ -134,7 +138,7 @@ ul {
 }
 
 .col-xs-6 {
-    width: 50%;
+    width: 65%;
     height: 100%;
     position: static;
 }
@@ -187,13 +191,15 @@ input[type=submit], .btn-default, .btn-danger, .btn-success {
     font-weight: bold;
 }
 
-#radioMentor {
-    margin-left: 350px;
-    width: 100%;
-}
-
 .radio-input {
     padding-left:20px;
+}
+
+#radio-buttons {
+    float: left;
+    width: 100%;
+    margin: 5px;
+    position:static;
 }
 
 .col-md-4 {
