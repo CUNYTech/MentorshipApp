@@ -6,6 +6,7 @@ import About             from './components/about';
 import Registration      from "./components/registration";
 import LoginPage         from './components/login';
 import Profile           from './components/profile';
+import Messaging          from './components/messages'
 import SearchResults     from './components/search_results';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 
@@ -18,6 +19,7 @@ const routes = (
             <Route path="registration" component={Registration}></Route>
             <Route path="login" component={LoginPage}></Route>
             <Route path="profile" component={Profile}></Route>
+            <Route path="messages" component={Messaging}></Route>
         </Route>
     </Router>
 );

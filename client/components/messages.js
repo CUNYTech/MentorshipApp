@@ -1,13 +1,11 @@
-/*
 import React, { Component } from 'react';
 import { Meteor }           from 'meteor/meteor'
 import { Mongo }    from 'meteor/mongo';
 import { createContainer }  from 'meteor/react-meteor-data';
 
+export const Messages = new Mongo.Collection('message');
 
-
-
-class Messages extends Component {
+class Messaging extends Component {
 
     constructor(props){
         super(props)
@@ -21,31 +19,19 @@ class Messages extends Component {
 
     }
 
-
-
+    
 
     render(){
         if (!this.props.user) {
             return <div>Loading...</div>;
         }
 
-
         return (
-
-
 
             <div> {this.renderMail()} </div>
 
         )};
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -60,14 +46,9 @@ export default createContainer(() =>{
 
     let data = {};
     data.handle=Meteor.subscribe('messageList');
-
-
     data.messages = Messages.find({$or:[{'to._id':Meteor.userId()},{'fromuser':Meteor.userId()}]},{sort:{createdOn:-1}}).fetch();
 
-
-//return an object, Whatever we return will be send to userList as props
+    //return an object, Whatever we return will be send to userList as props
     return { user: Meteor.user(), data};
 
-}, Messages);
-
-*/
+}, Messaging);

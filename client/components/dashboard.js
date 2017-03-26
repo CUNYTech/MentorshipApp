@@ -5,8 +5,6 @@ import { createContainer }  from 'meteor/react-meteor-data';
 import MentorList           from './mentor_list';
 import { Link }             from 'react-router';
 
-export const Messages = new Mongo.Collection('message');
-
 
 class Dashboard extends Component {
 
@@ -88,16 +86,10 @@ export default createContainer(() =>{
   /* user email, username, and profile are published by default, we don't have to set
   up subscription. */
 
-    let data = {};
-    data.handle=Meteor.subscribe('messageList');
-
-
-data.messages = Messages.find({$or:[{'to._id':Meteor.userId()},{'fromuser':Meteor.userId()}]},{sort:{createdOn:-1}}).fetch();
-
-
-//return an object, Whatever we return will be send to userList as props
-return { user: Meteor.user()};
-
+    // let data = {};
+    // data.handle=Meteor.subscribe('messageList');
+    //
+    // data.messages = Messages.find({$or:[{'to._id':Meteor.userId()},{'fromuser':Meteor.userId()}]},{sort:{createdOn:-1}}).fetch();
 
     //return an object, Whatever we return will be send to userList as props
     return { user: Meteor.user()};
