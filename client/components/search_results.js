@@ -17,7 +17,7 @@ class SearchResults extends Component {
       event.preventDefault();
       const search = this.refs.searchBox.value;
       var element;
-      Meteor.call('find_by_username', search, (error, user) => {
+      Meteor.call('searchUsers', search, (error, user) => {
         if(user) {
           element = <p>First name: {user.profile.firstName}  email: {user.emails[0].address}</p>;
         }
