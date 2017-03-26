@@ -37,6 +37,7 @@ export default class Registration extends React.Component {
                 this.setState({ userError: error.reason });
               }
               else {
+                Meteor.call('sendVerificationEmail');
                 this.setState({ userError: '', registerSucceeded: true });
               }
             }); //end Accounts.createUser()

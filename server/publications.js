@@ -7,6 +7,10 @@ Meteor.publish('users', function() {
 });
 
 Meteor.methods({
+  'sendVerificationEmail': function() {
+    Accounts.sendVerificationEmail(Meteor.userId(), Meteor.user().emails[0].address);
+  },
+
   'users.updateEmail': function(email) {
     if(email != Meteor.user().emails[0].address) {
       Accounts.addEmail(Meteor.userId(), email);
