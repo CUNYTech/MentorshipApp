@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
 import { Meteor }           from 'meteor/meteor'
+import { Mongo }    from 'meteor/mongo';
 import { createContainer }  from 'meteor/react-meteor-data';
 import MentorList           from './mentor_list';
 
+export const Messages = new Mongo.Collection('message');
+
+
 class Dashboard extends Component {
+
+    constructor(props){
+    super(props)
+
+
+    };
 
   getName() {
     return this.props.user.profile.firstName + ' ' + this.props.user.profile.lastName;
@@ -20,12 +30,27 @@ class Dashboard extends Component {
       return  "default-user.png";
   }
 
+  getStatus() {
+      if (this.props.data.handle && this.props.data)
+          if (this.props.data.handle && this.props.data)
+return <p></p>;
+
+              }
+
+
   render() {
     if(!this.props.user) {
       return <div>Loading...</div>;
     }
 
+
+
     return (
+
+
+
+
+        //
       <div className="row">
         <div className="col-xs-6" id="addBorder">
           <div>
@@ -60,9 +85,14 @@ export default createContainer(() =>{
   /* user email, username, and profile are published by default, we don't have to set
   up subscription. */
 
+    let data = {};
+    data.handle=Meteor.subscribe('messageList');
 
 
-    //return an object, Whatever we return will be send to userList as props
-    return { user: Meteor.user()};
+data.messages = Messages.find({$or:[{'to._id':Meteor.userId()},{'fromuser':Meteor.userId()}]},{sort:{createdOn:-1}}).fetch();
+
+
+//return an object, Whatever we return will be send to userList as props
+return { user: Meteor.user()};
 
 }, Dashboard);
