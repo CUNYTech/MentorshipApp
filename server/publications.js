@@ -32,7 +32,7 @@ Meteor.methods({
     Accounts.setPassword(Meteor.userId(), newPassword);
   },
 
- messages
+
     'sendMessage':function(person,subject,message){
         var to = Meteor.users.findOne({_id: person});
         var from = Meteor.users.findOne({_id: this.userId});
@@ -47,7 +47,7 @@ Meteor.methods({
             throw new Meteor.Error("You can not send yourself a message.")
         }
         Messages.insert(msg);
-    }
+    },
 
   'searchUsers': function(searchValue) {
     var user = Accounts.findUserByUsername(searchValue);
@@ -56,5 +56,6 @@ Meteor.methods({
     }
     return user;
 }
+,
 
 }); //end Meteor.methods()
