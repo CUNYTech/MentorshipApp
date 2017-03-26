@@ -21,8 +21,12 @@ class Profile extends Component {
 
     getProfile() {
         return (
-            <div>
+            <div id="put-bottom">
                 <p>{this.props.user.profile.firstName}</p>
+                <p>
+                    <a href="">Ask a Question</a>
+                </p>
+                <hr id="profile-hr"/>
                 <p>{this.props.user.profile.blurb}</p>
             </div>
         );
@@ -145,19 +149,17 @@ class Profile extends Component {
         else {
             return (
                 <div className="row">
-                    <div className="col-md-4 col-md-offset-4" id="profile">
+                    <div>
                         <button className="btn btn-primary" onClick={() => this.editProfile()}>
                             Edit Profile
-                        </button>
+                        </button> &nbsp;
                         <button className="btn btn-primary" onClick={() => this.editAccount()}>
                             Account Setting
                         </button>
-                        <div>
-                            <img id="profile-pic" className="col-md-4 col-md-offset-4" src={this.getAvatar()}/>
-                        </div>
-                        <div id="action-field2" className="col-md-4 col-md-offset-4" >
-                            {this.getProfile()}
-                        </div>
+                    </div>
+                    <div id="action-field2" className="col-md-4 col-md-offset-4">
+                        <img id="profile-pic" className="col-md-4 col-md-offset-4" src={this.getAvatar()}/>
+                        {this.getProfile()}
                     </div>
                 </div>
             ); // end return()

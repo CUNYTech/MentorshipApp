@@ -1,14 +1,13 @@
-import React from 'react';
-import {Router, Route, IndexRoute, browserHistory} from 'react-router';
+import React      from 'react';
+import { Meteor } from 'meteor/meteor';
+import Dashboard  from './dashboard';
 
 export default class Home extends React.Component {
-    routeDashboard(){
-        var Router = require('react-router');
-        Router.browserHistory.push('/dashboard');
-    }
-
     checkLogin() {
-        if(Meteor.userId() == undefined || Meteor.userId() == null) {
+        if(Meteor.loggingIn() || Meteor.user()) {
+          return (<Dashboard />);
+        }
+        else {
           return (
             <div className="row">
               <div className="col-xs-6">
@@ -21,10 +20,7 @@ export default class Home extends React.Component {
                 </p>
               </div>
             </div>
-          )
-        }
-        else {
-         this.routeDashboard();
+          );
         }
     } // end checkLogin()
 

@@ -6,12 +6,14 @@ ul {
     list-style-type: none;
 }
 
-.mentor-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.mentor-list p {
+    text-align: center;
 }
 
+#profile-hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
 #profile_blurb {
     resize: none;
@@ -40,7 +42,7 @@ ul {
 #avatar {
     width: 130px;
     border-radius: 50%;
-    margin-left: 30px;
+    margin-top: 15px;
 }
 
 #searchBox {
@@ -48,6 +50,12 @@ ul {
     padding-right: 330px;
     padding-left: 15px;
     font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#searchBox-dashboard {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 17px;
+    float: right;
 }
 
 .navbar-default {
@@ -100,6 +108,15 @@ ul {
     text-align: center;
     position: static;
     width: 100%;
+    margin-bottom: -5px;
+}
+
+#action-field2 {
+    border: solid;
+    border-radius: 8px;
+    border-width: 2px;
+    border-color: lightgrey;
+    padding: 20px;
 }
 
 .text-danger {
@@ -117,23 +134,31 @@ ul {
     border-radius: 8px;
     border-width: 2px;
     border-color: lightgrey;
+    float: left;
 }
 
 .col-xs-6 {
-    width: 50%;
+    width: 65%;
     height: 100%;
-    padding-right: 80px;
     position: static;
 }
 
 #addBorder {
     width: 23%;
     margin-left: 40px;
+    border: solid;
+    border-radius: 8px;
+    border-width: 2px;
+    border-color: lightgrey;
 }
 
 h2, a {
     color: #5882FA;
     font-family: 'Open Sans Condensed', sans-serif;
+}
+
+a {
+    font-size: 18px;
 }
 
 a:focus, a:hover {
@@ -166,13 +191,15 @@ input[type=submit], .btn-default, .btn-danger, .btn-success {
     font-weight: bold;
 }
 
-#radioMentor {
-    margin-left: 350px;
-    width: 100%;
-}
-
 .radio-input {
     padding-left:20px;
+}
+
+#radio-buttons {
+    float: left;
+    width: 100%;
+    margin: 5px;
+    position:static;
 }
 
 .col-md-4 {
@@ -205,4 +232,8 @@ input[type=submit], .btn-default, .btn-danger, .btn-success {
 
 .floatRight {
     float: right;
+}
+
+#put-bottom {
+    float: left;
 }

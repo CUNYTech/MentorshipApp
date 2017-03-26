@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Meteor }           from 'meteor/meteor'
 import { createContainer }  from 'meteor/react-meteor-data';
 import MentorDetail from './mentor_detail';
+import MenteeDetail from './mentee_detail';
+import SearchResults           from './search_results';
 
 class MentorList extends Component {
   constructor(props) {
@@ -14,14 +16,14 @@ class MentorList extends Component {
             if(this.props.user.profile.mentor==null || this.props.user.profile.mentor == 'undefined')
                 return (<div><br/><p>No mentors yet</p></div>);
             else
-            return (this.props.user.profile.mentor.map(user =>
-                <MentorDetail key={user._id} user={user} />))
+                return (this.props.user.profile.mentor.map(user =>
+                    <MentorDetail key={user._id} user={user} />))
 
         }
         else {
            if(this.props.user.profile.mentee==null || this.props.user.profile.mentee == 'undefined')
-            return (<div><br/><p>No mentees yet </p></div>);
-            else
+                return (<div><br/><p>No mentees yet </p></div>);
+           else
                 return(this.props.user.profile.mentee.map(user =>
                     <MenteeDetail key={user._id} user={user} />))
         }
@@ -29,11 +31,11 @@ class MentorList extends Component {
 
     handleOptionChange () {
         if (this.state.selectedOption==='mentor'){
-    this.setState({
-        selectedOption:'mentee'
-    });}
+            this.setState({
+                selectedOption:'mentee'
+        });}
 
-        else if (this.state.selectedOption==='mentee'){
+        else {
             this.setState({
                 selectedOption:'mentor'
             });}
@@ -43,21 +45,19 @@ class MentorList extends Component {
   render() {
     return (
       <div>
-          <div>
-              <label className="radio-input">
-                  <button className="btn btn-default" defaultChecked={this.state.selectedOption === 'mentee'}
-                          onClick={this.handleOptionChange.bind(this)}>Mentees</button>
+          <div id="radio-buttons" className="radio">
+              <label>
+                  <button className="btn btn-default" onClick={this.handleOptionChange.bind(this)}>Mentees</button>
               </label>
-              <label className="radio-input">
-                  <button className="btn btn-default"defaultChecked={this.state.selectedOption === 'mentor'}
-                          onClick={this.handleOptionChange.bind(this)}>Mentors</button>
+              <label>
+                  <button className="btn btn-default" onClick={this.handleOptionChange.bind(this)}>Mentors</button>
               </label>
-
+              <SearchResults/>
           </div>
           <div className="mentor-list">
+            <div id="root">
+            </div>
               {this.renderMentor()}
-
-
           </div>
       </div>
     ); //end return()

@@ -17,6 +17,10 @@ Meteor.publish('messageList',function(){
 
 
 Meteor.methods({
+  'sendVerificationEmail': function() {
+    Accounts.sendVerificationEmail(Meteor.userId(), Meteor.user().emails[0].address);
+  },
+
   'users.updateEmail': function(email) {
     if(email != Meteor.user().emails[0].address) {
       Accounts.addEmail(Meteor.userId(), email);
@@ -28,6 +32,7 @@ Meteor.methods({
     Accounts.setPassword(Meteor.userId(), newPassword);
   },
 
+ messages
     'sendMessage':function(person,subject,message){
         var to = Meteor.users.findOne({_id: person});
         var from = Meteor.users.findOne({_id: this.userId});
@@ -43,5 +48,13 @@ Meteor.methods({
         }
         Messages.insert(msg);
     }
+
+  'searchUsers': function(searchValue) {
+    var user = Accounts.findUserByUsername(searchValue);
+    if(!user) {
+      user = Accounts.findUserByEmail(searchValue);
+    }
+    return user;
+}
 
 }); //end Meteor.methods()

@@ -3,6 +3,7 @@ import { Meteor }           from 'meteor/meteor'
 import { Mongo }    from 'meteor/mongo';
 import { createContainer }  from 'meteor/react-meteor-data';
 import MentorList           from './mentor_list';
+import { Link }             from 'react-router';
 
 export const Messages = new Mongo.Collection('message');
 
@@ -53,15 +54,16 @@ return <p></p>;
         //
       <div className="row">
         <div className="col-xs-6" id="addBorder">
-          <div>
-            <img id="avatar" src={this.getAvatar()}/>
+          <div className="action-field">
+            <p><img id="avatar" src={this.getAvatar()}/></p>
           </div>
           <div>
-            <div className = "action-field">
+            <div className="action-field">
               <p>Welcome, {this.getName()}</p>
             </div>
           </div>
           <div className="action-field">
+            <Link to="search"><p>Search</p></Link>
             <a href="#">
               <p>Messages</p>
             </a>
@@ -82,6 +84,7 @@ return <p></p>;
 } //end Dashboard
 
 export default createContainer(() =>{
+
   /* user email, username, and profile are published by default, we don't have to set
   up subscription. */
 
@@ -94,5 +97,9 @@ data.messages = Messages.find({$or:[{'to._id':Meteor.userId()},{'fromuser':Meteo
 
 //return an object, Whatever we return will be send to userList as props
 return { user: Meteor.user()};
+
+
+    //return an object, Whatever we return will be send to userList as props
+    return { user: Meteor.user()};
 
 }, Dashboard);
