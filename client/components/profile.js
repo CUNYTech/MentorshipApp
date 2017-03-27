@@ -28,6 +28,8 @@ class Profile extends Component {
                 </p>
                 <hr id="profile-hr"/>
                 <p>{this.props.user.profile.blurb}</p>
+                <hr id="tags-hr"/>
+                <p>{this.props.user.profile.tags}</p>
             </div>
         );
     }
@@ -43,9 +45,11 @@ class Profile extends Component {
     saveProfile() {
         const name = this.refs.firstName.value;
         const blurb = this.refs.blurb.value;
+        const tags = this.refs.tags.value;
         Meteor.users.update(Meteor.userId(), {$set: {
             "profile.firstName": name,
             "profile.blurb": blurb,
+            "profile.tags": tags,
         }});
         this.setState({isEditProfile: false});
     }
@@ -99,6 +103,15 @@ class Profile extends Component {
                             </textarea>
 
                             </p>
+                            <p>
+                                <label>Tags</label>
+                                <textarea ref="tags" className="form-control" type="text"
+                                     defaultValue={this.props.user.profile.tags} placeholder="Type a role that best describes you-- Mentor/Mentee..."
+                                          id="profile_tags" rows="4" cols="5" maxLength="500">
+
+                            </textarea>
+                            </p>
+
                         </form>
 
                         <div className="buttons">
