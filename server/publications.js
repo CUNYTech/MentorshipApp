@@ -1,7 +1,7 @@
-import { Meteor } from 'meteor/meteor';
-import { Accounts } from 'meteor/accounts-base';
-
-import { Mongo }    from 'meteor/mongo';
+import { Meteor }       from 'meteor/meteor';
+import { Accounts }     from 'meteor/accounts-base';
+import { check, Match } from 'meteor/check';
+import { Mongo }        from 'meteor/mongo';
 
 export const Messages = new Mongo.Collection('message');
 
@@ -50,11 +50,12 @@ Meteor.methods({
     },
 
   'searchUsers': function(searchValue) {
-    var user = Accounts.findUserByUsername(searchValue);
-    if(!user) {
-      user = Accounts.findUserByEmail(searchValue);
-    }
-    return user;
+      if (searchValue == '') {
+          throw new Meteor.Error("Nothing found.");
+      }
+      if (Match.test(searchValue, Match.OneOf(String, null, undefined))) {
+          return Accounts.findUserByEmail(searchValue) || Accounts.findUserByUsername(searchValue);
+      }
 }
 ,
 
