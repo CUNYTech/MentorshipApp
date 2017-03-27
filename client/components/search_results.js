@@ -6,6 +6,7 @@ import MentorDetail         from './mentor_detail';
 import MenteeDetail         from './mentee_detail';
 import { Accounts }         from 'meteor/accounts-base';
 
+
 class SearchResults extends Component {
     constructor(props) {
         super(props);
@@ -19,7 +20,7 @@ class SearchResults extends Component {
       var element;
       Meteor.call('searchUsers', search, function searchUsers_callback(error, user) {
         if(user) {
-          element = <p>First name: {user.profile.firstName}  email: {user.emails[0].address}</p>;
+          element = <p>First Name: {user.profile.firstName} <br/> Email: {user.emails[0].address} <br/> Role: {user.profile.tags} </p>;
         }
         else {
           element = <p>No user found</p>
