@@ -294,3 +294,31 @@ button {
 #action-field2 > h2 {
     position: static;
 }
+
+/*Password strength*/
+.strengthLevelNone {
+    background-color: rgb(48, 48, 48);
+}
+.strengthLevelLow {
+    background-color: rgb(179, 58, 58);
+}
+.strengthLevelMedium {
+    background-color: rgb(216, 72, 48);
+}
+.strengthLevelHigh {
+    background-color: rgb(240, 120, 48);
+}
+.strengthLevelStrong {
+    background-color: rgb(240,144,48);
+}
+.strengthLevelBar {
+    border-radius: 1px;
+    display: inline-block;
+    height: 10px;
+    margin-right: 1px;
+    width: 22%;
+}
+.strengthLevelText {
+    display: inline-block;
+    font-size: 0.9em;
+}

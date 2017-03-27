@@ -2,12 +2,55 @@ import React        from "react";
 import { Meteor }   from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import Welcome      from './welcome';
+import ReactDOM     from 'react-dom';
+
 
 //we can move this later
 export default class Registration extends React.Component {
     constructor(props) {
         super(props);
         this.state = { passwordError: '', userError: '', mentorMenteeError:'', registerSucceeded: false };
+    }
+
+    checkStrength() {
+        var strength = Accounts.zxcvbn(this.refs.t_password.value);
+        console.log(strength.score);
+        var element;
+
+           if(strength.score==0){element = <div>
+                <ul>
+                    <li className="strengthLevelBar strengthLevelNone"></li>
+                    <li className="strengthLevelText">Terrible</li>
+                </ul>
+            </div>;}
+        else if(strength.score==1){element = <div>
+            <ul>
+                <li className="strengthLevelBar  strengthLevelLow"></li>
+                <li className="strengthLevelText">Bad</li>
+            </ul>
+        </div>;}
+        else if(strength.score==2){element = <div>
+            <ul>
+                <li className="strengthLevelBar  strengthLevelMedium"></li>
+                <li className="strengthLevelText">Fair</li>
+            </ul>
+        </div>;}
+        else if(strength.score==3){element = <div>
+            <ul>
+                <li className="strengthLevelBar strengthLevelStrong"></li>
+                <li className="strengthLevelText">Good</li>
+            </ul>
+        </div>;}
+        else if(strength.score==4){element = <div>
+            <ul>
+                <li className="strengthLevelBar strengthLevelHigh"></li>
+                <li className="strengthLevelText">Great</li>
+            </ul>
+        </div>;}
+        ReactDOM.render(element, document.getElementById('passBar'));
+
+
+
     }
 
     handleSubmit(event) {
@@ -69,7 +112,8 @@ export default class Registration extends React.Component {
                     </p>
                     <p>
                         <label>Password </label>
-                        <input ref="t_password" className="form-control" type="password" required />
+                        <input ref="t_password" className="form-control" type="password" onKeyUp={this.checkStrength.bind(this)} required />
+                        <div id="passBar"></div>
                     </p>
                     <p>
                         <label>Confirm your password </label>
