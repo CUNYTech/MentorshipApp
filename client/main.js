@@ -6,8 +6,9 @@ import About             from './components/about';
 import Registration      from "./components/registration";
 import LoginPage         from './components/login';
 import Profile           from './components/profile';
-import Messaging          from './components/messages'
+import Messaging         from './components/messages'
 import SearchResults     from './components/search_results';
+import MainSearch        from './components/main-search';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 
 const routes = (
@@ -20,6 +21,7 @@ const routes = (
             <Route path="login" component={LoginPage}></Route>
             <Route path="profile" component={Profile}></Route>
             <Route path="messages" component={Messaging}></Route>
+            <Route path="mainsearch" component={MainSearch}></Route>
         </Route>
     </Router>
 );

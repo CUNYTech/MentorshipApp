@@ -23,9 +23,23 @@ ul {
 #profile_blurb {
     resize: none;
 }
+
 #tags-hr{
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.result-image {
+    border-radius: 50%;
+}
+
+#search-icon {
+    width: 30px;
+    float: right;
+    position: relative;
+    top: -22px;
+    left: -15px;
+    margin: -10px;
 }
 
 #logo {
@@ -78,6 +92,7 @@ ul {
     margin-left: -15px;
     border-radius: 0;
     top: 0;
+    z-index: 2;
 }
 
 .navbar-nav {
@@ -206,14 +221,15 @@ input[type=submit], .btn-default, .btn-danger, .btn-success {
     border-radius: 5px;
     color: white;
     font-weight: bold;
+    position: static;
 }
 
 .btn-primary {
     width: inherit;
 }
 
-button  {
-    width: 115px;
+button {
+    width: inherit;
     height: inherit;
     background: white;
     border-color: #5882FA;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM             from 'react-dom';
 import { Meteor }           from 'meteor/meteor'
 import { createContainer }  from 'meteor/react-meteor-data';
+import { Link }             from 'react-router';
 import MentorDetail         from './mentor_detail';
 import MenteeDetail         from './mentee_detail';
 import { Accounts }         from 'meteor/accounts-base';
@@ -20,7 +21,16 @@ class SearchResults extends Component {
       var element;
       Meteor.call('searchUsers', search, function searchUsers_callback(error, user) {
         if(user) {
-          element = <p>First Name: {user.profile.firstName} <br/> Email: {user.emails[0].address} <br/> Role: {user.profile.tags} </p>;
+          element = <div>
+              <div>
+                  <img className="result-image" src={user.profile.avatar}/>
+              </div>
+              <div>
+                  <h2>{user.profile.firstName}</h2>
+                  <p>Email: {user.emails[0].address} </p>
+                  <p>Role: {user.profile.tags} </p>
+              </div>
+          </div>;
         }
         else {
           element = <p>No user found</p>
@@ -32,7 +42,10 @@ class SearchResults extends Component {
     render() {
         return (
             <div id="searchBox-dashboard">
-                <input type="text" ref="searchBox" className="form-control" onKeyUp={this.handleSubmit.bind(this)} placeholder="Search..."/>
+                <input type="search" ref="searchBox" className="form-control" onKeyUp={this.handleSubmit.bind(this)} placeholder="Search..."/>
+                <Link to="mainsearch" href="localhost:3000/mainsearch">
+                    <img id="search-icon" src="search-icon.png"/>
+                </Link>
             </div>
         ); //end return()
     } //end render()
