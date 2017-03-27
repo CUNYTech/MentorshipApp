@@ -42,7 +42,6 @@ Meteor.methods({
             title:subject,
             message:message,
         };
-      //  console.log(msg);
         if (person == this.userId) {
             throw new Meteor.Error("You can not send yourself a message.")
         }
@@ -56,7 +55,6 @@ Meteor.methods({
       if (Match.test(searchValue, Match.OneOf(String, null, undefined))) {
           return Accounts.findUserByEmail(searchValue) || Accounts.findUserByUsername(searchValue);
       }
-}
-,
+    }
 
 }); //end Meteor.methods()

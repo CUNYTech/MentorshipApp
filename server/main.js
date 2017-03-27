@@ -13,7 +13,7 @@ Meteor.startup(()=>{
     const numberRecords = Meteor.users.find({}).count();
     if (numberRecords < 20) {
         _.times(20, () => {
- 
+
             const { name, username, email, phone } = helpers.contextualCard();
 
 
@@ -22,11 +22,10 @@ Meteor.startup(()=>{
             //console.log email when generating fake users.
             //console.log(email);
             Accounts.createUser({
-
-                email: email, password:'faker',  profile: { avatar: avatar, firstName: name, lastName: '', blurb: blurb, username:username }
-
-
-
+                username: username,
+                email: email,
+                password:'faker',
+                profile: { avatar: avatar, firstName: name, lastName: '', blurb: blurb }
             }); // end Userz.insert()
         }); // end loop
     } //end if
