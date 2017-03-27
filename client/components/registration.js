@@ -2,12 +2,55 @@ import React        from "react";
 import { Meteor }   from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import Welcome      from './welcome';
+import ReactDOM     from 'react-dom';
+
 
 //we can move this later
 export default class Registration extends React.Component {
     constructor(props) {
         super(props);
         this.state = { passwordError: '', userError: '', mentorMenteeError:'', registerSucceeded: false };
+    }
+
+    checkStrength() {
+        var strength = Accounts.zxcvbn(this.refs.t_password.value);
+        console.log(strength.score);
+        var element;
+
+           if(strength.score==0){element = <div>
+                <ul>
+                    <li className="strengthLevelBar strengthLevelNone"></li>
+                    <li className="strengthLevelText">Terrible</li>
+                </ul>
+            </div>;}
+        else if(strength.score==1){element = <div>
+            <ul>
+                <li className="strengthLevelBar  strengthLevelLow"></li>
+                <li className="strengthLevelText">Bad</li>
+            </ul>
+        </div>;}
+        else if(strength.score==2){element = <div>
+            <ul>
+                <li className="strengthLevelBar  strengthLevelMedium"></li>
+                <li className="strengthLevelText">Fair</li>
+            </ul>
+        </div>;}
+        else if(strength.score==3){element = <div>
+            <ul>
+                <li className="strengthLevelBar strengthLevelStrong"></li>
+                <li className="strengthLevelText">Good</li>
+            </ul>
+        </div>;}
+        else if(strength.score==4){element = <div>
+            <ul>
+                <li className="strengthLevelBar strengthLevelHigh"></li>
+                <li className="strengthLevelText">Great</li>
+            </ul>
+        </div>;}
+        ReactDOM.render(element, document.getElementById('passBar'));
+
+
+
     }
 
     handleSubmit(event) {
@@ -37,6 +80,7 @@ export default class Registration extends React.Component {
                 this.setState({ userError: error.reason });
               }
               else {
+                Meteor.call('sendVerificationEmail');
                 this.setState({ userError: '', registerSucceeded: true });
               }
             }); //end Accounts.createUser()
@@ -68,7 +112,8 @@ export default class Registration extends React.Component {
                     </p>
                     <p>
                         <label>Password </label>
-                        <input ref="t_password" className="form-control" type="password" required />
+                        <input ref="t_password" className="form-control" type="password" onKeyUp={this.checkStrength.bind(this)} required />
+                        <div id="passBar"></div>
                     </p>
                     <p>
                         <label>Confirm your password </label>
@@ -91,45 +136,3 @@ export default class Registration extends React.Component {
       }
     }; //end render()
 } // end of class
-
-
-
-/*
-mentor or mentee
-
- if(Mentor==true){
-
- var user = { email: email, password: password,
- profile: { avatar: '', firstName: firstName, lastName: lastName,  mentor:[Meteor.users.findOne({_id:"5GdcM36zgLG5kwB2F"}),
- Meteor.users.findOne({_id:"MtsCh3taRxH87vm5Y"})]},
-
- }
- }
- else if(Mentee==true){
- var user = { email: email, password: password,
- profile: { avatar: '', firstName: firstName, lastName: lastName, mentee:[Meteor.users.findOne({_id:"5GdcM36zgLG5kwB2F"}),
- Meteor.users.findOne({_id:"MtsCh3taRxH87vm5Y"})] },
-
- }
- }
-
- else if(Mentee==true && Mentor==true){
- var user = { email: email, password: password,
- profile: { avatar: '', firstName: firstName, lastName: lastName,  mentor:[Meteor.users.findOne({_id:"5GdcM36zgLG5kwB2F"}),
- Meteor.users.findOne({_id:"MtsCh3taRxH87vm5Y"})], mentee:[Meteor.users.findOne({_id:"5GdcM36zgLG5kwB2F"}),
- Meteor.users.findOne({_id:"MtsCh3taRxH87vm5Y"})] },
-
- }
- }
- else if (Mentee==false && Mentor==false){
- this.setState({mentorMenteeError: 'Select one please'});
- }
- <p>
- <label>Check one or both</label><br/>
- <input ref="mentor" type="checkbox" name="mentor" value="mentor"/> Mentor<br/>
- <input ref="mentee" type="checkbox" name="mentee" value="mentee"/> Mentee<br/>
- <p className="text-danger">{ this.state.mentorMenteeError }</p>
-
- </p>
-
- */

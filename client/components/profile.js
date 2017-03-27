@@ -22,12 +22,11 @@ class Profile extends Component {
     getProfile() {
         return (
             <div id="put-bottom">
-                <p>{this.props.user.profile.firstName}</p>
-                <p>
-                    <a href="">Ask a Question</a>
-                </p>
-                <hr id="profile-hr"/>
+                <h2>{this.props.user.profile.firstName}</h2>
                 <p>{this.props.user.profile.blurb}</p>
+                <hr id="tags-hr"/>
+                <p>{this.props.user.profile.tags}</p>
+                <hr id="profile-hr"/>
             </div>
         );
     }
@@ -43,9 +42,11 @@ class Profile extends Component {
     saveProfile() {
         const name = this.refs.firstName.value;
         const blurb = this.refs.blurb.value;
+        const tags = this.refs.tags.value;
         Meteor.users.update(Meteor.userId(), {$set: {
             "profile.firstName": name,
             "profile.blurb": blurb,
+            "profile.tags": tags,
         }});
         this.setState({isEditProfile: false});
     }
@@ -99,6 +100,15 @@ class Profile extends Component {
                             </textarea>
 
                             </p>
+                            <p>
+                                <label>Tags</label>
+                                <textarea ref="tags" className="form-control" type="text"
+                                     defaultValue={this.props.user.profile.tags} placeholder="Type a role that best describes you-- Mentor/Mentee..."
+                                          id="profile_tags" rows="4" cols="5" maxLength="500">
+
+                            </textarea>
+                            </p>
+
                         </form>
 
                         <div className="buttons">
@@ -149,7 +159,7 @@ class Profile extends Component {
         else {
             return (
                 <div className="row">
-                    <div>
+                    <div className="buttons">
                         <button className="btn btn-primary" onClick={() => this.editProfile()}>
                             Edit Profile
                         </button> &nbsp;
@@ -157,8 +167,10 @@ class Profile extends Component {
                             Account Setting
                         </button>
                     </div>
-                    <div id="action-field2" className="col-md-4 col-md-offset-4">
-                        <img id="profile-pic" className="col-md-4 col-md-offset-4" src={this.getAvatar()}/>
+                    <div id="action-field2" className="col-md-4 col-md-offset-2">
+                        <div className="side-by-side">
+                            <img id="profile-pic" src={this.getAvatar()}/>
+                        </div>
                         {this.getProfile()}
                     </div>
                 </div>

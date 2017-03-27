@@ -6,19 +6,40 @@ ul {
     list-style-type: none;
 }
 
-.mentor-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.mentor-list p {
+    text-align: center;
 }
 
 #profile-hr {
-    margin-top: 10px;
+    margin-top: 25px;
     margin-bottom: 10px;
+    width: 80%;
+}
+
+#sent {
+    width: 60px;
 }
 
 #profile_blurb {
     resize: none;
+}
+
+#tags-hr{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.result-image {
+    border-radius: 50%;
+}
+
+#search-icon {
+    width: 30px;
+    float: right;
+    position: relative;
+    top: -22px;
+    left: -15px;
+    margin: -10px;
 }
 
 #logo {
@@ -54,6 +75,16 @@ ul {
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
+#searchBox-dashboard {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 17px;
+    float: right;
+}
+
+.buttons {
+    padding-bottom: 20px;
+}
+
 .navbar-default {
     position: fixed;
     background-color: #f8f8f8;
@@ -61,6 +92,7 @@ ul {
     margin-left: -15px;
     border-radius: 0;
     top: 0;
+    z-index: 2;
 }
 
 .navbar-nav {
@@ -101,9 +133,7 @@ ul {
 }
 
 #action-field2 p {
-    text-align: center;
     position: static;
-    width: 100%;
     margin-bottom: -5px;
 }
 
@@ -112,7 +142,13 @@ ul {
     border-radius: 8px;
     border-width: 2px;
     border-color: lightgrey;
-    padding: 20px;
+    padding: 15px 50px 25px 20px;
+    width: 70%;
+}
+
+.side-by-side {
+    float: left;
+    margin: 25px;
 }
 
 .text-danger {
@@ -134,7 +170,7 @@ ul {
 }
 
 .col-xs-6 {
-    width: 50%;
+    width: 65%;
     height: 100%;
     position: static;
 }
@@ -185,15 +221,32 @@ input[type=submit], .btn-default, .btn-danger, .btn-success {
     border-radius: 5px;
     color: white;
     font-weight: bold;
+    position: static;
 }
 
-#radioMentor {
-    margin-left: 350px;
-    width: 100%;
+.btn-primary {
+    width: inherit;
+}
+
+button {
+    width: inherit;
+    height: inherit;
+    background: white;
+    border-color: #5882FA;
+    text-align: center;
+    border-radius: 5px;
+    color: #5882FA;
 }
 
 .radio-input {
     padding-left:20px;
+}
+
+#radio-buttons {
+    float: left;
+    width: 100%;
+    margin: 5px;
+    position:static;
 }
 
 .col-md-4 {
@@ -228,6 +281,44 @@ input[type=submit], .btn-default, .btn-danger, .btn-success {
     float: right;
 }
 
-#put-bottom {
-    float: left;
+#put-bottom > h2 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+    margin-left: 230px;
+}
+
+#put-bottom > p {
+    margin-left: 230px;
+}
+
+#action-field2 > h2 {
+    position: static;
+}
+
+/*Password strength*/
+.strengthLevelNone {
+    background-color: rgb(48, 48, 48);
+}
+.strengthLevelLow {
+    background-color: rgb(179, 58, 58);
+}
+.strengthLevelMedium {
+    background-color: rgb(216, 72, 48);
+}
+.strengthLevelHigh {
+    background-color: rgb(240, 120, 48);
+}
+.strengthLevelStrong {
+    background-color: rgb(240,144,48);
+}
+.strengthLevelBar {
+    border-radius: 1px;
+    display: inline-block;
+    height: 10px;
+    margin-right: 1px;
+    width: 22%;
+}
+.strengthLevelText {
+    display: inline-block;
+    font-size: 0.9em;
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link }             from 'react-router';
 import { Meteor }           from 'meteor/meteor'
 import { createContainer }  from 'meteor/react-meteor-data';
+import SearchResults        from './search_results';
 
 class Header extends Component {
     userLogout() {
@@ -34,7 +35,7 @@ class Header extends Component {
                 </div>
                 <ul className="nav navbar-nav">
                     <li id="searchBox">
-                        <input type="search" className="form-control" placeholder="Search"/>
+                        <SearchResults/>
                     </li>
                     <li>
                         <Link to="home" href="localhost:3000/home">HOME</Link>

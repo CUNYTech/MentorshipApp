@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { Meteor }           from 'meteor/meteor'
+import { Mongo }    from 'meteor/mongo';
 import { createContainer }  from 'meteor/react-meteor-data';
 import MentorList           from './mentor_list';
 import { Link }             from 'react-router';
 
+
 class Dashboard extends Component {
+  constructor(props){
+    super(props)
+  };
 
   getName() {
     return this.props.user.profile.firstName + ' ' + this.props.user.profile.lastName;
-  }
-
-  getEmail() {
-    return this.props.user.emails[0].address;
   }
 
   getAvatar() {
@@ -25,7 +26,6 @@ class Dashboard extends Component {
     if(!this.props.user) {
       return <div>Loading...</div>;
     }
-
     return (
       <div className="row">
         <div className="col-xs-6" id="addBorder">
@@ -38,12 +38,14 @@ class Dashboard extends Component {
             </div>
           </div>
           <div className="action-field">
-            <Link to="search"><p>Search</p></Link>
-            <a href="#">
+            <Link to="mainsearch" href="localhost:3000/mainsearch">
+                <p>Search</p>
+            </Link>
+            <Link to="messages" href="localhost:3000/messages">
               <p>Messages</p>
-            </a>
+            </Link>
             <a href="#">
-              <p>Request</p>
+              <p>Requests</p>
             </a>
             <a href="#">
               <p>Notifications</p>
