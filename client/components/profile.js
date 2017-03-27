@@ -24,12 +24,9 @@ class Profile extends Component {
             <div id="put-bottom">
                 <h2>{this.props.user.profile.firstName}</h2>
                 <p>{this.props.user.profile.blurb}</p>
-<<<<<<< HEAD
                 <hr id="tags-hr"/>
                 <p>{this.props.user.profile.tags}</p>
-=======
                 <hr id="profile-hr"/>
->>>>>>> e3fcd309caf90d21ad3473162f7aaac3416c325f
             </div>
         );
     }
