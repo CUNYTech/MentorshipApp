@@ -20,31 +20,31 @@ export default class Registration extends React.Component {
            if(strength.score==0){element =
                 <ul>
                     <li className="strengthLevelBar strengthLevelNone"></li>
-                    <li className="strengthLevelText">Terrible</li>
+                    <li className="strengthLevelText">&nbsp;Terrible</li>
                 </ul>
             ;}
         else if(strength.score==1){element =
             <ul>
                 <li className="strengthLevelBar  strengthLevelLow"></li>
-                <li className="strengthLevelText">Bad</li>
+                <li className="strengthLevelText">&nbsp;Bad</li>
             </ul>
         ;}
         else if(strength.score==2){element =
             <ul>
                 <li className="strengthLevelBar  strengthLevelMedium"></li>
-                <li className="strengthLevelText">Fair</li>
+                <li className="strengthLevelText">&nbsp;Fair</li>
             </ul>
         ;}
         else if(strength.score==3){element =
             <ul>
                 <li className="strengthLevelBar strengthLevelStrong"></li>
-                <li className="strengthLevelText">Good</li>
+                <li className="strengthLevelText">&nbsp;Good</li>
             </ul>
         ;}
         else if(strength.score==4){element =
             <ul>
                 <li className="strengthLevelBar strengthLevelHigh"></li>
-                <li className="strengthLevelText">Great</li>
+                <li className="strengthLevelText">&nbsp;Great</li>
             </ul>
         ;}
         ReactDOM.render(element, document.getElementById('passBar'));
