@@ -12,6 +12,7 @@ class Dashboard extends Component {
   };
 
   getName() {
+    console.log(this.props.allData);
     return this.props.user.profile.firstName + ' ' + this.props.user.profile.lastName;
   }
 
@@ -62,5 +63,8 @@ class Dashboard extends Component {
 
 export default createContainer(() =>{
     //return an object, Whatever we return will be send to userList as props
-    return { user: Meteor.user()};
+    Meteor.subscribe('users');
+    var allData=Meteor.users.find({}).fetch();
+
+    return { user: Meteor.user(), allData:allData};
 }, Dashboard);
