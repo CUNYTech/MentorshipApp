@@ -17,36 +17,36 @@ export default class Registration extends React.Component {
         console.log(strength.score);
         var element;
 
-           if(strength.score==0){element = <div>
+           if(strength.score==0){element =
                 <ul>
                     <li className="strengthLevelBar strengthLevelNone"></li>
                     <li className="strengthLevelText">Terrible</li>
                 </ul>
-            </div>;}
-        else if(strength.score==1){element = <div>
+            ;}
+        else if(strength.score==1){element =
             <ul>
                 <li className="strengthLevelBar  strengthLevelLow"></li>
                 <li className="strengthLevelText">Bad</li>
             </ul>
-        </div>;}
-        else if(strength.score==2){element = <div>
+        ;}
+        else if(strength.score==2){element =
             <ul>
                 <li className="strengthLevelBar  strengthLevelMedium"></li>
                 <li className="strengthLevelText">Fair</li>
             </ul>
-        </div>;}
-        else if(strength.score==3){element = <div>
+        ;}
+        else if(strength.score==3){element =
             <ul>
                 <li className="strengthLevelBar strengthLevelStrong"></li>
                 <li className="strengthLevelText">Good</li>
             </ul>
-        </div>;}
-        else if(strength.score==4){element = <div>
+        ;}
+        else if(strength.score==4){element =
             <ul>
                 <li className="strengthLevelBar strengthLevelHigh"></li>
                 <li className="strengthLevelText">Great</li>
             </ul>
-        </div>;}
+        ;}
         ReactDOM.render(element, document.getElementById('passBar'));
 
 
@@ -113,8 +113,8 @@ export default class Registration extends React.Component {
                     <p>
                         <label>Password </label>
                         <input ref="t_password" className="form-control" type="password" onKeyUp={this.checkStrength.bind(this)} required />
-                        <div id="passBar"></div>
                     </p>
+                    <div id="passBar"></div>
                     <p>
                         <label>Confirm your password </label>
                         <input ref="t_conPassword" className="form-control" type="password" required />
