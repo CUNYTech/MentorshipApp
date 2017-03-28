@@ -32,6 +32,9 @@ class SearchResults extends Component {
               </div>
           </div>;
         }
+        else if(search == ''){
+            element=<div></div>;
+        }
         else {
           element = <p>No user found</p>
         }
