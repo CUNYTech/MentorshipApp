@@ -12,7 +12,7 @@ Meteor.publish('users', function() {
 });
 
 Meteor.publish('messageList',function(){
-    return Messages.find()
+    return Messages.find({});
 });
 
 
@@ -33,28 +33,52 @@ Meteor.methods({
   },
 
 
-    'sendMessage':function(person,subject,message){
-        var to = Meteor.users.findOne({_id: person});
-        var from = Meteor.users.findOne({_id: this.userId});
-        var msg = {
-            to:to,
-            fromuser:from._id,
-            title:subject,
-            message:message,
-        };
-        if (person == this.userId) {
-            throw new Meteor.Error("You can not send yourself a message.")
-        }
-        Messages.insert(msg);
-    },
+  'sendMessage':function(person,subject,message){
+    var to = Meteor.users.findOne({_id: person});
+    var from = Meteor.users.findOne({_id: this.userId});
+    var msg = {
+      to: to,
+      fromuser: from._id,
+      title: subject,
+      message: message,
+    };
+    if (person == this.userId) {
+      throw new Meteor.Error("You can not send yourself a message.")
+    }
+    Messages.insert(msg);
+  },
 
   'searchUsers': function(searchValue) {
-      if (searchValue == '') {
-          throw new Meteor.Error("Nothing found.");
-      }
-      if (Match.test(searchValue, Match.OneOf(String, null, undefined))) {
-          return Accounts.findUserByEmail(searchValue) || Accounts.findUserByUsername(searchValue);
-      }
+    if (searchValue == '') {
+      throw new Meteor.Error("Nothing found.");
     }
+    if (Match.test(searchValue, Match.OneOf(String, null, undefined))) {
+      return Accounts.findUserByEmail(searchValue) || Accounts.findUserByUsername(searchValue);
+    }
+  },
+
+  'searchMentorMentee': function(searchValue) {
+    if (searchValue == '') {
+      return null;
+    }
+    else {
+      return users = Meteor.users.find( { $or: [
+        { 'profile.mentorTags': { $elemMatch: {$eq: searchValue} } },
+        { 'profile.menteeTags': { $elemMatch: {$eq: searchValue} } }
+      ]}).fetch();
+    } //end else
+  },
+
+  'users.addMentorTags': function(tags) {
+    Meteor.users.update(Meteor.userId(), {$push: {
+      "profile.mentorTags": tags
+    }});
+  },
+
+  'users.addMenteeTags': function(tags) {
+    Meteor.users.update(Meteor.userId(), {$push: {
+      "profile.menteeTags": tags
+    }});
+  }
 
 }); //end Meteor.methods()

@@ -24,8 +24,6 @@ class Profile extends Component {
             <div id="put-bottom">
                 <h2>{this.props.user.profile.firstName}</h2>
                 <p>{this.props.user.profile.blurb}</p>
-                <hr id="tags-hr"/>
-                <p>{this.props.user.profile.tags}</p>
                 <hr id="profile-hr"/>
             </div>
         );
@@ -42,11 +40,9 @@ class Profile extends Component {
     saveProfile() {
         const name = this.refs.firstName.value;
         const blurb = this.refs.blurb.value;
-        const tags = this.refs.tags.value;
         Meteor.users.update(Meteor.userId(), {$set: {
             "profile.firstName": name,
             "profile.blurb": blurb,
-            "profile.tags": tags,
         }});
         this.setState({isEditProfile: false});
     }
@@ -77,6 +73,18 @@ class Profile extends Component {
       }
     } //end saveAccount()
 
+    addMentorTags(event) {
+      event.preventDefault();
+      tags = this.refs.mentortags.value;
+      Meteor.call('users.addMentorTags', tags);
+    }
+
+    addMenteeTags(event) {
+      event.preventDefault();
+      tags = this.refs.menteetags.value;
+      Meteor.call('users.addMenteeTags', tags);
+    }
+
     render() {
         if(!this.props.user) {
             return <div>Loading...</div>;
@@ -101,14 +109,25 @@ class Profile extends Component {
 
                             </p>
                             <p>
-                                <label>Tags</label>
-                                <textarea ref="tags" className="form-control" type="text"
-                                     defaultValue={this.props.user.profile.tags} placeholder="Type a role that best describes you-- Mentor/Mentee..."
-                                          id="profile_tags" rows="4" cols="5" maxLength="500">
-
-                            </textarea>
+                                <label>Mentor Tags</label>
+                                <input ref="mentortags" className="form-control" type="text"
+                                     placeholder="Enter tags to include yourself in mentor search result"
+                                     id="mentor_tags">
+                                </input>
+                                <button className="btn btn-primary" onClick={this.addMentorTags.bind(this)}>
+                                    Add
+                                </button>
                             </p>
-
+                            <p>
+                                <label>Mentee Tags</label>
+                                <input ref="menteetags" className="form-control" type="text"
+                                     placeholder="Enter tags to include yourself in mentee search result"
+                                     id="mentee_tags">
+                                </input>
+                                <button className="btn btn-primary" onClick={this.addMenteeTags.bind(this)}>
+                                    Add
+                                </button>
+                            </p>
                         </form>
 
                         <div className="buttons">

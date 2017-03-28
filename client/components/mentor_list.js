@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Meteor }           from 'meteor/meteor'
 import { createContainer }  from 'meteor/react-meteor-data';
-import MentorDetail from './mentor_detail';
-import MenteeDetail from './mentee_detail';
-import SearchResults           from './search_results';
+import MentorDetail         from './mentor_detail';
+import MenteeDetail         from './mentee_detail';
+import SearchMentorMentee   from './search_mentor_mentee';
 
 class MentorList extends Component {
   constructor(props) {
@@ -52,7 +52,7 @@ class MentorList extends Component {
               <label>
                   <button className="btn btn-default" onClick={this.handleOptionChange.bind(this)}>Mentors</button>
               </label>
-              <SearchResults/>
+              <SearchMentorMentee />
           </div>
           <div className="mentor-list">
             <div id="root">

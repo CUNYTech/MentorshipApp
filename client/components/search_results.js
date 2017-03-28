@@ -28,7 +28,6 @@ class SearchResults extends Component {
               <div>
                   <h2>{user.profile.firstName}</h2>
                   <p>Email: {user.emails[0].address} </p>
-                  <p>Role: {user.profile.tags} </p>
               </div>
           </div>;
         }
