@@ -23,9 +23,10 @@ class SearchResults extends Component {
         if(user) {
           element = <div>
               <div>
-                  <img className="result-image" src={user.profile.avatar}/>
+                 <img className="result-image" src={user.profile.avatar}/>
               </div>
               <div>
+
                   <h2>{user.profile.firstName}</h2>
                   <p>Email: {user.emails[0].address} </p>
                   <p>Role: {user.profile.tags} </p>
@@ -59,5 +60,6 @@ Meteor.subscribe('user');
 
     //return an object, Whatever we return will be send to userList as props
     return { user: Meteor.user()};
+    
 
 }, SearchResults);

@@ -41,9 +41,10 @@ Meteor.methods({
             fromuser:from._id,
             title:subject,
             message:message,
+            createAt: new Date()
         };
         if (person == this.userId) {
-            throw new Meteor.Error("You can not send yourself a message.")
+            throw new Meteor.Error("You can not send yourself a message.");
         }
         Messages.insert(msg);
     },

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Meteor }           from 'meteor/meteor'
+import { Meteor }           from 'meteor/meteor';
 import { createContainer }  from 'meteor/react-meteor-data';
 
 class Profile extends Component {
