@@ -55,8 +55,6 @@ class MentorList extends Component {
                   <hr id="separation"/>
               </div>
               <div className="mentor-list">
-                <div id="root">
-                </div>
                   {this.renderMentor()}
               </div>
               <div id="render-mentor">
@@ -64,8 +62,6 @@ class MentorList extends Component {
                   <hr id="separation"/>
               </div>
               <div className="mentor-list">
-                  <div id="root">
-                  </div>
                   {this.renderMentee()}
               </div>
           </div>
