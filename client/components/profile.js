@@ -76,13 +76,17 @@ class Profile extends Component {
     addMentorTags(event) {
       event.preventDefault();
       tags = this.refs.mentortags.value;
-      Meteor.call('users.addMentorTags', tags);
+      if (tags != "") {
+          Meteor.call('users.addMentorTags', tags);
+      }
     }
 
     addMenteeTags(event) {
       event.preventDefault();
       tags = this.refs.menteetags.value;
-      Meteor.call('users.addMenteeTags', tags);
+      if (tags != "") {
+          Meteor.call('users.addMenteeTags', tags);
+      }
     }
 
     render() {

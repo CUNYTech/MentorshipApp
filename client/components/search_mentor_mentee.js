@@ -14,12 +14,10 @@ class SearchMentorMentee extends Component {
 
     renderList(user) {
       return (
-        <div className="thumbnail">
+          <li className="list-group-item">
             <img src={user.profile.avatar} />
-            <div className="caption">
-                <h3>Name: {user.profile.firstName}</h3>
-            </div>
-        </div>
+            <h3>Name: {user.profile.firstName}</h3>
+          </li>
       );
     }
 
@@ -36,15 +34,10 @@ class SearchMentorMentee extends Component {
     renderList() {
       return this.state.users.map(user => {
         return (
-          <div key={user._id}>
-            <div>
+          <li className="list-group-item" key={user._id}>
                 <img className="result-image" src={user.profile.avatar}/>
-            </div>
-            <div>
-                <h2>{user.profile.firstName}</h2>
-                <p>Email: {user.emails[0].address} </p>
-            </div>
-          </div>
+                <h2 id="username-result">{user.profile.firstName}</h2>
+          </li>
         );
       });
     }
@@ -58,8 +51,10 @@ class SearchMentorMentee extends Component {
                     <img id="search-icon" src="search-icon.png"/>
                 </Link>
             </div>
-            <div>
-              {this.renderList()}
+            <div className="list-users">
+                <ul className="list-group">
+                    {this.renderList()}
+                </ul>
             </div>
           </div>
         ); //end return()

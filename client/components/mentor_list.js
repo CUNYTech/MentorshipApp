@@ -8,24 +8,25 @@ import SearchMentorMentee   from './search_mentor_mentee';
 class MentorList extends Component {
   constructor(props) {
     super(props);
-    this.state = {selectedOption:'mentor'}
   }
 
     renderMentor(){
-        if( this.state.selectedOption=='mentor'){
-            if(this.props.user.profile.mentor==null || this.props.user.profile.mentor == 'undefined')
-                return (<div><br/><p>No mentors yet</p></div>);
-            else
-                return (this.props.user.profile.mentor.map(user =>
-                    <MentorDetail key={user._id} user={user} />))
-
+        if(this.props.user.profile.mentor == null || this.props.user.profile.mentor == 'undefined') {
+            return (<div><br/><p>No mentors yet</p></div>);
         }
         else {
-           if(this.props.user.profile.mentee==null || this.props.user.profile.mentee == 'undefined')
-                return (<div><br/><p>No mentees yet </p></div>);
-           else
-                return(this.props.user.profile.mentee.map(user =>
-                    <MenteeDetail key={user._id} user={user} />))
+            return (this.props.user.profile.mentor.map(user =>
+                <MentorDetail key={user._id} user={user}/>));
+        }
+    }
+
+    renderMentee() {
+        if (this.props.user.profile.mentee == null || this.props.user.profile.mentee == 'undefined') {
+            return (<div><br/><p>No mentees yet </p></div>);
+        }
+        else {
+            return (this.props.user.profile.mentee.map(user =>
+                <MenteeDetail key={user._id} user={user}/>));
         }
     }
 
@@ -45,19 +46,28 @@ class MentorList extends Component {
   render() {
     return (
       <div>
-          <div id="radio-buttons" className="radio">
-              <label>
-                  <button className="btn btn-default" onClick={this.handleOptionChange.bind(this)}>Mentees</button>
-              </label>
-              <label>
-                  <button className="btn btn-default" onClick={this.handleOptionChange.bind(this)}>Mentors</button>
-              </label>
+          <div className="radio">
               <SearchMentorMentee />
           </div>
-          <div className="mentor-list">
-            <div id="root">
-            </div>
-              {this.renderMentor()}
+          <div className="row">
+              <div id="render-mentor">
+                  <p>My Mentors</p>
+                  <hr id="separation"/>
+              </div>
+              <div className="mentor-list">
+                <div id="root">
+                </div>
+                  {this.renderMentor()}
+              </div>
+              <div id="render-mentor">
+                  <p>My Mentees</p>
+                  <hr id="separation"/>
+              </div>
+              <div className="mentor-list">
+                  <div id="root">
+                  </div>
+                  {this.renderMentee()}
+              </div>
           </div>
       </div>
     ); //end return()

@@ -22,17 +22,12 @@ class SearchResults extends Component {
       Meteor.call('searchUsers', search, function searchUsers_callback(error, user) {
         if(user) {
           element = <div>
-              <div>
                   <img className="result-image" src={user.profile.avatar}/>
-              </div>
-              <div>
-                  <h2>{user.profile.firstName}</h2>
-                  <p>Email: {user.emails[0].address} </p>
-              </div>
+                  <h2 id="username-result">{user.profile.firstName}</h2>
           </div>;
         }
         else if(search == ''){
-            element=<div></div>;
+            element=<div> </div>;
         }
         else {
           element = <p>No user found</p>
