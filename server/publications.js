@@ -33,20 +33,24 @@ Meteor.methods({
   },
 
 
-  'sendMessage':function(person,subject,message){
-    var to = Meteor.users.findOne({_id: person});
-    var from = Meteor.users.findOne({_id: this.userId});
-    var msg = {
-      to: to,
-      fromuser: from._id,
-      title: subject,
-      message: message,
-    };
-    if (person == this.userId) {
-      throw new Meteor.Error("You can not send yourself a message.")
-    }
-    Messages.insert(msg);
-  },
+<<<<<<< HEAD
+  
+    'sendMessage':function(person,subject,message){
+        var to = Meteor.users.findOne({_id: person});
+        var from = Meteor.users.findOne({_id: this.userId});
+        var msg = {
+            to:to,
+            fromuser:from._id,
+            title:subject,
+            message:message,
+            createAt: new Date()
+        };
+        if (person == this.userId) {
+            throw new Meteor.Error("You can not send yourself a message.");
+        }
+        Messages.insert(msg);
+    },
+
 
   'searchUsers': function(searchValue) {
     if (searchValue == '') {

@@ -22,8 +22,11 @@ class SearchResults extends Component {
       Meteor.call('searchUsers', search, function searchUsers_callback(error, user) {
         if(user) {
           element = <div>
+
                   <img className="result-image" src={user.profile.avatar}/>
                   <h2 id="username-result">{user.profile.firstName}</h2>
+
+            
           </div>;
         }
         else if(search == ''){
@@ -56,5 +59,6 @@ Meteor.subscribe('user');
 
     //return an object, Whatever we return will be send to userList as props
     return { user: Meteor.user()};
+    
 
 }, SearchResults);
