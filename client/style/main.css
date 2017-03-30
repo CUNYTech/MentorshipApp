@@ -74,6 +74,7 @@ ul {
     top: -18px;
     left: -15px;
     margin: -10px;
+    cursor: pointer;
 }
 
 .btn-danger {
