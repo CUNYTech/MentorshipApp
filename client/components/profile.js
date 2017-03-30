@@ -202,23 +202,10 @@ class Profile extends Component {
         else {
             return (
                 <div className="row">
-                    {/*<div className="buttons">*/}
-                        {/*<button className="btn btn-primary" onClick={() => this.editProfile()}>*/}
-                            {/*Edit Profile*/}
-                        {/*</button> &nbsp;*/}
-                        {/*<button className="btn btn-primary" onClick={() => this.editAccount()}>*/}
-                            {/*Account Setting*/}
-                        {/*</button>*/}
-                    {/*</div>*/}
                     <div id="action-field2" className="col-md-4 col-md-offset-2">
                         <div className="side-by-side">
                             <img id="profile-pic" src={this.getAvatar()}/>
                             {this.renderButtons()}
-                            {/*<p className="specialButton">*/}
-                                {/*<button className="btn-secondary" id="request" onClick={() => this.setRequestSent()}>*/}
-                                    {/*Add Mentor*/}
-                                {/*</button>*/}
-                            {/*</p>*/}
                         </div>
                         {this.getProfile()}
                     </div>
@@ -227,10 +214,6 @@ class Profile extends Component {
         } //end else
     } //end render()
 }; // end class Profile
-
-
-//<input ref="blurb" className="form-control" type="text"
-  //     defaultValue={this.props.user.profile.blurb} />
 
 
 export default createContainer(() => {
