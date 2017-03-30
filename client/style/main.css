@@ -67,6 +67,19 @@ ul {
     margin: -10px;
 }
 
+.plusIcon {
+    width: 20px;
+    float: right;
+    position: relative;
+    top: -18px;
+    left: -15px;
+    margin: -10px;
+}
+
+.btn-danger {
+    float: left;
+}
+
 #logo {
     width: 98px;
     height: 70px;
@@ -107,7 +120,14 @@ ul {
 }
 
 .buttons {
+    padding-top: 20px;
     padding-bottom: 20px;
+    text-align: center;
+}
+
+.buttons > a {
+    cursor: pointer;
+    font-size: 20px;
 }
 
 .navbar-default {
@@ -184,6 +204,11 @@ ul {
 #profile-pic {
     width: 130px;
     border-radius: 50%;
+}
+
+.specialButton {
+    margin: 40px 8px;
+    font-size: 25px;
 }
 
 #profile {

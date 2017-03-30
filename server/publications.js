@@ -32,8 +32,7 @@ Meteor.methods({
     Accounts.setPassword(Meteor.userId(), newPassword);
   },
 
-    
-  
+
     'sendMessage':function(person,subject,message){
         var to = Meteor.users.findOne({_id: person});
         var from = Meteor.users.findOne({_id: this.userId});

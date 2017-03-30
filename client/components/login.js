@@ -71,8 +71,7 @@ export default class LoginPage extends React.Component {
                     </form>
                     <form className="form-inline">
                       <div id="forgotpass" className="collapse">
-                        <label>Email: </label>
-                        <input ref="email" className="form-control" type="text" />
+                        <input ref="email" placeholder="Please enter your email" className="form-control" type="text" />
                         <button className="btn btn-primary" onClick={this.forgotPass.bind(this)}>Send</button>
                       </div>
                       <div className="text-danger">{this.state.resetError}</div>
