@@ -51,23 +51,35 @@ Meteor.methods({
 
 
   'searchUsers': function(searchValue) {
+    var user = [];
     if (searchValue == '') {
       throw new Meteor.Error("Nothing found.");
     }
     if (Match.test(searchValue, Match.OneOf(String, null, undefined))) {
-      return Accounts.findUserByEmail(searchValue) || Accounts.findUserByUsername(searchValue);
+      user.push(Accounts.findUserByEmail(searchValue) || Accounts.findUserByUsername(searchValue));
     }
+    return user;
   },
 
-  'searchMentorMentee': function(searchValue) {
+  'searchMentors': function(searchValue) {
     if (searchValue == '') {
       return null;
     }
     else {
-      return users = Meteor.users.find( { $or: [
-        { 'profile.mentorTags': { $elemMatch: {$eq: searchValue} } },
+      return users = Meteor.users.find(
+        { 'profile.mentorTags': { $elemMatch: {$eq: searchValue} } }
+      ).fetch();
+    } //end else
+  },
+
+  'searchMentees': function(searchValue) {
+    if (searchValue == '') {
+      return null;
+    }
+    else {
+      return users = Meteor.users.find(
         { 'profile.menteeTags': { $elemMatch: {$eq: searchValue} } }
-      ]}).fetch();
+      ).fetch();
     } //end else
   },
 
