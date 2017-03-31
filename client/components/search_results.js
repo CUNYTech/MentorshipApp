@@ -48,6 +48,9 @@ class SearchResults extends Component {
     } //end handleSubmit
 
     renderList() {
+      if(this.state.users[0] === null) {
+        return <div> </div>;
+      }
       return this.state.users.map(user => {
         return (
           <li className="list-group-item" key={user._id}>
