@@ -16,6 +16,10 @@ ul {
     width: 80%;
 }
 
+#separation {
+    margin-top: 10px;
+}
+
 #sent {
     width: 60px;
 }
@@ -31,6 +35,27 @@ ul {
 
 .result-image {
     border-radius: 50%;
+    float: left;
+    width: 70px;
+}
+
+#username-result {
+    margin-left: 80px;
+    margin-top: 17px;
+}
+
+#render-mentor {
+
+}
+
+.list-group {
+    position: absolute;
+}
+
+.list-group-item {
+    min-height: 90px;
+    min-width:770px;
+    z-index: 1;
 }
 
 #search-icon {
@@ -40,6 +65,20 @@ ul {
     top: -22px;
     left: -15px;
     margin: -10px;
+}
+
+.plusIcon {
+    width: 20px;
+    float: right;
+    position: relative;
+    top: -18px;
+    left: -15px;
+    margin: -10px;
+    cursor: pointer;
+}
+
+.btn-danger {
+    float: left;
 }
 
 #logo {
@@ -78,11 +117,18 @@ ul {
 #searchBox-dashboard {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 17px;
-    float: right;
+
 }
 
 .buttons {
+    padding-top: 20px;
     padding-bottom: 20px;
+    text-align: center;
+}
+
+.buttons > a {
+    cursor: pointer;
+    font-size: 20px;
 }
 
 .navbar-default {
@@ -159,6 +205,11 @@ ul {
 #profile-pic {
     width: 130px;
     border-radius: 50%;
+}
+
+.specialButton {
+    margin: 40px 8px;
+    font-size: 25px;
 }
 
 #profile {
@@ -269,7 +320,7 @@ button {
 }
 
 #footer {
-    position:static;
+    position: absolute;
     width:100%;
 }
 

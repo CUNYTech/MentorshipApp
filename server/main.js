@@ -18,7 +18,7 @@ Meteor.startup(()=>{
 
 
             const avatar = image.avatar();
-            const blurb = lorem.sentence();
+            const blurb = lorem.sentences();
             //console.log email when generating fake users.
             //console.log(email);
             Accounts.createUser({

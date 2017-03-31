@@ -14,7 +14,6 @@ export default class Registration extends React.Component {
 
     checkStrength() {
         var strength = Accounts.zxcvbn(this.refs.t_password.value);
-        console.log(strength.score);
         var element;
 
            if(strength.score==0){element =
@@ -48,9 +47,6 @@ export default class Registration extends React.Component {
             </ul>
         ;}
         ReactDOM.render(element, document.getElementById('passBar'));
-
-
-
     }
 
     handleSubmit(event) {
