@@ -14,7 +14,8 @@ class Header extends Component {
             return <Link to="/registration" >SIGN UP</Link>
         }
         else {
-            return <Link to="/profile">PROFILE</Link>
+            const username = this.props.user.username;
+            return <Link to={"/profile/"+username}>PROFILE</Link>
         }
     }
 

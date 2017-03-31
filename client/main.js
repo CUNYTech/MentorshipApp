@@ -11,6 +11,17 @@ import SearchResults     from './components/search_results';
 import MainSearch        from './components/main-search';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 
+
+
+const NotFound =() => {
+
+    return <div>
+        <div> <b> 404-Link Not Found. </b> </div>
+        <div> This link was not found. Please let us know at ObecInc@gmail.com! </div>
+    </div>
+
+}
+
 const routes = (
     <Router history={browserHistory}>
         <Route path="/" component={App}>
@@ -22,9 +33,12 @@ const routes = (
             <Route path="profile(/:username)" component={Profile}></Route>
             <Route path="messages" component={Messaging}></Route>
             <Route path="mainsearch" component={MainSearch}></Route>
+            <Route path="*" component = {NotFound}> </Route>
+
         </Route>
     </Router>
 );
+
 
 Meteor.startup(()=>{
     ReactDOM.render(routes, document.querySelector('.container'));

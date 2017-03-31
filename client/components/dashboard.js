@@ -39,10 +39,10 @@ class Dashboard extends Component {
             </div>
           </div>
           <div className="action-field">
-            <Link to="mainsearch" href="localhost:3000/mainsearch">
+            <Link to="/mainsearch">
                 <p>Search</p>
             </Link>
-            <Link to="messages" href="localhost:3000/messages">
+            <Link to="/messages" >
               <p>Messages</p>
             </Link>
             <a href="#">

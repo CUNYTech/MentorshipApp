@@ -15,22 +15,23 @@ class Profile extends Component {
 
     }
 
-foundProfile(){
-   return Meteor.users.findOne({ username : this.props.params.username});
+validProfile(){
+   user=  Meteor.users.findOne({ username : this.props.params.username})
+
+    if(user && user!='undefined' && user != 'null') return true;
+
+   return false;
 
 
 }
 ownProfile() {
-
-  return this.props.user.username ===Meteor.users.findOne({ username : this.props.params.username}).username
+  return this.props.user.username ==Meteor.users.findOne({ username : this.props.params.username}).username
 
 
 }
     getAvatar() {
-
-if( this.props.params.username===null || this.props.params.username===undefined)
-    var user =this.props.user; else
-        var user = Meteor.users.findOne({ username : this.props.params.username});
+        if(this.props.params.username==='undefined' || this.props.params.username===null) var user = this.props.user;
+        else var user = Meteor.users.findOne({ username : this.props.params.username});
 
             if (user.profile.avatar != '')
                 return user.profile.avatar;
@@ -40,9 +41,7 @@ if( this.props.params.username===null || this.props.params.username===undefined)
 
 
     getProfile() {
-        if(!this.foundProfile())
-            var user =this.props.user; else
-            var user = Meteor.users.findOne({ username : this.props.params.username});
+     var user = Meteor.users.findOne({ username : this.props.params.username});
 
         return (
             <div id="put-bottom">
@@ -104,7 +103,7 @@ if( this.props.params.username===null || this.props.params.username===undefined)
     render() {
 
 
-        if(!this.props.user) {
+        if(!this.props.user ) {
             return <div>Loading...</div>;
         }
         else if(this.state.isEditProfile && this.ownProfile() ) {
