@@ -7,8 +7,8 @@ export const Messages = new Mongo.Collection('message');
 
 
 /* Publish users collection to see them on CTRL + M */
-Meteor.publish('users', function() {
-    return Meteor.users.find({});
+Meteor.publish("users", function() {
+    return Meteor.users.find();
 });
 
 Meteor.publish('messageList',function(){
@@ -55,6 +55,19 @@ Meteor.methods({
       if (Match.test(searchValue, Match.OneOf(String, null, undefined))) {
           return Accounts.findUserByEmail(searchValue) || Accounts.findUserByUsername(searchValue);
       }
+    },
+
+    'searchByUsername' : function(searchValue) {
+        if(searchValue=='') return null;
+
+        var user=  Accounts.findUserByUsername(searchValue);
+
+        return user;
+
     }
+
+
+
+
 
 }); //end Meteor.methods()

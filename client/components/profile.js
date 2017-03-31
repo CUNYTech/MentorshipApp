@@ -1,31 +1,55 @@
 import React, { Component } from 'react';
 import { Meteor }           from 'meteor/meteor'
 import { createContainer }  from 'meteor/react-meteor-data';
+import { Accounts } from  'meteor/accounts-base'
 
 class Profile extends Component {
     constructor(props) {
         super(props);
-        this.state = { isEditProfile: false, isEditAccount: false };
+
+
+
+        this.state = {  isEditProfile: false, isEditAccount: false };
+
+
+
     }
 
-    getName() {
-        return this.props.user.profile.firstName + ' ' + this.props.user.profile.lastName;
-    }
+foundProfile(){
+   return Meteor.users.findOne({ username : this.props.params.username});
 
+
+}
+ownProfile() {
+
+  return this.props.user.username ===Meteor.users.findOne({ username : this.props.params.username}).username
+
+
+}
     getAvatar() {
-        if(this.props.user.profile.avatar != '')
-            return this.props.user.profile.avatar;
-        else
-            return  "default-user.png";
-    }
+
+if( this.props.params.username===null || this.props.params.username===undefined)
+    var user =this.props.user; else
+        var user = Meteor.users.findOne({ username : this.props.params.username});
+
+            if (user.profile.avatar != '')
+                return user.profile.avatar;
+            else
+                return "default-user.png";
+        }
+
 
     getProfile() {
+        if(!this.foundProfile())
+            var user =this.props.user; else
+            var user = Meteor.users.findOne({ username : this.props.params.username});
+
         return (
             <div id="put-bottom">
-                <h2>{this.props.user.profile.firstName}</h2>
-                <p>{this.props.user.profile.blurb}</p>
+                <h2>{user.profile.firstName}</h2>
+                <p>{user.profile.blurb}</p>
                 <hr id="tags-hr"/>
-                <p>{this.props.user.profile.tags}</p>
+                <p>{user.profile.tags}</p>
                 <hr id="profile-hr"/>
             </div>
         );
@@ -78,10 +102,12 @@ class Profile extends Component {
     } //end saveAccount()
 
     render() {
+
+
         if(!this.props.user) {
             return <div>Loading...</div>;
         }
-        else if(this.state.isEditProfile) {
+        else if(this.state.isEditProfile && this.ownProfile() ) {
             return (
                 <div className="row">
                     <div className="col-md-4 col-md-offset-4">
@@ -125,7 +151,7 @@ class Profile extends Component {
                 </div>
             );
         }
-        else if(this.state.isEditAccount) {
+        else if(this.state.isEditAccount && this.ownProfile() ) {
           return (
               <div className="row">
                   <div className="col-md-4 col-md-offset-4">
@@ -186,5 +212,8 @@ class Profile extends Component {
 
 export default createContainer(() => {
     //return an object, Whatever we return will be send to userList as props
+
+
+
     return { user: Meteor.user()};
 }, Profile);

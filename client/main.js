@@ -19,7 +19,7 @@ const routes = (
             <Route path="about" component={About}></Route>
             <Route path="registration" component={Registration}></Route>
             <Route path="login" component={LoginPage}></Route>
-            <Route path="profile" component={Profile}></Route>
+            <Route path="profile(/:username)" component={Profile}></Route>
             <Route path="messages" component={Messaging}></Route>
             <Route path="mainsearch" component={MainSearch}></Route>
         </Route>
