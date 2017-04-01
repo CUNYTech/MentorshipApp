@@ -3,9 +3,11 @@ import ReactDOM             from 'react-dom';
 import { Meteor }           from 'meteor/meteor'
 import { createContainer }  from 'meteor/react-meteor-data';
 import { Link }             from 'react-router';
+import { Accounts }         from 'meteor/accounts-base';
 import MentorDetail         from './mentor_detail';
 import MenteeDetail         from './mentee_detail';
-import { Accounts }         from 'meteor/accounts-base';
+import { Mentors }          from '../../imports/collections/mentors';
+import { Mentees }          from '../../imports/collections/mentees';
 
 class SearchResults extends Component {
     constructor(props) {
@@ -47,6 +49,11 @@ class SearchResults extends Component {
       } //end else
     } //end handleSubmit
 
+    onAddMentor(user) {
+      Meteor.call('mentors.add', user);
+      Meteor.call('mentees.add', user);
+    }
+
     renderList() {
       if(this.state.users[0] === null) {
         return <div> </div>;
@@ -54,8 +61,11 @@ class SearchResults extends Component {
       return this.state.users.map(user => {
         return (
           <li className="list-group-item" key={user._id}>
-                <img className="result-image" src={user.profile.avatar}/>
-                <h2 id="username-result">{user.profile.firstName}</h2>
+            <img className="result-image" src={user.profile.avatar}/>
+            <h2 id="username-result">{user.profile.firstName}</h2>
+            <button className="btn btn-success" onClick={() => this.onAddMentor(user)}>
+              Add Mentor
+            </button>
           </li>
         );
       });
@@ -86,7 +96,7 @@ class SearchResults extends Component {
 }
 
 export default createContainer(() =>{
-Meteor.subscribe('user');
-    //return an object, Whatever we return will be send to userList as props
-    return { user: Meteor.user()};
+  Meteor.subscribe('mentors');
+  Meteor.subscribe('mentees');
+  return { mentors: Mentors.find({}).fetch(), mentees: Mentees.find({}).fetch() };
 }, SearchResults);

@@ -12,7 +12,6 @@ class Dashboard extends Component {
     };
 
     getName() {
-        console.log(this.props.allData);
         return this.props.user.profile.firstName + ' ' + this.props.user.profile.lastName;
     }
 

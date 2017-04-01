@@ -6,29 +6,19 @@ import { Accounts } from  'meteor/accounts-base'
 class Profile extends Component {
     constructor(props) {
         super(props);
-
-
-
         this.state = {  isEditProfile: false, isEditAccount: false };
-
-
-
     }
 
     validProfile(){
         user=  Meteor.users.findOne({ username : this.props.params.username})
-
         if(user && user!='undefined' && user != 'null') return true;
-
         return false;
-
-
     }
+
     ownProfile() {
         return this.props.user.username ==Meteor.users.findOne({ username : this.props.params.username}).username
-
-
     }
+
     getAvatar() {
         if(this.props.params.username==='undefined' || this.props.params.username===null) var user = this.props.user;
         else var user = Meteor.users.findOne({ username : this.props.params.username});
@@ -38,7 +28,6 @@ class Profile extends Component {
         else
             return "default-user.png";
     }
-
 
     getProfile() {
         var user = Meteor.users.findOne({ username : this.props.params.username});

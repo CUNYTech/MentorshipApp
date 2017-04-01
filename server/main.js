@@ -1,38 +1,35 @@
 import { Meteor }   from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
+import { Mentors }  from '../imports/collections/mentors';
+import { Mentees }  from '../imports/collections/mentees';
 import _ from 'lodash';
 import { image, helpers, lorem, internet } from 'faker';
 
-
-
-
-
 Meteor.startup(()=>{
-    // See if the collection has any records already
 
-    const numberRecords = Meteor.users.find({}).count();
-    if (numberRecords < 20) {
-        _.times(20, () => {
+  Meteor.publish('mentors', function() {
+    return Mentors.find({ ownerId: this.userId });
+  });
 
-            const { name, username, email, phone } = helpers.contextualCard();
+  Meteor.publish('mentees', function() {
+    return Mentees.find({ ownerId: this.userId });
+  });
 
-
-            const avatar = image.avatar();
-            const blurb = lorem.sentences();
-            //console.log email when generating fake users.
-            //console.log(email);
-            Accounts.createUser({
-                username: username,
-                email: email,
-                password:'faker',
-                profile: { avatar: avatar, firstName: name, lastName: '', blurb: blurb }
-            }); // end Userz.insert()
-        }); // end loop
-    } //end if
-
-
-
-
-
-
+  // See if the collection has any records already
+  const numberRecords = Meteor.users.find({}).count();
+  if (numberRecords < 40) {
+    _.times(40, () => {
+      const { name, username, email, phone } = helpers.contextualCard();
+      const avatar = image.avatar();
+      const blurb = lorem.sentences();
+      //console.log email when generating fake users.
+      //console.log(email);
+      Accounts.createUser({
+        username: username,
+        email: email,
+        password:'faker',
+        profile: { avatar: avatar, firstName: name, lastName: '', blurb: blurb }
+      });
+    }); // end loop
+  } //end if
 }); //end Meteor.startup()
