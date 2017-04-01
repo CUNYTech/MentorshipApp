@@ -26,7 +26,7 @@ class Profile extends Component {
         if (user.profile.avatar != '')
             return user.profile.avatar;
         else
-            return "default-user.png";
+            return "/default-user.png";
     }
 
     getProfile() {
@@ -34,8 +34,8 @@ class Profile extends Component {
 
         return (
             <div id="put-bottom">
-                <h2>{this.props.user.profile.firstName}</h2>
-                <p>{this.props.user.profile.blurb}</p>
+                <h2>{user.profile.firstName}</h2>
+                <p>{user.profile.blurb}</p>
             </div>
         );
     }
