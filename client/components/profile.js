@@ -41,7 +41,7 @@ class Profile extends Component {
     }
 
     renderButtons() {
-        if (this.props.user) {
+        if (this.props.user && this.ownProfile()) {
             return <p className="buttons">
                 <a onClick={() => this.editProfile()}>
                     Edit Profile
