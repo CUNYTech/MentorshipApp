@@ -11,19 +11,20 @@ class Header extends Component {
 
     checkSignup() {
         if (!this.props.user) {
-            return <Link to="registration" href="localhost:3000/registration">SIGN UP</Link>
+            return <Link to="/registration" >SIGN UP</Link>
         }
         else {
-            return <Link to="profile" href="localhost:3000/profile">PROFILE</Link>
+            const username = this.props.user.username;
+            return <Link to={"/profile/"+username}>PROFILE</Link>
         }
     }
 
     setLoginLogout() {
         if (!this.props.user) {
-            return <Link to="login" href="localhost:3000/login">LOGIN</Link>
+            return <Link to="/login" >LOGIN</Link>
         }
         else  {
-            return <Link to="login" href="localhost:3000/login" onClick={this.userLogout.bind(this)}>LOGOUT</Link>
+            return <Link to="/login" onClick={this.userLogout.bind(this)}>LOGOUT</Link>
         }
     }
 
@@ -31,17 +32,17 @@ class Header extends Component {
         return (
             <div className="navbar navbar-default" role="navigation">
                 <div className="navbar-header">
-                    <Link to="home" href="localhost:3000/home"><img id="logo" src="meerkat2.png" /></Link>
+                    <Link to="/home" ><img id="logo" src="/meerkat2.png" /></Link>
                 </div>
                 <ul className="nav navbar-nav">
                     <li id="searchBox">
                         <SearchResults/>
                     </li>
                     <li>
-                        <Link to="home" href="localhost:3000/home">HOME</Link>
+                        <Link to="/home" >HOME</Link>
                     </li>
                     <li>
-                        <Link to="about" href="localhost:3000/about">ABOUT US</Link>
+                        <Link to="/about">ABOUT US</Link>
                     </li>
                     <li className="dropdown">
                         {this.checkSignup()}
