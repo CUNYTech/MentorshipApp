@@ -62,7 +62,7 @@ class SearchResults extends Component {
         return (
           <li className="list-group-item" key={user._id}>
             <img className="result-image" src={user.profile.avatar}/>
-            <h2 id="username-result">{user.profile.firstName}</h2>
+              <h2 id="username-result"><Link to={"/profile/"+user.username}>{user.profile.firstName}</Link></h2>
             <button className="btn btn-success" onClick={() => this.onAddMentor(user)}>
               Add Mentor
             </button>
@@ -76,7 +76,7 @@ class SearchResults extends Component {
           <div>
             <div id="searchBox-dashboard">
                 <input type="search" ref="searchBox" className="form-control" onKeyUp={this.handleSubmit} placeholder="Search"/>
-                <Link to="mainsearch" href="localhost:3000/mainsearch">
+                <Link to="/mainsearch" href="localhost:3000/mainsearch">
                     <img id="search-icon" src="/search-icon.png"/>
                 </Link>
                 <select value={this.state.option} onChange={this.handleChange}>

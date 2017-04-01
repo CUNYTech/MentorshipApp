@@ -20,8 +20,7 @@ class Profile extends Component {
     }
 
     getAvatar() {
-        if(this.props.params.username==='undefined' || this.props.params.username===null) var user = this.props.user;
-        else var user = Meteor.users.findOne({ username : this.props.params.username});
+       var user = Meteor.users.findOne({ username : this.props.params.username});
 
         if (user.profile.avatar != '')
             return user.profile.avatar;
@@ -113,7 +112,7 @@ class Profile extends Component {
         if(!this.props.user ) {
             return <div>Loading...</div>;
         }
-        else if(this.state.isEditProfile && this.ownProfile() ) {
+        else if(this.state.isEditProfile ) {
             return (
                 <div className="row">
                     <div className="col-md-4 col-md-offset-4">
@@ -157,7 +156,7 @@ class Profile extends Component {
                 </div>
             );
         }
-        else if(this.state.isEditAccount && this.ownProfile() ) {
+        else if(this.state.isEditAccount ) {
             return (
                 <div className="row">
                     <div className="col-md-4 col-md-offset-4">
