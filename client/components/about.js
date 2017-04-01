@@ -2,12 +2,13 @@ import React from 'react';
 
 const About = () => {
     return (
-        <div className="row">
+ <div className="row">
             <div className="col-xs-6">
                 <img src="meerkat.png" />
             </div>
             <div className="col-xs-6">
             <h2>About us</h2>
+
             <p>
                 Obec takes its name from the Slovak translation from the English word "community". The goal of this web application
                 is to create a community among people where they can find short-term or long-term mentors in different areas such as
@@ -19,9 +20,42 @@ const About = () => {
                 valuable and would like to share, then please contribute as a mentor. If you are looking to have someone's point of view
                 on something you don't know or simply don't understand and hold interest on, then please sign up as a mentee. Here at Obec, we give you the
                 the opportunity to be both. Let's seek help and provide help.
-            </p>
+            </p> 
             </div>
-        </div>
+            <div className ="images">
+            <ul className = "photos">
+            <li>
+            <img className="imagesSec" src="alex.jpg"/>
+            <p className="caption">Alexander Onate </p>
+            </li>
+            <li>
+            <img className="imagesSec"src="laisa.jpg"/>
+            <p className="caption">Laisa Barros </p>
+            </li>
+           
+            <li>
+            <img className="imagesSec" src="liang.jpg"/>
+            <p className="caption">Liang Chen</p>
+            </li>
+            
+            <li>
+            <img className="imagesSec" src="maz.jpg"/>
+            <p className="caption">Mazhar Siddique </p>
+            </li>
+           
+            <li>
+            <img className="imagesSec" src="shri.jpg"/>
+            <p className="caption">Shrijana Ghimire </p>
+            </li>
+            </ul>
+             
+            </div>
+            
+            <hr/>
+</div>
+            
+            
+    
     );
 };
 export default About;
