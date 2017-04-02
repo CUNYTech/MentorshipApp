@@ -2,6 +2,7 @@ import { Meteor }   from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Mentors }  from '../imports/collections/mentors';
 import { Mentees }  from '../imports/collections/mentees';
+
 import _ from 'lodash';
 import { image, helpers, lorem, internet } from 'faker';
 
@@ -14,6 +15,7 @@ Meteor.startup(()=>{
   Meteor.publish('mentees', function() {
     return Mentees.find({ ownerId: this.userId });
   });
+
 
   // See if the collection has any records already
   const numberRecords = Meteor.users.find({}).count();

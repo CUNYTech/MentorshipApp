@@ -118,6 +118,7 @@ class Profile extends Component {
         tags = this.refs.mentortags.value;
         if (tags != "") {
             Meteor.call('users.addMentorTags', tags);
+            this.refs.mentortags.value = "";
         }
     }
 
@@ -126,6 +127,7 @@ class Profile extends Component {
         tags = this.refs.menteetags.value;
         if (tags != "") {
             Meteor.call('users.addMenteeTags', tags);
+            this.refs.menteetags.value = "";
         }
     }
 

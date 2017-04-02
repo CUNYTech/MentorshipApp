@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Meteor }           from 'meteor/meteor'
 import { Mongo }    from 'meteor/mongo';
 import { createContainer }  from 'meteor/react-meteor-data';
+import NewMessage from './messages_detail';
 
 export const Messages = new Mongo.Collection('message');
 
@@ -23,12 +24,14 @@ class Messaging extends Component {
     render(){
         if (!this.props.user) {
             return <div>Loading...</div>;
+
         }
 
         return (
 
             <div>
                 {this.renderMail()}
+                <NewMessage/>
             </div>
 
         )};
