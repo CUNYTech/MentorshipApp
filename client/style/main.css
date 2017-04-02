@@ -40,12 +40,10 @@ ul {
 }
 
 #username-result {
-    margin-left: 80px;
-    margin-top: 17px;
-}
-
-#render-mentor {
-
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: -5px;
+    float: left;
 }
 
 .list-group {
@@ -53,9 +51,11 @@ ul {
 }
 
 .list-group-item {
-    min-height: 90px;
-    min-width:770px;
     z-index: 1;
+}
+
+.list-group-item > img {
+    width: 35px;
 }
 
 #search-icon {
@@ -63,8 +63,48 @@ ul {
     float: right;
     position: relative;
     top: -22px;
-    left: -15px;
+    left: -25px;
     margin: -10px;
+}
+
+.caret {
+    color: darkgray;
+    float: right;
+    position: relative;
+    top: -8px;
+    left: -10px;
+    margin: -10px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 4%;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#dropdown-label {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    float: left;
+}
+
+#dropdown-select {
+    width: 85px;
+    margin-top: 10px;
 }
 
 .plusIcon {
@@ -87,8 +127,9 @@ ul {
     position: relative;
     padding-left: 10px;
     margin-right: -5px;
-    margin-left: 20px;
+    margin-left: 30px;
 }
+
 #github_icon{
     width:10%;
     height:10%;
@@ -109,15 +150,15 @@ ul {
 
 #searchBox {
     padding-top: 8px;
-    padding-right: 330px;
+    padding-right: 400px;
     padding-left: 15px;
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
-#searchBox-dashboard {
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 17px;
+input[type=search] {}
 
+#search-page {
+    margin-left: 40px;
 }
 
 .buttons {
@@ -260,6 +301,7 @@ p {
 }
 
 .form-control {
+    font-family: 'Open Sans Condensed', sans-serif;
     font-size: 18px;
 }
 

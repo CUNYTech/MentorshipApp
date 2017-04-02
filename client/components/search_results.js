@@ -74,16 +74,21 @@ class SearchResults extends Component {
     render() {
         return (
           <div>
-            <div id="searchBox-dashboard">
+            <div className="dropdown" id="searchBox-dashboard">
                 <input type="search" ref="searchBox" className="form-control" onKeyUp={this.handleSubmit} placeholder="Search"/>
                 <Link to="/mainsearch" href="localhost:3000/mainsearch">
-                    <img id="search-icon" src="/search-icon.png"/>
-                </Link>
-                <select value={this.state.option} onChange={this.handleChange}>
-                  <option value="user" defaultValue>User</option>
-                  <option value="mentor">Mentor</option>
-                  <option value="mentee">Mentee</option>
-                </select>
+                    <img className="dropdown-toggle" id="search-icon" src="/search-icon.png"/>
+                </Link><span className="caret"> </span>
+                <div>
+                    <div className="dropdown-content">
+                        <p id="dropdown-label">Filter: </p>
+                        <select id="dropdown-select" className="form-control" value={this.state.option} onChange={this.handleChange}>
+                            <option value="user" defaultValue>User</option>
+                            <option value="mentor">Mentor</option>
+                            <option value="mentee">Mentee</option>
+                        </select>
+                    </div>
+                </div>
             </div>
             <div className="list-users">
                 <ul className="list-group">

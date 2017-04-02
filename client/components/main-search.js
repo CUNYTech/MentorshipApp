@@ -12,7 +12,7 @@ class MainSearch extends Component {
     render(){
 
         return (
-            <div className="row">
+            <div id="search-page" className="row">
                 <SearchResults/>
                 <div className="col-md-4 col-md-offset-2" id="root"> </div>
             </div>
