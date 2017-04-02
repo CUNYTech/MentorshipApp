@@ -1,31 +1,40 @@
 import React, { Component } from 'react';
-import { Meteor }           from 'meteor/meteor'
+import { Meteor }           from 'meteor/meteor';
 import { createContainer }  from 'meteor/react-meteor-data';
-import { Accounts } from  'meteor/accounts-base'
+import { Accounts }         from 'meteor/accounts-base';
 
 class Profile extends Component {
     constructor(props) {
         super(props);
-        this.state = {  isEditProfile: false, isEditAccount: false };
+        this.state = { isEditProfile: false, isEditAccount: false };
     }
 
-    validProfile(){
-        user=  Meteor.users.findOne({ username : this.props.params.username})
-        if(user && user!='undefined' && user != 'null') return true;
+    validProfile() {
+        user = Meteor.users.findOne({ username : this.props.params.username});
+
+        if (user && user != 'undefined' && user != 'null') return true;
+
         return false;
     }
 
     ownProfile() {
-        return this.props.user.username ==Meteor.users.findOne({ username : this.props.params.username}).username
+        return this.props.user.username == Meteor.users.findOne({ username : this.props.params.username}).username;
+    }
+
+    getName() {
+        return this.props.user.profile.firstName + ' ' + this.props.user.profile.lastName;
     }
 
     getAvatar() {
-       var user = Meteor.users.findOne({ username : this.props.params.username});
+        if(this.props.params.username === 'undefined' || this.props.params.username === null) var user = this.props.user;
+        else var user = Meteor.users.findOne({ username : this.props.params.username});
 
-        if (user.profile.avatar != '')
+        if (user.profile.avatar != '') {
             return user.profile.avatar;
-        else
+        }
+        else {
             return "/default-user.png";
+        }
     }
 
     getProfile() {
@@ -33,8 +42,8 @@ class Profile extends Component {
 
         return (
             <div id="put-bottom">
-                <h2>{user.profile.firstName}</h2>
-                <p>{user.profile.blurb}</p>
+                <h2>{this.props.user.profile.firstName}</h2>
+                <p>{this.props.user.profile.blurb}</p>
             </div>
         );
     }
@@ -71,11 +80,9 @@ class Profile extends Component {
     saveProfile() {
         const name = this.refs.firstName.value;
         const blurb = this.refs.blurb.value;
-        const tags = this.refs.tags.value;
         Meteor.users.update(Meteor.userId(), {$set: {
             "profile.firstName": name,
             "profile.blurb": blurb,
-            "profile.tags": tags,
         }});
         this.setState({isEditProfile: false});
     }
@@ -106,13 +113,27 @@ class Profile extends Component {
         }
     } //end saveAccount()
 
+    addMentorTags(event) {
+        event.preventDefault();
+        tags = this.refs.mentortags.value;
+        if (tags != "") {
+            Meteor.call('users.addMentorTags', tags);
+        }
+    }
+
+    addMenteeTags(event) {
+        event.preventDefault();
+        tags = this.refs.menteetags.value;
+        if (tags != "") {
+            Meteor.call('users.addMenteeTags', tags);
+        }
+    }
+
     render() {
-
-
-        if(!this.props.user ) {
+        if(!this.props.user) {
             return <div>Loading...</div>;
         }
-        else if(this.state.isEditProfile ) {
+        else if(this.state.isEditProfile && this.ownProfile()) {
             return (
                 <div className="row">
                     <div className="col-md-4 col-md-offset-4">
@@ -132,14 +153,25 @@ class Profile extends Component {
 
                             </p>
                             <p>
-                                <label>Tags</label>
-                                <textarea ref="tags" className="form-control" type="text"
-                                          defaultValue={this.props.user.profile.tags} placeholder="Type a role that best describes you-- Mentor/Mentee..."
-                                          id="profile_tags" rows="4" cols="5" maxLength="500">
-
-                            </textarea>
+                                <label>Mentor Tags</label>
+                                <input ref="mentortags" className="form-control" type="text"
+                                       placeholder="Enter tags to include yourself in mentor search result"
+                                       id="mentor_tags">
+                                </input>
+                                <a onClick={this.addMentorTags.bind(this)}>
+                                    <img className="plusIcon" src="/plus-icon.png"/>
+                                </a>
                             </p>
-
+                            <p>
+                                <label>Mentee Tags</label>
+                                <input ref="menteetags" className="form-control" type="text"
+                                       placeholder="Enter tags to include yourself in mentee search result"
+                                       id="mentee_tags">
+                                </input>
+                                <a onClick={this.addMenteeTags.bind(this)}>
+                                    <img className="plusIcon" src="/plus-icon.png"/>
+                                </a>
+                            </p>
                         </form>
 
                         <div className="buttons">
@@ -156,7 +188,7 @@ class Profile extends Component {
                 </div>
             );
         }
-        else if(this.state.isEditAccount ) {
+        else if(this.state.isEditAccount && this.ownProfile()) {
             return (
                 <div className="row">
                     <div className="col-md-4 col-md-offset-4">
@@ -204,14 +236,7 @@ class Profile extends Component {
 }; // end class Profile
 
 
-//<input ref="blurb" className="form-control" type="text"
-//     defaultValue={this.props.user.profile.blurb} />
-
-
 export default createContainer(() => {
     //return an object, Whatever we return will be send to userList as props
-
-
-
     return { user: Meteor.user()};
 }, Profile);
