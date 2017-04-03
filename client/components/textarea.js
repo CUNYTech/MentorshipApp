@@ -21,6 +21,10 @@ class Textarea extends Component {
 
         this.setFilledTextareaHeight();
     }
+    /*componentDidUpdate(){
+        this.updated = true;
+        this.setScrollHeight();
+    }*/
 
     setFilledTextareaHeight() {
         if (this.mounted) {
@@ -31,6 +35,7 @@ class Textarea extends Component {
             });
         }
     }
+    
 
     setValue(event) {
         const { value }= event.target;

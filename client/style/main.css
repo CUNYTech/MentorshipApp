@@ -444,3 +444,17 @@ transition: height 0.2s ease;
     position: absolute;
     top: 0;
 }
+
+.images{
+    float: right;
+    margin-right: 0px;
+
+
+}
+ul.photos li{
+    display: inline;
+}
+.imagesSec{
+    border-radius: 50%;
+    
+}
