@@ -31,7 +31,7 @@ class Messaging extends Component {
 
             <div>
                 {this.renderMail()}
-                <NewMessage/>
+                <NewMessage/ >
             </div>
 
         )};
