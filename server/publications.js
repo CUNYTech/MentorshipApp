@@ -48,7 +48,19 @@ Meteor.methods({
         }
         Messages.insert(msg);
     },
+      'messages.markRead':function(messageId){
+    check(messageId, String);
 
+    const message = Messages.findOne(messageId);
+
+    Messages.update(messageId, { $set: { read: true } });
+  },
+
+     'messages.remove':function(messageId) {
+        check(messageId, String);
+
+        Messages.remove(messageId);
+    }
 
   'searchUsers': function(searchValue) {
     var user = [];

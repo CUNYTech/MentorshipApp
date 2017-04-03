@@ -15,7 +15,10 @@ Meteor.startup(()=>{
   Meteor.publish('mentees', function() {
     return Mentees.find({ ownerId: this.userId });
   });
-
+  
+  /*Meteor.publish('messages', function(){
+    return Message.find({});
+  });*/
 
   // See if the collection has any records already
   const numberRecords = Meteor.users.find({}).count();
