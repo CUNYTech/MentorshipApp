@@ -34,6 +34,13 @@ class NewMessage extends Component {
     sendMessage(){
 
     }
+    deleteMessage() {
+        const { message } = this.props;
+        Meteor.call('messages.remove', message._id)
+    }
+     editMessage() {
+        this.setState({updateMessage: true});
+    }
 
     render(){
         return (
