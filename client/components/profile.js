@@ -6,11 +6,11 @@ import { Accounts }         from 'meteor/accounts-base';
 class Profile extends Component {
     constructor(props) {
         super(props);
-        this.state = { isEditProfile: false, isEditAccount: false };
+        this.state = {user: null,  isEditProfile: false, isEditAccount: false };
+
     }
 
     validProfile() {
-        user = Meteor.users.findOne({ username : this.props.params.username});
 
         if (user && user != 'undefined' && user != 'null') return true;
 
@@ -18,16 +18,14 @@ class Profile extends Component {
     }
 
     ownProfile() {
+
         return this.props.user.username == Meteor.users.findOne({ username : this.props.params.username}).username;
     }
 
-    getName() {
-        return this.props.user.profile.firstName + ' ' + this.props.user.profile.lastName;
-    }
+
 
     getAvatar() {
-        if(this.props.params.username === 'undefined' || this.props.params.username === null) var user = this.props.user;
-        else var user = Meteor.users.findOne({ username : this.props.params.username});
+        var user = Meteor.users.findOne({ username : this.props.params.username});
 
         if (user.profile.avatar != '') {
             return user.profile.avatar;
@@ -42,8 +40,8 @@ class Profile extends Component {
 
         return (
             <div id="put-bottom">
-                <h2>{this.props.user.profile.firstName}</h2>
-                <p>{this.props.user.profile.blurb}</p>
+                <h2>{user.profile.firstName}</h2>
+                <p>{user.profile.blurb}</p>
             </div>
         );
     }
@@ -135,7 +133,7 @@ class Profile extends Component {
         if(!this.props.user) {
             return <div>Loading...</div>;
         }
-        else if(this.state.isEditProfile && this.ownProfile()) {
+        else if(this.state.isEditProfile) {
             return (
                 <div className="row">
                     <div className="col-md-4 col-md-offset-4">
@@ -190,7 +188,7 @@ class Profile extends Component {
                 </div>
             );
         }
-        else if(this.state.isEditAccount && this.ownProfile()) {
+        else if(this.state.isEditAccount) {
             return (
                 <div className="row">
                     <div className="col-md-4 col-md-offset-4">
