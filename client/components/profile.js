@@ -6,9 +6,10 @@ import { Accounts }         from 'meteor/accounts-base';
 class Profile extends Component {
     constructor(props) {
         super(props);
-        this.state = {user: null,  isEditProfile: false, isEditAccount: false };
+        this.state = {  isEditProfile: false, isEditAccount: false };
 
     }
+
 
     validProfile() {
 
@@ -18,17 +19,16 @@ class Profile extends Component {
     }
 
     ownProfile() {
-
-        return this.props.user.username == Meteor.users.findOne({ username : this.props.params.username}).username;
+        return this.props.user.username == this.props.paramUser.username;
     }
 
 
 
     getAvatar() {
-        var user = Meteor.users.findOne({ username : this.props.params.username});
 
-        if (user.profile.avatar != '') {
-            return user.profile.avatar;
+            if (this.props.paramUser.profile.avatar != '' && this.props.userExist) {
+
+                return this.props.paramUser.profile.avatar;
         }
         else {
             return "/default-user.png";
@@ -36,12 +36,12 @@ class Profile extends Component {
     }
 
     getProfile() {
-        var user = Meteor.users.findOne({ username : this.props.params.username});
+
 
         return (
             <div id="put-bottom">
-                <h2>{user.profile.firstName}</h2>
-                <p>{user.profile.blurb}</p>
+                <h2>{this.props.paramUser.profile.firstName}</h2>
+                <p>{this.props.paramUser.profile.blurb}</p>
             </div>
         );
     }
@@ -130,7 +130,7 @@ class Profile extends Component {
     }
 
     render() {
-        if(!this.props.user) {
+        if(!this.props.user ) {
             return <div>Loading...</div>;
         }
         else if(this.state.isEditProfile) {
@@ -236,7 +236,16 @@ class Profile extends Component {
 }; // end class Profile
 
 
-export default createContainer(() => {
-    //return an object, Whatever we return will be send to userList as props
-    return { user: Meteor.user()};
+
+
+export default createContainer((props) => {
+
+    paramUser=Meteor.users.findOne({ username:props.params.username});
+
+    const loading = !Meteor.subscribe('users').ready();
+
+
+userExist =  paramUser;
+
+    return { user: Meteor.user(), paramUser: paramUser, loading:loading, userExist:userExist  };
 }, Profile);
