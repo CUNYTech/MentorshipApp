@@ -4,7 +4,7 @@ import { Mentors }  from '../imports/collections/mentors';
 import { Mentees }  from '../imports/collections/mentees';
 
 import _ from 'lodash';
-import { image, helpers, lorem, internet } from 'faker';
+import { image, helpers, lorem, internet, name } from 'faker';
 
 Meteor.startup(()=>{
 
@@ -15,7 +15,7 @@ Meteor.startup(()=>{
   Meteor.publish('mentees', function() {
     return Mentees.find({ ownerId: this.userId });
   });
-  
+
   /*Meteor.publish('messages', function(){
     return Message.find({});
   });*/
@@ -24,16 +24,26 @@ Meteor.startup(()=>{
   const numberRecords = Meteor.users.find({}).count();
   if (numberRecords < 40) {
     _.times(40, () => {
-      const { name, username, email, phone } = helpers.contextualCard();
+      const helper = helpers.contextualCard();
+      const firstName = helper.name;
+      const username = helper.username;
+      const email = helper.email;
       const avatar = image.avatar();
       const blurb = lorem.sentences();
-      //console.log email when generating fake users.
-      //console.log(email);
+      const mentorTags = [ name.jobType() ];
+      const menteeTags = [ name.jobType() ];
+
       Accounts.createUser({
         username: username,
         email: email,
         password:'faker',
-        profile: { avatar: avatar, firstName: name, lastName: '', blurb: blurb }
+        profile: { avatar: avatar,
+                   firstName: firstName,
+                   lastName: '',
+                   blurb: blurb,
+                   mentorTags: mentorTags,
+                   menteeTags: menteeTags
+                 }
       });
     }); // end loop
   } //end if
