@@ -130,7 +130,7 @@ class Profile extends Component {
     }
 
     render() {
-        if(!this.props.user ) {
+        if(!this.props.userExist ) {
             return <div>Loading...</div>;
         }
         else if(this.state.isEditProfile) {
