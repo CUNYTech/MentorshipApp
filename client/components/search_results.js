@@ -75,18 +75,14 @@ class SearchResults extends Component {
         return (
           <div>
             <div className="dropdown" id="searchBox-dashboard">
-                <input type="search" ref="searchBox" className="form-control" onKeyUp={this.handleSubmit} placeholder="Search"/>
-                <Link to="/mainsearch" href="localhost:3000/mainsearch">
-                    <img className="dropdown-toggle" id="search-icon" src="/search-icon.png"/>
-                </Link><span className="caret"> </span>
+                <input id="search-input" type="search" ref="searchBox" className="form-control" onKeyUp={this.handleSubmit} placeholder="Search"/>
+
+                <img className="dropdown-toggle" id="search-icon" src="/search-icon.png"/>
+
                 <div>
-                    <div className="dropdown-content">
-                        <p id="dropdown-label">Filter: </p>
-                        <select id="dropdown-select" className="form-control" value={this.state.option} onChange={this.handleChange}>
-                            <option value="user" defaultValue>User</option>
-                            <option value="mentor">Mentor</option>
-                            <option value="mentee">Mentee</option>
-                        </select>
+                    <div>
+                        {/*<select className="form-control" value={this.state.option} onChange={this.handleChange}>*/}
+                        {/*</select>*/}
                     </div>
                 </div>
             </div>
