@@ -9,9 +9,9 @@ class MentorDetail extends Component {
       <div className="thumbnail">
         <img src={this.props.mentor.profile.avatar} />
         <div className="caption">
-          <h3>Name: {this.props.mentor.profile.firstName}</h3>
+          <h2>{this.props.mentor.profile.firstName}</h2>
           {!this.props.user.isMentor &&
-            <h3>Status: {this.props.user.status}</h3>
+            <p>Status: {this.props.user.status}</p>
           }
         </div>
       </div>

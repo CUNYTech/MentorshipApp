@@ -20,11 +20,15 @@ class MenteeDetail extends Component {
       <div className="thumbnail">
         <img src={this.props.mentee.profile.avatar} />
         <div className="caption">
-          <h3>Name: {this.props.mentee.profile.firstName}</h3>
+          <h2>{this.props.mentee.profile.firstName}</h2>
           {!this.props.user.isMentee && [
-            <h3>Status: {this.props.user.status}</h3>,
-            <button className="btn btn-success" onClick={() => this.onAccept(this.props.user)}>Accept</button>,
-            <button className="btn btn-danger" onClick={() => this.onReject(this.props.user)}>Reject</button>
+            <p>Status: {this.props.user.status}</p>,
+            <a onClick={() => this.onAccept(this.props.user)}>
+              <img id="check-mark" src="/check-accept.png"/>
+            </a>,
+            <a onClick={() => this.onReject(this.props.user)}>
+              <img id="reject" src="/x-reject.png"/>
+            </a>
           ]}
         </div>
       </div>

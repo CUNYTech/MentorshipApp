@@ -35,16 +35,17 @@ class MentorList extends Component {
     return (
       <div>
           <div className="row">
-              <div id="render-mentor">
+              <div className="row" id="displaying-mentors">
                   <p>My Mentors</p>
-                  <hr id="separation"/>
+                  <hr className="separation"/>
               </div>
               <div className="mentor-list">
                   {this.renderMentor()}
               </div>
-              <div id="render-mentor">
+              <br/>
+              <div id="displaying-mentees">
                   <p>My Mentees</p>
-                  <hr id="separation"/>
+                  <hr className="separation"/>
               </div>
               <div className="mentor-list">
                   {this.renderMentee()}

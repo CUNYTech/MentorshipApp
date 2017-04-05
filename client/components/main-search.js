@@ -12,11 +12,17 @@ class MainSearch extends Component {
     render(){
 
         return (
-            <div id="search-page" className="row">
-                <div className="col-md-4 col-md-offset-2" id="root"> </div>
-                <div className="col-xs-6">
-                    <SearchResults/>
-                    <p>Filters:</p>
+            <div className="row">
+                <div className="col-xs-6" id="search-page">
+                    <div id="search-div">
+                        <SearchResults/>
+                    </div>
+                    <p className="bold">Contacts</p>
+                    <ul id="list-filters">
+                        <p><option className="">Mentors</option></p>
+                        <p><option className="">Mentees</option></p>
+                    </ul>
+                    <p className="bold">Search By</p>
                     <ul id="list-filters">
                         <p><option className="">Users</option></p>
                         <p><option className="">Tags</option></p>

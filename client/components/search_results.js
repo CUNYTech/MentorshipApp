@@ -75,7 +75,7 @@ class SearchResults extends Component {
         return (
           <div>
             <div className="dropdown" id="searchBox-dashboard">
-                <input id="search-input" type="search" ref="searchBox" className="form-control" onKeyUp={this.handleSubmit} placeholder="Search"/>
+                <input type="search" ref="searchBox" className="form-control" onKeyUp={this.handleSubmit} placeholder="Search"/>
 
                 <img className="dropdown-toggle" id="search-icon" src="/search-icon.png"/>
 

@@ -4,6 +4,7 @@ html, body {
 
 ul {
     list-style-type: none;
+    margin-left: -40px;
 }
 
 .mentor-list p {
@@ -16,7 +17,7 @@ ul {
     width: 80%;
 }
 
-#separation {
+.separation {
     margin-top: 10px;
 }
 
@@ -52,6 +53,7 @@ ul {
 
 .list-group-item {
     z-index: 1;
+    margin-left: 40px;
 }
 
 .list-group-item > img {
@@ -63,28 +65,9 @@ ul {
     float: right;
     position: relative;
     top: -22px;
-    left: -25px;
+    left: -15px;
     margin: -10px;
 }
-
-/*.dropdown {*/
-    /*position: relative;*/
-    /*display: inline-block;*/
-/*}*/
-
-/*.dropdown-content {*/
-    /*display: none;*/
-    /*position: absolute;*/
-    /*background-color: #f9f9f9;*/
-    /*min-width: 160px;*/
-    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
-    /*border-radius: 4%;*/
-    /*z-index: 1;*/
-/*}*/
-
-/*.dropdown:hover .dropdown-content {*/
-    /*display: block;*/
-/*}*/
 
 .plusIcon {
     width: 20px;
@@ -112,9 +95,40 @@ ul {
 #github_icon{
     width:10%;
     height:10%;
-
-
 }
+
+.thumbnail {
+    width: 20%;
+    display: inline-block;
+    border: none;
+    text-align: center;
+}
+
+.thumbnail > img {
+    border-radius: 50%;
+    width: 100px;
+}
+
+#check-mark {
+    width: 30px;
+    cursor: pointer;
+    float: left;
+}
+
+#check-mark:hover {
+    background-color: lightgray;
+}
+
+#reject {
+    width: 30px;
+    cursor: pointer;
+    float: right;
+}
+
+#reject:hover {
+    background-color: lightgray;
+}
+
 #logo-footer {
     width: 94px;
     height: 77px;
@@ -134,16 +148,14 @@ ul {
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
-#search-input {
-
-}
-
 #list-filters > p {
-    font-size: 18px;
+    font-size: 20px;
+    text-align: center;
+    margin-left: -10px;
 }
 
-#search-page {
-    margin-left: 40px;
+.bold {
+    font-weight: bold;
 }
 
 .buttons {
@@ -158,10 +170,10 @@ ul {
 }
 
 .navbar-default {
-    position: fixed;
     background-color: #f8f8f8;
-    width: 100%;
+    width: 105%;
     margin-left: -15px;
+    margin-top: -100px;
     border-radius: 0;
     top: 0;
     z-index: 2;
@@ -259,6 +271,15 @@ ul {
     border-radius: 8px;
     border-width: 2px;
     border-color: lightgrey;
+}
+
+#search-page {
+    width: 23%;
+    margin-left: 40px;
+}
+
+#search-div {
+    padding-bottom: 20px;
 }
 
 h2, a {
