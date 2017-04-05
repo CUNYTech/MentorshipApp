@@ -63,9 +63,9 @@ class SearchResults extends Component {
           <li className="list-group-item" key={user._id}>
             <img className="result-image" src={user.profile.avatar}/>
               <h2 id="username-result"><Link to={"/profile/"+user.username}>{user.profile.firstName}</Link></h2>
-            <button className="btn btn-success" onClick={() => this.onAddMentor(user)}>
-              Add Mentor
-            </button>
+            <a onClick={() => this.onAddMentor(user)}>
+              <img id="add-user" src="/add-user-icon.png"/>
+            </a>
           </li>
         );
       });
