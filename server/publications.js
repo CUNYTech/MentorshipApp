@@ -65,7 +65,7 @@ Meteor.methods({
   'searchUsers': function(searchValue) {
     var user = [];
     if (searchValue == '') {
-      throw new Meteor.Error("Nothing found.");
+      return user;
     }
     if (Match.test(searchValue, Match.OneOf(String, null, undefined))) {
       user.push(Accounts.findUserByEmail(searchValue) || Accounts.findUserByUsername(searchValue));

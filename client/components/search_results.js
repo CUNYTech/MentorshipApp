@@ -59,13 +59,19 @@ class SearchResults extends Component {
         return <div> </div>;
       }
       return this.state.users.map(user => {
+        const myMentor = this.props.mentors.find(mentor => mentor.mentorId === user._id);
+        const myMentee = this.props.mentees.find(mentee => mentee.menteeId === user._id);
+        //const myMentor = this.props.mentors.findOne({mentorId: user._id});
+        //const myMentee = this.props.mentees.findOne({menteeId: user._id});
         return (
           <li className="list-group-item" key={user._id}>
             <img className="result-image" src={user.profile.avatar}/>
-              <h2 id="username-result"><Link to={"/profile/"+user.username}>{user.profile.firstName}</Link></h2>
-            <a onClick={() => this.onAddMentor(user)}>
-              <img id="add-user" src="/add-user-icon.png"/>
-            </a>
+            <h2 id="username-result"><Link to={"/profile/"+user.username}>{user.profile.firstName}</Link></h2>
+            {Meteor.userId() !== null && user._id !== Meteor.userId() && (!myMentor && !myMentee) &&
+              <a onClick={() => this.onAddMentor(user)}>
+                <img id="add-user" src="/add-user-icon.png"/>
+              </a>
+            }
           </li>
         );
       });
