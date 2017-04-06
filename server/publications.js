@@ -96,15 +96,27 @@ Meteor.methods({
   },
 
   'users.addMentorTags': function(tags) {
-    Meteor.users.update(Meteor.userId(), {$push: {
-      "profile.mentorTags": tags
-    }});
+    const tagExisted = Meteor.users.findOne(
+      { _id: this.userId,
+        'profile.mentorTags': { $elemMatch: {$eq: tags} } }
+    );
+    if(!tagExisted) {
+      Meteor.users.update(Meteor.userId(), {$push: {
+        "profile.mentorTags": tags
+      }});
+    }
   },
 
   'users.addMenteeTags': function(tags) {
-    Meteor.users.update(Meteor.userId(), {$push: {
-      "profile.menteeTags": tags
-    }});
+    const tagExisted = Meteor.users.findOne(
+      { _id: this.userId,
+        'profile.menteeTags': { $elemMatch: {$eq: tags} } }
+    );
+    if(!tagExisted) {
+      Meteor.users.update(Meteor.userId(), {$push: {
+        "profile.menteeTags": tags
+      }});
+    }
   }
 
 }); //end Meteor.methods()
