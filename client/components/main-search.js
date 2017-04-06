@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM             from 'react-dom';
 import { Meteor }           from 'meteor/meteor';
 import SearchResults        from './search_results';
+import UserResults          from './user_results';
 
 class MainSearch extends Component {
 
@@ -29,7 +30,7 @@ class MainSearch extends Component {
                     </ul>
                 </div>
                 <div className="col-xs-6">
-
+                    <UserResults />
                 </div>
             </div>
         )};

@@ -85,8 +85,11 @@ class SearchResults extends Component {
 
                 <div>
                     <div>
-                        {/*<select className="form-control" value={this.state.option} onChange={this.handleChange}>*/}
-                        {/*</select>*/}
+                        <select className="form-control" value={this.state.option} onChange={this.handleChange}>
+                            <option value="user" defaultValue>User</option>
+                            <option value="mentor">Mentor</option>
+                            <option value="mentee">Mentee</option>
+                        </select>
                     </div>
                 </div>
             </div>
