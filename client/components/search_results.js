@@ -61,8 +61,6 @@ class SearchResults extends Component {
       return this.state.users.map(user => {
         const myMentor = this.props.mentors.find(mentor => mentor.mentorId === user._id);
         const myMentee = this.props.mentees.find(mentee => mentee.menteeId === user._id);
-        //const myMentor = this.props.mentors.findOne({mentorId: user._id});
-        //const myMentee = this.props.mentees.findOne({menteeId: user._id});
         return (
           <li className="list-group-item" key={user._id}>
             <img className="result-image" src={user.profile.avatar}/>
