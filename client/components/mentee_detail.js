@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Meteor }           from 'meteor/meteor'
 import { createContainer }  from 'meteor/react-meteor-data';
+import {Link} from 'react-router'
 
 /* this.props.user refers to the mentee object in Mentees collection */
 class MenteeDetail extends Component {
@@ -20,7 +21,7 @@ class MenteeDetail extends Component {
       <div className="thumbnail">
         <img src={this.props.mentee.profile.avatar} />
         <div className="caption">
-          <h2>{this.props.mentee.profile.firstName}</h2>
+          <h2>  <Link to={"/profile/"+this.props.mentee.username}> {this.props.mentee.profile.firstName}</Link></h2>
           {!this.props.user.isMentee && [
             <p>Status: {this.props.user.status}</p>,
             <a onClick={() => this.onAccept(this.props.user)}>
