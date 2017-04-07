@@ -2,6 +2,44 @@ html, body {
     height: 100%;
 }
 
+#wrap {
+    position: relative;
+}
+
+#happy-img {
+    position: absolute;
+}
+
+#title {
+    z-index: 1;
+    position: absolute;
+    float: left;
+    text-align: center;
+    padding: 50px;
+    margin-top: 500px;
+    width: 100%;
+}
+
+#title h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 40px;
+    color: white;
+}
+
+#aboutus {
+    position: relative;
+    margin-top: 700px;
+    padding: 50px;
+}
+
+#main-image {
+    width: 1295px;
+    height: 50%;
+    margin-left: -15px;
+}
+
 ul {
     list-style-type: none;
     margin-left: -40px;
@@ -187,6 +225,7 @@ option:focus {
     width: 105%;
     margin-left: -15px;
     margin-top: -100px;
+    margin-bottom: -20px;
     border-radius: 0;
     top: 0;
     z-index: 2;
@@ -383,6 +422,7 @@ button {
 #footer {
     position: absolute;
     width:100%;
+    height: 10%;
 }
 
 #connect {
@@ -464,16 +504,43 @@ transition: height 0.2s ease;
     top: 0;
 }
 
-.images{
-    float: right;
-    margin-right: 0px;
-
-
+#images{
+    position: relative;
+    background-color: #00008B;
+    padding: 30px;
+    margin: 10px -15px 0 -15px;
 }
-ul.photos li{
+
+#images h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 40px;
+}
+
+.floatLeft {
+    float: left;
+}
+
+#photos li{
     display: inline;
+    margin-right: 50px;
+    align-content: center;
 }
+
+#photos li > h3 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+#photos li > p {
+    color: darkgray;
+    text-align: center;
+}
+
 .imagesSec{
     border-radius: 50%;
-    
+    width: 150px;
 }
