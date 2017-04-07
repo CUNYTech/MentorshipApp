@@ -189,7 +189,7 @@ class Profile extends Component {
                             <p>
                                 <label>Mentee Tags</label>
                                 <input ref="menteetags" className="form-control" type="text"
-                                       placeholder="Enter tags to include yourself in mentee search result"
+                                       placeholder="Add or remove tags"
                                        id="mentee_tags">
                                 </input>
                                 <a onClick={this.addMenteeTags.bind(this)}>
