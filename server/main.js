@@ -30,8 +30,8 @@ Meteor.startup(()=>{
       const email = helper.email;
       const avatar = image.avatar();
       const blurb = lorem.sentences();
-      const mentorTags = [ name.jobType() ];
-      const menteeTags = [ name.jobType() ];
+      const mentorTags = [ name.jobType().toLowerCase() ];
+      const menteeTags = [ name.jobType().toLowerCase() ];
 
       Accounts.createUser({
         username: username,
