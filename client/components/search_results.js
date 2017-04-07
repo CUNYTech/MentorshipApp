@@ -83,15 +83,15 @@ class SearchResults extends Component {
 
                 <img className="dropdown-toggle" id="search-icon" src="/search-icon.png"/>
 
-                <div>
-                    <div>
-                        <select className="form-control" value={this.state.option} onChange={this.handleChange}>
-                            <option value="user" defaultValue>User</option>
-                            <option value="mentor">Mentor</option>
-                            <option value="mentee">Mentee</option>
-                        </select>
-                    </div>
-                </div>
+                {/*<div>*/}
+                    {/*<div>*/}
+                        {/*<select className="form-control" value={this.state.option} onChange={this.handleChange}>*/}
+                            {/*<option value="user" defaultValue>User</option>*/}
+                            {/*<option value="mentor">Mentor</option>*/}
+                            {/*<option value="mentee">Mentee</option>*/}
+                        {/*</select>*/}
+                    {/*</div>*/}
+                {/*</div>*/}
             </div>
             <div className="list-users">
                 <ul className="list-group">

@@ -8,7 +8,6 @@ class Footer extends Component {
     render() {
         return (
             <div className="row" id="footer">
-                <hr/>
                 <div className="col-md-3">
                     <ul>
                         <li>

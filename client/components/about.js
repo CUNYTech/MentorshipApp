@@ -9,7 +9,6 @@ const About = () => {
                 </div>
                 <div id="title">
                     <h1>Obec</h1>
-                    <h1>Mentor | Mentee</h1>
                 </div>
          </div>
          <div className="row" id="aboutus">
@@ -29,7 +28,7 @@ const About = () => {
          </div>
          <div className="row" id="images">
                 <h2>Meet the Developers</h2>
-                <ul className="col-md-12 col-md-offset-1" id="photos">
+                <ul className="col-md-11 col-md-offset-1" id="photos">
                     <li className="floatLeft">
                         <img className="imagesSec" src="alex.jpg"/>
                         <h3>Alexander Onate</h3>

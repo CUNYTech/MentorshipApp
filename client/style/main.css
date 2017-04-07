@@ -16,7 +16,7 @@ html, body {
     float: left;
     text-align: center;
     padding: 50px;
-    margin-top: 500px;
+    margin-top: 120px;
     width: 100%;
 }
 
@@ -24,20 +24,20 @@ html, body {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     text-align: center;
-    font-size: 40px;
+    font-size: 60px;
     color: white;
 }
 
 #aboutus {
     position: relative;
-    margin-top: 700px;
+    margin-top: 680px;
     padding: 50px;
 }
 
 #main-image {
-    width: 1295px;
-    height: 50%;
+    width: 102.4%;
     margin-left: -15px;
+    margin-top: -20px;
 }
 
 ul {
@@ -140,7 +140,7 @@ option:focus {
     position: relative;
     padding-left: 10px;
     margin-right: -5px;
-    margin-left: 30px;
+    margin-left: 45px;
 }
 
 #github_icon{
@@ -222,7 +222,7 @@ option:focus {
 
 .navbar-default {
     background-color: #f8f8f8;
-    width: 105%;
+    width: 102.4%;
     margin-left: -15px;
     margin-top: -100px;
     margin-bottom: -20px;
@@ -252,7 +252,7 @@ option:focus {
 }
 
 .container {
-    width: 100%;
+    width: 90%;
     background-color: white;
     margin-top: 100px;
 }
@@ -421,7 +421,7 @@ button {
 
 #footer {
     position: absolute;
-    width:100%;
+    width:90%;
     height: 10%;
 }
 
@@ -476,10 +476,8 @@ button {
     font-size: 18px;
 }
 
-
-
 .container {
-    position: relative;
+    width: auto;
 }
 
 .textarea {
@@ -507,7 +505,6 @@ transition: height 0.2s ease;
 #images{
     position: relative;
     background-color: #00008B;
-    padding: 30px;
     margin: 10px -15px 0 -15px;
 }
 
@@ -520,11 +517,12 @@ transition: height 0.2s ease;
 
 .floatLeft {
     float: left;
+    margin-left: 25px;
 }
 
 #photos li{
     display: inline;
-    margin-right: 50px;
+    margin-right: 20px;
     align-content: center;
 }
 
