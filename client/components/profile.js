@@ -129,6 +129,24 @@ class Profile extends Component {
         }
     }
 
+    removeMentorTags(event) {
+      event.preventDefault();
+      const tags = this.refs.mentortags.value;
+      if (tags != "") {
+          Meteor.call('users.removeMentorTags', tags);
+          this.refs.mentortags.value = "";
+      }
+    }
+
+    removeMenteeTags(event) {
+      event.preventDefault();
+      const tags = this.refs.menteetags.value;
+      if (tags != "") {
+          Meteor.call('users.removeMenteeTags', tags);
+          this.refs.menteetags.value = "";
+      }
+    }
+
     render() {
         if(!this.props.userExist ) {
             return <div>Loading...</div>;
@@ -155,13 +173,19 @@ class Profile extends Component {
                             <p>
                                 <label>Mentor Tags</label>
                                 <input ref="mentortags" className="form-control" type="text"
-                                       placeholder="Enter tags to include yourself in mentor search result"
+                                       placeholder="Add or remove tags"
                                        id="mentor_tags">
                                 </input>
                                 <a onClick={this.addMentorTags.bind(this)}>
                                     <img className="plusIcon" src="/plus-icon.png"/>
                                 </a>
+                                <a className="glyphicon glyphicon-minus" onClick={this.removeMentorTags.bind(this)}></a>
                             </p>
+                            <div>
+                              {this.props.user.profile.mentorTags.map(tag => {
+                                return <span className="label label-info">{tag}</span>
+                              })}
+                            </div>
                             <p>
                                 <label>Mentee Tags</label>
                                 <input ref="menteetags" className="form-control" type="text"
@@ -171,7 +195,13 @@ class Profile extends Component {
                                 <a onClick={this.addMenteeTags.bind(this)}>
                                     <img className="plusIcon" src="/plus-icon.png"/>
                                 </a>
+                                <a className="glyphicon glyphicon-minus" onClick={this.removeMenteeTags.bind(this)}></a>
                             </p>
+                            <div>
+                              {this.props.user.profile.menteeTags.map(tag => {
+                                return <span className="label label-info">{tag}</span>
+                              })}
+                            </div>
                         </form>
 
                         <div className="buttons">

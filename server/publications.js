@@ -117,6 +117,18 @@ Meteor.methods({
         "profile.menteeTags": tags
       }});
     }
+  },
+
+  'users.removeMentorTags': function(tags) {
+    Meteor.users.update(Meteor.userId(), {$pull: {
+      "profile.mentorTags": tags
+    }});
+  },
+
+  'users.removeMenteeTags': function(tags) {
+    Meteor.users.update(Meteor.userId(), {$pull: {
+      "profile.menteeTags": tags
+    }});
   }
 
 }); //end Meteor.methods()
