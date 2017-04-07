@@ -96,38 +96,42 @@ Meteor.methods({
   },
 
   'users.addMentorTags': function(tags) {
+    const tag = tags.toLowerCase();
     const tagExisted = Meteor.users.findOne(
       { _id: this.userId,
-        'profile.mentorTags': { $elemMatch: {$eq: tags} } }
+        'profile.mentorTags': { $elemMatch: {$eq: tag} } }
     );
     if(!tagExisted) {
       Meteor.users.update(Meteor.userId(), {$push: {
-        "profile.mentorTags": tags
+        "profile.mentorTags": tag
       }});
     }
   },
 
   'users.addMenteeTags': function(tags) {
+    const tag = tags.toLowerCase();
     const tagExisted = Meteor.users.findOne(
       { _id: this.userId,
-        'profile.menteeTags': { $elemMatch: {$eq: tags} } }
+        'profile.menteeTags': { $elemMatch: {$eq: tag} } }
     );
     if(!tagExisted) {
       Meteor.users.update(Meteor.userId(), {$push: {
-        "profile.menteeTags": tags
+        "profile.menteeTags": tag
       }});
     }
   },
 
   'users.removeMentorTags': function(tags) {
+    const tag = tags.toLowerCase();
     Meteor.users.update(Meteor.userId(), {$pull: {
-      "profile.mentorTags": tags
+      "profile.mentorTags": tag
     }});
   },
 
   'users.removeMenteeTags': function(tags) {
+    const tag = tags.toLowerCase();
     Meteor.users.update(Meteor.userId(), {$pull: {
-      "profile.menteeTags": tags
+      "profile.menteeTags": tag
     }});
   }
 
