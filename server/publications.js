@@ -33,13 +33,12 @@ Meteor.methods({
   },
 
 
-    'sendMessage':function(person,subject,message){
+    'sendMessage':function(person,message){
         var to = Meteor.users.findOne({_id: person});
         var from = Meteor.users.findOne({_id: this.userId});
         var msg = {
             to:to,
             fromuser:from._id,
-            title:subject,
             message:message,
             createAt: new Date()
         };

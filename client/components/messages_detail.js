@@ -9,31 +9,14 @@ import { createContainer }  from 'meteor/react-meteor-data';
 
 
 class NewMessage extends Component {
-
     constructor(props){
         super(props)
-
     };
 
-
-    newMessage(){
-        var element = <div>
-            <label>To: </label>
-            <input type="text" /><br/>
-            <label>Subject: </label>
-            <input type="text" /><br/>
-            <label>Message: </label>
-            <Textarea/>
-            <input type="button" value="Send" onClick={this.sendMessage.bind(this)}/>
-        </div>;
-
-        ReactDOM.render(element, document.getElementById("newMessage"));
-
-    }
-
     sendMessage(){
-
+        Meteor.call('sendMessage','W2KmLSJEfWitGkDz3', this.refs.message.value);
     }
+
     deleteMessage() {
         const { message } = this.props;
         Meteor.call('messages.remove', message._id)
@@ -44,24 +27,18 @@ class NewMessage extends Component {
 
     render(){
         return (
-
             <div>
-               <input type="button" value="New Message" onClick={this.newMessage.bind(this)}/><br/>
-                <div id="newMessage">
-
+                <div>
+                    <label>To: </label>
+                    <input type="text" ref="to" className="form-control" /><br/>
+                    <label>Message: </label>
+                    <input type="text"  ref="message" className="form-control" />
+                    <input type="button" value="Send" onClick={this.sendMessage.bind(this)}/>
                 </div>
             </div>
 
         )};
 }
-    /*displayMessages(messages){
-         return messages.map((message, id) => {(
-            sentBy: this.userId;
-
-
-         )}
-
-    }*/
 
 export default createContainer(() =>{
     // user email, username, and profile are published by default, we don't have to set

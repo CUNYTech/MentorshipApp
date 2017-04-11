@@ -31,18 +31,11 @@ class Messaging extends Component {
 
             <div>
                 {this.renderMail()}
-                <NewMessage/ >
+                <NewMessage />
             </div>
 
         )};
 }
-
-
-
-
-
-
-
 
 export default createContainer(() =>{
     // user email, username, and profile are published by default, we don't have to set
