@@ -70,6 +70,9 @@ class SearchResults extends Component {
                 <img id="add-user" src="/add-user-icon.png"/>
               </a>
             }
+            <a>
+                <img id="msg-user" src="/message-icon.png"/>
+            </a>
           </li>
         );
       });

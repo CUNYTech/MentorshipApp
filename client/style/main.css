@@ -76,12 +76,13 @@ ul {
     border-radius: 50%;
     float: left;
     width: 70px;
+    margin-top: -5px;
 }
 
 #username-result {
     margin-left: 15px;
     margin-right: 20px;
-    margin-top: -5px;
+    margin-top: -10px;
     float: left;
 }
 
@@ -99,7 +100,8 @@ option:focus {
 .list-group-item {
     z-index: 1;
     margin-left: 40px;
-    padding-bottom: 20px;
+    width: 100%;
+    height: 50px;
 }
 
 .list-group-item > img {
@@ -109,6 +111,15 @@ option:focus {
 
 #add-user {
     width: 20px;
+    float: right;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#msg-user {
+    width: 20px;
+    float: right;
+    cursor: pointer;
 }
 
 #search-icon {
@@ -387,6 +398,21 @@ button {
     text-align: center;
     border-radius: 5px;
     color: #5882FA;
+}
+
+.input-group-btn .btn-info {
+    width: 100%;
+    background: #5882FA;
+    border: #5882FA;
+}
+
+.panel-body {
+    background-color: #CEE3F6;
+}
+
+.panel-footer {
+    background-color: #CEE3F6;
+    border-top: none;
 }
 
 .radio-input {

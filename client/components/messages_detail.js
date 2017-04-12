@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import Textarea             from './textarea';
-import ReactDOM             from 'react-dom';
 import { Meteor }           from 'meteor/meteor'
 import { Mongo }    from 'meteor/mongo';
-import {Messages} from './messages'
+import { Messages } from './messages'
 import { createContainer }  from 'meteor/react-meteor-data';
-
+import SearchResults        from './search_results';
 
 
 class NewMessage extends Component {
@@ -14,26 +12,51 @@ class NewMessage extends Component {
     };
 
     sendMessage(){
-        Meteor.call('sendMessage','W2KmLSJEfWitGkDz3', this.refs.message.value);
+        if (this.refs.to.value) {
+            Meteor.call('sendMessage', this.refs.to.value, this.refs.message.value);
+        }
     }
 
     deleteMessage() {
         const { message } = this.props;
         Meteor.call('messages.remove', message._id)
     }
+
      editMessage() {
         this.setState({updateMessage: true});
     }
 
+    renderMessages() {
+        return this.state.message.map(message => {
+            return (
+                <li className="list-group-item" key={message.to}>
+                </li>
+            );
+        });
+    }
+
     render(){
         return (
-            <div>
-                <div>
-                    <label>To: </label>
-                    <input type="text" ref="to" className="form-control" /><br/>
-                    <label>Message: </label>
-                    <input type="text"  ref="message" className="form-control" />
-                    <input type="button" value="Send" onClick={this.sendMessage.bind(this)}/>
+            <div className="row">
+                <div className="col-xs-6" id="search-page">
+                    <div id="search-div">
+                        <SearchResults />
+                    </div>
+                </div>
+                <div className="col-xs-6">
+                    <div className="panel-body">
+                        <ul className="media-list">
+                            {/*{this.renderMessages()}*/}
+                        </ul>
+                    </div>
+                    <div className="panel-footer">
+                        <div className="input-group">
+                            <input type="text" ref="message" name="text" className="form-control" placeholder="Enter Message" />
+                            <span className="input-group-btn">
+                               <button className="btn btn-info" type="submit" onClick={this.sendMessage.bind(this)}>SEND</button>
+                             </span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
