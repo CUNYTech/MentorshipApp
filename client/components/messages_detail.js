@@ -27,9 +27,10 @@ class NewMessage extends Component {
     }
 
     renderMessages() {
-        return this.state.message.map(message => {
+        return this.props.data.messages.map(message => {
             return (
                 <li className="list-group-item" key={message.to}>
+                    {message.message}
                 </li>
             );
         });
@@ -47,7 +48,7 @@ class NewMessage extends Component {
                 <div className="col-xs-6">
                     <div className="panel-body">
                         <ul className="media-list">
-                            {/*{this.renderMessages()}*/}
+                            {this.renderMessages()}
                         </ul>
                     </div>
                     <div className="panel-footer">
