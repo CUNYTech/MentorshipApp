@@ -61,6 +61,13 @@ Meteor.methods({
         Messages.remove(messageId);
     },
 
+    'returnUsername':function(userID){
+        var name = Meteor.users.findOne({_id:userID});
+        return(
+            name.username
+        )
+
+    },
   'searchUsers': function(searchValue) {
     var user = [];
     if (searchValue == '') {

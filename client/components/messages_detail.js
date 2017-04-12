@@ -11,6 +11,16 @@ class NewMessage extends Component {
         super(props)
     };
 
+    getUsername(username){
+
+    //   var name =  Meteor.call('returnUsername',username);
+        var name = Meteor.users.findOne({_id:username});
+
+        if(name!==undefined){
+        return (name.username)
+        }
+
+    }
     sendMessage(){
         if (this.refs.to.value) {
             Meteor.call('sendMessage', this.refs.to.value, this.refs.message.value);
@@ -29,8 +39,10 @@ class NewMessage extends Component {
     renderMessages() {
         return this.props.data.messages.map(message => {
             return (
-                <li className="list-group-item" key={message.to}>
-                    {message.message}
+                <li  key={message._id}>
+                    <p>from: {this.getUsername(message.to)}</p>
+                    <p>message: {message.message}</p>
+
                 </li>
             );
         });
@@ -49,6 +61,7 @@ class NewMessage extends Component {
                     <div className="panel-body">
                         <ul className="media-list">
                             {this.renderMessages()}
+
                         </ul>
                     </div>
                     <div className="panel-footer">
