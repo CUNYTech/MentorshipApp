@@ -122,6 +122,10 @@ option:focus {
     cursor: pointer;
 }
 
+#display-msg {
+    width: auto;
+}
+
 #search-icon {
     width: 30px;
     float: right;

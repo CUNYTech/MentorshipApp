@@ -39,9 +39,8 @@ class NewMessage extends Component {
     renderMessages() {
         return this.props.data.messages.map(message => {
             return (
-                <li  key={message._id}>
-                    <p>from: {this.getUsername(message.to)}</p>
-                    <p>message: {message.message}</p>
+                <li className="list-group-item" id="display-msg" key={message._id}>
+                    <p><b>{this.getUsername(message.to)}:</b> {message.message}</p>
 
                 </li>
             );
