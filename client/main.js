@@ -9,6 +9,7 @@ import Profile           from './components/profile';
 import Messaging         from './components/messages'
 import SearchResults     from './components/search_results';
 import MainSearch        from './components/main-search';
+import Notifs from './components/notifications';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 
 
@@ -33,7 +34,9 @@ const routes = (
             <Route path="profile(/:username)" component={Profile}></Route>
             <Route path="messages" component={Messaging}></Route>
             <Route path="mainsearch" component={MainSearch}></Route>
+            <Route path="notifications" component={Notifs}></Route>
             <Route path="*" component = {NotFound}> </Route>
+
 
         </Route>
     </Router>
