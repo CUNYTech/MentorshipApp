@@ -41,6 +41,7 @@ class NewMessage extends Component {
                 <div className="col-xs-6" id="search-page">
                     <div id="search-div">
                         <SearchResults />
+                        <input type="text" ref="to" className="form-control" placeholder="To.."/>
                     </div>
                 </div>
                 <div className="col-xs-6">
