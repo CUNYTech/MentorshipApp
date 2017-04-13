@@ -236,6 +236,9 @@ class Profile extends Component {
                             </p>
                         </form>
                         <div className="buttons">
+                             <button className = "btn btn-warning" onClick={() => Meteor.call('users.removeAccount')}>
+                                Remove Account 
+                            </button>
                             <button className="btn btn-danger" onClick={() => this.cancelAccount()}>
                                 Cancel
                             </button>
