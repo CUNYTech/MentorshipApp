@@ -32,6 +32,9 @@ Meteor.methods({
     Accounts.setPassword(Meteor.userId(), newPassword);
   },
 
+  'users.removeAccount': function() {
+ Meteor.users.remove({_id: this.userId});
+  },
 
     'sendMessage':function(person,message){
         var to = Meteor.users.findOne({username: person});
