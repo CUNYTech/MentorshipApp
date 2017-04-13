@@ -40,6 +40,12 @@ html, body {
     margin-top: -20px;
 }
 
+#home-page {
+    width: 102.4%;
+    margin-left: -15px;
+    margin-top: -20px;
+}
+
 ul {
     list-style-type: none;
     margin-left: -40px;

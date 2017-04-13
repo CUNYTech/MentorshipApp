@@ -49,7 +49,7 @@ class Dashboard extends Component {
                     <p>Requests</p>
                   </a>
                   <Link to="/notifications">
-                    <p>Notifications</p>
+                    <p>Notifications <span className="badge">{this.props.numOfPendingMentees}</span></p>
                   </Link>
                 </div>
               </div>

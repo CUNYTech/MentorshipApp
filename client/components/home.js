@@ -10,10 +10,10 @@ export default class Home extends React.Component {
         else {
           return (
             <div className="row">
-              <div className="col-xs-6">
-                <img src="meerkat.png"/>
+              <div className="row">
+                <img src="/home-page.png" id="home-page"/>
               </div>
-              <div className="col-xs-6">
+              <div className="row">
                 <h2>Welcome</h2>
                 <p>
                   Obec is a community of mentors where you can find a mentor or be one.
