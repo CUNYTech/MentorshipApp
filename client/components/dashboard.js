@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Meteor }           from 'meteor/meteor'
-import { Mongo }    from 'meteor/mongo';
+import { Mongo }            from 'meteor/mongo';
 import { createContainer }  from 'meteor/react-meteor-data';
 import MentorList           from './mentor_list';
+import { Mentees }          from '../../imports/collections/mentees';
 import { Link }             from 'react-router';
 
 
@@ -47,9 +48,9 @@ class Dashboard extends Component {
                   <a href="#">
                     <p>Requests</p>
                   </a>
-                  <a href="#">
+                  <Link to="/notifications">
                     <p>Notifications</p>
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="col-xs-6">
@@ -61,9 +62,11 @@ class Dashboard extends Component {
 } //end Dashboard
 
 export default createContainer(() =>{
-    //return an object, Whatever we return will be send to userList as props
+    Meteor.subscribe('mentees');
     Meteor.subscribe('users');
     var allData=Meteor.users.find({}).fetch();
-
-    return { user: Meteor.user(), allData:allData};
+    return { user: Meteor.user(),
+             allData: allData,
+             numOfPendingMentees: Mentees.find({ status: "pending"}).count()
+           };
 }, Dashboard);

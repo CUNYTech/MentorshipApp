@@ -140,10 +140,4 @@ Meteor.methods({
       "profile.menteeTags": tag
     }});
   },
-    'addRequests': function(numRequests) {
-    if (this.userId){
-    const numRequests = Mentees.find().count( { status: "pending",
-      ownerId: this.menteeId});
-  }
-}
 }); //end Meteor.methods()

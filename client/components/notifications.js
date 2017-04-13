@@ -5,31 +5,21 @@ import { Mentors }          from '../../imports/collections/mentors';
 import { Mentees }          from '../../imports/collections/mentees';
 import { Link }             from 'react-router';
 
-
-export default class Notifs extends Component {
-
-render(){
-	return(
-           <div> No notifications yet. </div>
-
-
-
+class Notifs extends Component {
+	render() {
+		return(
+			<div>
+				{this.props.numOfPendingMentees === 0 ? (
+					<h3>No notifications</h3>
+				):
+					<h3>You have {this.props.numOfPendingMentees} mentees requests</h3>
+				}
+			</div>
 		);
-
-
-
-
-
+	}
 }
 
-
-
-
-
-
-
-
-
-
-
-};	
+export default createContainer(() =>{
+	Meteor.subscribe('mentees');
+  return { numOfPendingMentees: Mentees.find({ status: "pending"}).count() };
+}, Notifs);
