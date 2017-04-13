@@ -21,6 +21,8 @@ class NewMessage extends Component {
         }
 
     }
+
+
     sendMessage(){
         if (this.refs.to.value) {
             Meteor.call('sendMessage', this.refs.to.value, this.refs.message.value);
@@ -40,13 +42,24 @@ class NewMessage extends Component {
         return this.props.data.messages.map(message => {
             return (
                 <li className="list-group-item" id="display-msg" key={message._id}>
-                    <p><b>{this.getUsername(message.to)}:</b> {message.message}</p>
+                    <p><b>{
+
+                    this.getUsername(message.fromuser)
+
+
+
+
+                }:</b> {message.message}</p>
 
                 </li>
             );
         });
     }
 
+    displayData(){
+        console.log(this.props.data.messages)
+
+    }
     render(){
         return (
             <div className="row">
@@ -83,7 +96,7 @@ export default createContainer(() =>{
 
     let data = {};
     data.handle=Meteor.subscribe('messageList');
-    data.messages = Messages.find({$or:[{'to._id':Meteor.userId()},{'fromuser':Meteor.userId()}]},{sort:{createdOn:-1}}).fetch();
+    data.messages = Messages.find({$or:[{'to':Meteor.userId()},{'fromuser':Meteor.userId()}]},{sort:{createdOn:-1}}).fetch();
 
     //return an object, Whatever we return will be send to userList as props
     return { user: Meteor.user(), data};
