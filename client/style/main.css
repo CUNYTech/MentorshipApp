@@ -145,8 +145,13 @@ option:focus {
     cursor: pointer;
 }
 
-.btn-danger {
+.btn-warning {
     float: left;
+    white-space: normal;
+    line-height: normal;
+}
+.btn-success{
+    float:right;
 }
 
 #logo {
@@ -378,7 +383,7 @@ p {
     font-size: 18px;
 }
 
-input[type=submit], .btn-default, .btn-danger, .btn-success {
+input[type=submit], .btn-default, .btn-danger, .btn-warning, .btn-success {
     width: 115px;
     height: 40px;
     background: #5882FA;
@@ -402,6 +407,7 @@ button {
     text-align: center;
     border-radius: 5px;
     color: #5882FA;
+
 }
 
 .input-group-btn .btn-info {
