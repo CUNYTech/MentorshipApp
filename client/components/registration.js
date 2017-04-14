@@ -115,7 +115,10 @@ export default class Registration extends React.Component {
                         <label>Confirm your password </label>
                         <input ref="t_conPassword" className="form-control" type="password" required />
                     </p>
-
+                    <p>
+                        <label>Upload Picture</label>
+                        <input type="file" className="btn btn-file" name="datafile"/>
+                    </p>
                     <div className="text-danger">{ this.state.passwordError }</div>
                     <p>
                         <input type="submit" value="Submit"/>
