@@ -70,9 +70,12 @@ class SearchResults extends Component {
                 <img id="add-user" src="/add-user-icon.png"/>
               </a>
             }
-            <a>
-                <img id="msg-user" src="/message-icon.png"/>
-            </a>
+              {Meteor.userId() !== null && user._id !== Meteor.userId() &&
+              <div>
+                  <Link to="/messages"><img id="msg-user" src="/message-icon.png"/></Link>
+
+              </div>
+              }
           </li>
         );
       });
