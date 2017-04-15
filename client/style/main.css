@@ -122,6 +122,13 @@ option:focus {
     cursor: pointer;
 }
 
+#remove-user {
+  width: 20px;
+  float: right;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
 #msg-user {
     width: 20px;
     float: right;

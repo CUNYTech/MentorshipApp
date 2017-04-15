@@ -1,4 +1,5 @@
-import { Mongo } from 'meteor/mongo';
+import { Mongo }   from 'meteor/mongo';
+import { Mentors } from '../../imports/collections/mentors';
 
 Meteor.methods({
   'mentees.add': function(user) {
@@ -17,6 +18,11 @@ Meteor.methods({
   'mentees.remove': function() {
     Mentees.remove({ownerId: this.userId});
     Mentees.remove({menteeId: this.userId});
+  },
+
+  'mentees.deleteMentee': function(user) {
+    Mentees.remove(user);
+    Mentors.remove({ownerId: user.menteeId, mentorId: user.ownerId});
   },
 
   'mentees.accept': function(user) {
