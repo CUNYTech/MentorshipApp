@@ -17,8 +17,15 @@ class NewMessage extends Component {
         var name = Meteor.users.findOne({_id:username});
 
         if(name!==undefined){
+
+            if(name.username == this.props.user.username){
+
+                return('Me')
+            }
         return (name.username)
+
         }
+
 
     }
 
