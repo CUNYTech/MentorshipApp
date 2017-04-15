@@ -10,11 +10,8 @@ class Profile extends Component {
 
     }
 
-
     validProfile() {
-
         if (user && user != 'undefined' && user != 'null') return true;
-
         return false;
     }
 
@@ -22,28 +19,22 @@ class Profile extends Component {
         return this.props.user.username == this.props.paramUser.username;
     }
 
-
-
     getAvatar() {
-
-            if (this.props.paramUser.profile.avatar != '' && this.props.userExist) {
-
-                return this.props.paramUser.profile.avatar;
-        }
-        else {
-            return "/default-user.png";
-        }
+      if (this.props.paramUser.profile.avatar != '' && this.props.userExist) {
+        return this.props.paramUser.profile.avatar;
+      }
+      else {
+        return "/default-user.png";
+      }
     }
 
     getProfile() {
-
-
-        return (
-            <div id="put-bottom">
-                <h2>{this.props.paramUser.profile.firstName}</h2>
-                <p>{this.props.paramUser.profile.blurb}</p>
-            </div>
-        );
+      return (
+        <div id="put-bottom">
+          <h2>{this.props.paramUser.profile.firstName}</h2>
+          <p>{this.props.paramUser.profile.blurb}</p>
+        </div>
+      );
     }
 
     renderButtons() {
@@ -237,7 +228,7 @@ class Profile extends Component {
                         </form>
                         <div className="buttons">
                              <button className = "btn btn-warning" onClick={() => Meteor.call('users.removeAccount')}>
-                                Remove Account 
+                                Remove Account
                             </button>
                             <button className="btn btn-danger" onClick={() => this.cancelAccount()}>
                                 Cancel
@@ -268,17 +259,9 @@ class Profile extends Component {
     } //end render()
 }; // end class Profile
 
-
-
-
 export default createContainer((props) => {
-
     paramUser=Meteor.users.findOne({ username:props.params.username});
-
     const loading = !Meteor.subscribe('users').ready();
-
-
-userExist =  paramUser;
-
+    userExist =  paramUser;
     return { user: Meteor.user(), paramUser: paramUser, loading:loading, userExist:userExist  };
 }, Profile);

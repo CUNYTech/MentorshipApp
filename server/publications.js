@@ -2,6 +2,8 @@ import { Meteor }       from 'meteor/meteor';
 import { Accounts }     from 'meteor/accounts-base';
 import { check, Match } from 'meteor/check';
 import { Mongo }        from 'meteor/mongo';
+import { Mentors }      from '../imports/collections/mentors';
+import { Mentees }      from '../imports/collections/mentees';
 
 export const Messages = new Mongo.Collection('message');
 
@@ -33,7 +35,9 @@ Meteor.methods({
   },
 
   'users.removeAccount': function() {
- Meteor.users.remove({_id: this.userId});
+    Meteor.call('mentors.remove');
+    Meteor.call('mentees.remove');
+    Meteor.users.remove({_id: this.userId});
   },
 
     'sendMessage':function(person,message){

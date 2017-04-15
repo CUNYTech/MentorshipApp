@@ -14,6 +14,11 @@ Meteor.methods({
     });
   },
 
+  'mentors.remove': function() {
+    Mentors.remove({ownerId: this.userId});
+    Mentors.remove({mentorId: this.userId});  
+  },
+
   'mentors.accept': function(user) {
     return Mentors.update({ownerId: user.menteeId, mentorId: user.ownerId}, { $set: {isMentor: true, status: 'accepted'} });
   },

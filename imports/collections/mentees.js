@@ -14,6 +14,11 @@ Meteor.methods({
     });
   },
 
+  'mentees.remove': function() {
+    Mentees.remove({ownerId: this.userId});
+    Mentees.remove({menteeId: this.userId});
+  },
+
   'mentees.accept': function(user) {
     return Mentees.update({ownerId: user.ownerId, menteeId: user.menteeId}, { $set: {isMentee: true, status: 'accepted'} });
   },
