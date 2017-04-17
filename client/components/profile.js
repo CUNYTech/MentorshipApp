@@ -272,7 +272,8 @@ class Profile extends Component {
                         {this.getProfile()}
                         <div className="col-md-2" id="information">
                             <div>
-                                <b>0</b> Mentors<span id="mentees"><b>0</b> Mentees</span>
+                                <b>{this.props.mentorsCount}</b> Mentors<span id="mentees">
+                                <b>{this.props.menteesCount}</b> Mentees</span>
                                 <span><img id="twitter" src="/twitter-icon.png"/></span>
                                 <span><img id="linkedin" src="/linkedin-icon.png"/></span>
                                 {Meteor.userId() !== null &&
@@ -292,5 +293,13 @@ export default createContainer((props) => {
     paramUser=Meteor.users.findOne({ username:props.params.username});
     const loading = !Meteor.subscribe('users').ready();
     userExist =  paramUser;
-    return { user: Meteor.user(), paramUser: paramUser, loading:loading, userExist:userExist, mentors: Mentors.find({}).fetch(), mentees: Mentees.find({}).fetch()  };
+    return { user: Meteor.user(),
+             paramUser: paramUser,
+             loading:loading,
+             userExist:userExist,
+             mentors: Mentors.find({}).fetch(),
+             mentees: Mentees.find({}).fetch(),
+             mentorsCount: Mentors.find({}).count(),
+             menteesCount: Mentees.find({}).count()
+            };
 }, Profile);
