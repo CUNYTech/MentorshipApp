@@ -52,6 +52,9 @@ class Profile extends Component {
                 </a>
             </p>;
         }
+        else if (Meteor.userId() == null) {
+            return <div> </div>;
+        }
         else {
             return <p className="buttons" id="editProfile">
                 <button className="btn-secondary">
@@ -270,7 +273,8 @@ class Profile extends Component {
                                 <b>0</b> Mentors<span id="mentees"><b>0</b> Mentees</span>
                                 <span><img id="twitter" src="/twitter-icon.png"/></span>
                                 <span><img id="linkedin" src="/linkedin-icon.png"/></span>
-                                <span><Link to="/messages"><img id="msg-prof" src="/message-icon.png"/></Link></span>
+                                {Meteor.userId() !== null &&
+                                <span><Link to="/messages"><img id="msg-prof" src="/message-icon.png"/></Link></span>}
                             </div>
                         </div>
                     </div>
