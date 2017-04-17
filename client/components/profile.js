@@ -145,6 +145,8 @@ class Profile extends Component {
     }
 
     render() {
+        if(!this.props.userExist &&!this.props.loading) return <div> <b> 404 Page Not Found</b> <div> </div> Sorry, we could not find the account that you were looking for.  </div> ;
+
         if(!this.props.userExist ) {
             return <div>Loading...</div>;
         }
