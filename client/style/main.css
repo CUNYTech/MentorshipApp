@@ -367,8 +367,7 @@ option:focus {
 
 #action-field2 {
     border: solid;
-    border-radius: 8px;
-    border-width: 2px;
+    border-width: 1px;
     border-color: lightgrey;
     padding: 15px 50px 25px 20px;
     width: 70%;
@@ -412,8 +411,7 @@ option:focus {
     width: 23%;
     margin-left: 40px;
     border: solid;
-    border-radius: 8px;
-    border-width: 2px;
+    border-width: 1px;
     border-color: lightgrey;
 }
 
