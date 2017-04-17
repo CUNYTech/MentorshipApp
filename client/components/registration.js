@@ -60,6 +60,8 @@ export default class Registration extends React.Component {
         const username = this.refs.t_username.value;
         const mentorTags = [];
         const menteeTags = [];
+        const twitterUrl = this.refs.myTwitter.value;
+        const linkedinUrl = this.refs.myLinkedIn.value;
 
         //Checks whether both password entries match
         if(password != conPassword) {
@@ -70,7 +72,7 @@ export default class Registration extends React.Component {
 
             var user = { username:username, email: email, password: password,
                 profile: { avatar: '', firstName: firstName, lastName: lastName, mentorTags: mentorTags,
-                    menteeTags: menteeTags/*,  mentor:[Meteor.users.findOne({_id:"5GdcM36zgLG5kwB2F"}),
+                    menteeTags: menteeTags, twitterURL : twitterUrl, linkedInURL : linkedinUrl/*,  mentor:[Meteor.users.findOne({_id:"5GdcM36zgLG5kwB2F"}),
                     Meteor.users.findOne({_id:"MtsCh3taRxH87vm5Y"})], mentee:[Meteor.users.findOne({_id:"XkamGWKKC5adiN4Tu"}),
                     Meteor.users.findOne({_id:"EpfsxK4pi7uwKnXct"})] */}};
 

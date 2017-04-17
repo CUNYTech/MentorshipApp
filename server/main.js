@@ -32,6 +32,8 @@ Meteor.startup(()=>{
       const blurb = lorem.sentences();
       const mentorTags = [ name.jobType().toLowerCase() ];
       const menteeTags = [ name.jobType().toLowerCase() ];
+      const linkedInURL= "www.linkedin.com";
+      const twitterURL= "www.twitter.com";
 
       Accounts.createUser({
         username: username,
@@ -42,7 +44,9 @@ Meteor.startup(()=>{
                    lastName: '',
                    blurb: blurb,
                    mentorTags: mentorTags,
-                   menteeTags: menteeTags
+                   menteeTags: menteeTags,
+                   twitterURL:twitterURL,
+                   linkedInURL:linkedInURL
                  }
       });
     }); // end loop
