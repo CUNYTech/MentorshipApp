@@ -32,9 +32,10 @@ class MenteeDetail extends Component {
             <Link to={"/profile/"+this.props.mentee.username}>
               {this.props.mentee.profile.firstName}
             </Link>
+            {this.props.user.isMentee &&
             <a onClick={() => this.onRemoveMentee(this.props.user)}>
-              <img id="remove-user" src="/remove-user-icon.png"/>
-            </a>
+                <img id="remove-user" src="/remove-user-icon.png"/>
+            </a>}
           </h2>
           {!this.props.user.isMentee && [
             <p>Status: {this.props.user.status}</p>,

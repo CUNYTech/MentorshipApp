@@ -123,16 +123,25 @@ option:focus {
 }
 
 #remove-user {
-  width: 20px;
-  float: right;
-  margin-left: 10px;
-  cursor: pointer;
+    width: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    position: relative;
+    top: -22px;
+    left: 100px;
 }
 
 #msg-user {
     width: 20px;
     float: right;
     cursor: pointer;
+}
+
+#msg-prof {
+    width: 25px;
+    position: relative;
+    left: 113px;
+    top: -2px;
 }
 
 #display-msg {
@@ -148,14 +157,30 @@ option:focus {
     margin: -10px;
 }
 
-.plusIcon {
+.tagIcons {
     width: 20px;
+    float: right;
+}
+
+#plusIcon {
+    position: relative;
+    top: -18px;
+    left: -40px;
+    margin: -10px;
+    cursor: pointer;
+}
+
+#minusIcon {
     float: right;
     position: relative;
     top: -18px;
     left: -15px;
     margin: -10px;
     cursor: pointer;
+}
+
+.label-info {
+    margin-left: 5px;
 }
 
 .btn-warning {
@@ -242,10 +267,44 @@ option:focus {
     font-weight: bold;
 }
 
+#editProfile {
+    text-align: center;
+}
+
+#information {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+    color: #5882FA;
+    margin-top: 20px;
+    text-align: center;
+    padding-right: 150px;
+}
+
+#mentees {
+    position: relative;
+    left: 50px;
+}
+
+#twitter {
+    width: 20px;
+    position: relative;
+    left: 100px;
+    top: -2px;
+    background: none;
+    cursor: pointer;
+}
+
+#linkedin {
+    width: 20px;
+    position: relative;
+    left: 105px;
+    top: -2px;
+    cursor: pointer;
+}
+
 .buttons {
     padding-top: 20px;
     padding-bottom: 20px;
-    text-align: center;
 }
 
 .buttons > a {
@@ -411,13 +470,6 @@ input[type=file]:focus {
     outline: none;
 }
 
-.btn:hover, .btn:focus, .btn.focus {
-    border: solid;
-    border-width: 1px;
-    border-color: #66afe9;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,0.6);
-}
-
 input[type=submit], .btn-default, .btn-danger, .btn-warning, .btn-success {
     width: 115px;
     height: 40px;
@@ -502,6 +554,12 @@ button {
 
 .floatRight {
     float: right;
+}
+
+@media (min-width: 992px) {
+    .col-md-2 {
+        width: 75%;
+    }
 }
 
 #put-bottom > h2 {

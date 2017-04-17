@@ -21,9 +21,10 @@ class MentorDetail extends Component {
             <Link to={"/profile/"+this.props.mentor.username}>
               {this.props.mentor.profile.firstName}
             </Link>
+            {this.props.user.isMentor &&
             <a onClick={() => this.onRemoveMentor(this.props.user)}>
               <img id="remove-user" src="/remove-user-icon.png"/>
-            </a>
+            </a>}
           </h2>
           {!this.props.user.isMentor &&
             <p>Status: {this.props.user.status}</p>

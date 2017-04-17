@@ -116,6 +116,14 @@ export default class Registration extends React.Component {
                         <input ref="t_conPassword" className="form-control" type="password" required />
                     </p>
                     <p>
+                        <label>Twitter</label>
+                        <input ref="myTwitter" className="form-control" type="url"/>
+                    </p>
+                    <p>
+                        <label>LinkedIn</label>
+                        <input ref="myLinkedIn" className="form-control" type="url"/>
+                    </p>
+                    <p>
                         <label>Upload Picture</label>
                         <input type="file" className="btn btn-file" name="datafile"/>
                     </p>

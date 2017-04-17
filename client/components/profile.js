@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Meteor }           from 'meteor/meteor';
+import { Link }             from 'react-router';
 import { createContainer }  from 'meteor/react-meteor-data';
+import { Mentors }          from '../../imports/collections/mentors';
+import { Mentees }          from '../../imports/collections/mentees';
 import { Accounts }         from 'meteor/accounts-base';
 
 class Profile extends Component {
@@ -30,7 +33,7 @@ class Profile extends Component {
 
     getProfile() {
       return (
-        <div id="put-bottom">
+        <div className="col-md-2">
           <h2>{this.props.paramUser.profile.firstName}</h2>
           <p>{this.props.paramUser.profile.blurb}</p>
         </div>
@@ -39,7 +42,7 @@ class Profile extends Component {
 
     renderButtons() {
         if (this.props.user && this.ownProfile()) {
-            return <p className="buttons">
+            return <p className="buttons" id="editProfile">
                 <a onClick={() => this.editProfile()}>
                     Edit Profile
                 </a>
@@ -50,8 +53,8 @@ class Profile extends Component {
             </p>;
         }
         else {
-            return <p className="specialButton">
-                <button className="btn-secondary" id="request" onClick={() => this.setRequestSent()}>
+            return <p className="buttons" id="editProfile">
+                <button className="btn-secondary">
                     Add Mentor
                 </button>
             </p>;
@@ -157,9 +160,15 @@ class Profile extends Component {
                                 <textarea ref="blurb" className="form-control" type="text"
                                           defaultValue={this.props.user.profile.blurb} placeholder="Describe yourself here... "
                                           id="profile_blurb" rows="4" cols="50" maxLength="500">
-
-                            </textarea>
-
+                                </textarea>
+                            </p>
+                            <p>
+                                <label>Twitter</label>
+                                <input ref="myTwitter" className="form-control" type="url"/>
+                            </p>
+                            <p>
+                                <label>LinkedIn</label>
+                                <input ref="myLinkedIn" className="form-control" type="url"/>
                             </p>
                             <p>
                                 <label>Mentor Tags</label>
@@ -168,9 +177,11 @@ class Profile extends Component {
                                        id="mentor_tags">
                                 </input>
                                 <a onClick={this.addMentorTags.bind(this)}>
-                                    <img className="plusIcon" src="/plus-icon.png"/>
+                                    <img className="tagIcons" id="plusIcon" src="/plus-icon.png"/>
                                 </a>
-                                <a className="glyphicon glyphicon-minus" onClick={this.removeMentorTags.bind(this)}></a>
+                                <a onClick={this.removeMentorTags.bind(this)}>
+                                    <img className="tagIcons" id="minusIcon" src="/minus-icon.png"/>
+                                </a>
                             </p>
                             <div>
                               {this.props.user.profile.mentorTags.map(tag => {
@@ -184,9 +195,11 @@ class Profile extends Component {
                                        id="mentee_tags">
                                 </input>
                                 <a onClick={this.addMenteeTags.bind(this)}>
-                                    <img className="plusIcon" src="/plus-icon.png"/>
+                                    <img className="tagIcons" id="plusIcon" src="/plus-icon.png"/>
                                 </a>
-                                <a className="glyphicon glyphicon-minus" onClick={this.removeMenteeTags.bind(this)}></a>
+                                <a onClick={this.removeMenteeTags.bind(this)}>
+                                    <img className="tagIcons" id="minusIcon" src="/minus-icon.png"/>
+                                </a>
                             </p>
                             <div>
                               {this.props.user.profile.menteeTags.map(tag => {
@@ -226,8 +239,8 @@ class Profile extends Component {
                                 <input ref="conPassword" className="form-control" type="password" />
                             </p>
                         </form>
-                        <div className="buttons">
-                             <button className = "btn btn-warning" onClick={() => Meteor.call('users.removeAccount')}>
+                        <div className="buttons" id="editProfile">
+                            <button className="btn btn-warning" onClick={() => Meteor.call('users.removeAccount')}>
                                 Remove Account
                             </button>
                             <button className="btn btn-danger" onClick={() => this.cancelAccount()}>
@@ -252,6 +265,14 @@ class Profile extends Component {
                             {this.renderButtons()}
                         </div>
                         {this.getProfile()}
+                        <div className="col-md-2" id="information">
+                            <div>
+                                <b>0</b> Mentors<span id="mentees"><b>0</b> Mentees</span>
+                                <span><img id="twitter" src="/twitter-icon.png"/></span>
+                                <span><img id="linkedin" src="/linkedin-icon.png"/></span>
+                                <span><Link to="/messages"><img id="msg-prof" src="/message-icon.png"/></Link></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             ); // end return()
@@ -260,8 +281,10 @@ class Profile extends Component {
 }; // end class Profile
 
 export default createContainer((props) => {
+    Meteor.subscribe('mentors');
+    Meteor.subscribe('mentees');
     paramUser=Meteor.users.findOne({ username:props.params.username});
     const loading = !Meteor.subscribe('users').ready();
     userExist =  paramUser;
-    return { user: Meteor.user(), paramUser: paramUser, loading:loading, userExist:userExist  };
+    return { user: Meteor.user(), paramUser: paramUser, loading:loading, userExist:userExist, mentors: Mentors.find({}).fetch(), mentees: Mentees.find({}).fetch()  };
 }, Profile);
