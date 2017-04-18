@@ -282,6 +282,10 @@ class Profile extends Component {
                             </div>
                         </div>
                     </div>
+                    <div className="col-md-4 col-md-offset-2">
+                        <input className="form-control" type="text" /><span><input type="submit"/></span>
+                        <p>Render post here</p>
+                    </div>
                 </div>
             ); // end return()
         } //end else
