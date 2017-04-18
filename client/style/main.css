@@ -193,12 +193,12 @@ option:focus {
 }
 
 #logo {
-    width: 98px;
-    height: 70px;
+    width: 100px;
     position: relative;
     padding-left: 10px;
-    margin-right: -5px;
+    margin-right: 10px;
     margin-left: 45px;
+    margin-top: 15px;
 }
 
 #github_icon{
@@ -239,9 +239,13 @@ option:focus {
 }
 
 #logo-footer {
-    width: 94px;
-    height: 77px;
+    width: 100px;
     position: relative;
+    margin-left: 30px;
+}
+
+#copy {
+    margin-left: 40px;
 }
 
 #avatar {
@@ -669,4 +673,67 @@ transition: height 0.2s ease;
 .imagesSec{
     border-radius: 50%;
     width: 150px;
+}
+
+
+.circular {
+    animation: rotate 2s linear infinite;
+    transform-origin: center center;
+    width: 20%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.path {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+    stroke-linecap: round;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+    }
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+    }
+}
+
+@keyframes color {
+    100%,
+    50% {
+        stroke: #5882FA;
+    }
+}
+
+#space {
+    margin-right: 180px;
+    margin-bottom: 25px;
+}
+
+#welcome {
+    margin-top: 55px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+#welcome > h2,
+#welcome > p {
+    text-align: center;
 }

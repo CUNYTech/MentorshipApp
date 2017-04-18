@@ -13,7 +13,7 @@ class Footer extends Component {
                         <li>
                             <Link to="home" href="/home"><img id="logo-footer" src="/meerkat2.png" /></Link>
                         </li>
-                        <li>
+                        <li id="copy">
                             &copy; Obec 2017
                         </li>
                     </ul>

@@ -11,9 +11,9 @@ export default class Home extends React.Component {
           return (
             <div className="row">
               <div className="row">
-                <img src="/home-page.png" id="home-page"/>
+                <img src="/home-page2.png" id="home-page"/>
               </div>
-              <div className="row">
+              <div className="row" id="welcome">
                 <h2>Welcome</h2>
                 <p>
                   Obec is a community of mentors where you can find a mentor or be one.

@@ -36,7 +36,10 @@ class Header extends Component {
                 </div>
                 <ul className="nav navbar-nav">
                     <li id="searchBox">
-                        <SearchResults/>
+                        {Meteor.userId() !== null &&
+                        <SearchResults/>}
+                        {Meteor.userId() == null &&
+                        <span id="space"> </span>}
                     </li>
                     <li>
                         <Link to="/home" >HOME</Link>
