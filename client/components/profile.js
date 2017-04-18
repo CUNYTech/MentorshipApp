@@ -295,16 +295,24 @@ class Profile extends Component {
 export default createContainer((props) => {
     Meteor.subscribe('mentors');
     Meteor.subscribe('mentees');
-    paramUser=Meteor.users.findOne({ username:props.params.username});
-    const loading = !Meteor.subscribe('users').ready();
-    userExist =  paramUser;
+    Meteor.subscribe('mentorCounts');
+    Meteor.subscribe('menteeCounts');
+
+    var paramUser = Meteor.users.findOne({ username:props.params.username});
+    var userExist =  paramUser;
+    var loading = !Meteor.subscribe('users').ready();
+    var profileUserId;
+    if(!loading) {
+      profileUserId = paramUser._id;
+    }
+
     return { user: Meteor.user(),
              paramUser: paramUser,
-             loading:loading,
-             userExist:userExist,
+             loading: loading,
+             userExist: userExist,
              mentors: Mentors.find({}).fetch(),
              mentees: Mentees.find({}).fetch(),
-             mentorsCount: Mentors.find({}).count(),
-             menteesCount: Mentees.find({}).count()
+             mentorsCount: Mentors.find({ ownerId: profileUserId, status: 'accepted' }).count(),
+             menteesCount: Mentees.find({ ownerId: profileUserId, status: 'accepted' }).count()
             };
 }, Profile);

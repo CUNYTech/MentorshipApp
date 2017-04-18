@@ -17,9 +17,13 @@ Meteor.startup(()=>{
     return Mentees.find({ ownerId: this.userId });
   });
 
-  /*Meteor.publish('messages', function(){
-    return Message.find({});
-  });*/
+  Meteor.publish('mentorCounts', function() {
+    return Mentors.find({});
+  });
+
+  Meteor.publish('menteeCounts', function() {
+    return Mentees.find({});
+  });  
 
   // See if the collection has any records already
   const numberRecords = Meteor.users.find({}).count();
