@@ -275,15 +275,15 @@ class Profile extends Component {
                             <div>
                                 <b>{this.props.mentorsCount}</b> Mentors<span id="mentees">
                                 <b>{this.props.menteesCount}</b> Mentees</span>
-                                <span><a href={this.props.user.profile.twitterURL}><img id="twitter" src="/twitter-icon.png"/></a></span>
-                                <span> <a href={this.props.user.profile.linkedInURL}><img id="linkedin" src="/linkedin-icon.png"/></a></span>
+                                <span><a href={this.props.paramUser.profile.twitterURL}><img id="twitter" src="/twitter-icon.png"/></a></span>
+                                <span> <a href={this.props.paramUser.profile.linkedInURL}><img id="linkedin" src="/linkedin-icon.png"/></a></span>
                                 {Meteor.userId() !== null &&
                                 <span><Link to="/messages"><img id="msg-prof" src="/message-icon.png"/></Link></span>}
                             </div>
                         </div>
                     </div>
                     <div className="col-md-4 col-md-offset-2">
-                        <input className="form-control" type="text" /><span><input type="submit"/></span>
+                        <input className="form-control" type="text" ref="advice" /><span><input type="submit"/></span>
                         <p>Render post here</p>
                     </div>
                 </div>

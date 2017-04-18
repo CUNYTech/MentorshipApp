@@ -2,6 +2,7 @@ import { Meteor }   from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Mentors }  from '../imports/collections/mentors';
 import { Mentees }  from '../imports/collections/mentees';
+import {Advice} from '../imports/collections/advice'
 
 import _ from 'lodash';
 import { image, helpers, lorem, internet, name } from 'faker';
