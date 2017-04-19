@@ -57,7 +57,7 @@ class Profile extends Component {
         }
         else {
             return <p className="buttons" id="editProfile">
-                <button className="btn-secondary">
+                <button className="btn-secondary" onClick={() => this.onAddMentor(this.props.paramUser)}>
                     Add Mentor
                 </button>
             </p>;
@@ -142,6 +142,11 @@ class Profile extends Component {
           Meteor.call('users.removeMenteeTags', tags);
           this.refs.menteetags.value = "";
       }
+    }
+
+    onAddMentor(user) {
+      Meteor.call('mentors.add', user);
+      Meteor.call('mentees.add', user);
     }
 
     render() {
