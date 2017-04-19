@@ -41,7 +41,7 @@ Meteor.methods({
   },
 
     'sendMessage':function(person,message){
-        var to = Meteor.users.findOne({username: person});
+        var to = Meteor.users.findOne({_id: person});
         var from = Meteor.users.findOne({_id: this.userId});
         var msg = {
             to:to._id,

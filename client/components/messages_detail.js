@@ -4,6 +4,7 @@ import { Mongo }    from 'meteor/mongo';
 import { Messages } from './messages'
 import { createContainer }  from 'meteor/react-meteor-data';
 import SearchResults        from './search_results';
+import ReactDOM from 'react-dom'
 
 
 class NewMessage extends Component {
@@ -31,9 +32,9 @@ class NewMessage extends Component {
 
 
     sendMessage(){
-        if (this.refs.to.value) {
-            Meteor.call('sendMessage', this.refs.to.value, this.refs.message.value);
-        }
+
+            Meteor.call('sendMessage', this.props.callback, this.refs.message.value);
+this.refs.message.value='';
     }
 
     deleteMessage() {
@@ -45,22 +46,30 @@ class NewMessage extends Component {
         this.setState({updateMessage: true});
     }
 
-    renderMessages() {
-        return this.props.data.messages.map(message => {
-            return (
-                <li className="list-group-item" id="display-msg" key={message._id}>
-                    <p><b>{
-
-                    this.getUsername(message.fromuser)
+    messageByUser(userId){
 
 
 
 
-                }:</b> {message.message}</p>
+    }
 
-                </li>
-            );
+    renderMessages(userId) {
+        var fromUser = [];
+        this.props.data.messages.map(message => {
+            if(message.fromuser==userId){
+                fromUser.push(message)
+            }
+            if(message.fromuser==Meteor.userId()&&message.to==userId){
+                fromUser.push(message)
+            }
+
         });
+
+        return (fromUser.map(message => {
+          return( <p>{this.getUsername(message.fromuser)}: {message.message}</p>)
+            
+
+        }))
     }
 
     displayData(){
@@ -70,18 +79,13 @@ class NewMessage extends Component {
     render(){
         return (
             <div className="row">
-                <div className="col-xs-6" id="search-page">
-                    <div id="search-div">
-                        <SearchResults />
-                        <input type="text" ref="to" className="form-control" placeholder="To.."/>
-                    </div>
-                </div>
+
                 <div className="col-xs-6">
                     <div className="panel-body">
-                        <ul className="media-list">
-                            {this.renderMessages()}
+                        <div className="media-list">
+                            {this.renderMessages(this.props.callback)}
 
-                        </ul>
+                        </div>
                     </div>
                     <div className="panel-footer">
                         <div className="input-group">
@@ -92,6 +96,7 @@ class NewMessage extends Component {
                         </div>
                     </div>
                 </div>
+                <div  id="messageList"></div>
             </div>
 
         )};

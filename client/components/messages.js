@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Meteor }           from 'meteor/meteor'
 import { Mongo }    from 'meteor/mongo';
 import { createContainer }  from 'meteor/react-meteor-data';
-import NewMessage from './messages_detail';
+import MessagesLog from './messages_log';
 
 export const Messages = new Mongo.Collection('message');
 
@@ -23,14 +23,7 @@ class Messaging extends Component {
 
     render(){
         if (!this.props.user) {
-            return <div className="row"> /* Loading animated spining wheel */
-                <div className="col-md-4 col-md-offset-5">
-                        <svg className="circular" viewBox="25 25 50 50">
-                            <circle className="path" cx="50" cy="50" r="20" fill="none"/>
-                        </svg>
-                        <p>Loading...</p>
-                </div>
-            </div>;
+            return <div>Loading...</div>;
 
         }
 
@@ -38,7 +31,8 @@ class Messaging extends Component {
 
             <div>
                 {this.renderMail()}
-                <NewMessage />
+
+                <MessagesLog/>
             </div>
 
         )};
