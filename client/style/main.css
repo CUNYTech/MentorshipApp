@@ -563,6 +563,9 @@ button {
     .col-md-2 {
         width: 75%;
     }
+    #postAdvice {
+        width: 925px;
+    }
 }
 
 #put-bottom > h2 {
@@ -736,4 +739,8 @@ transition: height 0.2s ease;
 #welcome > h2,
 #welcome > p {
     text-align: center;
+}
+
+#post {
+    height: 34px;
 }

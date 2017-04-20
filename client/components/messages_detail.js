@@ -91,7 +91,7 @@ this.refs.message.value='';
                         <div className="input-group">
                             <input type="text" ref="message" name="text" className="form-control" placeholder="Enter Message" />
                             <span className="input-group-btn">
-                               <button className="btn btn-info" type="submit" onClick={this.sendMessage.bind(this)}>SEND</button>
+                               <button className="btn btn-info" id="post" type="submit" onClick={this.sendMessage.bind(this)}>SEND</button>
                              </span>
                         </div>
                     </div>

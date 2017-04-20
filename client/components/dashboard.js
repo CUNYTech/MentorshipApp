@@ -25,7 +25,7 @@ class Dashboard extends Component {
 
     render() {
         if(!this.props.user) {
-            return <div className="row"> /* Loading animated spining wheel */
+            return <div className="row">
                 <div className="col-md-4 col-md-offset-5">
                     <svg className="circular" viewBox="25 25 50 50">
                         <circle className="path" cx="50" cy="50" r="20" fill="none"/>

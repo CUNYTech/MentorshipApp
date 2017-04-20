@@ -174,7 +174,14 @@ class Profile extends Component {
         if(!this.props.userExist &&!this.props.loading) return <div> <b> 404 Page Not Found</b> <div> </div> Sorry, we could not find the account that you were looking for.  </div> ;
 
         if(!this.props.userExist ) {
-            return <div>Loading...</div>;
+            return <div className="row">
+                <div className="col-md-4 col-md-offset-5">
+                    <svg className="circular" viewBox="25 25 50 50">
+                        <circle className="path" cx="50" cy="50" r="20" fill="none"/>
+                    </svg>
+                    <p>Loading...</p>
+                </div>
+            </div>;
         }
         else if(this.state.isEditProfile) {
 
@@ -309,13 +316,18 @@ class Profile extends Component {
                         </div>
                     </div>
                     <div className="col-md-4 col-md-offset-2">
+                        <h2>Advices</h2>
                       {Meteor.userId() !== null && this.props.paramUser._id === Meteor.userId() && [
-                          <input ref="advice" className="form-control" type="text"
-                                 placeholder="Add advice here">
-                          </input>,
-                          <button className="btn btn-success" onClick={this.addAdvice.bind(this)}>Post</button>
+                          <div className="input-group" id="postAdvice">
+                              <input ref="advice" className="form-control" type="text"
+                                 placeholder="Post an advice you'd like to share..."/>
+                              <span className="input-group-btn">
+                               <button className="btn btn-info" id="post" type="submit" onClick={this.addAdvice.bind(this)}>POST</button>
+                              </span>
+                          </div>
                         ]
                       }
+
                       {this.renderAdvices()}
                     </div>
                 </div>
