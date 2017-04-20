@@ -4,6 +4,8 @@ import { Link }             from 'react-router';
 import { createContainer }  from 'meteor/react-meteor-data';
 import { Mentors }          from '../../imports/collections/mentors';
 import { Mentees }          from '../../imports/collections/mentees';
+import { Advices }          from '../../imports/collections/advices';
+import AdviceDetail         from './advice_detail';
 import { Accounts }         from 'meteor/accounts-base';
 
 class Profile extends Component {
@@ -149,6 +151,25 @@ class Profile extends Component {
       Meteor.call('mentees.add', user);
     }
 
+    addAdvice(event) {
+      event.preventDefault();
+      const advice = this.refs.advice.value;
+      if (advice != "") {
+          Meteor.call('advices.add', advice);
+          this.refs.advice.value = "";
+      }
+    }
+
+    renderAdvices() {
+      if(this.props.advices.length === 0) {
+        return (<div><br/><p>No advices yet</p></div>);
+      }
+      else {
+        return (this.props.advices.map(advice =>
+          <AdviceDetail key={advice._id} advice={advice} />));
+      }
+    }
+
     render() {
         if(!this.props.userExist &&!this.props.loading) return <div> <b> 404 Page Not Found</b> <div> </div> Sorry, we could not find the account that you were looking for.  </div> ;
 
@@ -288,8 +309,14 @@ class Profile extends Component {
                         </div>
                     </div>
                     <div className="col-md-4 col-md-offset-2">
-                        <input className="form-control" type="text" ref="advice" /><span><input type="submit"/></span>
-                        <p>Render post here</p>
+                      {Meteor.userId() !== null && this.props.paramUser._id === Meteor.userId() && [
+                          <input ref="advice" className="form-control" type="text"
+                                 placeholder="Add advice here">
+                          </input>,
+                          <button className="btn btn-success" onClick={this.addAdvice.bind(this)}>Post</button>
+                        ]
+                      }
+                      {this.renderAdvices()}
                     </div>
                 </div>
             ); // end return()
@@ -302,6 +329,7 @@ export default createContainer((props) => {
     Meteor.subscribe('mentees');
     Meteor.subscribe('mentorCounts');
     Meteor.subscribe('menteeCounts');
+    Meteor.subscribe('advices');
 
     var paramUser = Meteor.users.findOne({ username:props.params.username});
     var userExist =  paramUser;
@@ -318,6 +346,7 @@ export default createContainer((props) => {
              mentors: Mentors.find({}).fetch(),
              mentees: Mentees.find({}).fetch(),
              mentorsCount: Mentors.find({ ownerId: profileUserId, status: 'accepted' }).count(),
-             menteesCount: Mentees.find({ ownerId: profileUserId, status: 'accepted' }).count()
+             menteesCount: Mentees.find({ ownerId: profileUserId, status: 'accepted' }).count(),
+             advices: Advices.find({ ownerId: profileUserId }, { sort: { createdAt: -1 } }).fetch()
             };
 }, Profile);

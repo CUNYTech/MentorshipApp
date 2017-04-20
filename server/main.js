@@ -2,7 +2,7 @@ import { Meteor }   from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Mentors }  from '../imports/collections/mentors';
 import { Mentees }  from '../imports/collections/mentees';
-import {Advice} from '../imports/collections/advice'
+import { Advices }  from '../imports/collections/advices';
 
 import _ from 'lodash';
 import { image, helpers, lorem, internet, name } from 'faker';
@@ -23,7 +23,11 @@ Meteor.startup(()=>{
 
   Meteor.publish('menteeCounts', function() {
     return Mentees.find({});
-  });  
+  });
+
+  Meteor.publish('advices', function() {
+    return Advices.find({});
+  });
 
   // See if the collection has any records already
   const numberRecords = Meteor.users.find({}).count();
