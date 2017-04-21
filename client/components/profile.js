@@ -78,9 +78,14 @@ class Profile extends Component {
     saveProfile() {
         const name = this.refs.firstName.value;
         const blurb = this.refs.blurb.value;
+        const twitterURL=this.refs.myTwitter.value;
+        const linkedInURL=this.refs.myLinkedIn.value;
+
         Meteor.users.update(Meteor.userId(), {$set: {
             "profile.firstName": name,
             "profile.blurb": blurb,
+            "profile.twitterURL":twitterURL,
+            "profile.linkedInURL" :linkedInURL,
         }});
         this.setState({isEditProfile: false});
     }
@@ -172,7 +177,8 @@ class Profile extends Component {
     }
 
     render() {
-        if(!this.props.paramUser &&!this.props.loading) return <div> <b> 404 Page Not Found</b> <div> </div> Sorry, we could not find the account that you were looking for.  </div> ;
+        if(!this.props.paramUser &&!this.props.loading)
+            return <div> <b> 404 Page Not Found</b> <div> </div> Sorry, we could not find the account that you were looking for.  </div> ;
 
         if(!this.props.paramUser &&this.props.loading) {
             return <div className="row">
@@ -204,11 +210,17 @@ class Profile extends Component {
                             </p>
                             <p>
                                 <label>Twitter</label>
-                                <input ref="myTwitter" className="form-control" type="url"/>
+                                <textarea ref="myTwitter" className="form-control" type="url"
+                                defaultValue={this.props.user.profile.twitterURL}
+                                >
+                                </textarea>
                             </p>
                             <p>
                                 <label>LinkedIn</label>
-                                <input ref="myLinkedIn" className="form-control" type="url"/>
+                                <textarea ref="myLinkedIn" className="form-control" type="url"
+                                defaultValue={this.props.user.profile.linkedInURL}
+                                >
+                                </textarea>
                             </p>
                             <p>
                                 <label>Mentor Tags</label>
