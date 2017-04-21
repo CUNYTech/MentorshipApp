@@ -357,6 +357,6 @@ export default createContainer((props) => {
              mentees: Mentees.find({}).fetch(),
              mentorsCount: !loading? Mentors.find({ ownerId: paramUser._id, status: 'accepted' }).count() :'',
              menteesCount: !loading? Mentees.find({ ownerId: paramUser._id, status: 'accepted' }).count(): '',
-             advices: Advices.find({ ownerId: profileUserId }, { sort: { createdAt: -1 } }).fetch()
+             advices: !loading? Advices.find({ ownerId: paramUser._id }, { sort: { createdAt: -1 } }).fetch():''
             };
 }, Profile);
