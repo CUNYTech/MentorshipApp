@@ -25,7 +25,7 @@ class Profile extends Component {
     }
 
     getAvatar() {
-      if (this.props.paramUser.profile.avatar != '' && this.props.userExist) {
+      if (this.props.paramUser.profile.avatar != '' && this.props.paramUser) {
         return this.props.paramUser.profile.avatar;
       }
       else {
@@ -171,9 +171,9 @@ class Profile extends Component {
     }
 
     render() {
-        if(!this.props.userExist &&!this.props.loading) return <div> <b> 404 Page Not Found</b> <div> </div> Sorry, we could not find the account that you were looking for.  </div> ;
+        if(!this.props.paramUser &&!this.props.loading) return <div> <b> 404 Page Not Found</b> <div> </div> Sorry, we could not find the account that you were looking for.  </div> ;
 
-        if(!this.props.userExist ) {
+        if(!this.props.paramUser &&this.props.loading) {
             return <div className="row">
                 <div className="col-md-4 col-md-offset-5">
                     <svg className="circular" viewBox="25 25 50 50">
@@ -308,8 +308,8 @@ class Profile extends Component {
                             <div>
                                 <b>{this.props.mentorsCount}</b> Mentors<span id="mentees">
                                 <b>{this.props.menteesCount}</b> Mentees</span>
-                                <span><a href={this.props.paramUser.profile.twitterURL}><img id="twitter" src="/twitter-icon.png"/></a></span>
-                                <span> <a href={this.props.paramUser.profile.linkedInURL}><img id="linkedin" src="/linkedin-icon.png"/></a></span>
+                                <span><a href={"http://" + this.props.paramUser.profile.twitterURL}><img id="twitter" src="/twitter-icon.png"/></a></span>
+                                <span> <a href={"http://" + this.props.paramUser.profile.linkedInURL}><img id="linkedin" src="/linkedin-icon.png"/></a></span>
                                 {Meteor.userId() !== null &&
                                 <span><Link to="/messages"><img id="msg-prof" src="/message-icon.png"/></Link></span>}
                             </div>
@@ -344,21 +344,19 @@ export default createContainer((props) => {
     Meteor.subscribe('advices');
 
     var paramUser = Meteor.users.findOne({ username:props.params.username});
-    var userExist =  paramUser;
     var loading = !Meteor.subscribe('users').ready();
-    var profileUserId;
-    if(!loading) {
-      profileUserId = paramUser._id;
-    }
+    var profileUserId ="";
+    //if(!loading) {
+     // profileUserId = paramUser._id;
+    //}
 
     return { user: Meteor.user(),
              paramUser: paramUser,
              loading: loading,
-             userExist: userExist,
              mentors: Mentors.find({}).fetch(),
              mentees: Mentees.find({}).fetch(),
-             mentorsCount: Mentors.find({ ownerId: profileUserId, status: 'accepted' }).count(),
-             menteesCount: Mentees.find({ ownerId: profileUserId, status: 'accepted' }).count(),
+             mentorsCount: !loading? Mentors.find({ ownerId: profileUserId, status: 'accepted' }).count() :'',
+             menteesCount: !loading? Mentees.find({ ownerId: profileUserId, status: 'accepted' }).count(): '',
              advices: Advices.find({ ownerId: profileUserId }, { sort: { createdAt: -1 } }).fetch()
             };
 }, Profile);
