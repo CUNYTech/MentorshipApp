@@ -62,6 +62,7 @@ class Profile extends Component {
                 <button className="btn-secondary" onClick={() => this.onAddMentor(this.props.paramUser)}>
                     Add Mentor
                 </button>
+                }
             </p>;
         }
     }
@@ -355,8 +356,8 @@ export default createContainer((props) => {
              loading: loading,
              mentors: Mentors.find({}).fetch(),
              mentees: Mentees.find({}).fetch(),
-             mentorsCount: !loading? Mentors.find({ ownerId: paramUser._id, status: 'accepted' }).count() :'',
-             menteesCount: !loading? Mentees.find({ ownerId: paramUser._id, status: 'accepted' }).count(): '',
-             advices: !loading? Advices.find({ ownerId: paramUser._id }, { sort: { createdAt: -1 } }).fetch():''
+             mentorsCount: !loading && paramUser? Mentors.find({ ownerId: paramUser._id, status: 'accepted' }).count() :'',
+             menteesCount: !loading &&paramUser? Mentees.find({ ownerId: paramUser._id, status: 'accepted' }).count(): '',
+             advices: !loading && paramUser? Advices.find({ ownerId: paramUser._id }, { sort: { createdAt: -1 } }).fetch():''
             };
 }, Profile);
