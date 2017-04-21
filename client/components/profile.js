@@ -345,7 +345,7 @@ export default createContainer((props) => {
 
     var paramUser = Meteor.users.findOne({ username:props.params.username});
     var loading = !Meteor.subscribe('users').ready();
-    var profileUserId ="";
+    //var profileUserId ="";
     //if(!loading) {
      // profileUserId = paramUser._id;
     //}
@@ -355,8 +355,8 @@ export default createContainer((props) => {
              loading: loading,
              mentors: Mentors.find({}).fetch(),
              mentees: Mentees.find({}).fetch(),
-             mentorsCount: !loading? Mentors.find({ ownerId: profileUserId, status: 'accepted' }).count() :'',
-             menteesCount: !loading? Mentees.find({ ownerId: profileUserId, status: 'accepted' }).count(): '',
+             mentorsCount: !loading? Mentors.find({ ownerId: paramUser._id, status: 'accepted' }).count() :'',
+             menteesCount: !loading? Mentees.find({ ownerId: paramUser._id, status: 'accepted' }).count(): '',
              advices: Advices.find({ ownerId: profileUserId }, { sort: { createdAt: -1 } }).fetch()
             };
 }, Profile);
