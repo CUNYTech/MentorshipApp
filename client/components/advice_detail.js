@@ -17,14 +17,14 @@ class AdviceDetail extends Component {
     else {
       return (
         <div>
-          <h2>
-            <span className="label label-info">{this.props.advice.message}</span>
-          </h2>
-          {Meteor.userId() === this.props.advice.ownerId &&
-            <button className="btn btn-danger" onClick={() => this.onRemoveAdvice(this.props.advice)}>
-              Delete
-            </button>
-          }
+          <br/>
+              <div id="advices">
+                  {this.props.advice.message}
+              <p>{Meteor.userId() === this.props.advice.ownerId &&
+              <span><a id="delete" onClick={() => this.onRemoveAdvice(this.props.advice)}> Delete
+              </a></span>
+              }</p>
+              </div>
         </div>
       );
     }//end else

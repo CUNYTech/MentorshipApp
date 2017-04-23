@@ -564,8 +564,24 @@ button {
         width: 75%;
     }
     #postAdvice {
-        width: 925px;
+        width: 930px;
     }
+    #advices {
+        width: 930px;
+        font-size: 18px;
+    }
+}
+
+#delete {
+    cursor: pointer;
+}
+
+#advices {
+    font-family: 'Open Sans Condensed', sans-serif;
+    border: solid;
+    border-width: 1px;
+    border-color: lightgrey;
+    padding: 45px 50px 35px 50px;
 }
 
 #put-bottom > h2 {
