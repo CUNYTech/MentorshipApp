@@ -3,6 +3,7 @@ import { Meteor }           from 'meteor/meteor'
 import { Mongo }    from 'meteor/mongo';
 import { createContainer }  from 'meteor/react-meteor-data';
 import MessagesLog from './messages_log';
+import ReactDOM from 'react-dom';
 
 export const Messages = new Mongo.Collection('message');
 
@@ -18,7 +19,6 @@ class Messaging extends Component {
             return (<div><br/><p>No mail yet</p></div>);
 
     }
-
 
 
     render(){

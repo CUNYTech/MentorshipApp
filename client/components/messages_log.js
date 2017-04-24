@@ -3,94 +3,73 @@ import { Meteor }           from 'meteor/meteor'
 import { Mongo }    from 'meteor/mongo';
 import { Messages } from './messages'
 import { createContainer }  from 'meteor/react-meteor-data';
-import NewMessage from './messages_detail';
+import MessagesDetail from './messages_detail';
 import ReactDOM from 'react-dom';
+import SearchResults from './search_results';
+import NewMessage from './new_message';
 
 
 class MessagesLog extends Component {
     constructor(props){
         super(props);
-        this.state = {usersList:[], dataToChild:""};
-
+        this.state = {usersList:[], dataToChild:"", newMessageInput:false, value:""};
+        this.handleChange = this.handleChange.bind(this);
     };
+
+    componentWillMount(){
+        this.getUsers()
+
+    }
 
     getUsername(username){
 
-        //   var name =  Meteor.call('returnUsername',username);
         var name = Meteor.users.findOne({_id:username});
-
         if(name!==undefined){
-
             return (name.profile.firstName + ' ' + name.profile.lastName)
-
         }
-
-
     }
 
     getUsers() {
 
-
         var tempArray =[];
         this.props.data.messages.map(message => {
-
             if(tempArray.length==0){
                 if(message.fromuser!= Meteor.userId()) {
                     tempArray.push(message.fromuser);
                 }
             }
             else {
-
                 tempArray.map(user => {
                     if (user != message.fromuser) {
                         if(message.fromuser!= Meteor.userId()) {
                             tempArray.push(message.fromuser);
                         }
-
                     }
                 });
-
-
-
             }
-
-
-
         });
 
-        console.log(tempArray);
         this.setUsersToState(tempArray);
-
     }
-
 
     setUsersToState(userArray){
         this.setState({usersList:userArray});
-console.log('done')
-
     }
-
 
     displayMessageLog(userID){
             this.setState({dataToChild:userID});
-
-          var element= <NewMessage callback={userID}/>;
+          var element= <MessagesDetail callback={userID}/>;
           ReactDOM.render(
             element,
             document.getElementById('root')
         );
-
-
     }
-
 
     renderMessages() {
         if(this.state.usersList.length!=0){
         return this.state.usersList.map(user => {
 
             return (
-
-
 
                 <li className="list-group-item" id="display-msg" key={user}>
                     <input type="button" value={this.getUsername(user)} onClick={this.displayMessageLog.bind(this,user)}/>
@@ -100,19 +79,61 @@ console.log('done')
     }
     }
 
+    newMessage(){
+
+        var element=<NewMessage/>;
+///<input type="text" defaultValue={this.state.value} onChange={this.handleChange} />
+        ReactDOM.render(
+            element,
+            document.getElementById('newMessage')
+        );
+
+    }
+
+    setToUser(user) {
+        this.setState({dataToChild:user});
+    }
+
+    newMessageAndLog(){
+
+
+        /*
+         this.newMessage();
+         this.displayMessageLog(()=>{ var user = Meteor.users.findOne({username:this.state.value});
+         console.log(user._id);
+         return (user._id);
+         });
+
+        */
+    }
+
+    handleChange(event) {
+
+        this.setState({value: event.target.value});
+
+    }
+
 
     render(){
         return (
             <div className="row">
                 <div className="col-xs-6">
+
+                    <input type="button" onClick={this.getUsers.bind(this)}/>
+
                     <div className="panel-body">
                         <ul className="media-list">
+                            <li className="list-group-item" id="display-msg"><input type="button" value="New Message" onClick={this.newMessage.bind(this)}/></li>
                             {this.renderMessages()}
                         </ul>
                     </div>
-                    <input type="button" onClick={this.getUsers.bind(this)}/>
+
+                </div>
+                <div id="newMessage">
+
                 </div>
                 <div id="root"></div>
+
             </div>
 
         )};

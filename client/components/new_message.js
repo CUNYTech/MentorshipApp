@@ -7,14 +7,14 @@ import SearchResults        from './search_results';
 import ReactDOM from 'react-dom'
 
 
-class MessagesDetail extends Component {
+class NewMessage extends Component {
     constructor(props){
         super(props)
     };
 
     getUsername(username){
 
-    //   var name =  Meteor.call('returnUsername',username);
+        //   var name =  Meteor.call('returnUsername',username);
         var name = Meteor.users.findOne({_id:username});
 
         if(name!==undefined){
@@ -23,7 +23,7 @@ class MessagesDetail extends Component {
 
                 return('Me')
             }
-        return (name.profile.firstName)
+            return (name.profile.firstName)
 
         }
 
@@ -32,9 +32,9 @@ class MessagesDetail extends Component {
 
 
     sendMessage(){
-
-            Meteor.call('sendMessage', this.props.callback, this.refs.message.value);
-            this.refs.message.value='';
+var userID = Meteor.users.findOne({username:this.refs.to.value});
+        Meteor.call('sendMessage', userID._id, this.refs.message.value);
+        this.refs.message.value='';
     }
 
     deleteMessage() {
@@ -42,7 +42,7 @@ class MessagesDetail extends Component {
         Meteor.call('messages.remove', message._id)
     }
 
-     editMessage() {
+    editMessage() {
         this.setState({updateMessage: true});
     }
 
@@ -61,7 +61,7 @@ class MessagesDetail extends Component {
         });
 
         return (fromUser.map(message => {
-          return( <p>{this.getUsername(message.fromuser)}: {message.message}</p>)
+            return( <p>{this.getUsername(message.fromuser)}: {message.message}</p>)
 
 
         }))
@@ -77,16 +77,15 @@ class MessagesDetail extends Component {
 
                 <div className="col-xs-6">
                     <div className="panel-body">
-                        <div className="media-list">
-                            {this.renderMessages(this.props.callback)}
-
+                        <div>
+                            <input type="text" ref="to" placeholder="to"/>
                         </div>
                     </div>
                     <div className="panel-footer">
                         <div className="input-group">
                             <input type="text" ref="message" name="text" className="form-control" placeholder="Enter Message" />
                             <span className="input-group-btn">
-                               <button className="btn btn-info" id="post" type="submit" onClick={this.sendMessage.bind(this)}>SEND</button>
+                               <button className="btn btn-info" type="submit" onClick={this.sendMessage.bind(this)}>SEND</button>
                              </span>
                         </div>
                     </div>
@@ -108,4 +107,4 @@ export default createContainer(() =>{
     //return an object, Whatever we return will be send to userList as props
     return { user: Meteor.user(), data};
 
-}, MessagesDetail);
+}, NewMessage);
