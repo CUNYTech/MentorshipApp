@@ -62,7 +62,6 @@ class Profile extends Component {
                 <button className="btn-secondary" onClick={() => this.onAddMentor(this.props.paramUser)}>
                     Add Mentor
                 </button>
-                }
             </p>;
         }
     }
@@ -177,13 +176,13 @@ class Profile extends Component {
     }
 
     renderSocialmedia() {
-return(
-        this.props.paramUser.profile.twitterURL?
-        <div>
-        <span><a href={"http://" + this.props.paramUser.profile.twitterURL}><img id="twitter" src="/twitter-icon.png"/></a></span>
-        <span> <a href={"http://" + this.props.paramUser.profile.linkedInURL}><img id="linkedin" src="/linkedin-icon.png"/></a></span>
-            </div>: ''
-    )
+        return(
+            this.props.paramUser.profile.twitterURL?
+            <span>
+            <span><a href={"http://" + this.props.paramUser.profile.twitterURL}><img id="twitter" src="/twitter-icon.png"/></a></span>
+            <span> <a href={"http://" + this.props.paramUser.profile.linkedInURL}><img id="linkedin" src="/linkedin-icon.png"/></a></span>
+                </span>: ''
+        )
     }
 
     render() {
@@ -331,7 +330,7 @@ return(
                             <div>
                                 <b>{this.props.mentorsCount}</b> Mentors<span id="mentees">
                                 <b>{this.props.menteesCount}</b> Mentees</span>
-                                {this.renderSocialmedia()};
+                                <span>{this.renderSocialmedia()}</span>
                                 {Meteor.userId() !== null &&
                                 <span><Link to="/messages"><img id="msg-prof" src="/message-icon.png"/></Link></span>}
                             </div>
