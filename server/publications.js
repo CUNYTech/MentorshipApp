@@ -17,6 +17,9 @@ Meteor.publish('messageList',function(){
     return Messages.find({});
 });
 
+Meteor.publish('emojis', function() {
+    return Emojis.find();
+});
 
 Meteor.methods({
   'sendVerificationEmail': function() {

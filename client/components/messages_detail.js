@@ -46,7 +46,11 @@ class MessagesDetail extends Component {
         this.setState({updateMessage: true});
     }
 
-
+    renderEmoji(text) {
+        return (
+            <span dangerouslySetInnerHTML={{__html: Emojis.parse(text)}} />
+        )
+    }
 
     renderMessages(userId) {
         var fromUser = [];
@@ -61,7 +65,7 @@ class MessagesDetail extends Component {
         });
 
         return (fromUser.map(message => {
-          return( <p>{this.getUsername(message.fromuser)}: {message.message}</p>)
+          return( <p>{this.getUsername(message.fromuser)}: {this.renderEmoji(message.message)}</p>)
 
 
         }))
@@ -103,9 +107,10 @@ export default createContainer(() =>{
 
     let data = {};
     data.handle=Meteor.subscribe('messageList');
+    Meteor.subscribe('emojis');
     data.messages = Messages.find({$or:[{'to':Meteor.userId()},{'fromuser':Meteor.userId()}]},{sort:{createdOn:-1}}).fetch();
 
     //return an object, Whatever we return will be send to userList as props
-    return { user: Meteor.user(), data};
+    return { user: Meteor.user(), data, emojis: Emojis.find({})};
 
 }, MessagesDetail);
