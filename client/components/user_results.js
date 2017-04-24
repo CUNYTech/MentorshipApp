@@ -7,7 +7,7 @@ import { Mentors }          from '../../imports/collections/mentors';
 import { Mentees }          from '../../imports/collections/mentees';
 import SearchResults        from './search_results';
 
-export default class UserResults extends Component {
+ class UserResults extends Component {
     constructor(props) {
         super(props);
         this.state = {users:[]};
@@ -16,6 +16,19 @@ export default class UserResults extends Component {
     onAddMentor(user) {
         Meteor.call('mentors.add', user);
         Meteor.call('mentees.add', user);
+    }
+
+    renderTagList() {
+
+        console.log(this.props.tagUsers);
+
+        return(
+            <div>
+                { this.props.tagUsers.map(user =>
+                    <div>  {user.username} <img src = {user.profile.avatar}/></div>)}
+            </div>
+        );
+
     }
 
     renderList() {
@@ -42,10 +55,23 @@ export default class UserResults extends Component {
                 <p>Results:</p>
                 <div className="list-users">
                     <ul className="list-group">
-                        {/*{this.renderList()}*/}
+                        {this.props.tags ? this.renderTagList() : ''}
+                        {this.renderList()}
                     </ul>
                 </div>
             </div>
         )
     }
 };
+
+export default createContainer((props) => {
+
+paramTag = props.tags;
+
+
+    tagUser = Meteor.users.find({ 'profile.mentorTags': { $elemMatch: {$eq: paramTag} } }).fetch();
+
+    return {
+        paramTag: paramTag,  tagUsers:  tagUser
+    };
+}, UserResults);

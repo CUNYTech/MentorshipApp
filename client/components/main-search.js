@@ -10,6 +10,7 @@ class MainSearch extends Component {
         super(props)
     };
 
+
     render(){
 
         return (
@@ -30,7 +31,7 @@ class MainSearch extends Component {
                     </ul>
                 </div>
                 <div className="col-xs-6">
-                    <UserResults />
+                    <UserResults tags = {this.props.params.tag} />
                 </div>
             </div>
         )};

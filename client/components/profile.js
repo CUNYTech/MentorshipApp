@@ -176,6 +176,16 @@ class Profile extends Component {
       }
     }
 
+    renderSocialmedia() {
+return(
+        this.props.paramUser.profile.twitterURL?
+        <div>
+        <span><a href={"http://" + this.props.paramUser.profile.twitterURL}><img id="twitter" src="/twitter-icon.png"/></a></span>
+        <span> <a href={"http://" + this.props.paramUser.profile.linkedInURL}><img id="linkedin" src="/linkedin-icon.png"/></a></span>
+            </div>: ''
+    )
+    }
+
     render() {
         if(!this.props.paramUser &&!this.props.loading)
             return <div> <b> 404 Page Not Found</b> <div> </div> Sorry, we could not find the account that you were looking for.  </div> ;
@@ -237,7 +247,7 @@ class Profile extends Component {
                             </p>
                             <div>
                               {this.props.user.profile.mentorTags.map(tag => {
-                                return <span className="label label-info">{tag}</span>
+                                return <span className="label label-info"> {tag}</span>
                               })}
                             </div>
                             <p>
@@ -255,7 +265,7 @@ class Profile extends Component {
                             </p>
                             <div>
                               {this.props.user.profile.menteeTags.map(tag => {
-                                return <span className="label label-info">{tag}</span>
+                                return <span className="label label-info"><Link to={"/MainSearch/tag/"+tag}>{tag}</Link></span>
                               })}
                             </div>
                         </form>
@@ -321,8 +331,7 @@ class Profile extends Component {
                             <div>
                                 <b>{this.props.mentorsCount}</b> Mentors<span id="mentees">
                                 <b>{this.props.menteesCount}</b> Mentees</span>
-                                <span><a href={"http://" + this.props.paramUser.profile.twitterURL}><img id="twitter" src="/twitter-icon.png"/></a></span>
-                                <span> <a href={"http://" + this.props.paramUser.profile.linkedInURL}><img id="linkedin" src="/linkedin-icon.png"/></a></span>
+                                {this.renderSocialmedia()};
                                 {Meteor.userId() !== null &&
                                 <span><Link to="/messages"><img id="msg-prof" src="/message-icon.png"/></Link></span>}
                             </div>

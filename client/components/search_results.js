@@ -112,5 +112,6 @@ class SearchResults extends Component {
 export default createContainer(() =>{
   Meteor.subscribe('mentors');
   Meteor.subscribe('mentees');
+
   return { mentors: Mentors.find({}).fetch(), mentees: Mentees.find({}).fetch() };
 }, SearchResults);
