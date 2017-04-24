@@ -16,8 +16,44 @@ class MessagesLog extends Component {
         this.handleChange = this.handleChange.bind(this);
     };
 
-    componentWillMount(){
-        this.getUsers()
+    componentDidUpdate(){
+/*
+        var tempArray =[];
+
+        var done = false;
+
+            this.props.data.messages.map(message => {
+                if (tempArray.length == 0) {
+                    if (message.fromuser != Meteor.userId()) {
+                        tempArray.push(message.fromuser);
+                    }
+                    else {
+                        tempArray.push(message.to)
+                    }
+                }
+                else {
+                    tempArray.map(user => {
+                        if (user != message.fromuser) {
+                            if (message.fromuser != Meteor.userId()) {
+                                tempArray.push(message.fromuser);
+                            }
+                            else {
+                                tempArray.push(message.to)
+                            }
+                        }
+                    });
+                }
+            });
+
+
+            tempArray.pop();
+
+            console.log(tempArray);
+
+this.setState({usersList:tempArray});
+
+*/
+
 
     }
 
@@ -31,11 +67,17 @@ class MessagesLog extends Component {
 
     getUsers() {
 
+
+
         var tempArray =[];
         this.props.data.messages.map(message => {
             if(tempArray.length==0){
                 if(message.fromuser!= Meteor.userId()) {
                     tempArray.push(message.fromuser);
+                }
+                else if(message.fromuser==Meteor.userId()){
+                    tempArray.push(message.to)
+
                 }
             }
             else {
@@ -44,16 +86,21 @@ class MessagesLog extends Component {
                         if(message.fromuser!= Meteor.userId()) {
                             tempArray.push(message.fromuser);
                         }
+                        else if(message.fromuser == Meteor.userId()){
+                            tempArray.push(message.to)
+                        }
                     }
                 });
             }
         });
+tempArray.pop();
 
-        this.setUsersToState(tempArray);
+
     }
 
     setUsersToState(userArray){
         this.setState({usersList:userArray});
+
     }
 
     displayMessageLog(userID){
@@ -66,8 +113,36 @@ class MessagesLog extends Component {
     }
 
     renderMessages() {
-        if(this.state.usersList.length!=0){
-        return this.state.usersList.map(user => {
+        var tempArray =[];
+        this.props.data.messages.map(message => {
+            if(tempArray.length==0){
+                if(message.fromuser!= Meteor.userId()) {
+                    tempArray.push(message.fromuser);
+                }
+                else if(message.fromuser==Meteor.userId()){
+                    tempArray.push(message.to)
+
+                }
+            }
+            else {
+                tempArray.map(user => {
+                    if (user != message.fromuser) {
+                        if(message.fromuser!= Meteor.userId()) {
+                            tempArray.push(message.fromuser);
+                        }
+                        else if(message.fromuser == Meteor.userId()){
+                            tempArray.push(message.to)
+                        }
+                    }
+                });
+            }
+        });
+        console.log(tempArray);
+
+        console.log(tempArray);
+
+        if(tempArray.length!=0){
+        return tempArray.map(user => {
 
             return (
 
