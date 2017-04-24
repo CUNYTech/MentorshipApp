@@ -93,8 +93,8 @@ this.setState({usersList:tempArray});
                 });
             }
         });
-tempArray.pop();
 
+return (tempArray)
 
     }
 
@@ -104,6 +104,7 @@ tempArray.pop();
     }
 
     displayMessageLog(userID){
+        ReactDOM.unmountComponentAtNode(document.getElementById('newMessage'));
             this.setState({dataToChild:userID});
           var element= <MessagesDetail callback={userID}/>;
           ReactDOM.render(
@@ -113,33 +114,7 @@ tempArray.pop();
     }
 
     renderMessages() {
-        var tempArray =[];
-        this.props.data.messages.map(message => {
-            if(tempArray.length==0){
-                if(message.fromuser!= Meteor.userId()) {
-                    tempArray.push(message.fromuser);
-                }
-                else if(message.fromuser==Meteor.userId()){
-                    tempArray.push(message.to)
-
-                }
-            }
-            else {
-                tempArray.map(user => {
-                    if (user != message.fromuser) {
-                        if(message.fromuser!= Meteor.userId()) {
-                            tempArray.push(message.fromuser);
-                        }
-                        else if(message.fromuser == Meteor.userId()){
-                            tempArray.push(message.to)
-                        }
-                    }
-                });
-            }
-        });
-        console.log(tempArray);
-
-        console.log(tempArray);
+        var tempArray = this.getUsers();
 
         if(tempArray.length!=0){
         return tempArray.map(user => {
@@ -155,7 +130,7 @@ tempArray.pop();
     }
 
     newMessage(){
-
+        ReactDOM.unmountComponentAtNode(document.getElementById('root'));
         var element=<NewMessage/>;
 ///<input type="text" defaultValue={this.state.value} onChange={this.handleChange} />
         ReactDOM.render(
@@ -193,9 +168,6 @@ tempArray.pop();
         return (
             <div className="row">
                 <div className="col-xs-6">
-
-                    <input type="button" onClick={this.getUsers.bind(this)}/>
-
                     <div className="panel-body">
                         <ul className="media-list">
                             <li className="list-group-item" id="display-msg"><input type="button" value="New Message" onClick={this.newMessage.bind(this)}/></li>

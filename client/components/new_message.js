@@ -79,6 +79,7 @@ var userID = Meteor.users.findOne({username:this.refs.to.value});
                     <div className="panel-body">
                         <div>
                             <input type="text" ref="to" placeholder="to"/>
+                            <input type="button" value="Cancel"/>
                         </div>
                     </div>
                     <div className="panel-footer">
