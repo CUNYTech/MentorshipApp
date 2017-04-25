@@ -26,7 +26,10 @@ import {Link}               from 'react-router'
         return(
             <div>
                 { this.props.tagUsers.map(user =>
-                    <div> <Link to={"/profile/"+user.username}>{user.profile.firstName}</Link> <img src = {user.profile.avatar}/></div>)}
+                    <div>
+                        <img id="avatar-search" src = {user.profile.avatar}/>
+                        <Link id="link" to={"/profile/"+user.username}>{user.profile.firstName}</Link>
+                    </div>)}
             </div>
         );
 
