@@ -54,12 +54,13 @@ class Profile extends Component {
                 </a>
             </p>;
         }
-        else if (Meteor.userId() == null || this.props.loading) {
+        else if (!Meteor.userId() || this.props.loading) {
             return <div> </div>;
         }
         else {
             const myMentor = this.props.mentors.find(mentor => mentor.mentorId === this.props.paramUser._id);
             const myMentee = this.props.mentees.find(mentee => mentee.menteeId === this.props.paramUser._id);
+
             if(myMentor || myMentee) {
               return(<div></div>)
             }
@@ -176,7 +177,7 @@ class Profile extends Component {
 
     renderAdvices() {
       if(this.props.advices.length === 0) {
-        return (<div><br/><p>No advices yet</p></div>);
+        return (<div><br/><p>No advice yet</p></div>);
       }
       else {
         return (this.props.advices.map(advice =>
@@ -346,7 +347,7 @@ class Profile extends Component {
                         </div>
                     </div>
                     <div className="col-md-4 col-md-offset-2">
-                        <h2>Advices</h2>
+                        <h2>Advice</h2>
                       {Meteor.userId() !== null && this.props.paramUser._id === Meteor.userId() && [
                           <div className="input-group" id="postAdvice">
                               <input ref="advice" className="form-control" type="text"
