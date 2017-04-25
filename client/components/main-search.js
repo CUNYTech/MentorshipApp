@@ -31,7 +31,7 @@ class MainSearch extends Component {
                     </ul>
                 </div>
                 <div className="col-xs-6">
-                    <UserResults tags = {this.props.params.tag} />
+                    <UserResults tags = {this.props.params.tag} role = {this.props.params.role} />
                 </div>
             </div>
         )};

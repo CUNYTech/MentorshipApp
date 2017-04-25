@@ -6,6 +6,7 @@ import MenteeDetail         from './mentee_detail';
 import { Mentors }          from '../../imports/collections/mentors';
 import { Mentees }          from '../../imports/collections/mentees';
 import SearchResults        from './search_results';
+import {Link}               from 'react-router'
 
  class UserResults extends Component {
     constructor(props) {
@@ -25,7 +26,7 @@ import SearchResults        from './search_results';
         return(
             <div>
                 { this.props.tagUsers.map(user =>
-                    <div>  {user.username} <img src = {user.profile.avatar}/></div>)}
+                    <div> <Link to={"/profile/"+user.username}>{user.profile.firstName}</Link> <img src = {user.profile.avatar}/></div>)}
             </div>
         );
 
@@ -68,10 +69,20 @@ export default createContainer((props) => {
 
 paramTag = props.tags;
 
+paramRole=props.role;
 
+if(paramRole == 'mentor')
     tagUser = Meteor.users.find({ 'profile.mentorTags': { $elemMatch: {$eq: paramTag} } }).fetch();
 
+else {
+    tagUser = Meteor.users.find({'profile.menteeTags': {$elemMatch: {$eq: paramTag}}}).fetch();
+}
+
     return {
-        paramTag: paramTag,  tagUsers:  tagUser
-    };
+        paramTag: paramTag,
+
+        tagUsers: paramRole=="mentor"?  Meteor.users.find({ 'profile.mentorTags': { $elemMatch: {$eq: paramTag} } }).fetch():
+            tagUser = Meteor.users.find({'profile.menteeTags': {$elemMatch: {$eq: paramTag}}}).fetch()
+
+};
 }, UserResults);

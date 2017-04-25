@@ -246,7 +246,7 @@ class Profile extends Component {
                             </p>
                             <div>
                               {this.props.user.profile.mentorTags.map(tag => {
-                                return <span className="label label-info"> {tag}</span>
+                                return <span className="label label-info"> <Link to={"/MainSearch/mentor/"+tag}>{tag}</Link> </span>
                               })}
                             </div>
                             <p>
@@ -264,7 +264,7 @@ class Profile extends Component {
                             </p>
                             <div>
                               {this.props.user.profile.menteeTags.map(tag => {
-                                return <span className="label label-info"><Link to={"/MainSearch/tag/"+tag}>{tag}</Link></span>
+                                return <span className="label label-info"><Link to={"/MainSearch/mentee/"+tag}>{tag}</Link></span>
                               })}
                             </div>
                         </form>
