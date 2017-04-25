@@ -54,15 +54,26 @@ class Profile extends Component {
                 </a>
             </p>;
         }
-        else if (Meteor.userId() == null) {
+        else if (Meteor.userId() == null || this.props.loading) {
             return <div> </div>;
         }
         else {
-            return <p className="buttons" id="editProfile">
+            const myMentor = this.props.mentors.find(mentor => mentor.mentorId === this.props.user._id);
+            const myMentee = this.props.mentees.find(mentee => mentee.menteeId === this.props.user._id);
+            console.log(myMentor);
+            console.log(myMentee);
+            if(myMentor || myMentee) {
+              return(<div></div>)
+            }
+            else {
+              return(
+              <p className="buttons" id="editProfile">
                 <button className="btn-secondary" onClick={() => this.onAddMentor(this.props.paramUser)}>
                     Add Mentor
                 </button>
-            </p>;
+              </p>
+            );
+          }
         }
     }
 
@@ -189,7 +200,7 @@ class Profile extends Component {
         if(!this.props.paramUser &&!this.props.loading)
             return <div> <b> 404 Page Not Found</b> <div> </div> Sorry, we could not find the account that you were looking for.  </div> ;
 
-        if(!this.props.paramUser &&this.props.loading) {
+        if(this.props.loading && !this.props.paramUser) {
             return <div className="row">
                 <div className="col-md-4 col-md-offset-5">
                     <svg className="circular" viewBox="25 25 50 50">
