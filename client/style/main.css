@@ -2,10 +2,6 @@ html, body {
     height: 100%;
 }
 
-#wrap {
-    position: relative;
-}
-
 #happy-img {
     position: absolute;
 }
@@ -28,10 +24,15 @@ html, body {
     color: white;
 }
 
-#aboutus {
-    position: relative;
-    margin-top: 680px;
-    padding: 50px;
+#about {
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-align: center;
+    padding: 0 80px 50px 80px;
+}
+
+#aboutus > h1 {
+    color: #5882FA;
+    margin-bottom: 30px;
 }
 
 #main-image {
@@ -664,6 +665,7 @@ transition: height 0.2s ease;
     text-align: center;
     margin-bottom: 40px;
     font-size: 40px;
+    padding-top: 25px;
 }
 
 .floatLeft {
@@ -673,7 +675,7 @@ transition: height 0.2s ease;
 
 #photos li{
     display: inline;
-    margin-right: 20px;
+    margin-right: 50px;
     align-content: center;
 }
 

@@ -3,17 +3,11 @@ import React from 'react';
 const About = () => {
     return (
      <div className="row">
-         <div className="row" id="wrap">
-                <div id="happy-img">
-                    <img id="main-image" src="shri_mentee.png" />
-                </div>
-                <div id="title">
-                    <h1>Obec</h1>
-                </div>
-         </div>
-         <div className="row" id="aboutus">
-             <h2>About Us</h2>
-             <p>
+         <div className="row" id="about">
+             <div id="aboutus">
+                <h1>About Us</h1>
+             </div>
+                 <p>
                  Obec takes its name from the Slovak translation from the English word "community". Obec creates a community
                  among people where they can find short-term or long-term mentors in different areas such as
                  Women in Tech, Career Advice, Life Advice, Programming, and so on.
