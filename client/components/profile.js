@@ -58,10 +58,8 @@ class Profile extends Component {
             return <div> </div>;
         }
         else {
-            const myMentor = this.props.mentors.find(mentor => mentor.mentorId === this.props.user._id);
-            const myMentee = this.props.mentees.find(mentee => mentee.menteeId === this.props.user._id);
-            console.log(myMentor);
-            console.log(myMentee);
+            const myMentor = this.props.mentors.find(mentor => mentor.mentorId === this.props.paramUser._id);
+            const myMentee = this.props.mentees.find(mentee => mentee.menteeId === this.props.paramUser._id);
             if(myMentor || myMentee) {
               return(<div></div>)
             }
