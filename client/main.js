@@ -35,7 +35,7 @@ const routes = (
             <Route path="messages" component={Messaging}></Route>
             <Route path="mainsearch" component={MainSearch}></Route>
             <Route path="notifications" component={Notifs}></Route>
-            <Route path="mainsearch/tag(/:tag)" component={MainSearch}></Route>
+            <Route path="mainsearch(/:role)(/:tag)" component={MainSearch}></Route>
             <Route path="*" component = {NotFound}> </Route>
 
 

@@ -52,9 +52,6 @@ class Dashboard extends Component {
                   <Link to="/messages" >
                     <p>Messages</p>
                   </Link>
-                  <a href="#">
-                    <p>Requests</p>
-                  </a>
                   <Link to="/notifications">
                     <p>Notifications <span className="badge">{this.props.numOfPendingMentees}</span></p>
                   </Link>

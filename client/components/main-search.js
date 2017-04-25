@@ -14,10 +14,11 @@ class MainSearch extends Component {
     render(){
 
         return (
-            <div className="row">
+            <div className="row" id="mainsearch">
                 <div className="col-xs-6" id="search-page">
                     <div id="search-div">
-                        <SearchResults/>
+                        <input type="search" className="form-control" placeholder="Search"/>
+                        <img className="dropdown-toggle" id="search-icon" src="/search-icon.png"/>
                     </div>
                     <p className="bold">Contacts</p>
                     <ul id="list-filters">
@@ -31,7 +32,7 @@ class MainSearch extends Component {
                     </ul>
                 </div>
                 <div className="col-xs-6">
-                    <UserResults tags = {this.props.params.tag} />
+                    <UserResults tags = {this.props.params.tag} role = {this.props.params.role} />
                 </div>
             </div>
         )};
