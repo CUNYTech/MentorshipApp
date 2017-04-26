@@ -6,7 +6,7 @@
   },
   "dependencies": {
     "babel-runtime": "^6.23.0",
-    "bcrypt": "^1.0.2",
+    "bcryptjs": "^2.4.3",
     "faker": "^4.1.0",
     "lodash": "^4.17.4",
     "meteor-node-stubs": "~0.2.4",
@@ -17,6 +17,6 @@
     "react-router": "^3.0.2"
   },
   "engines": {
-    "node": "4.7.3"
+    "node": ">=4.6.2"
   }
 }
