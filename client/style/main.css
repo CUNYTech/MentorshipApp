@@ -302,7 +302,7 @@ option:focus {
 
 #searchBox {
     padding-top: 8px;
-    padding-right: 60px;
+    padding-right: 690px;
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
@@ -390,6 +390,7 @@ option:focus {
     color: #5882FA;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 24px;
+    text-align: center;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
@@ -456,9 +457,13 @@ option:focus {
 }
 
 .col-xs-6 {
-    width: 65%;
+    width: 50%;
     height: 100%;
     position: static;
+}
+
+#msg-display {
+    width: 50%;
 }
 
 #addBorder {
@@ -556,11 +561,11 @@ button {
 }
 
 .panel-body {
-    background-color: #CEE3F6;
+    background-color: transparent;
 }
 
 .panel-footer {
-    background-color: #CEE3F6;
+    background-color: transparent;
     border-top: none;
 }
 
@@ -650,7 +655,6 @@ button {
         margin-top: 250px;
     }
     #searchBox {
-        width: 300px;
         padding-right: 0;
     }
     #images {
@@ -658,6 +662,19 @@ button {
     }
     .floatLeft {
         margin-bottom: 35px;
+    }
+    #addBorder {
+        width: 80%;
+    }
+    #remove-user {
+        margin-left: 0;
+        left: 70px;
+    }
+    .thumbnail {
+        width: 90px;
+    }
+    .col-xs-6 {
+        width: 100%;
     }
 }
 
@@ -758,7 +775,7 @@ button {
 
 .floatLeft {
     float: left;
-    margin-left: 2px;
+    margin-left: 15px;
     margin-bottom: 25px;
     position: relative;
     display: block;
