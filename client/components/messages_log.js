@@ -61,7 +61,7 @@ this.setState({usersList:tempArray});
 
         var name = Meteor.users.findOne({_id:username});
         if(name!==undefined){
-            return (name.profile.firstName + ' ' + name.profile.lastName)
+            return (name.profile.avatar)
         }
     }
 
@@ -122,7 +122,9 @@ return (tempArray)
             return (
 
                 <li className="list-group-item" id="display-msg" key={user}>
-                    <input type="button" value={this.getUsername(user)} onClick={this.displayMessageLog.bind(this,user)}/>
+                    <button  onClick={this.displayMessageLog.bind(this,user)}>
+                        <img src={this.getUsername(user)}/>
+                    </button>
                 </li>
             );
         });
