@@ -113,7 +113,7 @@ export default class Registration extends React.Component {
                     </p>
                     <p>
                         <label>Password </label>
-                        <input ref="t_password" className="form-control" type="password" onKeyUp={this.checkStrength.bind(this)} required />
+                        <input ref="t_password" className="form-control" type="password" required />
                     </p>
                     {/*<div id="passBar"></div>*/}
                     <p>
