@@ -24,28 +24,28 @@ const About = () => {
                 <h2>Meet the Developers</h2>
                 <ul className="col-md-11 col-md-offset-1" id="photos">
                     <li className="floatLeft">
-                        <img className="imagesSec" src="alex.jpg"/>
+                        <img className="imagesSec" src="/alex.jpg"/>
                         <h3>Alexander Onate</h3>
                         <p>Full Stack Developer</p>
                     </li>
                     <li className="floatLeft">
-                        <img className="imagesSec"src="laisa.jpg"/>
+                        <img className="imagesSec"src="/laisa.jpg"/>
                         <h3>Laisa Barros</h3>
                         <p>Front-End Developer</p>
                         <p>UI/UX Designer</p>
                     </li>
                     <li className="floatLeft">
-                        <img className="imagesSec" src="liang.jpg"/>
+                        <img className="imagesSec" src="/liang.jpg"/>
                         <h3>Liang Chen</h3>
                         <p>Full Stack Developer</p>
                     </li>
                     <li className="floatLeft">
-                        <img className="imagesSec" src="maz.jpg"/>
+                        <img className="imagesSec" src="/maz.jpg"/>
                         <h3>Mazhar Siddique</h3>
                         <p>Full Stack Developer</p>
                     </li>
                     <li className="floatLeft">
-                        <img className="imagesSec" src="shri.jpg"/>
+                        <img className="imagesSec" src="/shri.jpg"/>
                         <h3>Shrijana Ghimire</h3>
                         <p>Full Stack Developer</p>
                     </li>

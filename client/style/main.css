@@ -268,7 +268,7 @@ option:focus {
 
 #searchBox {
     padding-top: 8px;
-    padding-right: 400px;
+    padding-right: 500px;
     padding-left: 15px;
     font-family: 'Open Sans Condensed', sans-serif;
 }
@@ -580,7 +580,7 @@ button {
     }
     #advices {
         width: 930px;
-        font-size: 18px;
+        font-size: 20px;
     }
 
     #mainsearch {
