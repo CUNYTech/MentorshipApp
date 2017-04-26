@@ -30,31 +30,50 @@ class Header extends Component {
 
     render() {
         return (
-            <div className="navbar navbar-default" role="navigation">
-                <div className="navbar-header">
-                    <Link to="/home" ><img id="logo" src="/meerkat2.png" /></Link>
+                <div>
+                    <nav className="navbar navbar-default">
+                        <div className="container-fluid">
+                            <div className="navbar-header">
+                                <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <span className="sr-only">Toggle navigation</span>
+                                    <span className="icon-bar"></span>
+                                    <span className="icon-bar"></span>
+                                    <span className="icon-bar"></span>
+                                </button>
+                                <Link className="navbar-brand" to="/home">
+                                    <img id="logo" src="/meerkat2.png" />
+                                </Link>
+                            </div>
+
+                            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul className="nav navbar-nav">
+
+                                </ul>
+
+                                <ul className="nav navbar-nav navbar-right">
+                                    <li id="searchBox">
+                                        {Meteor.userId() !== null &&
+                                        <SearchResults/>}
+                                        {Meteor.userId() == null &&
+                                        <span id="space"> </span>}
+                                    </li>
+                                    <li>
+                                        <Link to="/home" >HOME</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/about">ABOUT US</Link>
+                                    </li>
+                                    <li>
+                                        {this.checkSignup()}
+                                    </li>
+                                    <li>
+                                        {this.setLoginLogout()}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
                 </div>
-                <ul className="nav navbar-nav">
-                    <li id="searchBox">
-                        {Meteor.userId() !== null &&
-                        <SearchResults/>}
-                        {Meteor.userId() == null &&
-                        <span id="space"> </span>}
-                    </li>
-                    <li>
-                        <Link to="/home" >HOME</Link>
-                    </li>
-                    <li>
-                        <Link to="/about">ABOUT US</Link>
-                    </li>
-                    <li className="dropdown">
-                        {this.checkSignup()}
-                    </li>
-                    <li>
-                        {this.setLoginLogout()}
-                    </li>
-                </ul>
-            </div>
         ); //end return()
     } // end render()
 } // end class Header

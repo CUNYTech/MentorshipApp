@@ -9,14 +9,11 @@ class Footer extends Component {
         return (
             <div className="row" id="footer">
                 <div className="col-md-3">
-                    <ul>
-                        <li>
-                            <Link to="home" href="/home"><img id="logo-footer" src="/meerkat2.png" /></Link>
-                        </li>
-                        <li id="copy">
-                            &copy; Obec 2017
-                        </li>
-                    </ul>
+                    {/*<ul>*/}
+                        {/*<li>*/}
+                            {/*<Link to="home" href="/home"><img id="logo-footer" src="/meerkat2.png" /></Link>*/}
+                        {/*</li>*/}
+                    {/*</ul>*/}
                 </div>
                 <div className="col-md-3">
                     <ul>
@@ -33,7 +30,9 @@ class Footer extends Component {
                             <Link to="about" href="/about">CONTACT US</Link>
                         </li>
                         <br/>
-
+                        <li>
+                            &copy; Obec 2017
+                        </li>
                     </ul>
                 </div>
                 <div className="col-md-3">
