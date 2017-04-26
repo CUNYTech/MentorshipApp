@@ -302,7 +302,7 @@ option:focus {
 
 #searchBox {
     padding-top: 8px;
-    padding-right: 700px;
+    padding-right: 60px;
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
@@ -758,7 +758,7 @@ button {
 
 .floatLeft {
     float: left;
-    margin-left: 25px;
+    margin-left: 2px;
     margin-bottom: 25px;
     position: relative;
     display: block;
