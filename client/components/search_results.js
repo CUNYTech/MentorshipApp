@@ -46,14 +46,21 @@ class SearchResults extends Component {
             this.setState({users: users});
           }
         });
-      } //end else
+      }
+      //end else
     } //end handleSubmit
 
     onAddMentor(user) {
       Meteor.call('mentors.add', user);
       Meteor.call('mentees.add', user);
+     this.cleanInput()
     }
 
+    cleanInput(){
+        this.refs.searchBox.value="";
+        this.handleSubmit();
+
+    }
     renderList() {
       if(this.state.users[0] === null) {
         return <div> </div>;
@@ -64,7 +71,7 @@ class SearchResults extends Component {
         return (
           <li className="list-group-item" key={user._id}>
             <img className="result-image" src={user.profile.avatar}/>
-            <h2 id="username-result"><Link to={"/profile/"+user.username}>{user.profile.firstName}</Link></h2>
+            <h2 id="username-result"><Link onClick={this.cleanInput.bind(this)} to={"/profile/"+user.username}>{user.profile.firstName}</Link></h2>
             {Meteor.userId() !== null && user._id !== Meteor.userId() && (!myMentor && !myMentee) &&
               <a onClick={() => this.onAddMentor(user)}>
                 <img id="add-user" src="/add-user-icon.png"/>
@@ -72,7 +79,7 @@ class SearchResults extends Component {
             }
               {Meteor.userId() !== null && user._id !== Meteor.userId() &&
               <div>
-                  <Link to="/messages"><img id="msg-user" src="/message-icon.png"/></Link>
+                  <Link onClick={this.cleanInput.bind(this)} to="/messages"><img id="msg-user" src="/message-icon.png"/></Link>
 
               </div>
               }

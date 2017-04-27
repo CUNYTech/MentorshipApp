@@ -57,11 +57,19 @@ this.setState({usersList:tempArray});
 
     }
 
-    getUsername(username){
+    getAvatar(username){
 
         var name = Meteor.users.findOne({_id:username});
         if(name!==undefined){
             return (name.profile.avatar)
+        }
+    }
+
+    getUsername(username){
+
+        var name = Meteor.users.findOne({_id:username});
+        if(name!==undefined){
+            return (name.profile.firstName)
         }
     }
 
@@ -121,10 +129,11 @@ return (tempArray)
 
             return (
 
-                <li className="list-group-item" id="display-msg" key={user}>
-                    <a onClick={this.displayMessageLog.bind(this,user)}>
-                        <img id="msg-photo" src={this.getUsername(user)}/>
+                <li className="list-group-item" id="display-msg" key={user} onClick={this.displayMessageLog.bind(this,user)}>
+                    <a>
+                        <img id="msg-photo" src={this.getAvatar(user)}/> {this.getUsername(user)}
                     </a>
+
                 </li>
             );
         });
