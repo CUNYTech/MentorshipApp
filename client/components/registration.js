@@ -128,10 +128,10 @@ export default class Registration extends React.Component {
                         <label>LinkedIn</label>
                         <input ref="myLinkedIn" className="form-control" type="url"/>
                     </p>
-                    <p>
-                        <label>Upload Picture</label>
-                        <input type="file" className="btn btn-file" name="datafile"/>
-                    </p>
+                    {/*<p>*/}
+                        {/*<label>Upload Picture</label>*/}
+                        {/*<input type="file" className="btn btn-file" name="datafile"/>*/}
+                    {/*</p>*/}
                     <div className="text-danger">{ this.state.passwordError }</div>
                     <p>
                         <input type="submit" value="Submit"/>

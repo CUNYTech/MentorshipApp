@@ -47,6 +47,20 @@ html, body {
     background: linear-gradient(to top, #5882FA , white); /* Standard syntax */
 }
 
+#comunity2 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    padding-top: 200px;
+    padding-bottom: 250px;
+    margin: -18px -15px 25px -15px;
+    text-align: center;
+    color: #5882FA;
+    margin-top: 200px;
+}
+
+.row #community2 {
+    margin-bottom: 100px;
+}
+
 #community > h1 {
     color: white;
     font-size: 75px;
@@ -55,6 +69,20 @@ html, body {
 }
 
 #community > p {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#community2 > h1 {
+    color: #5882FA;
+    font-size: 75px;
+    margin-left: 80px;
+    margin-right: 80px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-align: center;
+}
+
+#community2 > p {
     text-align: center;
     margin-top: 50px;
 }
@@ -176,6 +204,12 @@ option:focus {
     cursor: pointer;
 }
 
+#msg-photo {
+    /*border-radius: 50%;*/
+    width: 80px;
+    cursor: pointer;
+}
+
 #msg-prof {
     width: 25px;
     position: relative;
@@ -185,6 +219,8 @@ option:focus {
 
 #display-msg {
     width: auto;
+    height: 100px;
+    cursor: pointer;
 }
 
 #search-icon {
@@ -464,6 +500,12 @@ option:focus {
 
 #msg-display {
     width: 50%;
+}
+
+#msgnew {
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 10px;
 }
 
 #addBorder {

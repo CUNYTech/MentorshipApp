@@ -122,9 +122,9 @@ return (tempArray)
             return (
 
                 <li className="list-group-item" id="display-msg" key={user}>
-                    <button  onClick={this.displayMessageLog.bind(this,user)}>
-                        <img src={this.getUsername(user)}/>
-                    </button>
+                    <a onClick={this.displayMessageLog.bind(this,user)}>
+                        <img id="msg-photo" src={this.getUsername(user)}/>
+                    </a>
                 </li>
             );
         });
@@ -172,7 +172,7 @@ return (tempArray)
                 <div className="col-xs-6">
                     <div className="panel-body">
                         <ul className="media-list">
-                            <li className="list-group-item" id="display-msg"><input type="button" value="New Message" onClick={this.newMessage.bind(this)}/></li>
+                            <li className="list-group-item" id="display-msg"><a id="newmsg" onClick={this.newMessage.bind(this)}>New Message</a></li>
                             {this.renderMessages()}
                         </ul>
                     </div>

@@ -78,8 +78,8 @@ class NewMessage extends Component {
                 <div className="col-xs-6">
                     <div className="panel-body">
                         <div>
-                            <input type="text" ref="to" placeholder="To:"/>
-                            <input type="button" value="Cancel"/>
+                            <input type="text" className="form-control" ref="to" placeholder="To"/>
+                            {/*<input type="button" className="form-control" value="Cancel"/>*/}
                         </div>
                     </div>
                     <div className="panel-footer">
