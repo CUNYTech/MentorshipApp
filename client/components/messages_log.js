@@ -61,7 +61,7 @@ this.setState({usersList:tempArray});
 
         var name = Meteor.users.findOne({_id:username});
         if(name!==undefined){
-            return (name.profile.firstName + ' ' + name.profile.lastName)
+            return (name.profile.avatar)
         }
     }
 
@@ -122,7 +122,9 @@ return (tempArray)
             return (
 
                 <li className="list-group-item" id="display-msg" key={user}>
-                    <input type="button" value={this.getUsername(user)} onClick={this.displayMessageLog.bind(this,user)}/>
+                    <a onClick={this.displayMessageLog.bind(this,user)}>
+                        <img id="msg-photo" src={this.getUsername(user)}/>
+                    </a>
                 </li>
             );
         });
@@ -170,7 +172,7 @@ return (tempArray)
                 <div className="col-xs-6">
                     <div className="panel-body">
                         <ul className="media-list">
-                            <li className="list-group-item" id="display-msg"><input type="button" value="New Message" onClick={this.newMessage.bind(this)}/></li>
+                            <li className="list-group-item" id="display-msg"><a id="newmsg" onClick={this.newMessage.bind(this)}>New Message</a></li>
                             {this.renderMessages()}
                         </ul>
                     </div>

@@ -32,8 +32,8 @@ class NewMessage extends Component {
 
 
     sendMessage(){
-var userID = Meteor.users.findOne({username:this.refs.to.value});
-        Meteor.call('sendMessage', userID._id, this.refs.message.value);
+
+        Meteor.call('sendNewMessage', this.refs.to.value, this.refs.message.value);
         this.refs.message.value='';
     }
 
@@ -78,8 +78,8 @@ var userID = Meteor.users.findOne({username:this.refs.to.value});
                 <div className="col-xs-6">
                     <div className="panel-body">
                         <div>
-                            <input type="text" ref="to" placeholder="to"/>
-                            <input type="button" value="Cancel"/>
+                            <input type="text" className="form-control" ref="to" placeholder="To"/>
+                            {/*<input type="button" className="form-control" value="Cancel"/>*/}
                         </div>
                     </div>
                     <div className="panel-footer">

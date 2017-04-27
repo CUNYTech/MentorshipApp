@@ -1,6 +1,7 @@
 import React      from 'react';
 import { Meteor } from 'meteor/meteor';
 import Dashboard  from './dashboard';
+import { Link }             from 'react-router';
 
 export default class Home extends React.Component {
     checkLogin() {
@@ -9,16 +10,15 @@ export default class Home extends React.Component {
         }
         else {
           return (
-            <div className="row">
-              <div className="row">
-                <img src="/home-page2.png" id="home-page"/>
-              </div>
-              <div className="row" id="welcome">
-                <h2>Welcome</h2>
-                <p>
-                  Obec is a community of mentors where you can find a mentor or be one.
-                </p>
-              </div>
+                <div className="row">
+                    <div className="row" id="community">
+                          <h1>Obec is a community of mentors where you can find a mentor or be one.</h1>
+                          <p>
+                              <Link id="started" to="/registration">
+                                  Get Started
+                              </Link>
+                          </p>
+                    </div>
             </div>
           );
         }

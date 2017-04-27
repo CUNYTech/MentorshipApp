@@ -111,6 +111,6 @@ export default createContainer(() =>{
     data.messages = Messages.find({$or:[{'to':Meteor.userId()},{'fromuser':Meteor.userId()}]},{sort:{createdOn:-1}}).fetch();
 
     //return an object, Whatever we return will be send to userList as props
-    return { user: Meteor.user(), data, emojis: Emojis.find({})};
+    return { user: Meteor.user(), data, emojis: Emojis.find({}).fetch()};
 
 }, MessagesDetail);

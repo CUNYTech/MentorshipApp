@@ -35,14 +35,80 @@ html, body {
     margin-bottom: 30px;
 }
 
+#community {
+    font-family: 'Open Sans Condensed', sans-serif;
+    padding-top: 180px;
+    padding-bottom: 250px;
+    margin: -18px -15px 25px -15px;
+    text-align: center;
+    background: -webkit-linear-gradient(left top, #5882FA , white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, #5882FA, white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, #5882FA, white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to top, #5882FA , white); /* Standard syntax */
+}
+
+#comunity2 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    padding-top: 200px;
+    padding-bottom: 250px;
+    margin: -18px -15px 25px -15px;
+    text-align: center;
+    color: #5882FA;
+    margin-top: 200px;
+}
+
+.row #community2 {
+    margin-bottom: 100px;
+}
+
+#community > h1 {
+    color: white;
+    font-size: 75px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+#community > p {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#community2 > h1 {
+    color: #5882FA;
+    font-size: 75px;
+    margin-left: 80px;
+    margin-right: 80px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-align: center;
+}
+
+#community2 > p {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#started {
+    width: 200px;
+    height: 50px;
+    color: white;
+    font-size: 30px;
+    border-radius: 6%;
+    padding: 15px;
+    background-color: #5882FA;
+}
+
+#started:hover {
+    opacity: 0.5;
+}
+
 #main-image {
-    width: 102.4%;
+    width: 102.3%;
     margin-left: -15px;
     margin-top: -20px;
 }
 
 #home-page {
-    width: 102.4%;
+    width: 102.2%;
     margin-left: -15px;
     margin-top: -20px;
 }
@@ -138,6 +204,12 @@ option:focus {
     cursor: pointer;
 }
 
+#msg-photo {
+    /*border-radius: 50%;*/
+    width: 80px;
+    cursor: pointer;
+}
+
 #msg-prof {
     width: 25px;
     position: relative;
@@ -147,6 +219,8 @@ option:focus {
 
 #display-msg {
     width: auto;
+    height: 100px;
+    cursor: pointer;
 }
 
 #search-icon {
@@ -194,12 +268,8 @@ option:focus {
 }
 
 #logo {
-    width: 100px;
+    width: 70px;
     position: relative;
-    padding-left: 10px;
-    margin-right: 10px;
-    margin-left: 45px;
-    margin-top: 15px;
 }
 
 #github_icon{
@@ -268,8 +338,6 @@ option:focus {
 
 #searchBox {
     padding-top: 8px;
-    padding-right: 500px;
-    padding-left: 15px;
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
@@ -331,13 +399,17 @@ option:focus {
 
 .navbar-default {
     background-color: #f8f8f8;
-    width: 102.4%;
+    width: 102.2%;
     margin-left: -15px;
     margin-top: -100px;
     margin-bottom: -20px;
     border-radius: 0;
     top: 0;
     z-index: 2;
+}
+
+.navbar-header {
+    margin-bottom: 15px;
 }
 
 .navbar-nav {
@@ -353,6 +425,7 @@ option:focus {
     color: #5882FA;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 24px;
+    text-align: center;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
@@ -419,9 +492,19 @@ option:focus {
 }
 
 .col-xs-6 {
-    width: 65%;
+    width: 50%;
     height: 100%;
     position: static;
+}
+
+#msg-display {
+    width: 50%;
+}
+
+#msgnew {
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 10px;
 }
 
 #addBorder {
@@ -519,11 +602,11 @@ button {
 }
 
 .panel-body {
-    background-color: #CEE3F6;
+    background-color: transparent;
 }
 
 .panel-footer {
-    background-color: #CEE3F6;
+    background-color: transparent;
     border-top: none;
 }
 
@@ -571,6 +654,15 @@ button {
     float: right;
 }
 
+@media screen and (max-width: 990px) {
+    @viewport {
+        width: 900px;
+    }
+    .col-md-offset-1 {
+        margin-left: 10%;
+    }
+}
+
 @media (min-width: 992px) {
     .col-md-2 {
         width: 75%;
@@ -582,9 +674,63 @@ button {
         width: 930px;
         font-size: 20px;
     }
-
+    #community {
+        width: 102%;
+    }
     #mainsearch {
         height: 800px;
+    }
+}
+
+@media (max-width: 750px) {
+    .navbar-default {
+        width: 108%;
+    }
+    #home-page {
+        width: 108%;
+    }
+    #information {
+        width: 375px;
+        margin-left: 20px;
+    }
+    #action-field2 {
+        padding: 0;
+        width: 100%;
+    }
+    .side-by-side {
+        width: 100%;
+    }
+    #profile-pic {
+        margin-left: 175px;
+    }
+    .col-md-2 > h2 {
+        margin-top: 250px;
+    }
+    #searchBox {
+        padding-right: 0;
+    }
+    #images {
+        padding-left: 50px;
+    }
+    .floatLeft {
+        margin-bottom: 35px;
+    }
+    #addBorder {
+        width: 80%;
+        margin-bottom: 15px;
+    }
+    #remove-user {
+        margin-left: 0;
+        left: 70px;
+    }
+    .thumbnail {
+        width: 90px;
+    }
+    .col-xs-6 {
+        width: 100%;
+    }
+    #github_icon {
+        width: 25px;
     }
 }
 
@@ -656,7 +802,7 @@ button {
     display: block;
     border: 2px solid black;
     overflow: hidden;
-transition: height 0.2s ease;
+    transition: height 0.2s ease;
 }
 
 .textarea--ghost {
@@ -671,12 +817,12 @@ transition: height 0.2s ease;
 
 #images{
     position: relative;
-    background-color: #00008B;
     margin: 10px -15px 0 -15px;
+    margin-bottom: 25px;
 }
 
 #images h2 {
-    color: white;
+    color: #5882FA;
     text-align: center;
     margin-bottom: 40px;
     font-size: 40px;
@@ -686,23 +832,51 @@ transition: height 0.2s ease;
 .floatLeft {
     float: left;
     margin-left: 25px;
+    margin-bottom: 25px;
+    position: relative;
+    display: block;
 }
 
 #photos li{
     display: inline;
-    margin-right: 50px;
     align-content: center;
+    border: solid;
+    border-width: 1px;
+    border-color: #5882FA;
+    background: white;
+    padding: 30px;
+    height: 345px;
+    width: 222px;
+    position: relative;
+}
+
+@media (min-width: 992px) {
+    #github_icon {
+        width: 25px;
+    }
+    #remove-user {
+        left: 150px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .col-md-offset-1 {
+        margin-left: 10%;
+    }
+    .floatLeft {
+        margin-left: 5%;
+    }
 }
 
 #photos li > h3 {
     font-family: 'Open Sans Condensed', sans-serif;
     font-weight: bold;
     text-align: center;
-    color: white;
+    color: #5882FA;
 }
 
 #photos li > p {
-    color: darkgray;
+    color: #5882FA;
     text-align: center;
 }
 
@@ -776,4 +950,32 @@ transition: height 0.2s ease;
 
 #post {
     height: 34px;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 1px;
+    right: 0;
+    background-color: #5882FA;
+    overflow: hidden;
+    width: 222px;
+    margin-bottom: -1px;
+    margin-left: -2px;
+    transition: .5s ease;
+}
+
+.floatLeft:hover .overlay {
+    opacity: 0.9;
+    height: 345px;
+    cursor: default;
+}
+
+.overlay > p {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    overflow: hidden;
+    text-align: center;
+    padding: 90px 10px 0 5px;
 }

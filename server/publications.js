@@ -57,6 +57,20 @@ Meteor.methods({
         }
         Messages.insert(msg);
     },
+    'sendNewMessage':function(person,message){
+        var to = Accounts.findUserByUsername(person);
+        var from = Meteor.users.findOne({_id: this.userId});
+        var msg = {
+            to:to._id,
+            fromuser:from._id,
+            message:message,
+            createAt: new Date()
+        };
+        if (person == this.userId) {
+            throw new Meteor.Error("You can not send yourself a message.");
+        }
+        Messages.insert(msg);
+    },
       'messages.markRead': function(messageId){
         check(messageId, String);
 
