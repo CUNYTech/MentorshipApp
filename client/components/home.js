@@ -11,13 +11,18 @@ export default class Home extends React.Component {
         else {
           return (
                 <div className="row">
-                    <div className="row" id="community">
-                          <h1>Obec is a community of mentors where you can find a mentor or be one.</h1>
-                          <p>
-                              <Link id="started" to="/registration">
-                                  Get Started
-                              </Link>
-                          </p>
+                    <div className="row">
+                        <div id="centering">
+                            <img id="meerkat" src="/meerkat-hd.png"/>
+                        </div>
+                        <div className="row" id="home-page">
+                            <h1>Be a Mentor</h1>
+                        </div>
+                        <p id="cent">
+                            <Link id="started" to="/registration">
+                                Get Started
+                            </Link>
+                        </p>
                     </div>
             </div>
           );

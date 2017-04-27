@@ -88,13 +88,12 @@ html, body {
 }
 
 #started {
-    width: 200px;
-    height: 50px;
     color: white;
     font-size: 30px;
     border-radius: 6%;
-    padding: 15px;
+    padding: 8px;
     background-color: #5882FA;
+    margin-bottom: 500px;
 }
 
 #started:hover {
@@ -108,9 +107,22 @@ html, body {
 }
 
 #home-page {
-    width: 102.2%;
-    margin-left: -15px;
-    margin-top: -20px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #5882FA;
+    margin-bottom: 40px;
+    margin-right: 25px;
+}
+
+#cent {
+    text-align: center;
+    margin-bottom: 300px;
+}
+
+#centering {
+    text-align: center;
+    margin-top: 100px;
 }
 
 ul {
@@ -663,9 +675,24 @@ button {
     }
 }
 
+#meerkat {
+    width: 150px;
+    text-align: center;
+    margin-left: -25px;
+}
+
 @media (min-width: 992px) {
     .col-md-2 {
         width: 75%;
+    }
+    #cent {
+        margin-bottom: 200px;
+    }
+    #centering {
+        margin-top: 100px;
+    }
+    #home-page {
+        margin-top: 25px;
     }
     #postAdvice {
         width: 930px;
@@ -687,7 +714,8 @@ button {
         width: 108%;
     }
     #home-page {
-        width: 108%;
+        width: 100%;
+        margin-top: 10px;
     }
     #information {
         width: 375px;
