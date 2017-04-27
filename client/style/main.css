@@ -338,7 +338,6 @@ option:focus {
 
 #searchBox {
     padding-top: 8px;
-    padding-right: 690px;
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
@@ -655,6 +654,15 @@ button {
     float: right;
 }
 
+@media screen and (max-width: 990px) {
+    @viewport {
+        width: 900px;
+    }
+    .col-md-offset-1 {
+        margin-left: 10%;
+    }
+}
+
 @media (min-width: 992px) {
     .col-md-2 {
         width: 75%;
@@ -666,7 +674,9 @@ button {
         width: 930px;
         font-size: 20px;
     }
-
+    #community {
+        width: 102%;
+    }
     #mainsearch {
         height: 800px;
     }
@@ -707,6 +717,7 @@ button {
     }
     #addBorder {
         width: 80%;
+        margin-bottom: 15px;
     }
     #remove-user {
         margin-left: 0;
@@ -717,6 +728,9 @@ button {
     }
     .col-xs-6 {
         width: 100%;
+    }
+    #github_icon {
+        width: 25px;
     }
 }
 
@@ -817,7 +831,7 @@ button {
 
 .floatLeft {
     float: left;
-    margin-left: 15px;
+    margin-left: 25px;
     margin-bottom: 25px;
     position: relative;
     display: block;
@@ -837,7 +851,19 @@ button {
 }
 
 @media (min-width: 992px) {
+    #github_icon {
+        width: 25px;
+    }
+    #remove-user {
+        left: 150px;
+    }
+}
+
+@media (min-width: 1600px) {
     .col-md-offset-1 {
+        margin-left: 10%;
+    }
+    .floatLeft {
         margin-left: 5%;
     }
 }
