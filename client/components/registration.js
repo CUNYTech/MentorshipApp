@@ -2,14 +2,22 @@ import React        from "react";
 import { Meteor }   from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import Welcome      from './welcome';
+import { createContainer }  from 'meteor/react-meteor-data';
 import ReactDOM     from 'react-dom';
 
 
 //we can move this later
-export default class Registration extends React.Component {
+class Registration extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { passwordError: '', userError: '', mentorMenteeError:'', registerSucceeded: false };
+        this.state = { passwordError: '', userError: '', mentorMenteeError:'', registerSucceeded: false, avatar:'' };
+    }
+
+    componentDidMount() {
+        Slingshot.fileRestrictions('Avatar', {
+            allowedFileTypes: ["image/png", "image/jpeg", "image/jpg"],
+            maxSize: 10 * 1024 * 1024 // 10 MB (use null for unlimited).
+        });
     }
 
     // checkStrength() {
@@ -49,6 +57,24 @@ export default class Registration extends React.Component {
     //     ReactDOM.render(element, document.getElementById('passBar'));
     // }
 
+    upload(){
+        var userId = this.props.user._id;
+        var metaContext = {avatarId: userId};
+        var uploader = new Slingshot.Upload("Avatar", metaContext);
+        uploader.send(document.getElementById('input').files[0], function (error, downloadUrl) { // you can use refs if you like
+            if (error) {
+                console.error('Error uploading', uploader.xhr.response);
+                alert (error);
+            }
+            else {
+                Meteor.users.update(Meteor.userId(), {$set: {"profile.avatar": downloadUrl}});
+            }
+            this.setState({avatar: downloadUrl});
+        }.bind(this));
+    }
+
+
+
     handleSubmit(event) {
         event.preventDefault();
 
@@ -72,24 +98,38 @@ export default class Registration extends React.Component {
 
             var user = { username:username, email: email, password: password,
                 profile: { avatar: '', firstName: firstName, lastName: lastName, mentorTags: mentorTags,
-                    menteeTags: menteeTags, twitterURL : twitterUrl, linkedInURL : linkedinUrl/*,  mentor:[Meteor.users.findOne({_id:"5GdcM36zgLG5kwB2F"}),
-                    Meteor.users.findOne({_id:"MtsCh3taRxH87vm5Y"})], mentee:[Meteor.users.findOne({_id:"XkamGWKKC5adiN4Tu"}),
-                    Meteor.users.findOne({_id:"EpfsxK4pi7uwKnXct"})] */}};
+                    menteeTags: menteeTags, twitterURL : twitterUrl, linkedInURL : linkedinUrl}};
+
 
             Accounts.createUser(user, (error) => {
               if (error) {
                 this.setState({ userError: error.reason });
               }
               else {
-                Meteor.call('sendVerificationEmail');
-                this.setState({ userError: '', registerSucceeded: true });
+
+                  Meteor.call('sendVerificationEmail');
+                  this.setState({userError: '', registerSucceeded: true});
+
+                  //for the avatar
+                  let avatarUrl = this.state.avatar;
+                  Meteor.users.update( { _id: Meteor.userId() }, {
+                      $set: {'profile.avatar': avatarUrl}
+                  });
+
+
               }
+
+
+
             }); //end Accounts.createUser()
+
+
+
         } // end else
     } //end handleSubmit
 
     //rendering Sign Up Page
-    render () {
+    render (){
       if(!this.state.registerSucceeded) {
         return (
             <div className="form-group">
@@ -130,7 +170,7 @@ export default class Registration extends React.Component {
                     </p>
                     <p>
                         <label>Upload Picture</label>
-                        <input type="file" className="btn btn-file" name="datafile"/>
+                        <input type="file" className="btn btn-file" name="datafile" id="input" onChange={this.upload.bind(this)} />
                     </p>
                     <div className="text-danger">{ this.state.passwordError }</div>
                     <p>
@@ -148,3 +188,7 @@ export default class Registration extends React.Component {
       }
     }; //end render()
 } // end of class
+
+export default createContainer(() => {
+    return { user: Meteor.user()?  Meteor.user(): '' };
+}, Registration);
