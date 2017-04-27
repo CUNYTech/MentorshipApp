@@ -195,6 +195,22 @@ class Profile extends Component {
         )
     }
 
+    upload(){
+        var userId = this.props.user._id;
+        var metaContext = {avatarId: userId};
+        var uploader = new Slingshot.Upload("Avatar", metaContext);
+        uploader.send(document.getElementById('input').files[0], function (error, downloadUrl) { // you can use refs if you like
+            if (error) {
+                console.error('Error uploading', uploader.xhr.response);
+                alert (error);
+            }
+            else {
+                Meteor.users.update(Meteor.userId(), {$set: {"profile.avatar": downloadUrl}});
+            }
+            this.setState({avatar: downloadUrl});
+        }.bind(this));
+    }
+
     render() {
         if(!this.props.paramUser &&!this.props.loading)
             return <div> <b> 404 Page Not Found</b> <div> </div> Sorry, we could not find the account that you were looking for.  </div> ;
@@ -277,6 +293,10 @@ class Profile extends Component {
                                 return <span className="label label-info"><Link to={"/MainSearch/mentee/"+tag}>{tag}</Link></span>
                               })}
                             </div>
+                            <p>
+                                <label>Upload Picture</label>
+                                <input type="file" className="btn btn-file" name="datafile" id="input" onChange={this.upload.bind(this)} />
+                            </p>
                         </form>
 
                         <div className="buttons">
