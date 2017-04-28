@@ -5,8 +5,8 @@ Slingshot.fileRestrictions("Avatar", {
 
 Slingshot.createDirective("Avatar", Slingshot.S3Storage, {
     bucket: "obec-bucket",
-    AWSAccessKeyId:"insertAccessKey",
-    AWSSecretAccessKey:"InsertSecretKey",
+    AWSAccessKeyId:"AKIAIVP46JVMS3UM3DPQ",
+    AWSSecretAccessKey:"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",
     acl: "public-read",
     authorize: function (file, metaContext) {
 
